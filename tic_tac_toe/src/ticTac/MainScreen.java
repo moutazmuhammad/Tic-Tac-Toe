@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tic_tac_toe;
+package ticTac;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,17 +17,32 @@ import javafx.stage.Stage;
  *
  * @author Moutaz
  */
-public class TicTacToe extends Application {
+public class MainScreen extends Application {
+    
+    private static Stage stg;
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        Scene scene = new Scene(root);
+        
+        stg = stage;
+        stage.setResizable(false);
+        stage.setTitle("Tic Tac Toe");
+        
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene scene = new Scene(root, 700, 400);
         stage.setScene(scene);
+        
         Image icon = new Image("images/icon.png");
 	stage.getIcons().add(icon); 
-        stage.setResizable(false);
+        
         stage.show();
+    }
+    
+    public void changeScene(String fxml) throws IOException {
+        
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        stg.getScene().setRoot(pane);
+        
     }
 
     /**
