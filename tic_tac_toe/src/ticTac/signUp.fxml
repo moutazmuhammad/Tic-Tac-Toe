@@ -46,8 +46,8 @@
                   <Font name="Algerian" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="131.0" layoutY="141.0" prefHeight="17.0" prefWidth="105.0" text="username not valid" textFill="#db3833" visible="false" />
-            <Label layoutX="131.0" layoutY="207.0" prefHeight="17.0" prefWidth="105.0" text="password not valid" textFill="#db3833" visible="false" />
+            <Label layoutX="131.0" layoutY="161.0" prefHeight="17.0" prefWidth="105.0" text="username not valid" textFill="#db3833" visible="false" />
+            <Label layoutX="133.0" layoutY="226.0" prefHeight="17.0" prefWidth="105.0" text="password not valid" textFill="#db3833" visible="false" />
          </children>
       </Pane>
       <ImageView fitHeight="400.0" fitWidth="415.0" pickOnBounds="true" preserveRatio="true">

@@ -31,6 +31,8 @@ public class LoginController implements Initializable {
     private TextField password;
     private Hyperlink signUpHyperlink;
     private Button loginButton;
+    private Label usernameValid;
+    private Label passwordValid;
     
     @FXML
     private void loginButtonAction(ActionEvent event) {

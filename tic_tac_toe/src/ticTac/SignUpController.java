@@ -31,6 +31,8 @@ public class SignUpController implements Initializable {
     private TextField password;
     private Hyperlink loginHyperlink;
     private Button signUp;
+    private Label usernameValid;
+    private Label passwordValid;
     
     @FXML
     private void changeToLoginScreen(ActionEvent event) throws IOException {
