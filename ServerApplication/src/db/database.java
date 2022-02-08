@@ -5,6 +5,8 @@
  */
 package db;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -48,11 +50,13 @@ public class database {
     
     int signUp(String username, String password) throws SQLException {
         int status = 0;
+        //Encrypt the password before sending it to the database
+           String encryptedPassword = passwordEncryption(password);
         try {
             String insertNewPlayer = new String("insert into player(username, password, score) values(?, ?, ?);");
             preparedSt = connection.prepareStatement(insertNewPlayer);
             preparedSt.setString(1, username);
-            preparedSt.setString(2, password);
+            preparedSt.setString(2, encryptedPassword);
             preparedSt.setInt(3, 0);
             status = preparedSt.executeUpdate();
         } catch (SQLException ex) {
@@ -63,13 +67,15 @@ public class database {
     
     
     int signIn(String username, String password) {
+        //Encrypt the password before comparing it to the passwords in the database
+        String encryptedPassword = passwordEncryption(password);
         try {
             statement = connection.createStatement();
-            String siginQuery = new String("select * from player where username = '"+username+"' and password = '"+password+"'");
+            String siginQuery = new String("select * from player where username = '"+username+"' and password = '"+encryptedPassword+"'");
             resultSet = statement.executeQuery(siginQuery);
             resultSet.next();
             //Check if these credentials are in the database
-            if(resultSet.getString(2).equals(username) && resultSet.getString(3).equals(password)){
+            if(resultSet.getString(2).equals(username) && resultSet.getString(3).equals(encryptedPassword)){
                 System.out.println("Sign-in Authentication Successful!");
                 return 1;
             }
@@ -226,6 +232,30 @@ public class database {
             ex.printStackTrace();
         }
         return leaderBoard; 
+    }
+    
+    //Password Encryption in database
+    private String passwordEncryption(String password) {
+
+        String encryptedpassword = null;
+        try {
+            /* MessageDigest instance for MD5. */
+            MessageDigest m = MessageDigest.getInstance("MD5");
+            /* Add plain-text password bytes to digest using MD5 update() method. */
+            m.update(password.getBytes());
+            /* Convert the hash value into bytes */
+            byte[] bytes = m.digest();
+            /* The bytes array has bytes in decimal form. Converting it into hexadecimal format. */
+            StringBuilder s = new StringBuilder();
+            for (int i = 0; i < bytes.length; i++) {
+                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            /* Complete hashed password in hexadecimal format */
+            encryptedpassword = s.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return encryptedpassword;
     }
 
 }
