@@ -188,9 +188,28 @@ public class database {
         return status;
     }
     
-    public String getRecordedGame(int game_id){
-        return null;
-        
+    public String getRecordedGame(String player1Username, String player2Username){
+        String recordedGame = new String();
+        try {
+            statement = connection.createStatement();
+            String leaderBoardQuery = new String("select * from recorded_games where (select id from player where username = '"+ player1Username +"') in (player_1, player_2) and (select id from player where username = '"+ player2Username +"') in (player_1, player_2);");
+            resultSet = statement.executeQuery(leaderBoardQuery);
+            resultSet.next();
+                recordedGame += resultSet.getInt(2)+" ";
+                recordedGame += resultSet.getInt(3)+" ";
+                recordedGame += resultSet.getString(4)+" ";
+                recordedGame += resultSet.getString(5)+" ";
+                recordedGame += resultSet.getString(6)+" ";
+                recordedGame += resultSet.getString(7)+" ";
+                recordedGame += resultSet.getString(8)+" ";
+                recordedGame += resultSet.getString(9)+" ";
+                recordedGame += resultSet.getString(10)+" ";
+                recordedGame += resultSet.getString(11)+" ";
+                recordedGame += resultSet.getString(12)+" ";
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return recordedGame;           
     }
     
     public String getLeaderBoard (){
@@ -206,8 +225,7 @@ public class database {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return leaderBoard;
-        
+        return leaderBoard; 
     }
 
 }
