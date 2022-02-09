@@ -6,7 +6,6 @@ package serverapplication;
 
 import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -56,14 +55,20 @@ public class ServerApplication {
                     case "start":
                         if(server_status == status.OFF)
                             startServer();
+                        else
+                            ps.println("already started");
                         break;
                     case "stop":
                         if(server_status == status.ON)
                             stopServer();
+                        else
+                            ps.println("already stoped");
                         break;
                     case "close":
                         closeDashboard();
                         return;
+                    default:
+                        ps.println("not recognized");
                 }
             } catch (IOException ex) {
                 Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,6 +88,7 @@ public class ServerApplication {
     
     void closeDashboard (){
         try {
+            ps.println("closing dashboard");
             dis.close();
             ps.close();
             dashboardSocket.close();

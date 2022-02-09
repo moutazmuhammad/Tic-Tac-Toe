@@ -63,6 +63,8 @@ public class ClientHandler extends Thread{
                        clientsVector.remove(this);
                        closeConnection();
                        return;
+                    default:
+                        ps.println("not recognized");
                 }
                
            } catch (IOException ex) {
@@ -85,6 +87,8 @@ public class ClientHandler extends Thread{
                 case "close":
                     closeConnection();
                     return false;
+                default:
+                    ps.println("not recognized");
             }
         } catch (IOException ex) {
             Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,6 +107,7 @@ public class ClientHandler extends Thread{
 
     void closeConnection(){
         try {
+            ps.println("closing connection");
             dis.close();
             ps.close();
             stop();
