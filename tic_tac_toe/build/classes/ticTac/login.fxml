@@ -52,7 +52,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Hyperlink>
-            <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="84.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="84.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/lock.png" />
                </image>

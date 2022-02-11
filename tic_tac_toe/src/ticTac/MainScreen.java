@@ -34,9 +34,9 @@ public class MainScreen extends Application {
     }
     
     //This function is used to change the stage
-    public void changeScene(String fxml) throws IOException {
+    public void changeScene(String screen) throws IOException {
         
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+        Parent pane = FXMLLoader.load(getClass().getResource(screen));
         stg.getScene().setRoot(pane);
         
     }

@@ -22,6 +22,7 @@ import javafx.stage.Stage;
  */
 public class LoginController implements Initializable {
     
+    
     private TextField username;
     private TextField password;
     private Hyperlink signUpHyperlink;
@@ -30,9 +31,9 @@ public class LoginController implements Initializable {
     private Label passwordValid;
     
     @FXML
-    private void loginButtonAction(ActionEvent event) throws IOException {
+    private void loginButtonAction(ActionEvent event) throws IOException{
          MainScreen mainScreen = new MainScreen();
-         mainScreen.changeScene("MainMenu.fxml");
+         mainScreen.changeScene("mainMenu.fxml");
         
     }
     

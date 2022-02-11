@@ -24,8 +24,6 @@ public class SignUpController implements Initializable {
     
     private TextField username;
     private TextField password;
-    private Hyperlink loginHyperlink;
-    private Button signUp;
     private Label usernameValid;
     private Label passwordValid;
     
@@ -33,16 +31,16 @@ public class SignUpController implements Initializable {
     private void changeToLoginScreen(ActionEvent event) throws IOException {
         MainScreen mainScreen = new MainScreen();
         mainScreen.changeScene("login.fxml");
-        
+ 
     }
     
     /* When this method is called, it will change the scene
        to Login screen */
     @FXML
     private void SignUpButtonAction(ActionEvent event) throws IOException {
-        System.out.println("You clicked me!");
+        
         MainScreen mainScreen = new MainScreen();
-        mainScreen.changeScene("MainMenu.fxml");
+         mainScreen.changeScene("mainMenu.fxml");
         
     }
     
