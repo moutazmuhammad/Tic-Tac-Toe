@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ticTac;
 
 import java.io.IOException;
@@ -38,6 +33,7 @@ public class MainScreen extends Application {
         stage.show();
     }
     
+    //This function is used to change the stage
     public void changeScene(String fxml) throws IOException {
         
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
