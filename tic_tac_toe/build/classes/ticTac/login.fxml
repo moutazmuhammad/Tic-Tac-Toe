@@ -52,9 +52,9 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Hyperlink>
-            <ImageView fitHeight="99.0" fitWidth="132.0" layoutX="71.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="84.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/login.png" />
+                  <Image url="@../images/lock.png" />
                </image>
             </ImageView>
               <Label fx:id="label" minHeight="16" minWidth="69" />

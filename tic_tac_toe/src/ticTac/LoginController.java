@@ -30,8 +30,9 @@ public class LoginController implements Initializable {
     private Label passwordValid;
     
     @FXML
-    private void loginButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
+    private void loginButtonAction(ActionEvent event) throws IOException {
+         MainScreen mainScreen = new MainScreen();
+         mainScreen.changeScene("MainMenu.fxml");
         
     }
     

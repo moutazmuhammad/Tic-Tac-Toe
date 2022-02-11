@@ -31,11 +31,6 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="81.0" layoutY="43.0" prefHeight="46.0" prefWidth="89.0" text="Sign up" textAlignment="CENTER" textFill="#feffff">
-               <font>
-                  <Font name="Arial Bold" size="24.0" />
-               </font>
-            </Label>
             <PasswordField fx:id="password" layoutX="16.0" layoutY="197.0" prefHeight="25.0" prefWidth="219.0" promptText="password">
                <font>
                   <Font size="13.0" />
@@ -48,6 +43,11 @@
             </Button>
             <Label layoutX="131.0" layoutY="161.0" prefHeight="17.0" prefWidth="105.0" text="username not valid" textFill="#db3833" visible="false" />
             <Label layoutX="133.0" layoutY="226.0" prefHeight="17.0" prefWidth="105.0" text="password not valid" textFill="#db3833" visible="false" />
+            <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="88.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/login.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <ImageView fitHeight="400.0" fitWidth="415.0" pickOnBounds="true" preserveRatio="true">

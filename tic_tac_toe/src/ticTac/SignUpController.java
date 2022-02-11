@@ -42,7 +42,7 @@ public class SignUpController implements Initializable {
     private void SignUpButtonAction(ActionEvent event) throws IOException {
         System.out.println("You clicked me!");
         MainScreen mainScreen = new MainScreen();
-        mainScreen.changeScene("MultiGameScreen.fxml");
+        mainScreen.changeScene("MainMenu.fxml");
         
     }
     
