@@ -3,10 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/Java/Tic-Tac-Toe/tic_tac_toe/src/ticTac/SignUpController.java</file>
-            <file>file:/F:/Java/Tic-Tac-Toe/tic_tac_toe/src/ticTac/MultiGameScreenController.java</file>
-            <file>file:/F:/Java/Tic-Tac-Toe/tic_tac_toe/src/ticTac/MainMenuController.java</file>
-            <file>file:/F:/Java/Tic-Tac-Toe/tic_tac_toe/src/ticTac/LeaderBoardController.java</file>
+            <file>file:/F:/Java/Tic-Tac-Toe/tic_tac_toe/src/ticTac/SingleGameScreenController.java</file>
         </group>
     </open-files>
 </project-private>
