@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="tic_tac_toe">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/tic_tac_toe.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/json-20211205.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
