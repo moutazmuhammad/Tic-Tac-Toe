@@ -1,17 +1,35 @@
 
 package ticTac;
 
+import java.awt.AWTException;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Vector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javax.imageio.ImageIO;
 
-
+/**
+ *
+ * @author Moutaz
+ */
 public class SingleGameScreenController implements Initializable {
+    
+    Dialog<ButtonType> dialog = new Dialog<>(); 
     
     private int computerPosition=0;
     
@@ -35,17 +53,37 @@ public class SingleGameScreenController implements Initializable {
     private Button b7;
     @FXML
     private Button b8;
-    @FXML
-    private Button playAgain;
+
 
     private int buttonPosition[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //player
     private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //computer
+    
+    
+    
+    private void xWinnerAction() throws IOException{
         
-      
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("xWinner.fxml"));
+        DialogPane winner = fxmlLoader.load();
+        
+        dialog.setDialogPane(winner);
+        dialog.setTitle("Winner");
+    }
+    
+    private void oWinnerAction() throws IOException{
+        
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("oWinner.fxml"));
+        DialogPane winner = fxmlLoader.load();
+        
+        dialog.setDialogPane(winner);
+        dialog.setTitle("Game Over");
+    }
+    
     @FXML
-    private void b0ButtonAction(ActionEvent event) throws InterruptedException {
+    private void b0ButtonAction(ActionEvent event) throws InterruptedException, IOException {
         
         if (buttonPosition[0]==0){
             
@@ -61,14 +99,20 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
+                        
                     }  
                 }               
             }
@@ -79,7 +123,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b1ButtonAction(ActionEvent event) {
+    private void b1ButtonAction(ActionEvent event) throws IOException {
         
         if (buttonPosition[1]==0){
             
@@ -95,14 +139,19 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
                     }  
                 }
                 
@@ -115,7 +164,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b2ButtonAction(ActionEvent event) {
+    private void b2ButtonAction(ActionEvent event) throws IOException {
         
         if (buttonPosition[2]==0){
             
@@ -131,14 +180,19 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
                     }  
                 }             
             }
@@ -149,7 +203,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b3ButtonAction(ActionEvent event) {
+    private void b3ButtonAction(ActionEvent event) throws IOException {
         
         if (buttonPosition[3]==0){
             
@@ -165,14 +219,19 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
                     }  
                 }               
             }
@@ -183,7 +242,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b4ButtonAction(ActionEvent event) {
+    private void b4ButtonAction(ActionEvent event) throws IOException {
         
         if (buttonPosition[4]==0){
             
@@ -199,14 +258,19 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
                     }  
                 }               
             }
@@ -217,7 +281,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b5ButtonAction(ActionEvent event) {
+    private void b5ButtonAction(ActionEvent event) throws IOException {
         
         if (buttonPosition[5]==0){
             
@@ -233,14 +297,19 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
                     }  
                 }              
             }
@@ -251,7 +320,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b6ButtonAction(ActionEvent event) {
+    private void b6ButtonAction(ActionEvent event) throws IOException {
         
         if (buttonPosition[6]==0){
             
@@ -267,14 +336,19 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
                     }  
                 }               
             }
@@ -285,7 +359,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b7ButtonAction(ActionEvent event) {
+    private void b7ButtonAction(ActionEvent event) throws IOException {
         
         if (buttonPosition[7]==0){
             
@@ -301,14 +375,19 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
                     }  
                 }               
             }
@@ -319,7 +398,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b8ButtonAction(ActionEvent event) {
+    private void b8ButtonAction(ActionEvent event) throws IOException {
         
         if (buttonPosition[8]==0){
             
@@ -335,14 +414,19 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    System.out.println("X is the winer!");
+                    xWinnerAction();
+                    dialog.show();
                 }
                 else{
                     computerPlayer();
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        System.out.println("O is the winer!");
+                        for (int i=0 ; i<buttonPosition.length ; i++){
+                            buttonPosition[i]=1;
+                        }
+                        oWinnerAction();
+                        dialog.show();
                     }  
                 }                
             }
@@ -481,13 +565,20 @@ public class SingleGameScreenController implements Initializable {
     
     
     @FXML
-    private void BackButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
+    private void BackButtonAction(ActionEvent event) throws IOException {
+        MainScreen mainScreen = new MainScreen();
+        mainScreen.changeScene("mainMenu.fxml");
+        
     }
     
     @FXML
-    private void ScreenshotButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
+    private void ScreenshotButtonAction(ActionEvent event) throws AWTException, IOException {
+        System.out.println("PauseButtonAction");
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle screenRectangle = new Rectangle(screenSize);
+        Robot robot = new Robot();
+        BufferedImage image = robot.createScreenCapture(screenRectangle);
+        ImageIO.write(image, "png", new File("screenshot.png"));
     }
     
     @FXML
