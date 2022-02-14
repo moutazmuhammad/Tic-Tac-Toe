@@ -18,13 +18,12 @@ public class MultiGameScreenController implements Initializable {
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException {
         MainScreen mainScreen = new MainScreen();
-        mainScreen.changeScene("SingleGameScreen.fxml");
+        mainScreen.changeScene("mainMenu.fxml");
     }
     
     @FXML
     private void PauseButtonAction(ActionEvent event) throws IOException {
-        MainScreen mainScreen = new MainScreen();
-        mainScreen.changeScene("SingleGameScreen.fxml");
+        
     }
     
     @Override

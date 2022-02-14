@@ -573,12 +573,14 @@ public class SingleGameScreenController implements Initializable {
     
     @FXML
     private void ScreenshotButtonAction(ActionEvent event) throws AWTException, IOException {
-        System.out.println("PauseButtonAction");
+        
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Rectangle screenRectangle = new Rectangle(screenSize);
         Robot robot = new Robot();
         BufferedImage image = robot.createScreenCapture(screenRectangle);
         ImageIO.write(image, "png", new File("screenshot.png"));
+        
+        System.out.println("done");
     }
     
     @FXML

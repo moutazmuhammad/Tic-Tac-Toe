@@ -33,7 +33,7 @@ public class SignUpController implements Initializable {
     private void SignUpButtonAction(ActionEvent event) throws IOException {
         
         MainScreen mainScreen = new MainScreen();
-         mainScreen.changeScene("mainMenu.fxml");
+        mainScreen.changeScene("mainMenu.fxml");
         
     }
     

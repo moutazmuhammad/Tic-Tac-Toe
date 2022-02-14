@@ -7,20 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ticTac.LeaderBoardController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.LeaderBoardController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="700.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bkg.png" />
          </image>
       </ImageView>
-      <Button layoutX="27.0" layoutY="81.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="639.0" style="-fx-background-color: rgb(208, 69, 69, 1); -fx-background-radius: 30px;" text="       Username:                             Score:         " textFill="WHITE">
+      <Button layoutX="27.0" layoutY="81.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="639.0" style="-fx-background-color: rgb(208, 69, 69, 1); -fx-background-radius: 30px;" text="                                                       Score:         " textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="42.0" layoutY="146.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: rgb(238, 154, 73); -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="146.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: rgb(238, 154, 73); -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -45,12 +44,12 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Label layoutX="291.0" layoutY="88.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 20%;" text="Khaled">
+      <Label layoutX="156.0" layoutY="88.0" prefHeight="39.0" prefWidth="206.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="88.0" prefHeight="39.0" prefWidth="50.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="88.0" prefHeight="39.0" prefWidth="50.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -60,12 +59,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="149.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="149.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="182.0" layoutY="151.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="103.0" layoutY="151.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -75,7 +74,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="359.0" layoutY="146.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: rgb(238, 154, 73); -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="359.0" layoutY="146.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: rgb(238, 154, 73); -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -85,12 +84,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="149.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="149.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="499.0" layoutY="151.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="420.0" layoutY="151.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -100,7 +99,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="42.0" layoutY="202.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #c2c264#c2c264; -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="202.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #c2c264#c2c264; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -110,12 +109,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="205.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="205.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="182.0" layoutY="207.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="103.0" layoutY="207.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -125,7 +124,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="359.0" layoutY="202.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #c2c264#c2c264; -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="359.0" layoutY="202.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #c2c264#c2c264; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -135,12 +134,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="205.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="205.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="499.0" layoutY="207.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="420.0" layoutY="207.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -150,7 +149,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="42.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #46D1A0; -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #46D1A0; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -160,12 +159,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="260.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="260.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="182.0" layoutY="262.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="103.0" layoutY="262.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -175,7 +174,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="359.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #46D1A0; -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="359.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #46D1A0; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -185,12 +184,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="260.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="260.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="499.0" layoutY="262.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="420.0" layoutY="262.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -200,7 +199,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="42.0" layoutY="313.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #42C0FB; -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="313.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #42C0FB; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -210,12 +209,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="316.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="316.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="182.0" layoutY="318.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="103.0" layoutY="318.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -225,7 +224,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="359.0" layoutY="313.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #42C0FB; -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="359.0" layoutY="313.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #42C0FB; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -235,12 +234,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="316.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="316.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="499.0" layoutY="318.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="420.0" layoutY="318.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -250,7 +249,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="208.0" layoutY="361.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #A242C1; -fx-background-radius: 30px;" text=" Username:                 Score:" textFill="WHITE">
+      <Button layoutX="208.0" layoutY="361.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #A242C1; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -260,12 +259,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="363.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" text="50" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="363.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="348.0" layoutY="364.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;" text="Nancy">
+      <Label layoutX="269.0" layoutY="364.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -275,5 +274,9 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
+      <Button layoutX="27.0" layoutY="363.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #9d0e0e; -fx-background-radius: 30;" text="Button" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>
