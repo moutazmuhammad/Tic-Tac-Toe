@@ -97,7 +97,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="cump_score" alignment="CENTER" layoutX="589.0" layoutY="50.0" prefHeight="38.0" prefWidth="31.0" textFill="WHITE">
+      <Label fx:id="cump_score" alignment="CENTER" layoutX="587.0" layoutY="50.0" prefHeight="38.0" prefWidth="31.0" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -107,7 +107,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="ur_score" alignment="CENTER" layoutX="77.0" layoutY="47.0" prefHeight="38.0" prefWidth="31.0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="ur_score" alignment="CENTER" layoutX="77.0" layoutY="50.0" prefHeight="38.0" prefWidth="31.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

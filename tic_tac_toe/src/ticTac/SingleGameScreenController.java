@@ -68,7 +68,17 @@ public class SingleGameScreenController implements Initializable {
     private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //player
     private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //computer
     
+    private void updateComputerScore(){
+        computer_score++;
+        String cScore = ""+computer_score;
+        cump_score.setText(cScore);
+    }
     
+    private void updatePlayerScore(){
+        your_score++;
+        String score = ""+your_score;
+        ur_score.setText(score);
+    }
     
     private void xWinnerAction() throws IOException{
         
@@ -107,9 +117,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -119,11 +127,8 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
-                        
+                        updateComputerScore();
+
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
                         }
@@ -156,9 +161,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -168,9 +171,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
+                        updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
@@ -205,9 +206,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -217,9 +216,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
+                        updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
@@ -252,9 +249,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -264,9 +259,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
+                        updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
@@ -299,9 +292,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -311,9 +302,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
+                        updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
@@ -346,9 +335,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -358,9 +345,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
+                        updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
@@ -393,9 +378,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -405,9 +388,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
+                        updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
@@ -440,9 +421,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -452,9 +431,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
+                        updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
@@ -487,9 +464,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
-                    your_score++;
-                    String score = ""+your_score;
-                    ur_score.setText(score);
+                    updatePlayerScore();
                     
                     xWinnerAction();
                     dialog.show();
@@ -499,9 +474,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
-                        computer_score++;
-                        String cScore = ""+computer_score;
-                        cump_score.setText(cScore);
+                        updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
                             buttonPosition[i]=1;
