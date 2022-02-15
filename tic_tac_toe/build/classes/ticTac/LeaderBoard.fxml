@@ -274,7 +274,7 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="27.0" layoutY="363.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #9d0e0e; -fx-background-radius: 30;" text="Button" textFill="WHITE">
+      <Button layoutX="27.0" layoutY="363.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: #9d0e0e; -fx-background-radius: 30;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
