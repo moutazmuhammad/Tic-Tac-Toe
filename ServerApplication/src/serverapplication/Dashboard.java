@@ -11,6 +11,8 @@ import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -28,13 +30,18 @@ public class Dashboard {
             dis = new DataInputStream(mysocket.getInputStream());
             ps = new PrintStream(mysocket.getOutputStream());
             
-            Scanner sc= new Scanner(System.in);
-            while(true){
-                String str= sc.nextLine();
-                ps.println(str);
-                System.out.println(dis.readLine());
-            }
+            JSONObject js = new JSONObject();
+            js.put("type", DahboardMsg.START);
+            ps.println(js);
+            System.out.println(js);
+            js.clear();
+            js.put("type", DahboardMsg.CLOSE);
+            ps.println(js);
+            System.out.println(dis.readLine());
+            
         } catch (IOException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JSONException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

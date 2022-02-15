@@ -4,6 +4,7 @@
  */
 package serverapplication;
 
+import db.database;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -11,30 +12,47 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
  * @author amr
  */
 
-enum status {
+enum Status {
   ON,
   OFF
 }
 
+enum DahboardMsg {
+  START,
+  STOP,
+  CLOSE
+}
+
+enum ClientMsg {
+  SIGNIN,
+  SIGNUP,
+  GET_LEADERBOARD,
+  GET_ONLINE_PLAYERS,
+  CLOSE_CONNECTION
+}
+
 public class ServerApplication {
     
-    public static status server_status;
+    public static Status server_status;
     ClientServer clientServer;
     ServerSocket dashboardServerSocket;
     Socket dashboardSocket;
     DataInputStream dis;
     PrintStream ps;
+    database db;
     
     public ServerApplication() {
-        server_status = status.OFF;
-        clientServer = new ClientServer();
-        clientServer.start();
+        db = new database();
+        server_status = Status.OFF;
+        clientServer = new ClientServer(db);
         try {
             dashboardServerSocket = new ServerSocket(5004);
             while(true){
@@ -50,27 +68,26 @@ public class ServerApplication {
     public void runDashboard(){
         while(true){
             try {
-                String str = dis.readLine();
-                switch (str) {
-                    case "start":
-                        if(server_status == status.OFF)
+                JSONObject request = new JSONObject(dis.readLine());
+                System.out.println(request);
+                DahboardMsg msg = request.getEnum(DahboardMsg.class,"type");
+                
+                switch (msg) {
+                    case START:
+                        if(server_status == Status.OFF)
                             startServer();
-                        else
-                            ps.println("already started");
                         break;
-                    case "stop":
-                        if(server_status == status.ON)
+                    case STOP:
+                        if(server_status == Status.ON)
                             stopServer();
-                        else
-                            ps.println("already stoped");
                         break;
-                    case "close":
+                    case CLOSE:
                         closeDashboard();
                         return;
-                    default:
-                        ps.println("not recognized");
                 }
             } catch (IOException ex) {
+                Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (JSONException ex) {
                 Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -99,14 +116,16 @@ public class ServerApplication {
     }
     
     void startServer(){
-        server_status = status.ON;
-        ps.println("started");
+        server_status = Status.ON;
+        db.connect();
+        System.out.println("started");
     }
     
     void stopServer(){
-        server_status = status.OFF;
+        server_status = Status.OFF;
         ClientHandler.closeServer();
-        ps.println("stopped");
+        db.close();
+        System.out.println("stopped");
     }
 
     /**
@@ -121,13 +140,16 @@ public class ServerApplication {
     
     class ClientServer extends Thread{
         public ServerSocket clientsServerSocket;
-
-        public ClientServer() {
+        database db;
+        
+        public ClientServer(database _db) {
+            db = _db;
             try {
                 clientsServerSocket = new ServerSocket(5005);
             } catch (IOException ex) {
                 Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
             }
+            start();
         }
 
         @Override
@@ -135,7 +157,7 @@ public class ServerApplication {
             while(true){
                 try {
                     Socket s = clientsServerSocket.accept();
-                    new ClientHandler(s);
+                    new ClientHandler(s,db);
                 } catch (IOException ex) {
                     Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
                 }

@@ -11,6 +11,7 @@ import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONObject;
 
 /**
  *
@@ -26,13 +27,22 @@ public class Client {
             mysocket = new Socket("127.0.0.1", 5005);
             dis = new DataInputStream(mysocket.getInputStream());
             ps = new PrintStream(mysocket.getOutputStream());
+            JSONObject js = new JSONObject();
+            js.put("type", ClientMsg.SIGNIN);
+            js.put("username", "Computer2");
+            js.put("passwd", "computer");
+            ps.println(js);
             
-            Scanner sc= new Scanner(System.in);
-            while(true){
-                String str= sc.nextLine();
-                ps.println(str);
-                System.out.println(dis.readLine());
+            System.out.println(dis.readLine());
+            
+            js.clear();
+            js.put("type", ClientMsg.GET_ONLINE_PLAYERS);
+            ps.println(js);
+            System.out.println(dis.readLine());
+            while (true) {                
+                
             }
+            
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }

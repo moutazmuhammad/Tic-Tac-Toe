@@ -48,10 +48,10 @@ public class database {
         }
     }
     
-    int signUp(String username, String password) throws SQLException {
+    public int signUp(String username, String password) {
         int status = 0;
         //Encrypt the password before sending it to the database
-           String encryptedPassword = passwordEncryption(password);
+        String encryptedPassword = passwordEncryption(password);
         try {
             String insertNewPlayer = new String("insert into player(username, password, score) values(?, ?, ?);");
             preparedSt = connection.prepareStatement(insertNewPlayer);
@@ -59,6 +59,7 @@ public class database {
             preparedSt.setString(2, encryptedPassword);
             preparedSt.setInt(3, 0);
             status = preparedSt.executeUpdate();
+            preparedSt.close();
         } catch (SQLException ex) {
             status = 0;
         }
@@ -66,24 +67,23 @@ public class database {
     }
     
     
-    int signIn(String username, String password) {
+    public int signIn(String username, String password) {
+        int result = 0;
         //Encrypt the password before comparing it to the passwords in the database
         String encryptedPassword = passwordEncryption(password);
         try {
-            statement = connection.createStatement();
-            String siginQuery = new String("select * from player where username = '"+username+"' and password = '"+encryptedPassword+"'");
-            resultSet = statement.executeQuery(siginQuery);
-            resultSet.next();
-            //Check if these credentials are in the database
-            if(resultSet.getString(2).equals(username) && resultSet.getString(3).equals(encryptedPassword)){
-                System.out.println("Sign-in Authentication Successful!");
-                return 1;
-            }
+            String siginQuery = "SELECT ID FROM player where username = ? and password = ?";
+            preparedSt = connection.prepareStatement(siginQuery);
+            preparedSt.setString(1, username);
+            preparedSt.setString(2, encryptedPassword);
+            resultSet = preparedSt.executeQuery();
+            if(resultSet.next())
+                result = resultSet.getInt("ID");
+            preparedSt.close();
         } catch (SQLException ex) {
             System.out.println("Sign-in Authentication Failed!");
         }
-        return 0;
-
+        return result;
     }
     
     public Player getPlayerProfile(int player_id){
