@@ -5,11 +5,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  *
@@ -27,8 +33,19 @@ public class LoginController implements Initializable {
     
     @FXML
     private void loginButtonAction(ActionEvent event) throws IOException{
-         MainScreen mainScreen = new MainScreen();
-         mainScreen.changeScene("mainMenu.fxml");
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("mainMenu.fxml"));
+        Parent fxmlViewChild = loader.load();
+        
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+        
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+        
+        window.show();
+        
+        
         
     }
     
@@ -36,8 +53,16 @@ public class LoginController implements Initializable {
        to sign up screen */
     public void changeToSignUpScreen(ActionEvent event) throws IOException{
         
-        MainScreen mainScreen = new MainScreen();
-        mainScreen.changeScene("signUp.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("signUp.fxml"));
+        Parent fxmlViewChild = loader.load();
+        
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+        
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+        
+        window.show();
     }
     
     @Override

@@ -14,6 +14,8 @@ import javafx.stage.Stage;
  */
 public class MainScreen extends Application {
     
+    private Parent root;
+    private Scene scene;
     private static Stage stg;
     
     @Override
@@ -23,8 +25,8 @@ public class MainScreen extends Application {
         stage.setResizable(false);
         stage.setTitle("Tic Tac Toe");
         
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(root, 700, 400);
+        root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        scene = new Scene(root, 690, 390);
         stage.setScene(scene);
         
         Image icon = new Image("images/icon.png");
@@ -33,13 +35,7 @@ public class MainScreen extends Application {
         stage.show();
     }
     
-    //This function is used to change the stage
-    public void changeScene(String screen) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource(screen));
-        stg.getScene().setRoot(pane);
-        
-    }
+  
 
     /**
      * @param args the command line arguments

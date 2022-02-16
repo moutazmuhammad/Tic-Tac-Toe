@@ -16,11 +16,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 
 /**
@@ -36,33 +40,16 @@ public class SingleGameScreenController implements Initializable {
     private int turnPosition = 2; //To get the correct position of X and O
     
     @FXML
-    private Button b0;
-    @FXML
-    private Button b1;
-    @FXML
-    private Button b2;
-    @FXML
-    private Button b3;
-    @FXML
-    private Button b4;
-    @FXML
-    private Button b5;
-    @FXML
-    private Button b6;
-    @FXML
-    private Button b7;
-    @FXML
-    private Button b8;
+    private Button b0, b1, b2, b3, b4, b5, b6, b7, b8;
     
     @FXML
-    private Label ur_score;
+    private Label ur_score, cump_score;
     
-    @FXML
-    private Label cump_score;
     
     private int your_score=0;
     private int computer_score=0;
-
+    private int flage=1;
+    
     private int buttonPosition[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //player
@@ -117,6 +104,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -127,6 +115,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
 
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -161,6 +150,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -171,6 +161,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -206,6 +197,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -216,6 +208,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -249,6 +242,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -259,6 +253,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -292,6 +287,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -302,6 +298,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -335,6 +332,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -345,6 +343,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -378,6 +377,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -388,6 +388,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -421,6 +422,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -431,6 +433,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -464,6 +467,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 
                 if (xResult == 1){
+                    flage=0;
                     updatePlayerScore();
                     
                     xWinnerAction();
@@ -474,6 +478,7 @@ public class SingleGameScreenController implements Initializable {
                     int oResult= computerWonGame();
 
                     if (oResult == 1){
+                        flage=0;
                         updateComputerScore();
                         
                         for (int i=0 ; i<buttonPosition.length ; i++){
@@ -609,6 +614,7 @@ public class SingleGameScreenController implements Initializable {
         b8.setText("");
         
         turnPosition = 2;
+        flage=1;
         for (int i=0 ; i<9 ; i++){
             buttonPosition[i] = 0;
             xPlayerWon[i] = 0;
@@ -620,8 +626,16 @@ public class SingleGameScreenController implements Initializable {
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException {
-        MainScreen mainScreen = new MainScreen();
-        mainScreen.changeScene("mainMenu.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("mainMenu.fxml"));
+        Parent fxmlViewChild = loader.load();
+        
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+        
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+        
+        window.show();
         
     }
     
@@ -637,10 +651,6 @@ public class SingleGameScreenController implements Initializable {
         System.out.println("done");
     }
     
-    @FXML
-    private void PauseButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

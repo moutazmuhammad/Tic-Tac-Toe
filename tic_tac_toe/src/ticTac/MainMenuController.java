@@ -5,7 +5,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -16,22 +21,48 @@ public class MainMenuController implements Initializable {
     
     @FXML
     private void singleModeButtonAction(ActionEvent event) throws IOException{
-         MainScreen mainScreen = new MainScreen();
-         mainScreen.changeScene("SingleGameScreen.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("SingleGameScreen.fxml"));
+        Parent fxmlViewChild = loader.load();
         
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+        
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+        
+        window.show();
+       
     }
     
     @FXML
     private void MultiModeButtonAction(ActionEvent event) throws IOException{
-         MainScreen mainScreen = new MainScreen();
-         mainScreen.changeScene("MultiGameScreen.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("MultiGameScreen.fxml"));
+        Parent fxmlViewChild = loader.load();
+        
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+        
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+        
+        window.show();
+       
         
     }
     
     @FXML
     private void LeaderBoardButtonAction(ActionEvent event) throws IOException{
-         MainScreen mainScreen = new MainScreen();
-         mainScreen.changeScene("LeaderBoard.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("LeaderBoard.fxml"));
+        Parent fxmlViewChild = loader.load();
+        
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+        
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+        
+        window.show();
+       
         
     }
     
