@@ -46,7 +46,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void MultiModeButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("MultiGameScreen.fxml"));
+        loader.setLocation(getClass().getResource("PlayerInvitationScreen.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
