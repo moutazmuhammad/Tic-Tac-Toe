@@ -43,5 +43,9 @@ public class MainScreen extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    void changeScene(String mainMenufxml) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

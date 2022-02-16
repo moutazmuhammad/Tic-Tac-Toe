@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -513,7 +515,7 @@ public class SingleGameScreenController implements Initializable {
             turnPosition++; //To Skep the next index
             
             if (emptyPositions.get(computerPosition) == 0){
-                b0.setText("O");
+                    b0.setText("O");
             }
             else if (emptyPositions.get(computerPosition) == 1){
                 b1.setText("O");
@@ -650,6 +652,7 @@ public class SingleGameScreenController implements Initializable {
         
         System.out.println("done");
     }
+    
     
     
     @Override
