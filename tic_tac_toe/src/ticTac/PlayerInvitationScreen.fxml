@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -215,7 +216,7 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="419.0" layoutY="17.0" prefHeight="274.0" prefWidth="253.0" stylesheets="@PlayerInvitationTable.css">
+      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="419.0" layoutY="17.0" prefHeight="274.0" prefWidth="253.0" stylesheets="@../CSS/PlayerInvitationTable.css">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="175.0" text="Online Players" />
             <TableColumn prefWidth="62.0" text="Score" />
@@ -236,11 +237,15 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="14.0" prefHeight="274.0" prefWidth="253.0" stylesheets="@PlayerInvitationTable.css">
+      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="14.0" prefHeight="274.0" prefWidth="253.0">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="175.0" text="Players Invite You" />
             <TableColumn prefWidth="62.0" text="Score" />
          </columns>
+         <stylesheets>
+            <URL value="@PlayerInvitationTable.css" />
+            <URL value="@../CSS/PlayerInvitationTable.css" />
+         </stylesheets>
       </TableView>
       <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="22.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
