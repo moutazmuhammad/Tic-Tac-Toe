@@ -121,7 +121,7 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <Button fx:id="InvitePlayerButton" layoutX="452.0" layoutY="301.0" mnemonicParsing="false" onAction="#inviteButtonAction" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Invite To Play" textAlignment="CENTER" textFill="#b22a25">
+      <Button fx:id="InvitePlayerButton" layoutX="458.0" layoutY="301.0" mnemonicParsing="false" onAction="#inviteButtonAction" onMouseEntered="#inviteOnHover" onMouseExited="#inviteOnExit" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Invite To Play" textAlignment="CENTER" textFill="#b22a25">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -232,14 +232,14 @@
             <Image url="@../images/leaderboard%20icon.png" />
          </image>
       </ImageView>
-      <Button fx:id="BackButton" layoutX="12.0" layoutY="361.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Back" textFill="WHITE">
+      <Button fx:id="BackButton" layoutX="12.0" layoutY="361.0" mnemonicParsing="false" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMouseExited="#backOnExit" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
       <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="14.0" prefHeight="274.0" prefWidth="253.0">
          <columns>
-            <TableColumn minWidth="0.0" prefWidth="175.0" text="Players Invite You" />
+            <TableColumn minWidth="0.0" prefWidth="175.0" text="         Your Invitations" />
             <TableColumn prefWidth="62.0" text="Score" />
          </columns>
          <stylesheets>
@@ -257,12 +257,12 @@
             <Image url="@../images/leaderboard%20icon.png" />
          </image>
       </ImageView>
-      <Button fx:id="AcceptButton" layoutX="48.0" layoutY="301.0" mnemonicParsing="false" onAction="#acceptInvitaionButtonAction" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Accept Invitation" textAlignment="CENTER" textFill="#b22a25">
+      <Button fx:id="AcceptButton" layoutX="50.0" layoutY="301.0" mnemonicParsing="false" onAction="#acceptInvitaionButtonAction" onMouseEntered="#acceptOnHover" onMouseExited="#acceptOnExit" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Accept Invitation" textAlignment="CENTER" textFill="#b22a25">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="recordedGamesButton" layoutX="558.0" layoutY="361.0" mnemonicParsing="false" onAction="#recordedGamesButtonAction" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Recorded Games" textFill="WHITE">
+      <Button fx:id="recordedGamesButton" layoutX="558.0" layoutY="361.0" mnemonicParsing="false" onAction="#recordedGamesButtonAction" onMouseEntered="#recordOnHover" onMouseExited="#recordOnExit" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Recorded Games" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

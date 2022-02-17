@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -38,6 +39,7 @@ public class LoginController implements Initializable {
     private Label passwordValid;
     @FXML
     private Label passwdAndUser;
+ 
     
     @FXML
     private void loginButtonAction(ActionEvent event) throws IOException{
@@ -90,6 +92,21 @@ public class LoginController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
+    }
+    
+    
+       @FXML
+    private void loginOnHover(MouseEvent event){
+        loginButton.setPrefWidth(163);
+        loginButton.setPrefHeight(35);
+        loginButton.setLayoutY(250);
+    }
+    
+    @FXML
+    private void loginOnExit(MouseEvent event){
+        loginButton.setPrefWidth(153);
+        loginButton.setPrefHeight(25); 
+        loginButton.setLayoutY(255);
     }
     
     @Override

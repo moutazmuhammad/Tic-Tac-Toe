@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -54,6 +55,35 @@ public class RecordedGames implements Initializable {
             
     }
     
+    
+         @FXML
+    private void backOnHover(MouseEvent event){
+        BackButton.setPrefWidth(82);
+        BackButton.setPrefHeight(35);
+    }
+    
+    @FXML
+    private void backOnExit(MouseEvent event){
+        BackButton.setPrefWidth(72);
+        BackButton.setPrefHeight(25); 
+    }
+    
+    
+         @FXML
+    private void resumeOnHover(MouseEvent event){
+        resumeButton.setPrefWidth(198);
+        resumeButton.setPrefHeight(49);
+        resumeButton.setLayoutX(464);
+        resumeButton.setLayoutY(335);
+    }
+    
+    @FXML
+    private void resumeOnExit(MouseEvent event){
+        resumeButton.setPrefWidth(188);
+        resumeButton.setPrefHeight(39);
+        resumeButton.setLayoutX(454);
+        resumeButton.setLayoutY(340);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

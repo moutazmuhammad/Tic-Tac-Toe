@@ -26,6 +26,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 
@@ -34,6 +35,8 @@ import javax.imageio.ImageIO;
  * @author Moutaz
  */
 public class SingleGameScreenController implements Initializable {
+    @FXML
+    private Button backButton, resetButton, screenshotBtn;
     
     Dialog<ButtonType> dialog = new Dialog<>(); 
     
@@ -734,6 +737,50 @@ public class SingleGameScreenController implements Initializable {
         System.out.println("done");
     }
     
+    
+    
+    //Animating Buttons
+    @FXML
+    private void backOnHover(MouseEvent event){
+        backButton.setPrefWidth(85);
+        backButton.setPrefHeight(35);
+        backButton.setLayoutY(354);
+    }
+    
+    @FXML
+    private void backOnExit(MouseEvent event){
+        backButton.setPrefWidth(75);
+        backButton.setPrefHeight(25); 
+        backButton.setLayoutY(359);
+    }
+    
+    @FXML
+    private void resetOnHover(MouseEvent event){
+        resetButton.setPrefWidth(102);
+        resetButton.setPrefHeight(35);
+        resetButton.setLayoutY(354);
+    }
+    
+    @FXML
+    private void resetOnExit(MouseEvent event){
+        resetButton.setPrefWidth(92);
+        resetButton.setPrefHeight(25); 
+        resetButton.setLayoutY(359);
+    }
+    
+      @FXML
+    private void screenOnHover(MouseEvent event){
+        screenshotBtn.setPrefWidth(102);
+        screenshotBtn.setPrefHeight(35);
+        screenshotBtn.setLayoutY(354);
+    }
+    
+    @FXML
+    private void screenOnExit(MouseEvent event){
+        screenshotBtn.setPrefWidth(92);
+        screenshotBtn.setPrefHeight(25); 
+        screenshotBtn.setLayoutY(359);
+      }
     
     
     @Override

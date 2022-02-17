@@ -12,10 +12,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
@@ -25,6 +27,9 @@ public class SignUpController implements Initializable {
     @FXML
     private TextField username,password;
  
+    @FXML
+    private Button signUp;
+    
     @FXML
     private Label usernameValid, passwordValid, passwdAndUser;
 
@@ -84,6 +89,20 @@ public class SignUpController implements Initializable {
     }
     
     
+    
+    @FXML
+    private void signOnHover(MouseEvent event){
+        signUp.setPrefWidth(163);
+        signUp.setPrefHeight(35);
+        signUp.setLayoutY(250);
+    }
+    
+    @FXML
+    private void signOnExit(MouseEvent event){
+        signUp.setPrefWidth(153);
+        signUp.setPrefHeight(25); 
+        signUp.setLayoutY(255);
+    }
     
     
     
