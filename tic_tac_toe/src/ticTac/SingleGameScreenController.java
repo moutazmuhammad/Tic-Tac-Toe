@@ -79,6 +79,12 @@ public class SingleGameScreenController implements Initializable {
         return counter;
     }
     
+    private void fillPositions(){
+        for (int i=0; i<buttonPosition.length; i++){
+            buttonPosition[i]=1;
+        }
+    }
+    
     private void drawAction() throws IOException{
         
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -142,15 +148,14 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
 
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                         
                     }  
                 }
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
@@ -193,14 +198,13 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
                         
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                     }  
                 }
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
@@ -245,14 +249,13 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
                         
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                     }  
                 }  
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
@@ -295,14 +298,13 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
                         
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                     }  
                 } 
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
@@ -345,14 +347,13 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
                         
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                     }  
                 }  
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
@@ -395,14 +396,13 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
                         
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                     }  
                 } 
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
@@ -445,14 +445,13 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
                         
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                     }  
                 } 
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
@@ -495,14 +494,13 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
                         
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                     }  
                 }    
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
@@ -545,14 +543,13 @@ public class SingleGameScreenController implements Initializable {
                         flage=0;
                         updateComputerScore();
                         
-                        for (int i=0 ; i<buttonPosition.length ; i++){
-                            buttonPosition[i]=1;
-                        }
+                        fillPositions();
                         oWinnerAction();
                         dialog.show();
                     }  
                 } 
                 if (flage==1 &&checkFillPositions()==8){
+                    fillPositions();
                     drawAction();
                     dialog.show();
                 }
