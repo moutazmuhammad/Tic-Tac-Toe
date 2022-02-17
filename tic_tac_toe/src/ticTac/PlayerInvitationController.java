@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class PlayerInvitationController implements Initializable {
     @FXML
-    private Button BackButton, InvitePlayerButton, AcceptButton;
+    private Button BackButton, InvitePlayerButton, AcceptButton,recordedGamesButton;
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException{
@@ -58,6 +58,22 @@ public class PlayerInvitationController implements Initializable {
         
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MultiGameScreen.fxml"));
+        Parent fxmlViewChild = loader.load();
+
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+
+        window.show();
+            
+    }
+    
+    @FXML
+    private void recordedGamesButtonAction(ActionEvent event) throws IOException{
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("recordedGames.fxml"));
         Parent fxmlViewChild = loader.load();
 
         Scene fxmlViewScene = new Scene(fxmlViewChild);

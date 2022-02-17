@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.PlayerInvitationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.RecordedGames">
    <children>
       <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="189.0" layoutY="218.0" opacity="0.04" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -121,11 +121,6 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <Button fx:id="InvitePlayerButton" layoutX="452.0" layoutY="301.0" mnemonicParsing="false" onAction="#inviteButtonAction" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Invite To Play" textAlignment="CENTER" textFill="#b22a25">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
       <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="155.0" layoutY="93.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pattern.png" />
@@ -201,11 +196,6 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="645.0" layoutY="286.0" onDragDetected="#inviteButtonAction" opacity="0.04" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/pattern.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="53.0" layoutY="182.0" opacity="0.04" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pattern.png" />
@@ -216,18 +206,18 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="419.0" layoutY="17.0" prefHeight="274.0" prefWidth="253.0" stylesheets="@../CSS/PlayerInvitationTable.css">
+      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="422.0" layoutY="45.0" prefHeight="280.0" prefWidth="253.0" stylesheets="@../CSS/PlayerInvitationTable.css">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="175.0" text="Online Players" />
             <TableColumn prefWidth="62.0" text="Score" />
          </columns>
       </TableView>
-      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="408.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="407.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="644.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="647.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/leaderboard%20icon.png" />
          </image>
@@ -237,9 +227,14 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="14.0" prefHeight="274.0" prefWidth="253.0">
+      <Button fx:id="resumeButton" layoutX="454.0" layoutY="340.0" mnemonicParsing="false" onAction="#resumeGameButtonAction" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Resume" textAlignment="CENTER" textFill="#b22a25">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="40.0" prefHeight="280.0" prefWidth="253.0">
          <columns>
-            <TableColumn minWidth="0.0" prefWidth="175.0" text="Players Invite You" />
+            <TableColumn minWidth="0.0" prefWidth="175.0" text="All Recorded Games" />
             <TableColumn prefWidth="62.0" text="Score" />
          </columns>
          <stylesheets>
@@ -247,25 +242,15 @@
             <URL value="@../CSS/PlayerInvitationTable.css" />
          </stylesheets>
       </TableView>
-      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="22.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="13.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="253.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="253.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/leaderboard%20icon.png" />
          </image>
       </ImageView>
-      <Button fx:id="AcceptButton" layoutX="48.0" layoutY="301.0" mnemonicParsing="false" onAction="#acceptInvitaionButtonAction" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Accept Invitation" textAlignment="CENTER" textFill="#b22a25">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="recordedGamesButton" layoutX="558.0" layoutY="361.0" mnemonicParsing="false" onAction="#recordedGamesButtonAction" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Recorded Games" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>
