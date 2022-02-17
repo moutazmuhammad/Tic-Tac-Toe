@@ -69,6 +69,26 @@ public class SingleGameScreenController implements Initializable {
         ur_score.setText(score);
     }
     
+    private int checkFillPositions(){
+        int counter = 0;
+        for (int i=0; i<buttonPosition.length; i++){
+            if (buttonPosition[i]==1){
+                counter +=1;
+            }
+        }
+        return counter;
+    }
+    
+    private void drawAction() throws IOException{
+        
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("draw.fxml"));
+        DialogPane winner = fxmlLoader.load();
+        
+        dialog.setDialogPane(winner);
+        dialog.setTitle("Draw");
+    }
+    
     private void xWinnerAction() throws IOException{
         
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -78,6 +98,7 @@ public class SingleGameScreenController implements Initializable {
         dialog.setDialogPane(winner);
         dialog.setTitle("Winner");
     }
+    
     
     private void oWinnerAction() throws IOException{
         
@@ -98,6 +119,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b0.setText("X");
+                b0.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[0]=1;
                 xPlayerWon[0]=1;
@@ -127,7 +149,11 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                         
                     }  
-                }               
+                }
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
             }
         }
         else{
@@ -144,6 +170,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b1.setText("X");
+                b1.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[1]=1;
                 xPlayerWon[1]=1;
@@ -173,6 +200,10 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                     }  
                 }
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
                 
                                 
             }
@@ -191,6 +222,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b2.setText("X");
+                b2.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[2]=1;
                 xPlayerWon[2]=1;
@@ -219,7 +251,11 @@ public class SingleGameScreenController implements Initializable {
                         oWinnerAction();
                         dialog.show();
                     }  
-                }             
+                }  
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
             }
         }
         else{
@@ -236,6 +272,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b3.setText("X");
+                b3.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[3]=1;
                 xPlayerWon[3]=1;
@@ -264,7 +301,11 @@ public class SingleGameScreenController implements Initializable {
                         oWinnerAction();
                         dialog.show();
                     }  
-                }               
+                } 
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
             }
         }
         else{
@@ -281,6 +322,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b4.setText("X");
+                b4.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[4]=1;
                 xPlayerWon[4]=1;
@@ -309,7 +351,11 @@ public class SingleGameScreenController implements Initializable {
                         oWinnerAction();
                         dialog.show();
                     }  
-                }               
+                }  
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
             }
         }
         else{
@@ -326,6 +372,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b5.setText("X");
+                b5.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[5]=1;
                 xPlayerWon[5]=1;
@@ -354,7 +401,11 @@ public class SingleGameScreenController implements Initializable {
                         oWinnerAction();
                         dialog.show();
                     }  
-                }              
+                } 
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
             }
         }
         else{
@@ -371,6 +422,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b6.setText("X");
+                b6.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[6]=1;
                 xPlayerWon[6]=1;
@@ -399,7 +451,11 @@ public class SingleGameScreenController implements Initializable {
                         oWinnerAction();
                         dialog.show();
                     }  
-                }               
+                } 
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
             }
         }
         else{
@@ -416,6 +472,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b7.setText("X");
+                b7.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[7]=1;
                 xPlayerWon[7]=1;
@@ -444,7 +501,11 @@ public class SingleGameScreenController implements Initializable {
                         oWinnerAction();
                         dialog.show();
                     }  
-                }               
+                }    
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
             }
         }
         else{
@@ -461,6 +522,7 @@ public class SingleGameScreenController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b8.setText("X");
+                b8.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[8]=1;
                 xPlayerWon[8]=1;
@@ -489,7 +551,11 @@ public class SingleGameScreenController implements Initializable {
                         oWinnerAction();
                         dialog.show();
                     }  
-                }                
+                } 
+                if (flage==1 &&checkFillPositions()==8){
+                    drawAction();
+                    dialog.show();
+                }
             }
         }
         else{
@@ -515,31 +581,40 @@ public class SingleGameScreenController implements Initializable {
             turnPosition++; //To Skep the next index
             
             if (emptyPositions.get(computerPosition) == 0){
-                    b0.setText("O");
+                b0.setText("O");
+                b0.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 1){
                 b1.setText("O");
+                b1.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 2){
                 b2.setText("O");
+                b2.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 3){
                 b3.setText("O");
+                b3.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 4){
                 b4.setText("O");
+                b4.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 5){
                 b5.setText("O");
+                b5.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 6){
                 b6.setText("O");
+                b6.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 7){
                 b7.setText("O");
+                b7.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 8){
                 b8.setText("O");
+                b8.setStyle("-fx-background-color: #ee7070");
             }
             
             oPlayerWon[emptyPositions.get(computerPosition)]=1;
@@ -606,14 +681,23 @@ public class SingleGameScreenController implements Initializable {
     @FXML
     private void playAgainButtonAction(ActionEvent event) {
         b0.setText("");
+        b0.setStyle("-fx-background-color: TRANSPARENT");
         b1.setText("");
+        b1.setStyle("-fx-background-color: TRANSPARENT");
         b2.setText("");
+        b2.setStyle("-fx-background-color: TRANSPARENT");
         b3.setText("");
+        b3.setStyle("-fx-background-color: TRANSPARENT");
         b4.setText("");
+        b4.setStyle("-fx-background-color: TRANSPARENT");
         b5.setText("");
+        b5.setStyle("-fx-background-color: TRANSPARENT");
         b6.setText("");
+        b6.setStyle("-fx-background-color: TRANSPARENT");
         b7.setText("");
+        b7.setStyle("-fx-background-color: TRANSPARENT");
         b8.setText("");
+        b8.setStyle("-fx-background-color: TRANSPARENT");
         
         turnPosition = 2;
         flage=1;

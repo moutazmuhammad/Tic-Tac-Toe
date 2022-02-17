@@ -41,28 +41,26 @@ public class LoginController implements Initializable {
     
     @FXML
     private void loginButtonAction(ActionEvent event) throws IOException{
-        
-        
-        
-//         //Make sure the user doesn't leave the username or password empty
-//        if(username.getText().isEmpty() || password.getText().isEmpty()){    
-//            passwdAndUser.setVisible(true);
-//            //Once he/she starts writing, invalid label disappears
-//            username.addEventHandler(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>(){
-//                @Override
-//                public void handle(KeyEvent event) {
-//                    passwdAndUser.setVisible(false);
-//                }
-//        });
-//            //Same with password
-//            password.addEventHandler(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>(){
-//                @Override
-//                public void handle(KeyEvent event) {
-//                    passwdAndUser.setVisible(false);
-//                }
-//                
-//            });
-//        }else{
+
+         //Make sure the user doesn't leave the username or password empty
+        if(username.getText().isEmpty() || password.getText().isEmpty()){    
+            passwdAndUser.setVisible(true);
+            //Once he/she starts writing, invalid label disappears
+            username.addEventHandler(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>(){
+                @Override
+                public void handle(KeyEvent event) {
+                    passwdAndUser.setVisible(false);
+                }
+        });
+            //Same with password
+            password.addEventHandler(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>(){
+                @Override
+                public void handle(KeyEvent event) {
+                    passwdAndUser.setVisible(false);
+                }
+                
+            });
+        }else{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("mainMenu.fxml"));
             Parent fxmlViewChild = loader.load();
@@ -73,7 +71,7 @@ public class LoginController implements Initializable {
             window.setScene(fxmlViewScene);
 
             window.show();
-//        }
+        }
         
         
     }
