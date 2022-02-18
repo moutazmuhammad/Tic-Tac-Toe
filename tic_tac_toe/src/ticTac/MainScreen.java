@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import ticTac.Connection.Session;
 
 /**
  *
@@ -17,7 +18,7 @@ public class MainScreen extends Application {
     private Parent root;
     private Scene scene;
     private static Stage stg;
-    
+    public static Session session;
     @Override
     public void start(Stage stage) throws Exception {
         
@@ -30,8 +31,8 @@ public class MainScreen extends Application {
         stage.setScene(scene);
         
         Image icon = new Image("images/icon.png");
-	stage.getIcons().add(icon); 
-        
+	    stage.getIcons().add(icon);
+        session = new Session(stg);
         stage.show();
     }
     

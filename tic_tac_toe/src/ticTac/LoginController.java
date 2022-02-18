@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
                 
             });
         }else{
-            FXMLLoader loader = new FXMLLoader();
+          /*  FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("mainMenu.fxml"));
             Parent fxmlViewChild = loader.load();
 
@@ -72,11 +72,12 @@ public class LoginController implements Initializable {
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
             window.setScene(fxmlViewScene);
 
-            window.show();
+            window.show();*/
+            MainScreen.session.SignInRequest(username.getText(), password.getText());
         }
-        
-        
     }
+
+
     
     /* When this method is called, it will change the scene
        to sign up screen */

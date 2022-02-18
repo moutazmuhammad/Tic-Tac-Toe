@@ -1,12 +1,19 @@
 package ticTac.Connection;
 
 public enum msgType {
-    LOGIN ,
+    SIGNIN,
     SIGNUP,
-    LOGOUT,
-    REGISTER,
-    GAME_REQUEST,
-    GAME_RESPONSE,
-    CHAT
+    GET_LEADERBOARD,
+    GET_ONLINE_PLAYERS,
+    CLOSE_CONNECTION,
+    INVETATION_SEND,
+    INVETATION_REPLY,
+    ACCEPT_INVETATION,
+    RECORD_GAME,
+    GET_GAME,
+    GET_RECORDED_GAMES,
+    ADD_MOVE,
+    SEND_MESSAGE,
+    END_GAME
 }
 
