@@ -29,20 +29,16 @@ public class Client {
             ps = new PrintStream(mysocket.getOutputStream());
             JSONObject js = new JSONObject();
             js.put("type", ClientMsg.SIGNIN);
-            js.put("username", "Computer2");
-            js.put("passwd", "computer");
+            js.put("username", "Computer");
+            js.put("passwd", "compute");
             ps.println(js);
             
             System.out.println(dis.readLine());
             
-            js.clear();
-            js.put("type", ClientMsg.GET_ONLINE_PLAYERS);
-            ps.println(js);
-            System.out.println(dis.readLine());
-            while (true) {                
-                
-            }
             
+            
+            
+           
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }

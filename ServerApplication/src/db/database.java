@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -218,16 +219,16 @@ public class database {
         return recordedGame;           
     }
     
-    public String getLeaderBoard (){
-        String leaderBoard = new String();
+    public HashMap<String,Integer> getLeaderBoard (){
+        HashMap<String,Integer> leaderBoard = new HashMap<String,Integer>(); 
         try {
             statement = connection.createStatement();
             String leaderBoardQuery = new String("select username, score from player where username not in('computer') order by score desc limit 10;");
             resultSet = statement.executeQuery(leaderBoardQuery);
             while(resultSet.next()){
-                leaderBoard += resultSet.getString(1)+" ";
-                leaderBoard += resultSet.getInt(2)+" ";
+                leaderBoard.put(resultSet.getString(1), resultSet.getInt(2));
             }
+            statement.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
