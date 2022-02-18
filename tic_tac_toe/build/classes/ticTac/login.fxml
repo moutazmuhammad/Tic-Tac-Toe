@@ -30,7 +30,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="loginButton" contentDisplay="BOTTOM" layoutX="49.0" layoutY="255.0" mnemonicParsing="false" onAction="#loginButtonAction"  prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="loginButton" contentDisplay="BOTTOM" layoutX="49.0" layoutY="255.0" mnemonicParsing="false" onAction="#loginButtonAction" onMouseEntered="#loginOnHover" onMouseExited="#loginOnExit" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Login" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Algerian" size="15.0" />
                </font>

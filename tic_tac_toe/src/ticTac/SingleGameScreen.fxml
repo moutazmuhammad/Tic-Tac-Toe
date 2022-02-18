@@ -30,7 +30,7 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <Button fx:id="button11" layoutX="17.0" layoutY="359.0" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="75.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Back">
+      <Button fx:id="backButton" layoutX="17.0" layoutY="359.0" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMouseExited="#backOnExit" prefHeight="25.0" prefWidth="75.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -73,22 +73,22 @@
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="b0" layoutX="223.0" layoutY="82.0" onAction="#b0ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
+      <Button fx:id="b0" layoutX="225.0" layoutY="84.0" onAction="#b0ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="b1" layoutX="304.0" layoutY="82.0" onAction="#b1ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
+      <Button fx:id="b1" layoutX="304.0" layoutY="84.0" onAction="#b1ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="b2" layoutX="385.0" layoutY="82.0" onAction="#b2ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
+      <Button fx:id="b2" layoutX="385.0" layoutY="84.0" onAction="#b2ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button layoutX="589.0" layoutY="359.0" onAction="#ScreenshotButtonAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="screenshot">
+      <Button fx:id="screenshotBtn" layoutX="589.0" layoutY="359.0" onAction="#ScreenshotButtonAction" onMouseEntered="#screenOnHover" onMouseExited="#screenOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="screenshot">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -98,7 +98,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="295.0" layoutY="359.0" onAction="#playAgainButtonAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Reset">
+      <Button fx:id="resetButton" layoutX="295.0" layoutY="359.0" onAction="#playAgainButtonAction" onMouseEntered="#resetOnHover" onMouseExited="#resetOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Reset">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
