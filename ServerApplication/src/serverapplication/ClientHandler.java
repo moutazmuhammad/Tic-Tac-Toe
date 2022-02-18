@@ -10,6 +10,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,6 +77,12 @@ public class ClientHandler extends Thread{
                     case GET_ONLINE_PLAYERS:
                         get_online_players();
                         break;
+                    case INVETATION_SEND:
+                        sendInvitation(request);
+                        break;
+                    case INVETATION_REPLY:
+                        replyInvitation(request);
+                        break;
                     case CLOSE_CONNECTION:
                         clientsVector.remove(this);
                         closeConnection();
@@ -111,7 +118,15 @@ public class ClientHandler extends Thread{
     }
     
     void get_leaderboard(){
-        
+        HashMap<String,Integer> lb = db.getLeaderBoard();
+        JSONObject leaderBoard = new JSONObject();
+        for(String i : lb.keySet()){
+            leaderBoard.put(i, lb.get(i));
+        }
+        response.clear();
+        response.put("type", ClientMsg.GET_ONLINE_PLAYERS);
+        response.put("LeaderBoard", leaderBoard);
+        ps.println(response);
     }
     
     void get_online_players(){
@@ -126,19 +141,38 @@ public class ClientHandler extends Thread{
         ps.println(response);
     }
     
+    void sendInvitation(JSONObject request){
+        ClientHandler player_info = GetPlayerByID(request.getInt("reciever id"));
+        response.clear();
+        response.put("type", ClientMsg.INVETATION_SEND);
+        response.put("sender id", player.getId());
+        response.put("sender name", player.getUsername());
+        response.put("reciever id", player_info.player.getId());
+        player_info.ps.println(response);
+    }
+    
+    void replyInvitation(JSONObject request){
+        ClientHandler player_info = GetPlayerByID(request.getInt("reciever id"));
+        response.clear();
+        response.put("type", ClientMsg.INVETATION_REPLY);
+        response.put("sender id", player.getId());
+        response.put("reply", "yes");
+        response.put("reciever id", player_info.player.getId());
+        player_info.ps.println(response);
+    }
+    
     boolean signIn(JSONObject request){
         int r = db.signIn(request.getString("username"), request.getString("passwd"));
+        response.clear();
+        response.put("type", ClientMsg.SIGNIN);
+
         if(r==0){
-            response.clear();
-            response.put("type", ClientMsg.SIGNIN);
             response.put("id", 0);
             ps.println(response);
             return false;
         }
         else{
             player = db.getPlayerProfile(r);
-            response.clear();
-            response.put("type", ClientMsg.SIGNIN);
             response.put("id", player.getId());
             response.put("score", player.getScore());
             response.put("loses", player.getWins());
@@ -150,17 +184,15 @@ public class ClientHandler extends Thread{
 
     boolean signUp(JSONObject request){
         int r = db.signUp(request.getString("username"), request.getString("passwd"));
+        response.clear();
+        response.put("type", ClientMsg.SIGNUP);
         if(r==0){
-            response.clear();
-            response.put("type", ClientMsg.SIGNUP);
             response.put("id", 0);
             ps.println(r);
             return false;
         }
         else{
             player = db.getPlayerProfile(r);
-            response.clear();
-            response.put("type", ClientMsg.SIGNUP);
             response.put("id", player.getId());
             ps.println(r);
             return true;
@@ -185,8 +217,14 @@ public class ClientHandler extends Thread{
         clientsVector.clear();
     }
     
-    void invite(){
-
+    ClientHandler GetPlayerByID(int id){
+        
+        for(ClientHandler c : clientsVector){
+            if(c.player.getId() == id){
+                return c;
+            }
+        }
+        return null;
     }
 
 }
