@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -53,7 +54,6 @@ public class RecordedGames implements Initializable {
         window.show();
             
     }
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

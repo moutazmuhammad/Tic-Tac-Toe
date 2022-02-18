@@ -67,6 +67,7 @@ public class SignUpController implements Initializable {
                 }
                 
             });
+            
         }else{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("mainMenu.fxml"));

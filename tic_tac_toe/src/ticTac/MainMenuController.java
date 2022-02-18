@@ -118,7 +118,7 @@ public class MainMenuController implements Initializable {
         multiIcon.setLayoutY(213);
     }
     
-     @FXML
+    @FXML
     private void leaderOnHover(MouseEvent event){
          //LeaderBoardButton
         leaderButton.setPrefWidth(270);

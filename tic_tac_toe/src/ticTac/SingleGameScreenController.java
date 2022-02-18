@@ -154,7 +154,7 @@ public class SingleGameScreenController implements Initializable {
                         
                     }  
                 }
-                if (flage==1 &&checkFillPositions()==8){
+                if (flage==1 &&checkFillPositions()==9){
                     fillPositions();
                     drawAction();
                     dialog.show();
@@ -203,7 +203,7 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                     }  
                 }
-                if (flage==1 &&checkFillPositions()==8){
+                if (flage==1 &&checkFillPositions()==9){
                     fillPositions();
                     drawAction();
                     dialog.show();
@@ -254,7 +254,7 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                     }  
                 }  
-                if (flage==1 &&checkFillPositions()==8){
+                if (flage==1 &&checkFillPositions()==9){
                     fillPositions();
                     drawAction();
                     dialog.show();
@@ -303,7 +303,7 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                     }  
                 } 
-                if (flage==1 &&checkFillPositions()==8){
+                if (flage==1 &&checkFillPositions()==9){
                     fillPositions();
                     drawAction();
                     dialog.show();
@@ -352,7 +352,7 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                     }  
                 }  
-                if (flage==1 &&checkFillPositions()==8){
+                if (flage==1 &&checkFillPositions()==9){
                     fillPositions();
                     drawAction();
                     dialog.show();
@@ -450,7 +450,7 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                     }  
                 } 
-                if (flage==1 &&checkFillPositions()==8){
+                if (flage==1 &&checkFillPositions()==9){
                     fillPositions();
                     drawAction();
                     dialog.show();
@@ -499,7 +499,7 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                     }  
                 }    
-                if (flage==1 &&checkFillPositions()==8){
+                if (flage==1 &&checkFillPositions()==9){
                     fillPositions();
                     drawAction();
                     dialog.show();
@@ -548,7 +548,7 @@ public class SingleGameScreenController implements Initializable {
                         dialog.show();
                     }  
                 } 
-                if (flage==1 &&checkFillPositions()==8){
+                if (flage==1 &&checkFillPositions()==9){
                     fillPositions();
                     drawAction();
                     dialog.show();

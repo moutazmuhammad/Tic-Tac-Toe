@@ -41,7 +41,6 @@ public class LeaderBoardController implements Initializable {
         
         window.show();
         
-        
     }
     
     @Override
