@@ -16,7 +16,7 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.MultiGameScreenController">
     <children>
       <VBox layoutX="9.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.09" prefHeight="308.0" prefWidth="174.0" style="-fx-background-color: B667F1; -fx-background-radius: 15px; -fx-border-radius: 15px; visibility: true;" />
-      <Button fx:id="button1" layoutX="585.0" layoutY="359.0" onAction="#PauseButtonAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Pause">
+      <Button fx:id="pauseButton" layoutX="585.0" layoutY="359.0" onAction="#PauseButtonAction" onMouseEntered="#pauseOnHover" onMouseExited="#pauseOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Pause">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
@@ -49,7 +49,7 @@
          </font>
       </Label>
       <Circle fill="#166ebf" layoutX="94.0" layoutY="222.0" radius="38.0" stroke="#e12d60" strokeType="INSIDE" strokeWidth="4.0" />
-      <Button fx:id="button11" layoutX="27.0" layoutY="362.0" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="75.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Back">
+      <Button fx:id="backButton" layoutX="27.0" layoutY="362.0" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMouseExited="#backOnExit" prefHeight="25.0" prefWidth="75.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Back">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -81,47 +81,47 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="button111" layoutX="202.0" layoutY="234.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button111" layoutX="202.0" layoutY="234.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="button1111" layoutX="286.0" layoutY="234.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button1111" layoutX="286.0" layoutY="234.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="button11111" layoutX="371.0" layoutY="234.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button11111" layoutX="371.0" layoutY="234.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="button111111" layoutX="370.0" layoutY="148.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button111111" layoutX="370.0" layoutY="148.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="button11112" layoutX="290.0" layoutY="151.0" prefHeight="76.0" prefWidth="76.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button11112" layoutX="290.0" layoutY="151.0" prefHeight="76.0" prefWidth="76.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="button1112" layoutX="202.0" layoutY="148.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button1112" layoutX="202.0" layoutY="148.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="button11121" layoutX="203.0" layoutY="62.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button11121" layoutX="203.0" layoutY="62.0" prefHeight="80.0" prefWidth="82.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="button111211" layoutX="289.0" layoutY="66.0" prefHeight="76.0" prefWidth="76.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button111211" layoutX="289.0" layoutY="66.0" prefHeight="76.0" prefWidth="76.0" style="-fx-background-color: rgba(0, 0, 0, 0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="button1112111" layoutX="369.0" layoutY="70.0" prefHeight="64.0" prefWidth="76.0" style="-fx-background-radius: 6; -fx-background-color: transperant;">
+      <Button fx:id="button1112111" layoutX="369.0" layoutY="70.0" prefHeight="64.0" prefWidth="76.0" style="-fx-background-color: rgba(0,0,0,0);">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>

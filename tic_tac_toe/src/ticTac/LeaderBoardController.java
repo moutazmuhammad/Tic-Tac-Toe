@@ -50,6 +50,7 @@ public class LeaderBoardController implements Initializable {
         window.show();
     }
 
+    @FXML
     private void backOnClick(MouseEvent event){
         try {
             FXMLLoader loader = new FXMLLoader();

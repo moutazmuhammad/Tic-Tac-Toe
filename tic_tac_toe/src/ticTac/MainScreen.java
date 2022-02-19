@@ -1,5 +1,6 @@
 package ticTac;
 
+import ticTac.Connection.Session;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,7 @@ public class MainScreen extends Application {
     private Parent root;
     private Scene scene;
     private static Stage stg;
-    
+    public static Session session;
     @Override
     public void start(Stage stage) throws Exception {
         
@@ -25,12 +26,21 @@ public class MainScreen extends Application {
         stage.setResizable(false);
         stage.setTitle("Tic Tac Toe");
         
-        root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        scene = new Scene(root, 690, 390);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("login.fxml"));
+        Parent fxmlViewChild = loader.load();
+        LoginController lg = new LoginController();
+        session = new Session(stg);
+        session.loginController = lg;
+        loader.setController(lg);
+        
+        
+        scene = new Scene(fxmlViewChild, 690, 390);
         stage.setScene(scene);
         
         Image icon = new Image("images/icon.png");
-	stage.getIcons().add(icon); 
+	    stage.getIcons().add(icon);
+        
         
         stage.show();
     }

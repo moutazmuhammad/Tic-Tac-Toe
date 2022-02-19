@@ -3,6 +3,9 @@ package ticTac;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -63,7 +66,7 @@ public class LoginController implements Initializable {
                 
             });
         }else{
-            FXMLLoader loader = new FXMLLoader();
+          /*  FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("mainMenu.fxml"));
             Parent fxmlViewChild = loader.load();
 
@@ -72,11 +75,31 @@ public class LoginController implements Initializable {
             Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
             window.setScene(fxmlViewScene);
 
-            window.show();
+            window.show();*/
+            MainScreen.session.SignInRequest(username.getText(), password.getText());
         }
-        
-        
     }
+    
+    public void ChangeScene(Stage window,String xml)
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(xml));
+            Parent fxmlViewChild = loader.load();
+            
+            Scene fxmlViewScene = new Scene(fxmlViewChild);
+            Platform.runLater(new Runnable() {
+            @Override public void run() {
+                window.setScene(fxmlViewScene);
+                window.show();
+                }
+            });
+            
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
     /* When this method is called, it will change the scene
        to sign up screen */
