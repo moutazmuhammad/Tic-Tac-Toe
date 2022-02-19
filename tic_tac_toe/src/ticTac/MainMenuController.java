@@ -31,7 +31,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void singleModeButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SingleGameScreen.fxml"));
+        loader.setLocation(getClass().getResource("SingleModeMenu.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
