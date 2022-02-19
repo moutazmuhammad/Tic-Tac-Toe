@@ -1,23 +1,24 @@
 package ticTac.Connection;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.json.JSONObject;
-import ticTac.LeaderBoardController;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONObject;
+import ticTac.Connection.msgType;
+import ticTac.LoginController;
 
 public class Session extends Thread{
     private Stage stage;
     private Socket socket;
     private DataInputStream inputStream;
     private PrintStream printStream;
+    public LoginController loginController ;
     JSONObject Message ;
     boolean Connected =false;
 
@@ -80,25 +81,7 @@ public class Session extends Thread{
         });
     }
 
-    public void ChangeScene(String XML)
-    {
-        Parent fxmlViewChild = null;
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(XML));
-
-            fxmlViewChild = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-
-      //  Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(fxmlViewScene);
-
-        stage.show();
-    }
+    
 
     public void SignInResponse(JSONObject Message)
     {
@@ -109,7 +92,7 @@ public class Session extends Thread{
         }
         else
         {
-            ChangeScene("mainMenu.fxml");
+            loginController.ChangeScene(stage,"mainMenu.fxml");
         }
     }
 
@@ -117,8 +100,8 @@ public class Session extends Thread{
     {
         JSONObject js = new JSONObject();
         js.put("type", msgType.SIGNIN);
-        js.put("username", "Computer");
-        js.put("passwd", "compute");
+        js.put("username", Username);
+        js.put("passwd", Password);
         printStream.println(js);
     }
 
@@ -131,7 +114,7 @@ public class Session extends Thread{
                 {
                     return;
                 }
-
+                System.out.println(re);
                 JSONObject response = new JSONObject(re);
                // String str = response.toString();
                 System.out.println(response);
