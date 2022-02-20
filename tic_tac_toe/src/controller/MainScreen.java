@@ -23,12 +23,11 @@ public class MainScreen extends Application {
         
         stage.setResizable(false);
         stage.setTitle("Tic Tac Toe");
-        
+        session = new Session(stage);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/login.fxml"));
         Parent fxmlViewChild = loader.load();
-        LoginController lg = new LoginController();
-        session = new Session(stage);
+        session.controlManager.setLoginController(loader);
         
         scene = new Scene(fxmlViewChild, 690, 390);
         stage.setScene(scene);

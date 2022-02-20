@@ -1,5 +1,6 @@
 package ticTac.Connection;
 
+import controller.ControlManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,6 +20,7 @@ public class Session extends Thread{
     private Socket socket;
     private DataInputStream inputStream;
     private PrintStream printStream;
+    public ControlManager controlManager;
     
     JSONObject Message ;
     boolean Connected =false;
@@ -26,6 +28,7 @@ public class Session extends Thread{
 
     public Session(Stage stage)
     {
+        controlManager = new ControlManager();
         openConnection();
         this.stage = stage;
         start();
@@ -90,7 +93,7 @@ public class Session extends Thread{
         int id = Message.getInt("id");
         if(id == 0 )
         {
-            return;
+            controlManager.getLoginController().login_failre();
         }
         else
         {
@@ -180,9 +183,6 @@ public class Session extends Thread{
     //this function needs a server to connect and check for the msg type
     private void MessageHandler(JSONObject message){
         String type = (String) message.get("type");
-//        switch (type){
-//            case LOGIN:
-//        }
     }
 
 

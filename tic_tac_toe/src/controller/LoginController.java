@@ -72,6 +72,10 @@ public class LoginController implements Initializable {
         }
     }
     
+    public void login_failre(){
+        usernameValid.setVisible(true);
+        passwordValid.setVisible(true);
+    }
 
     
     /* When this method is called, it will change the scene
