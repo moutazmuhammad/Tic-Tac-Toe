@@ -118,22 +118,22 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <Button fx:id="singleModeButton" layoutX="225.0" layoutY="164.0" mnemonicParsing="false" onAction="#singleModeButtonAction" onMouseEntered="#singleOnHover" onMouseExited="#singleOnExit" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Single Mode" textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="singleModeButton" layoutX="225.0" layoutY="164.0" mnemonicParsing="false" onAction="#singleModeButtonAction" onMouseEntered="#singleOnHover" onMouseExited="#singleOnExit" onMousePressed="#singleOnPress" onMouseReleased="#singleOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Single Mode" textAlignment="CENTER" textFill="#05262c">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="MultiModeButton" layoutX="226.0" layoutY="216.0" mnemonicParsing="false" onAction="#MultiModeButtonAction" onMouseEntered="#multiOnHover" onMouseExited="#multiOnExit" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Multi-Player " textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="MultiModeButton" layoutX="226.0" layoutY="216.0" mnemonicParsing="false" onAction="#MultiModeButtonAction" onMouseEntered="#multiOnHover" onMouseExited="#multiOnExit" onMousePressed="#multiOnPress" onMouseReleased="#multiOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Multi-Player " textAlignment="CENTER" textFill="#05262c">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="leaderButton" layoutX="226.0" layoutY="270.0" mnemonicParsing="false" onAction="#LeaderBoardButtonAction" onMouseEntered="#leaderOnHover" onMouseExited="#leaderOnExit" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Leaderboard" textAlignment="CENTER" textFill="#b22a25">
+      <Button fx:id="leaderButton" layoutX="226.0" layoutY="270.0" mnemonicParsing="false" onAction="#LeaderBoardButtonAction" onMouseEntered="#leaderOnHover" onMouseExited="#leaderOnExit" onMousePressed="#leaderOnPress" onMouseReleased="#leaderOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Leaderboard" textAlignment="CENTER" textFill="#b22a25">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="aboutButton" layoutX="226.0" layoutY="328.0" mnemonicParsing="false" onMouseEntered="#aboutOnHover" onMouseExited="#aboutOnExit" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="About Game" textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="aboutButton" layoutX="226.0" layoutY="328.0" mnemonicParsing="false" onMouseEntered="#aboutOnHover" onMouseExited="#aboutOnExit" onMousePressed="#aboutOnPress" onMouseReleased="#aboutOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="About Game" textAlignment="CENTER" textFill="#05262c">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

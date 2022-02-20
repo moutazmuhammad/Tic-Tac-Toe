@@ -1,5 +1,6 @@
 package ticTac.Connection;
 
+import controller.ControlManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import org.json.JSONObject;
 import ticTac.Connection.msgType;
 import controller.LoginController;
@@ -18,13 +20,15 @@ public class Session extends Thread{
     private Socket socket;
     private DataInputStream inputStream;
     private PrintStream printStream;
-    public LoginController loginController ;
+    public ControlManager controlManager;
+    
     JSONObject Message ;
     boolean Connected =false;
 
 
     public Session(Stage stage)
     {
+        controlManager = new ControlManager();
         openConnection();
         this.stage = stage;
         start();
@@ -51,6 +55,7 @@ public class Session extends Thread{
             printStream.close();
             inputStream.close();
             socket.close();
+            stop();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -83,7 +88,49 @@ public class Session extends Thread{
 
     
 
-    public void SignInResponse(JSONObject Message)
+    public void signInResponse(JSONObject Message)
+    {
+        int id = Message.getInt("id");
+        if(id == 0 )
+        {
+            controlManager.getLoginController().login_failre();
+        }
+        else
+        {
+            changeScene("/fxml/mainMenu.fxml");
+        }
+    }
+    
+    
+    public void changeScene(String xml)
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(xml));
+            Parent fxmlViewChild = loader.load();
+            Scene fxmlViewScene = new Scene(fxmlViewChild);
+            Platform.runLater(new Runnable() {
+            @Override public void run() {
+                stage.setScene(fxmlViewScene);
+                stage.show();
+                }
+            });
+            
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void signInRequest(String Username , String Password)
+    {
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.SIGNIN);
+        js.put("username", Username);
+        js.put("passwd", Password);
+        printStream.println(js);
+    }
+    
+    public void signUpResponse(JSONObject Message)
     {
         int id = Message.getInt("id");
         if(id == 0 )
@@ -92,14 +139,15 @@ public class Session extends Thread{
         }
         else
         {
-            loginController.ChangeScene(stage,"mainMenu.fxml");
+            changeScene("/fxml/mainMenu.fxml");
+            return;
         }
     }
 
-    public void SignInRequest(String Username , String Password)
+    public void signUpRequest(String Username , String Password)
     {
         JSONObject js = new JSONObject();
-        js.put("type", msgType.SIGNIN);
+        js.put("type", msgType.SIGNUP);
         js.put("username", Username);
         js.put("passwd", Password);
         printStream.println(js);
@@ -114,17 +162,14 @@ public class Session extends Thread{
                 {
                     return;
                 }
-                System.out.println(re);
                 JSONObject response = new JSONObject(re);
-               // String str = response.toString();
-                System.out.println(response);
                 msgType msg = response.getEnum(msgType.class,"type");
                 switch (msg) {
                     case SIGNIN:
-                        SignInResponse(response);
+                        signInResponse(response);
                         break;
                     case SIGNUP:
-                      //  test();
+                        signUpResponse(response);
                         break;
                 }
 
@@ -138,9 +183,6 @@ public class Session extends Thread{
     //this function needs a server to connect and check for the msg type
     private void MessageHandler(JSONObject message){
         String type = (String) message.get("type");
-//        switch (type){
-//            case LOGIN:
-//        }
     }
 
 

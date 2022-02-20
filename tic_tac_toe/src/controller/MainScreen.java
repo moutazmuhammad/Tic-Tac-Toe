@@ -2,6 +2,8 @@ package controller;
 
 import ticTac.Connection.Session;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,23 +19,17 @@ public class MainScreen extends Application {
     
     private Parent root;
     private Scene scene;
-    private static Stage stg;
     public static Session session;
     @Override
     public void start(Stage stage) throws Exception {
         
-        stg = stage;
         stage.setResizable(false);
         stage.setTitle("Tic Tac Toe");
-        
+        session = new Session(stage);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/login.fxml"));
         Parent fxmlViewChild = loader.load();
-        LoginController lg = new LoginController();
-        session = new Session(stg);
-        session.loginController = lg;
-        loader.setController(lg);
-        
+        session.controlManager.setLoginController(loader);
         
         scene = new Scene(fxmlViewChild, 690, 390);
         stage.setScene(scene);
@@ -56,6 +52,16 @@ public class MainScreen extends Application {
 
     void changeScene(String mainMenufxml) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public void stop(){
+        try {
+            super.stop();
+            session.CloseConnection();
+        } catch (Exception ex) {
+            Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

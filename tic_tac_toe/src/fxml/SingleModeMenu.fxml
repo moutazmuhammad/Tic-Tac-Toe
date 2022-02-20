@@ -118,12 +118,12 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <Button fx:id="simpleModeButton" layoutX="225.0" layoutY="185.0" mnemonicParsing="false" onAction="#simpleModeButtonAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Easy" textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="simpleModeButton" layoutX="225.0" layoutY="185.0" mnemonicParsing="false" onAction="#simpleModeButtonAction" onMouseEntered="#simpleOnHover" onMouseExited="#simpleOnExit" onMousePressed="#simpleOnPress" onMouseReleased="#simpleOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Easy" textAlignment="CENTER" textFill="#960606">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="mediumModeButton" layoutX="225.0" layoutY="235.0" mnemonicParsing="false" onAction="#mediumModeButtonAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Medium" textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="mediumModeButton" layoutX="225.0" layoutY="235.0" mnemonicParsing="false" onAction="#mediumModeButtonAction" onMouseEntered="#medOnHover" onMouseExited="#medOnExit" onMousePressed="#medOnPress" onMouseReleased="#medOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Medium" textAlignment="CENTER" textFill="#960606">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -223,12 +223,12 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <Button layoutX="16.0" layoutY="355.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #ab3131; -fx-background-radius: 30;" text="Back" textFill="WHITE">
+      <Button fx:id="backButton" layoutX="16.0" layoutY="355.0" mnemonicParsing="false" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMousePressed="#backOnPress" onMouseReleased="#backOnRelease" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #ab3131; -fx-background-radius: 30;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="hardModeButton" layoutX="225.0" layoutY="287.0" mnemonicParsing="false" onAction="#hardModeButtonAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Hard" textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="hardModeButton" layoutX="225.0" layoutY="287.0" mnemonicParsing="false" onAction="#hardModeButtonAction" onMouseEntered="#hardOnHover" onMouseExited="#hardOnExit" onMousePressed="#hardOnPress" onMouseReleased="#hardOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Hard" textAlignment="CENTER" textFill="#960606">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

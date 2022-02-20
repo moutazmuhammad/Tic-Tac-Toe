@@ -68,38 +68,13 @@ public class LoginController implements Initializable {
                 
             });
         }else{
-          FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
-            Parent fxmlViewChild = loader.load();
-
-            Scene fxmlViewScene = new Scene(fxmlViewChild);
-
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            window.setScene(fxmlViewScene);
-
-            window.show();
-//            MainScreen.session.SignInRequest(username.getText(), password.getText());
+            MainScreen.session.signInRequest(username.getText(), password.getText());
         }
     }
     
-    public void ChangeScene(Stage window,String xml)
-    {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(xml));
-            Parent fxmlViewChild = loader.load();
-            
-            Scene fxmlViewScene = new Scene(fxmlViewChild);
-            Platform.runLater(new Runnable() {
-            @Override public void run() {
-                window.setScene(fxmlViewScene);
-                window.show();
-                }
-            });
-            
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void login_failre(){
+        usernameValid.setVisible(true);
+        passwordValid.setVisible(true);
     }
 
     
@@ -117,6 +92,7 @@ public class LoginController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
+        audio("btnHover.mp3");
     }
     
        @FXML
