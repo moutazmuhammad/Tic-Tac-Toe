@@ -77,16 +77,7 @@ public class SignUpController implements Initializable {
             });
             
         }else{
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
-            Parent fxmlViewChild = loader.load();
-
-            Scene fxmlViewScene = new Scene(fxmlViewChild);
-
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            window.setScene(fxmlViewScene);
-
-            window.show();
+            MainScreen.session.signUpRequest(username.getText(), password.getText());
         }
 
         
