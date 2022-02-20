@@ -45,11 +45,7 @@ public class Client {
             JSONObject js = new JSONObject();
             js.put("type", ClientMsg.SIGNIN);
             js.put("username", "Computer");
-<<<<<<< HEAD
             js.put("passwd", "comput");
-=======
-            js.put("passwd", "compute");
->>>>>>> 5773be4066b3e055100994326d28633e649bbf1e
             ps.println(js);
             
             js.clear();
@@ -60,16 +56,6 @@ public class Client {
             ps.println(js);
             js.clear();
             
-<<<<<<< HEAD
-            js.clear();
-            js.put("type", ClientMsg.GET_LEADERBOARD);
-            ps.println(js);
-=======
->>>>>>> 5773be4066b3e055100994326d28633e649bbf1e
-            
-            
-            
-           
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
