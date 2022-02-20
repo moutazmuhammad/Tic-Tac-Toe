@@ -34,6 +34,7 @@ public class Dashboard {
             js.put("type", DahboardMsg.START);
             ps.println(js);
             System.out.println(js);
+            
             js.clear();
             js.put("type", DahboardMsg.CLOSE);
             ps.println(js);

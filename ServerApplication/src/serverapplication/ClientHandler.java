@@ -98,15 +98,19 @@ public class ClientHandler extends Thread{
     boolean log(){
         while(true){
         try {
-            request = new JSONObject(dis.readLine());
+            String re = dis.readLine();
+            System.out.println(re);
+            request = new JSONObject(re);
             ClientMsg msg = request.getEnum(ClientMsg.class,"type");
             switch (msg) {
                 case SIGNIN:
                     if(signIn(request))
                         return true;
+                    break;
                 case SIGNUP:
                     if(signUp(request))
                         return true;
+                    break;
                 case CLOSE_CONNECTION:
                     closeConnection();
                     return false;
@@ -124,7 +128,7 @@ public class ClientHandler extends Thread{
             leaderBoard.put(i, lb.get(i));
         }
         response.clear();
-        response.put("type", ClientMsg.GET_ONLINE_PLAYERS);
+        response.put("type", ClientMsg.GET_LEADERBOARD);
         response.put("LeaderBoard", leaderBoard);
         ps.println(response);
     }
@@ -188,13 +192,13 @@ public class ClientHandler extends Thread{
         response.put("type", ClientMsg.SIGNUP);
         if(r==0){
             response.put("id", 0);
-            ps.println(r);
+            ps.println(response);
             return false;
         }
         else{
             player = db.getPlayerProfile(r);
             response.put("id", player.getId());
-            ps.println(r);
+            ps.println(response);
             return true;
         }
     }

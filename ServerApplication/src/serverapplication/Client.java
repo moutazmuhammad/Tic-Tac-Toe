@@ -27,18 +27,39 @@ public class Client {
             mysocket = new Socket("127.0.0.1", 5005);
             dis = new DataInputStream(mysocket.getInputStream());
             ps = new PrintStream(mysocket.getOutputStream());
+            
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while(true){
+                        try {
+                        JSONObject j = new JSONObject(dis.readLine());
+                        System.out.println(j);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    }
+                }
+            }).start();
+            
             JSONObject js = new JSONObject();
             js.put("type", ClientMsg.SIGNIN);
             js.put("username", "Computer");
-            js.put("passwd", "compute");
+            js.put("passwd", "comput");
             ps.println(js);
             
-            System.out.println(dis.readLine());
+            js.clear();
             
+            js.put("type", ClientMsg.SIGNIN);
+            js.put("username", "Computer");
+            js.put("passwd", "computer");
+            ps.println(js);
+            js.clear();
             
+            js.clear();
+            js.put("type", ClientMsg.GET_LEADERBOARD);
+            ps.println(js);
             
-            
-           
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
