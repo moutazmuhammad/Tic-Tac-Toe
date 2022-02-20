@@ -43,8 +43,6 @@ public class MainMenuController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
-        audio("btnClick.mp3");
-       
     }
     
     @FXML
@@ -59,8 +57,6 @@ public class MainMenuController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
-        audio("btnClick.mp3");
-        
     }
     
     @FXML
@@ -75,10 +71,11 @@ public class MainMenuController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
-       
-        audio("btnClick.mp3");
     }
     
+    
+    
+    //Animation and Sound Effects
     @FXML
     private void singleOnHover(MouseEvent event){
         //SingleModeButton
@@ -98,9 +95,29 @@ public class MainMenuController implements Initializable {
         singleModeButton.setPrefHeight(35);
         singleModeButton.setLayoutX(225);
         singleModeButton.setLayoutY(164);
+        singleIcon.setLayoutY(160); 
+    }
+      
+    @FXML
+    private void singleOnPress(MouseEvent event){
+        //SingleModeButton
+        singleModeButton.setPrefWidth(250);
+        singleModeButton.setPrefHeight(35);
+        singleModeButton.setLayoutX(225);
+        singleModeButton.setLayoutY(164);
         singleIcon.setLayoutY(160);
-        
-        
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void singleOnRelease(MouseEvent event){
+        //SingleModeButton
+        singleModeButton.setPrefWidth(270);
+        singleModeButton.setPrefHeight(45);
+        singleModeButton.setLayoutX(215);
+        singleModeButton.setLayoutY(164);
+        singleIcon.setLayoutY(165);
+         audio("btnHover.mp3"); 
     }
     
     @FXML
@@ -125,6 +142,27 @@ public class MainMenuController implements Initializable {
     }
     
     @FXML
+    private void multiOnPress(MouseEvent event){
+        //MultiModeButton
+        MultiModeButton.setPrefWidth(250);
+        MultiModeButton.setPrefHeight(35);
+        MultiModeButton.setLayoutX(226);
+        MultiModeButton.setLayoutY(216);
+        multiIcon.setLayoutY(213);
+        audio("btnClick.mp3");
+    }
+    @FXML
+    private void multiOnRelease(MouseEvent event){
+         //MultiModeButton
+        MultiModeButton.setPrefWidth(270);
+        MultiModeButton.setPrefHeight(45);
+        MultiModeButton.setLayoutX(216);
+        MultiModeButton.setLayoutY(216);
+        multiIcon.setLayoutY(218);
+         
+    }
+    
+    @FXML
     private void leaderOnHover(MouseEvent event){
          //LeaderBoardButton
         leaderButton.setPrefWidth(270);
@@ -145,8 +183,29 @@ public class MainMenuController implements Initializable {
         leaderIcon.setLayoutY(263);
     }
     
+    @FXML
+    private void leaderOnPress(MouseEvent event){
+        //LeaderBoardButton
+        leaderButton.setPrefWidth(250);
+        leaderButton.setPrefHeight(35);
+        leaderButton.setLayoutX(226);
+        leaderButton.setLayoutY(270);
+        leaderIcon.setLayoutY(263);
+        audio("btnClick.mp3");
+    }
     
-     @FXML
+        @FXML
+    private void leaderOnRelease(MouseEvent event){
+         //LeaderBoardButton
+        leaderButton.setPrefWidth(270);
+        leaderButton.setPrefHeight(45);
+        leaderButton.setLayoutX(216);
+        leaderButton.setLayoutY(270);
+        leaderIcon.setLayoutY(266);
+    }
+    
+    
+    @FXML
     private void aboutOnHover(MouseEvent event){
          //aboutButton
         aboutButton.setPrefWidth(270);
@@ -164,6 +223,27 @@ public class MainMenuController implements Initializable {
         aboutButton.setLayoutX(226);
         aboutButton.setLayoutY(328);
     }
+    
+    @FXML
+    private void aboutOnPress(MouseEvent event){
+        //aboutButton
+        aboutButton.setPrefWidth(250);
+        aboutButton.setPrefHeight(35);
+        aboutButton.setLayoutX(226);
+        aboutButton.setLayoutY(328);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void aboutOnRelease(MouseEvent event){
+         //aboutButton
+        aboutButton.setPrefWidth(270);
+        aboutButton.setPrefHeight(45);
+        aboutButton.setLayoutX(216);
+        aboutButton.setLayoutY(328);
+    }
+    
+   
     
    private void audio(String soundEffect){
         Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
