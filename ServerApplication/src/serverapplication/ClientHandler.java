@@ -128,7 +128,11 @@ public class ClientHandler extends Thread{
             leaderBoard.put(i, lb.get(i));
         }
         response.clear();
+<<<<<<< HEAD
         response.put("type", ClientMsg.GET_LEADERBOARD);
+=======
+        response.put("type", ClientMsg.GET_ONLINE_PLAYERS);
+>>>>>>> 5773be4066b3e055100994326d28633e649bbf1e
         response.put("LeaderBoard", leaderBoard);
         ps.println(response);
     }
