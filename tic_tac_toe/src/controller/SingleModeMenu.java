@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  * FXML Controller class
@@ -23,7 +25,7 @@ import javafx.scene.input.MouseEvent;
 public class SingleModeMenu implements Initializable {
     
     @FXML
-    private Button simpleModeButton, mediumModeButton;
+    private Button simpleModeButton, mediumModeButton, hardModeButton, backButton;
     
 
     
@@ -74,46 +76,7 @@ public class SingleModeMenu implements Initializable {
         
     }
     
-    @FXML
-    private void singleOnHover(MouseEvent event){
-        //hardModeButton
-        simpleModeButton.setPrefWidth(270);
-        simpleModeButton.setPrefHeight(45);
-        simpleModeButton.setLayoutX(215);
-        simpleModeButton.setLayoutY(164);
-       
-    }
-    
-    @FXML
-    private void singleOnExit(MouseEvent event){
-        //hardModeButton
-        simpleModeButton.setPrefWidth(250);
-        simpleModeButton.setPrefHeight(35);
-        simpleModeButton.setLayoutX(225);
-        simpleModeButton.setLayoutY(164);
-        
-        
-    }
-    
-    @FXML
-    private void multiOnHover(MouseEvent event){
-         //mediumModeButton
-        mediumModeButton.setPrefWidth(270);
-        mediumModeButton.setPrefHeight(45);
-        mediumModeButton.setLayoutX(216);
-        mediumModeButton.setLayoutY(216);
-    }
-    
-    @FXML
-    private void multiOnExit(MouseEvent event){
-        //mediumModeButton
-        mediumModeButton.setPrefWidth(250);
-        mediumModeButton.setPrefHeight(35);
-        mediumModeButton.setLayoutX(226);
-        mediumModeButton.setLayoutY(216);
-    }
-    
-    @FXML
+     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
@@ -127,6 +90,147 @@ public class SingleModeMenu implements Initializable {
         window.show();
         
     }
+    
+    
+    //Animation and Sound Effects
+    @FXML
+    private void simpleOnHover(MouseEvent event){
+        //hardModeButton
+        simpleModeButton.setPrefWidth(270);
+        simpleModeButton.setPrefHeight(45);
+        simpleModeButton.setLayoutX(215);
+        simpleModeButton.setLayoutY(185);
+        audio("btnHover.mp3");
+       
+    }
+    
+    @FXML
+    private void simpleOnExit(MouseEvent event){
+        //hardModeButton
+        simpleModeButton.setPrefWidth(250);
+        simpleModeButton.setPrefHeight(35);
+        simpleModeButton.setLayoutX(225);
+        simpleModeButton.setLayoutY(185);
+    }
+    
+    @FXML
+    private void simpleOnPress(MouseEvent event){
+        simpleModeButton.setPrefWidth(250);
+        simpleModeButton.setPrefHeight(35);
+        simpleModeButton.setLayoutX(225);
+        simpleModeButton.setLayoutY(185);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void simpleOnRelease(MouseEvent event){
+        simpleModeButton.setPrefWidth(270);
+        simpleModeButton.setPrefHeight(45);
+        simpleModeButton.setLayoutX(215);
+        simpleModeButton.setLayoutY(185);
+    }
+    
+    @FXML
+    private void medOnHover(MouseEvent event){
+         //mediumModeButton
+        mediumModeButton.setPrefWidth(270);
+        mediumModeButton.setPrefHeight(45);
+        mediumModeButton.setLayoutX(215);
+        mediumModeButton.setLayoutY(235);
+        audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void medOnExit(MouseEvent event){
+        //mediumModeButton
+        mediumModeButton.setPrefWidth(250);
+        mediumModeButton.setPrefHeight(35);
+        mediumModeButton.setLayoutX(225);
+        mediumModeButton.setLayoutY(235);
+    }
+    
+    @FXML
+    private void medOnPress(MouseEvent event){
+        mediumModeButton.setPrefWidth(250);
+        mediumModeButton.setPrefHeight(35);
+        mediumModeButton.setLayoutX(225);
+        mediumModeButton.setLayoutY(235);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void medOnRelease(MouseEvent event){
+        mediumModeButton.setPrefWidth(270);
+        mediumModeButton.setPrefHeight(45);
+        mediumModeButton.setLayoutX(215);
+        mediumModeButton.setLayoutY(235);
+    }
+    
+      @FXML
+    private void hardOnHover(MouseEvent event){
+        hardModeButton.setPrefWidth(270);
+        hardModeButton.setPrefHeight(45);
+        hardModeButton.setLayoutX(215);
+        hardModeButton.setLayoutY(287);
+          audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void hardOnExit(MouseEvent event){
+        hardModeButton.setPrefWidth(250);
+        hardModeButton.setPrefHeight(35);
+        hardModeButton.setLayoutX(225);
+        hardModeButton.setLayoutY(287);
+    }
+    
+    
+    
+    @FXML
+    private void hardOnPress(MouseEvent event){
+        hardModeButton.setPrefWidth(250);
+        hardModeButton.setPrefHeight(35);
+        hardModeButton.setLayoutX(225);
+        hardModeButton.setLayoutY(287);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void hardOnRelease(MouseEvent event){
+        hardModeButton.setPrefWidth(270);
+        hardModeButton.setPrefHeight(45);
+        hardModeButton.setLayoutX(215);
+        hardModeButton.setLayoutY(287);
+    }
+    
+    
+    @FXML
+    private void backOnPress(MouseEvent event){
+        backButton.setPrefWidth(85);
+        backButton.setPrefHeight(15);
+        backButton.setLayoutX(16);
+        backButton.setLayoutY(355);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void backOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    @FXML
+    private void backOnRelease(MouseEvent event){
+        backButton.setPrefWidth(105);
+        backButton.setPrefHeight(25);
+        backButton.setLayoutX(16);
+        backButton.setLayoutY(355);
+    }
+    
+    private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
+    
+   
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
