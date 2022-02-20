@@ -48,6 +48,7 @@ public class SignUpController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
+        audio("btnHover.mp3");
  
     }
     

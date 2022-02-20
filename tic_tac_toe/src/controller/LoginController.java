@@ -117,6 +117,7 @@ public class LoginController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
+        audio("btnHover.mp3");
     }
     
        @FXML
