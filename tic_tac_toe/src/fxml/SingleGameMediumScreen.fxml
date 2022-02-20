@@ -284,18 +284,18 @@
       <ImageView fx:id="b1" fitHeight="60.0" fitWidth="64.0" layoutX="291.0" layoutY="111.0" onMouseClicked="#b1ButtonAction" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="b8" fitHeight="60.0" fitWidth="64.0" layoutX="382.0" layoutY="275.0" onMouseClicked="#b8ButtonAction" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="b0" fitHeight="60.0" fitWidth="64.0" layoutX="200.0" layoutY="111.0" onMouseClicked="#b0ButtonAction" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="resetButton" layoutX="295.0" layoutY="361.0" onAction="#playAgainButtonAction" onMouseEntered="#resetOnHover" onMouseExited="#resetOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Reset" textFill="#a80505">
+      <Button fx:id="resetButton" layoutX="295.0" layoutY="361.0" onAction="#playAgainButtonAction" onMouseEntered="#resetOnHover" onMousePressed="#resetOnPress" onMouseReleased="#resetOnRelease" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Reset" textFill="#a80505">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
       <ImageView fx:id="b6" fitHeight="60.0" fitWidth="64.0" layoutX="200.0" layoutY="275.0" onMouseClicked="#b6ButtonAction" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="screenshotBtn" layoutX="521.0" layoutY="360.0" onAction="#ScreenshotButtonAction" onMouseEntered="#screenOnHover" onMouseExited="#screenOnExit" prefHeight="31.0" prefWidth="158.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Screenshot" textFill="#6c15d4">
+      <Button fx:id="screenshotBtn" layoutX="521.0" layoutY="360.0" onAction="#ScreenshotButtonAction" onMouseEntered="#screenOnHover" onMousePressed="#screenOnPress" onMouseReleased="#screenOnRelease" prefHeight="31.0" prefWidth="158.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Screenshot" textFill="#6c15d4">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="backButton" layoutX="24.0" layoutY="361.0" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMouseExited="#backOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Back" textFill="#6c15d4">
+      <Button fx:id="backButton" layoutX="24.0" layoutY="361.0" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMousePressed="#backOnPress" onMouseReleased="#backOnRelease" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Back" textFill="#6c15d4">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

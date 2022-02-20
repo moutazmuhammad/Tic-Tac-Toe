@@ -896,47 +896,57 @@ public class SingleGameScreenMediumController implements Initializable {
     
     
     
-    //Animating Buttons
-    @FXML
+    //Sound Effects and Animation
+     @FXML 
     private void backOnHover(MouseEvent event){
-        backButton.setPrefWidth(85);
-        backButton.setPrefHeight(35);
-        backButton.setLayoutY(354);
+        audio("btnHover.mp3");
+    }
+    @FXML
+    private void backOnPress(MouseEvent event){
+        backButton.setPrefWidth(72);
+        backButton.setPrefHeight(15);
     }
     
     @FXML
-    private void backOnExit(MouseEvent event){
-        backButton.setPrefWidth(75);
+    private void backOnRelease(MouseEvent event){
+        backButton.setPrefWidth(92);
         backButton.setPrefHeight(25); 
-        backButton.setLayoutY(359);
     }
     
-    @FXML
+    @FXML 
     private void resetOnHover(MouseEvent event){
-        resetButton.setPrefWidth(102);
-        resetButton.setPrefHeight(35);
-        resetButton.setLayoutY(354);
+        audio("btnHover.mp3");
     }
     
     @FXML
-    private void resetOnExit(MouseEvent event){
+    private void resetOnPress(MouseEvent event){
+        resetButton.setPrefWidth(72);
+        resetButton.setPrefHeight(15);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void resetOnRelease(MouseEvent event){
         resetButton.setPrefWidth(92);
         resetButton.setPrefHeight(25); 
-        resetButton.setLayoutY(359);
     }
     
-      @FXML
+    @FXML 
     private void screenOnHover(MouseEvent event){
-        screenshotBtn.setPrefWidth(102);
-        screenshotBtn.setPrefHeight(35);
-        screenshotBtn.setLayoutY(354);
+        audio("btnHover.mp3");
     }
     
     @FXML
-    private void screenOnExit(MouseEvent event){
-        screenshotBtn.setPrefWidth(92);
-        screenshotBtn.setPrefHeight(25); 
-        screenshotBtn.setLayoutY(359);
+    private void screenOnPress(MouseEvent event){
+        screenshotBtn.setPrefWidth(138);
+        screenshotBtn.setPrefHeight(21);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void screenOnRelease(MouseEvent event){
+        screenshotBtn.setPrefWidth(158);
+        screenshotBtn.setPrefHeight(31); 
       }
     
      private void audio(String soundEffect){
