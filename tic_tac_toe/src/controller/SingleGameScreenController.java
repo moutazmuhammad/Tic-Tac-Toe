@@ -60,6 +60,52 @@ public class SingleGameScreenController implements Initializable {
     private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //player
     private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //computer
     
+    private void showDialog (){
+        int xResult= xPlayerWonGame();
+                
+                
+                if (xResult == 1){
+            try {
+                flage=0;
+                updatePlayerScore();
+                
+                xWinnerAction();
+                dialog.show();
+            } catch (IOException ex) {
+                Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                }
+                else{
+                    computerPlayer();
+                    int oResult= computerWonGame();
+
+                    if (oResult == 1){
+                        try {
+                            flage=0;
+                            updateComputerScore();
+                            
+                            fillPositions();
+                            oWinnerAction();
+                            dialog.show();
+                        } catch (IOException ex) {
+                            Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
+                    }  
+                }
+                if (flage==1 &&checkFillPositions()==9){
+            try {
+                fillPositions();
+                drawAction();
+                dialog.show();
+            } catch (IOException ex) {
+                Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                }
+    }
+    
+    
+    
     private void updateComputerScore(){
         computer_score++;
         String cScore = ""+computer_score;
@@ -123,7 +169,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b0ButtonAction(ActionEvent event) throws InterruptedException, IOException {
+    private void b0ButtonAction(ActionEvent event)  {
         
         if (buttonPosition[0]==0){
             
@@ -135,36 +181,8 @@ public class SingleGameScreenController implements Initializable {
                
                 buttonPosition[0]=1;
                 xPlayerWon[0]=1;
+                showDialog ();
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                        
-                    }  
-                }
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
             }
         }
         else{
@@ -173,7 +191,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b1ButtonAction(ActionEvent event) throws IOException {
+    private void b1ButtonAction(ActionEvent event) {
         
         if (buttonPosition[1]==0){
             
@@ -186,34 +204,7 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[1]=1;
                 xPlayerWon[1]=1;
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-                        
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                    }  
-                }
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
+                showDialog ();
                 
                                 
             }
@@ -224,7 +215,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b2ButtonAction(ActionEvent event) throws IOException {
+    private void b2ButtonAction(ActionEvent event) {
         
         if (buttonPosition[2]==0){
             
@@ -237,34 +228,7 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[2]=1;
                 xPlayerWon[2]=1;
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-                        
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                    }  
-                }  
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
+                showDialog ();
             }
         }
         else{
@@ -273,7 +237,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b3ButtonAction(ActionEvent event) throws IOException {
+    private void b3ButtonAction(ActionEvent event){
         
         if (buttonPosition[3]==0){
             
@@ -286,34 +250,7 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[3]=1;
                 xPlayerWon[3]=1;
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-                        
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                    }  
-                } 
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
+                showDialog ();
             }
         }
         else{
@@ -322,7 +259,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b4ButtonAction(ActionEvent event) throws IOException {
+    private void b4ButtonAction(ActionEvent event){
         
         if (buttonPosition[4]==0){
             
@@ -335,34 +272,7 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[4]=1;
                 xPlayerWon[4]=1;
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-                        
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                    }  
-                }  
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
+                showDialog ();
             }
         }
         else{
@@ -371,7 +281,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b5ButtonAction(ActionEvent event) throws IOException {
+    private void b5ButtonAction(ActionEvent event) {
         
         if (buttonPosition[5]==0){
             
@@ -384,34 +294,7 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[5]=1;
                 xPlayerWon[5]=1;
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-                        
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                    }  
-                } 
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
+                showDialog ();
             }
         }
         else{
@@ -420,7 +303,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b6ButtonAction(ActionEvent event) throws IOException {
+    private void b6ButtonAction(ActionEvent event){
         
         if (buttonPosition[6]==0){
             
@@ -433,34 +316,7 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[6]=1;
                 xPlayerWon[6]=1;
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-                        
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                    }  
-                } 
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
+                showDialog ();
             }
         }
         else{
@@ -469,7 +325,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b7ButtonAction(ActionEvent event) throws IOException {
+    private void b7ButtonAction(ActionEvent event){
         
         if (buttonPosition[7]==0){
             
@@ -482,34 +338,7 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[7]=1;
                 xPlayerWon[7]=1;
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-                        
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                    }  
-                }    
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
+                showDialog ();
             }
         }
         else{
@@ -518,7 +347,7 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b8ButtonAction(ActionEvent event) throws IOException {
+    private void b8ButtonAction(ActionEvent event){
         
         if (buttonPosition[8]==0){
             
@@ -531,34 +360,7 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[8]=1;
                 xPlayerWon[8]=1;
                 
-                int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-                    flage=0;
-                    updatePlayerScore();
-                    
-                    xWinnerAction();
-                    dialog.show();
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        flage=0;
-                        updateComputerScore();
-                        
-                        fillPositions();
-                        oWinnerAction();
-                        dialog.show();
-                    }  
-                } 
-                if (flage==1 &&checkFillPositions()==9){
-                    fillPositions();
-                    drawAction();
-                    dialog.show();
-                }
+                showDialog ();
             }
         }
         else{
