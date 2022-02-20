@@ -18,6 +18,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  *
@@ -89,7 +91,42 @@ public class SignUpController implements Initializable {
         
     }
     
+       @FXML
+    private void signUpOnHover(MouseEvent event){
+        signUp.setPrefWidth(163);
+        signUp.setPrefHeight(35);
+        signUp.setLayoutY(250);
+           audio("btnHover.mp3");
+    }
     
+    @FXML
+    private void signUpOnExit(MouseEvent event){
+        signUp.setPrefWidth(153);
+        signUp.setPrefHeight(25); 
+        signUp.setLayoutY(255);
+    }
+    
+    
+    @FXML
+    private void signUpOnPress(MouseEvent event){
+         signUp.setPrefWidth(153);
+        signUp.setPrefHeight(25); 
+        signUp.setLayoutY(255);
+           audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void signUpOnRelease(MouseEvent event){
+         signUp.setPrefWidth(163);
+        signUp.setPrefHeight(35);
+        signUp.setLayoutY(250);
+    }
+    
+    private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
