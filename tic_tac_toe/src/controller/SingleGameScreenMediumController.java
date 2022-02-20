@@ -67,49 +67,6 @@ public class SingleGameScreenMediumController implements Initializable {
     private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //player
     private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //computer
     
-    private void showDialog (){
-        int xResult= xPlayerWonGame();
-                if (xResult == 1){
-            try {
-                flage=0;
-                updatePlayerScore();
-                
-                xWinnerAction();
-                dialog.show();
-            } catch (IOException ex) {
-                Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        try {
-                            flage=0;
-                            updateComputerScore();
-                            
-                            fillPositions();
-                            oWinnerAction();
-                            dialog.show();
-                        } catch (IOException ex) {
-                            Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        
-                    }  
-                }
-                if (flage==1 &&checkFillPositions()==9){
-            try {
-                fillPositions();
-                drawAction();
-                dialog.show();
-            } catch (IOException ex) {
-                Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                }
-    }
-    
-    
     private void updateComputerScore(){
         computer_score++;
         String cScore = ""+computer_score;
@@ -147,6 +104,7 @@ public class SingleGameScreenMediumController implements Initializable {
         dialog.setDialogPane(winner);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Draw");
+        dialog.show();
     }
     
     private void xWinnerAction() throws IOException{
@@ -158,6 +116,7 @@ public class SingleGameScreenMediumController implements Initializable {
         dialog.setDialogPane(winner);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Winner");
+        dialog.show();
     }
     
     
@@ -170,7 +129,52 @@ public class SingleGameScreenMediumController implements Initializable {
         dialog.setDialogPane(winner);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Game Over");
+        dialog.show();
     }
+    
+    private void checkPlayer(){
+        int xResult= xPlayerWonGame();
+        if (xResult == 1){
+            try {
+                flage=0;
+                updatePlayerScore();
+                fillPositions();
+                xWinnerAction();
+            } catch (IOException ex) {
+                Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    private void computer (){
+        if(checkFillPositions()!=9){
+            computerPlayer();
+        }
+        int oResult= computerWonGame();
+        if (oResult == 1){
+            try {
+                flage=0;
+                updateComputerScore();
+                fillPositions();
+                oWinnerAction();
+            } catch (IOException ex) {
+                Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }  
+    }
+    
+    private void checkTie(){
+        if (flage==1 && checkFillPositions()==9){
+            try {
+                fillPositions();
+                drawAction();
+            } catch (IOException ex) {
+                Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     
     @FXML
     private void b0ButtonAction(MouseEvent event)  {
@@ -187,7 +191,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[0]=1;
                 xPlayerWon[0]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -210,7 +216,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[1]=1;
                 xPlayerWon[1]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
                 
             }
         }
@@ -234,7 +242,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[2]=1;
                 xPlayerWon[2]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -257,7 +267,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[3]=1;
                 xPlayerWon[3]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -280,7 +292,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[4]=1;
                 xPlayerWon[4]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -303,7 +317,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[5]=1;
                 xPlayerWon[5]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -326,7 +342,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[6]=1;
                 xPlayerWon[6]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -349,7 +367,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[7]=1;
                 xPlayerWon[7]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -372,7 +392,9 @@ public class SingleGameScreenMediumController implements Initializable {
                 buttonPosition[8]=1;
                 xPlayerWon[8]=1;
                 
-                showDialog();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -414,6 +436,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
+        
         else if (oPlayerWon[3] == 1 && oPlayerWon[4] == 1 && xPlayerWon[5]== 0 && oPlayerWon[5]== 0){
             turnPosition++; //To Skep the next index
             b5.setImage(O);
@@ -435,6 +458,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
+        
         else if (oPlayerWon[6] == 1 && oPlayerWon[7] == 1 && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
             b8.setImage(O);
@@ -456,6 +480,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
+        
         else if (oPlayerWon[2] == 1 && oPlayerWon[4] == 1 && xPlayerWon[6]== 0 && oPlayerWon[6]== 0){
             turnPosition++; //To Skep the next index
             b6.setImage(O);
@@ -477,6 +502,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
+        
         else if (oPlayerWon[0] == 1 && oPlayerWon[4] == 1 && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
             b8.setImage(O);
@@ -498,7 +524,6 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }    
-        
         
         else if (oPlayerWon[0] == 1 && oPlayerWon[3] == 1 && xPlayerWon[6]== 0 && oPlayerWon[6]== 0){
             turnPosition++; //To Skep the next index
@@ -522,7 +547,6 @@ public class SingleGameScreenMediumController implements Initializable {
             buttonPosition[0]=1;
         }     
         
-        
         else if (oPlayerWon[1] == 1 && oPlayerWon[4] == 1 && xPlayerWon[7]== 0 && oPlayerWon[7]== 0){
             turnPosition++; //To Skep the next index
             b7.setImage(O);
@@ -545,7 +569,7 @@ public class SingleGameScreenMediumController implements Initializable {
             buttonPosition[4]=1;
         } 
         
-        else if (oPlayerWon[2] == 1 && oPlayerWon[5] == 1 && xPlayerWon[7]== 0 && oPlayerWon[8]== 0){
+        else if (oPlayerWon[2] == 1 && oPlayerWon[5] == 1 && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
             b8.setImage(O);
 //            b8.setStyle("-fx-background-color: #ee7070");
@@ -588,6 +612,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
+        
         else if (xPlayerWon[3] == 1 && xPlayerWon[4] == 1 && oPlayerWon[5]== 0 && xPlayerWon[5]== 0){
             turnPosition++; //To Skep the next index
             b5.setImage(O);
@@ -609,6 +634,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
+        
         else if (xPlayerWon[6] == 1 && xPlayerWon[7] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
             b8.setImage(O);
@@ -630,6 +656,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
+        
         else if (xPlayerWon[2] == 1 && xPlayerWon[4] == 1 && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
             turnPosition++; //To Skep the next index
             b6.setImage(O);
@@ -651,6 +678,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
+        
         else if (xPlayerWon[0] == 1 && xPlayerWon[4] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
             b8.setImage(O);
@@ -672,6 +700,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }
+        
         else if (xPlayerWon[0] == 1 && xPlayerWon[3] == 1 && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
             turnPosition++; //To Skep the next index
             b6.setImage(O);
@@ -693,6 +722,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }
+        
         else if (xPlayerWon[1] == 1 && xPlayerWon[4] == 1 && oPlayerWon[7]== 0 && xPlayerWon[7]== 0){
             turnPosition++; //To Skep the next index
             b7.setImage(O);
@@ -714,6 +744,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
+        
         else if (xPlayerWon[2] == 1 && xPlayerWon[5] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
             b8.setImage(O);
@@ -735,6 +766,7 @@ public class SingleGameScreenMediumController implements Initializable {
             oPlayerWon[5]=1;
             buttonPosition[5]=1;
         }
+        
         else if (! emptyPositions.isEmpty()){            
             if (emptyPositions.get(computerPosition) == 0){
                 b0.setImage(O);
@@ -780,56 +812,28 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     private int xPlayerWonGame(){
-        if (xPlayerWon[0]==1 && xPlayerWon[1]==1 && xPlayerWon[2]==1){
-            return 1;
-        }
-        if (xPlayerWon[3]==1 && xPlayerWon[4]==1 && xPlayerWon[5]==1){
-            return 1;
-        }
-        if (xPlayerWon[6]==1 && xPlayerWon[7]==1 && xPlayerWon[8]==1){
-            return 1;
-        }
-        if (xPlayerWon[0]==1 && xPlayerWon[3]==1 && xPlayerWon[6]==1){
-            return 1;
-        }
-        if (xPlayerWon[1]==1 && xPlayerWon[4]==1 && xPlayerWon[7]==1){
-            return 1;
-        }
-        if (xPlayerWon[2]==1 && xPlayerWon[5]==1 && xPlayerWon[8]==1){
-            return 1;
-        }
-        if (xPlayerWon[0]==1 && xPlayerWon[4]==1 && xPlayerWon[8]==1){
-            return 1;
-        }
-        if (xPlayerWon[2]==1 && xPlayerWon[4]==1 && xPlayerWon[6]==1){
+        if ((xPlayerWon[0]==1 && xPlayerWon[1]==1 && xPlayerWon[2]==1)||
+                (xPlayerWon[3]==1 && xPlayerWon[4]==1 && xPlayerWon[5]==1)||
+                (xPlayerWon[6]==1 && xPlayerWon[7]==1 && xPlayerWon[8]==1)||
+                (xPlayerWon[0]==1 && xPlayerWon[3]==1 && xPlayerWon[6]==1)||
+                (xPlayerWon[1]==1 && xPlayerWon[4]==1 && xPlayerWon[7]==1)||
+                (xPlayerWon[2]==1 && xPlayerWon[5]==1 && xPlayerWon[8]==1)||
+                (xPlayerWon[0]==1 && xPlayerWon[4]==1 && xPlayerWon[8]==1)||
+                (xPlayerWon[2]==1 && xPlayerWon[4]==1 && xPlayerWon[6]==1)){
             return 1;
         }
         return 0;
     }
     
     int computerWonGame(){
-        if (oPlayerWon[0]==1 && oPlayerWon[1]==1 && oPlayerWon[2]==1){
-            return 1;
-        }
-        if (oPlayerWon[3]==1 && oPlayerWon[4]==1 && oPlayerWon[5]==1){
-            return 1;
-        }
-        if (oPlayerWon[6]==1 && oPlayerWon[7]==1 && oPlayerWon[8]==1){
-            return 1;
-        }
-        if (oPlayerWon[0]==1 && oPlayerWon[3]==1 && oPlayerWon[6]==1){
-            return 1;
-        }
-        if (oPlayerWon[1]==1 && oPlayerWon[4]==1 && oPlayerWon[7]==1){
-            return 1;
-        }
-        if (oPlayerWon[2]==1 && oPlayerWon[5]==1 && oPlayerWon[8]==1){
-            return 1;
-        }
-        if (oPlayerWon[0]==1 && oPlayerWon[4]==1 && oPlayerWon[8]==1){
-            return 1;
-        }
-        if (oPlayerWon[2]==1 && oPlayerWon[4]==1 && oPlayerWon[6]==1){
+        if ((oPlayerWon[0]==1 && oPlayerWon[1]==1 && oPlayerWon[2]==1)||
+                (oPlayerWon[3]==1 && oPlayerWon[4]==1 && oPlayerWon[5]==1)||
+                (oPlayerWon[6]==1 && oPlayerWon[7]==1 && oPlayerWon[8]==1)||
+                (oPlayerWon[0]==1 && oPlayerWon[3]==1 && oPlayerWon[6]==1)||
+                (oPlayerWon[1]==1 && oPlayerWon[4]==1 && oPlayerWon[7]==1)||
+                (oPlayerWon[2]==1 && oPlayerWon[5]==1 && oPlayerWon[8]==1)||
+                (oPlayerWon[0]==1 && oPlayerWon[4]==1 && oPlayerWon[8]==1)||
+                (oPlayerWon[2]==1 && oPlayerWon[4]==1 && oPlayerWon[6]==1)){
             return 1;
         }
         return 0;
