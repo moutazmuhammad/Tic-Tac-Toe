@@ -119,9 +119,6 @@ public class LoginController implements Initializable {
         window.show();
     }
     
-<<<<<<< HEAD:tic_tac_toe/src/controller/LoginController.java
-=======
-    
        @FXML
     private void loginOnHover(MouseEvent event){
         loginButton.setPrefWidth(163);
@@ -161,8 +158,8 @@ public class LoginController implements Initializable {
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
     }
->>>>>>> 43a5ea4c616a0e8dcbfa761aafe28943a414d237:tic_tac_toe/src/ticTac/LoginController.java
-    @Override
+
+     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 
