@@ -2,6 +2,8 @@ package controller;
 
 import ticTac.Connection.Session;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -55,7 +57,12 @@ public class MainScreen extends Application {
     
     @Override
     public void stop(){
-        session.CloseConnection();
+        try {
+            super.stop();
+            session.CloseConnection();
+        } catch (Exception ex) {
+            Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
