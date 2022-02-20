@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #1F8F76;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #1F8F76;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.SignUpController">
     <children>
       <Pane layoutX="419.0" layoutY="35.0" prefHeight="335.0" prefWidth="250.0" style="-fx-background-color: #05282E;">
          <children>
@@ -35,11 +35,7 @@
                   <Font size="13.0" />
                </font>
             </PasswordField>
-<<<<<<< HEAD:tic_tac_toe/src/fxml/signUp.fxml
-            <Button fx:id="signUp" contentDisplay="BOTTOM" layoutX="49.0" layoutY="255.0" mnemonicParsing="false" onAction="#SignUpButtonAction" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Sign up" textAlignment="CENTER" textFill="WHITE">
-=======
             <Button fx:id="signUp" contentDisplay="BOTTOM" defaultButton="true" layoutX="49.0" layoutY="255.0" mnemonicParsing="false" onAction="#SignUpButtonAction" onMouseEntered="#signOnHover" onMouseExited="#signOnExit" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Sign up" textAlignment="CENTER" textFill="WHITE">
->>>>>>> 43a5ea4c616a0e8dcbfa761aafe28943a414d237:tic_tac_toe/build/classes/ticTac/signUp.fxml
                <font>
                   <Font name="Algerian" size="15.0" />
                </font>

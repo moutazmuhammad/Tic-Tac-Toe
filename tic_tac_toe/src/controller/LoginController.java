@@ -21,6 +21,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  *
@@ -117,6 +119,49 @@ public class LoginController implements Initializable {
         window.show();
     }
     
+<<<<<<< HEAD:tic_tac_toe/src/controller/LoginController.java
+=======
+    
+       @FXML
+    private void loginOnHover(MouseEvent event){
+        loginButton.setPrefWidth(163);
+        loginButton.setPrefHeight(35);
+        loginButton.setLayoutY(250);
+           audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void loginOnExit(MouseEvent event){
+        loginButton.setPrefWidth(153);
+        loginButton.setPrefHeight(25); 
+        loginButton.setLayoutY(255);
+    }
+    
+    
+       @FXML
+    private void loginOnPress(MouseEvent event){
+         loginButton.setPrefWidth(153);
+        loginButton.setPrefHeight(25); 
+        loginButton.setLayoutY(255);
+           audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void loginOnRelease(MouseEvent event){
+         loginButton.setPrefWidth(163);
+        loginButton.setPrefHeight(35);
+        loginButton.setLayoutY(250);
+    }
+    
+    
+    
+    
+     private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
+>>>>>>> 43a5ea4c616a0e8dcbfa761aafe28943a414d237:tic_tac_toe/src/ticTac/LoginController.java
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
