@@ -1,6 +1,7 @@
 package ticTac.Connection;
 
 import controller.ControlManager;
+import controller.LeaderBoardController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +15,9 @@ import javafx.application.Platform;
 import org.json.JSONObject;
 import ticTac.Connection.msgType;
 import controller.LoginController;
+import java.util.HashMap;
+import java.util.Set;
+import org.json.JSONArray;
 
 public class Session extends Thread{
     private Stage stage;
@@ -85,27 +89,12 @@ public class Session extends Thread{
             }
         });
     }
-
     
-
-    public void signInResponse(JSONObject Message)
+    public FXMLLoader changeScene(String xml)
     {
-        int id = Message.getInt("id");
-        if(id == 0 )
-        {
-            controlManager.getLoginController().login_failre();
-        }
-        else
-        {
-            changeScene("/fxml/mainMenu.fxml");
-        }
-    }
-    
-    
-    public void changeScene(String xml)
-    {
+        FXMLLoader loader = null;
         try {
-            FXMLLoader loader = new FXMLLoader();
+            loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(xml));
             Parent fxmlViewChild = loader.load();
             Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -119,6 +108,7 @@ public class Session extends Thread{
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return loader;
     }
 
     public void signInRequest(String Username , String Password)
@@ -130,7 +120,22 @@ public class Session extends Thread{
         printStream.println(js);
     }
     
-    public void signUpResponse(JSONObject Message)
+    private void signInResponse(JSONObject Message)
+    {
+        int id = Message.getInt("id");
+        if(id == 0 )
+        {
+            controlManager.getLoginController().login_failre();
+        }
+        else
+        {
+            changeScene("/fxml/mainMenu.fxml");
+        }
+    }
+    
+
+    
+    private void signUpResponse(JSONObject Message)
     {
         int id = Message.getInt("id");
         if(id == 0 )
@@ -143,6 +148,7 @@ public class Session extends Thread{
             return;
         }
     }
+    
 
     public void signUpRequest(String Username , String Password)
     {
@@ -152,6 +158,21 @@ public class Session extends Thread{
         js.put("passwd", Password);
         printStream.println(js);
     }
+    
+    public void getLeaderboardRequest()
+    {
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.GET_LEADERBOARD);
+        printStream.println(js);
+    }
+    
+    private void getLeaderboardResponse(JSONObject Message)
+    {
+        controlManager.setLeaderBoardController(changeScene("/fxml/LeaderBoard.fxml"));
+        controlManager.getLeaderBoardController().loadLeaderBoard(Message);
+    }
+    
+
 
     public void run(){
         while(true){
@@ -170,6 +191,9 @@ public class Session extends Thread{
                         break;
                     case SIGNUP:
                         signUpResponse(response);
+                        break;
+                    case GET_LEADERBOARD:
+                        getLeaderboardResponse(response);
                         break;
                 }
 

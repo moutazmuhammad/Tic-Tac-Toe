@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.json.JSONObject;
 
 /**
  * FXML Controller class
@@ -72,13 +73,13 @@ public class LeaderBoardController implements Initializable {
         
     }
     
-    public void loadLeaderBoard(HashMap<String,Integer> leaderBoard){        
-        int i = 0;
-        for(String key: leaderBoard.keySet()){
-            usernames.get(i).setText(key);
-            scores.get(i).setText(leaderBoard.get(key).toString());
-            i++;
-        } 
+    public void loadLeaderBoard(JSONObject leaderboard){        
+        String[] name = leaderboard.get("names").toString().split(",");
+        String[] score = leaderboard.get("scores").toString().split(",");
+        for(int a=1;a<name.length;a++){
+            usernames.get(a-1).setText(name[a]);
+            scores.get(a-1).setText(score[a]);
+        }
     }
     
     
