@@ -1,113 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.SingleGameScreenMediumController">
     <children>
-      <VBox layoutX="511.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.09" prefHeight="152.0" prefWidth="174.0" style="-fx-background-color: B667F1; -fx-background-radius: 15; -fx-border-radius: 15; visibility: true;" />
-      <VBox layoutX="10.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.09" prefHeight="152.0" prefWidth="174.0" style="-fx-background-color: B667F1; -fx-background-radius: 15px; -fx-border-radius: 15px; visibility: true;" />
-      <Line endX="71.0" layoutX="381.0" layoutY="160.0" startX="-151.0" strokeWidth="3.0" />
-      <Line endX="71.0" layoutX="381.0" layoutY="242.0" startX="-151.0" strokeWidth="3.0" />
-      <Line endX="71.0" layoutX="341.0" layoutY="201.0" rotate="90.0" startX="-151.0" strokeWidth="3.0" />
-      <Line endX="71.0" layoutX="422.0" layoutY="201.0" rotate="90.0" startX="-151.0" strokeWidth="3.0" />
-      <Circle fill="#166ebf" layoutX="92.0" layoutY="66.0" radius="38.0" stroke="#01f515" strokeType="INSIDE" strokeWidth="4.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="58.0" layoutY="124.0" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="You">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="566.0" layoutY="122.0" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Computer">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Label>
-      <Button fx:id="backButton" layoutX="17.0" layoutY="359.0" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMouseExited="#backOnExit" prefHeight="25.0" prefWidth="75.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Back">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="86.0" fitWidth="174.0" layoutX="255.0" layoutY="28.0" opacity="0.83" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/1.jpg" />
-         </image>
-      </ImageView>
-      <Circle fill="DODGERBLUE" layoutX="92.0" layoutY="99.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" />
-      <Circle fill="#166ebf" layoutX="602.0" layoutY="69.0" radius="38.0" stroke="#f50241" strokeType="INSIDE" strokeWidth="4.0" />
-      <Circle fill="DODGERBLUE" layoutX="604.0" layoutY="103.0" radius="8.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="5.0" />
-      <Button fx:id="b6" layoutX="223.0" layoutY="244.0" onAction="#b6ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="b7" layoutX="304.0" layoutY="245.0" onAction="#b7ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="b8" layoutX="385.0" layoutY="245.0" onAction="#b8ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="b3" layoutX="222.0" layoutY="164.0" onAction="#b3ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="b4" layoutX="304.0" layoutY="164.0" onAction="#b4ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="b5" layoutX="385.0" layoutY="164.0" onAction="#b5ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="b0" layoutX="225.0" layoutY="84.0" onAction="#b0ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="b1" layoutX="304.0" layoutY="84.0" onAction="#b1ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="b2" layoutX="385.0" layoutY="84.0" onAction="#b2ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Button>
-      <Button fx:id="screenshotBtn" layoutX="589.0" layoutY="359.0" onAction="#ScreenshotButtonAction" onMouseEntered="#screenOnHover" onMouseExited="#screenOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="screenshot">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Label fx:id="cump_score" alignment="CENTER" layoutX="587.0" layoutY="50.0" prefHeight="38.0" prefWidth="31.0" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Button fx:id="resetButton" layoutX="295.0" layoutY="359.0" onAction="#playAgainButtonAction" onMouseEntered="#resetOnHover" onMouseExited="#resetOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Reset">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Label fx:id="ur_score" alignment="CENTER" layoutX="77.0" layoutY="50.0" prefHeight="38.0" prefWidth="31.0" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="700.0">
+         <fill>
+            <LinearGradient endX="1.0">
+               <stops>
+                  <Stop color="#11998e" />
+                  <Stop color="#38ef7d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
       <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="42.0" layoutY="244.0" opacity="0.09" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pattern.png" />
@@ -283,5 +199,106 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
+      <Circle fill="#00000032" layoutX="199.0" layoutY="48.0" radius="35.0" stroke="#eb2f2f" strokeType="INSIDE" strokeWidth="2.0" />
+      <Label layoutX="38.0" layoutY="21.0" text="You" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="90.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/x.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="ur_score" layoutX="190.0" layoutY="26.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="508.0" layoutY="24.0" text="Computer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="463.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/oO.png" />
+         </image>
+      </ImageView>
+      <Circle fill="#00000032" layoutX="408.0" layoutY="48.0" radius="35.0" stroke="#600fbc" strokeType="INSIDE" strokeWidth="2.0" />
+      <Label fx:id="cump_score" layoutX="400.0" layoutY="26.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="187.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="278.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="369.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="187.0" layoutY="185.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="278.0" layoutY="185.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="369.0" layoutY="185.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="187.0" layoutY="267.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="278.0" layoutY="267.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff5b" height="75.0" layoutX="369.0" layoutY="267.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="85.0">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#978989" height="43.21" offsetX="0.5" offsetY="0.5" radius="19.0225" spread="0.2" width="34.88" />
+         </effect>
+      </Rectangle>
+      <ImageView fx:id="b4" fitHeight="60.0" fitWidth="64.0" layoutX="289.0" layoutY="192.0" onMouseClicked="#b4ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b2" fitHeight="60.0" fitWidth="64.0" layoutX="382.0" layoutY="111.0" onMouseClicked="#b2ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b5" fitHeight="60.0" fitWidth="64.0" layoutX="382.0" layoutY="191.0" onMouseClicked="#b5ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b3" fitHeight="60.0" fitWidth="64.0" layoutX="200.0" layoutY="193.0" onMouseClicked="#b3ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b7" fitHeight="60.0" fitWidth="64.0" layoutX="289.0" layoutY="275.0" onMouseClicked="#b7ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b1" fitHeight="60.0" fitWidth="64.0" layoutX="291.0" layoutY="111.0" onMouseClicked="#b1ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b8" fitHeight="60.0" fitWidth="64.0" layoutX="382.0" layoutY="275.0" onMouseClicked="#b8ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b0" fitHeight="60.0" fitWidth="64.0" layoutX="200.0" layoutY="111.0" onMouseClicked="#b0ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="resetButton" layoutX="295.0" layoutY="361.0" onAction="#playAgainButtonAction" onMouseEntered="#resetOnHover" onMouseExited="#resetOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Reset" textFill="#a80505">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="b6" fitHeight="60.0" fitWidth="64.0" layoutX="200.0" layoutY="275.0" onMouseClicked="#b6ButtonAction" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="screenshotBtn" layoutX="521.0" layoutY="360.0" onAction="#ScreenshotButtonAction" onMouseEntered="#screenOnHover" onMouseExited="#screenOnExit" prefHeight="31.0" prefWidth="158.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Screenshot" textFill="#6c15d4">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="24.0" layoutY="361.0" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMouseExited="#backOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 15px; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Back" textFill="#6c15d4">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

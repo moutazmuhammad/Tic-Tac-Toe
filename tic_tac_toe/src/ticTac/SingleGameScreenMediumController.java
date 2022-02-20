@@ -26,6 +26,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -45,11 +47,14 @@ public class SingleGameScreenMediumController implements Initializable {
     private int turnPosition = 2; //To get the correct position of X and O
     
     @FXML
-    private Button b0, b1, b2, b3, b4, b5, b6, b7, b8;
+    private ImageView b0, b1, b2, b3, b4, b5, b6, b7, b8;
     
     @FXML
     private Label ur_score, cump_score;
     
+    
+    Image X = new Image(getClass().getResourceAsStream("/images/x.png"));
+    Image O = new Image(getClass().getResourceAsStream("/images/oO.png"));
     
     private int your_score=0;
     private int computer_score=0;
@@ -120,15 +125,15 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b0ButtonAction(ActionEvent event) throws InterruptedException, IOException {
+    private void b0ButtonAction(MouseEvent event) throws InterruptedException, IOException {
         
         if (buttonPosition[0]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b0.setText("X");
-                b0.setStyle("-fx-background-color: #f5fb4f");
+                b0.setImage(X);
+               // b0.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[0]=1;
                 xPlayerWon[0]=1;
@@ -170,15 +175,15 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b1ButtonAction(ActionEvent event) throws IOException {
+    private void b1ButtonAction(MouseEvent event) throws IOException {
         
         if (buttonPosition[1]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b1.setText("X");
-                b1.setStyle("-fx-background-color: #f5fb4f");
+                b1.setImage(X);
+               // b1.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[1]=1;
                 xPlayerWon[1]=1;
@@ -221,15 +226,15 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b2ButtonAction(ActionEvent event) throws IOException {
+    private void b2ButtonAction(MouseEvent event) throws IOException {
         
         if (buttonPosition[2]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b2.setText("X");
-                b2.setStyle("-fx-background-color: #f5fb4f");
+                b2.setImage(X);
+                //b2.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[2]=1;
                 xPlayerWon[2]=1;
@@ -270,15 +275,15 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b3ButtonAction(ActionEvent event) throws IOException {
+    private void b3ButtonAction(MouseEvent event) throws IOException {
         
         if (buttonPosition[3]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b3.setText("X");
-                b3.setStyle("-fx-background-color: #f5fb4f");
+                b3.setImage(X);
+                //b3.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[3]=1;
                 xPlayerWon[3]=1;
@@ -319,15 +324,15 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b4ButtonAction(ActionEvent event) throws IOException {
+    private void b4ButtonAction(MouseEvent event) throws IOException {
         
         if (buttonPosition[4]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b4.setText("X");
-                b4.setStyle("-fx-background-color: #f5fb4f");
+                b4.setImage(X);
+                //b4.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[4]=1;
                 xPlayerWon[4]=1;
@@ -368,14 +373,14 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b5ButtonAction(ActionEvent event) throws IOException {
+    private void b5ButtonAction(MouseEvent event) throws IOException {
         
         if (buttonPosition[5]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b5.setText("X");
+                b5.setImage(X);
                 b5.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[5]=1;
@@ -417,14 +422,14 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b6ButtonAction(ActionEvent event) throws IOException {
+    private void b6ButtonAction(MouseEvent event) throws IOException {
         
         if (buttonPosition[6]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b6.setText("X");
+                b6.setImage(X);
                 b6.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[6]=1;
@@ -466,14 +471,14 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b7ButtonAction(ActionEvent event) throws IOException {
+    private void b7ButtonAction(MouseEvent event) throws IOException {
         
         if (buttonPosition[7]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b7.setText("X");
+                b7.setImage(X);
                 b7.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[7]=1;
@@ -515,15 +520,15 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b8ButtonAction(ActionEvent event) throws IOException {
+    private void b8ButtonAction(MouseEvent event) throws IOException {
         
         if (buttonPosition[8]==0){
             
             if(turnPosition %2 == 0){
                 
                 turnPosition++; //To Skep the next index
-                b8.setText("X");
-                b8.setStyle("-fx-background-color: #f5fb4f");
+                b8.setImage(X);
+                //b8.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[8]=1;
                 xPlayerWon[8]=1;
@@ -578,274 +583,274 @@ public class SingleGameScreenMediumController implements Initializable {
         
         if (oPlayerWon[0] == 1 && oPlayerWon[1] == 1 && xPlayerWon[2]== 0 && oPlayerWon[2]== 1){
             turnPosition++; //To Skep the next index
-            b2.setText("O");
-            b2.setStyle("-fx-background-color: #ee7070");
+            b2.setImage(O);
+            //b2.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
         else if (oPlayerWon[1] == 1 && oPlayerWon[2] == 1 && xPlayerWon[0]== 0 && oPlayerWon[0]== 1){
             turnPosition++; //To Skep the next index
-            b0.setText("O");
-            b0.setStyle("-fx-background-color: #ee7070");
+            b0.setImage(O);
+            //b0.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }
         else if (oPlayerWon[0] == 1 && oPlayerWon[2] == 1 && xPlayerWon[1]== 0 && oPlayerWon[1]== 1){
             turnPosition++; //To Skep the next index
-            b1.setText("O");
-            b1.setStyle("-fx-background-color: #ee7070");
+            b1.setImage(O);
+            //b1.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
         else if (oPlayerWon[3] == 1 && oPlayerWon[4] == 1 && xPlayerWon[5]== 0 && oPlayerWon[5]== 1){
             turnPosition++; //To Skep the next index
-            b5.setText("O");
-            b5.setStyle("-fx-background-color: #ee7070");
+            b5.setImage(O);
+            //b5.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[5]=1;
             buttonPosition[5]=1;
         }
         else if (oPlayerWon[3] == 1 && oPlayerWon[5] == 1 && xPlayerWon[4]== 0 && oPlayerWon[4]== 1){
             turnPosition++; //To Skep the next index
-            b4.setText("O");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(O);
+            //b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (oPlayerWon[4] == 1 && oPlayerWon[5] == 1 && xPlayerWon[3]== 0 && oPlayerWon[3]== 1){
             turnPosition++; //To Skep the next index
-            b3.setText("O");
-            b3.setStyle("-fx-background-color: #ee7070");
+            b3.setImage(O);
+           // b3.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
         else if (oPlayerWon[6] == 1 && oPlayerWon[7] == 1 && xPlayerWon[8]== 0 && oPlayerWon[8]== 1){
             turnPosition++; //To Skep the next index
-            b8.setText("O");
-            b8.setStyle("-fx-background-color: #ee7070");
+            b8.setImage(O);
+            //b8.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
         else if (oPlayerWon[7] == 1 && oPlayerWon[8] == 1 && xPlayerWon[6]== 0 && oPlayerWon[6]== 1){
             turnPosition++; //To Skep the next index
-            b6.setText("O");
-            b6.setStyle("-fx-background-color: #ee7070");
+            b6.setImage(O);
+            //b6.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
         else if (oPlayerWon[6] == 1 && oPlayerWon[8] == 1 && xPlayerWon[7]== 0 && oPlayerWon[7]== 1){
             turnPosition++; //To Skep the next index
-            b7.setText("O");
-            b7.setStyle("-fx-background-color: #ee7070");
+            b7.setImage(O);
+            //b7.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
         else if (oPlayerWon[2] == 1 && oPlayerWon[4] == 1 && xPlayerWon[6]== 0 && oPlayerWon[6]== 1){
             turnPosition++; //To Skep the next index
-            b6.setText("O");
-            b6.setStyle("-fx-background-color: #ee7070");
+            b6.setImage(O);
+            //b6.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
         else if (oPlayerWon[2] == 1 && oPlayerWon[6] == 1 && xPlayerWon[4]== 0 && oPlayerWon[4]== 1){
             turnPosition++; //To Skep the next index
-            b4.setText("O");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(O);
+            //b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (oPlayerWon[4] == 1 && oPlayerWon[6] == 1 && xPlayerWon[2]== 0 && oPlayerWon[2]== 1){
             turnPosition++; //To Skep the next index
-            b2.setText("O");
-            b2.setStyle("-fx-background-color: #ee7070");
+            b2.setImage(O);
+            //b2.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
         else if (oPlayerWon[0] == 1 && oPlayerWon[4] == 1 && xPlayerWon[8]== 0 && oPlayerWon[8]== 1){
             turnPosition++; //To Skep the next index
-            b8.setText("O");
-            b8.setStyle("-fx-background-color: #ee7070");
+            b8.setImage(O);
+            //b8.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
         else if (oPlayerWon[0] == 1 && oPlayerWon[8] == 1 && xPlayerWon[4]== 0 && oPlayerWon[4]== 1){
             turnPosition++; //To Skep the next index
-            b4.setText("O");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(O);
+           // b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (oPlayerWon[4] == 1 && oPlayerWon[8] == 1 && xPlayerWon[0]== 0 && oPlayerWon[0]== 1){
             turnPosition++; //To Skep the next index
-            b0.setText("O");
-            b0.setStyle("-fx-background-color: #ee7070");
+            b0.setImage(O);
+            //b0.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }     
         else if (xPlayerWon[0] == 1 && xPlayerWon[1] == 1 && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
             turnPosition++; //To Skep the next index
-            b2.setText("O");
-            b2.setStyle("-fx-background-color: #ee7070");
+            b2.setImage(O);
+           // b2.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
         else if (xPlayerWon[1] == 1 && xPlayerWon[2] == 1 && oPlayerWon[0]== 0 && xPlayerWon[0]== 0){
             turnPosition++; //To Skep the next index
-            b0.setText("O");
-            b0.setStyle("-fx-background-color: #ee7070");
+            b0.setImage(O);
+            //b0.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }
         else if (xPlayerWon[0] == 1 && xPlayerWon[2] == 1 && oPlayerWon[1]== 0 && xPlayerWon[1]== 0){
             turnPosition++; //To Skep the next index
-            b1.setText("O");
-            b1.setStyle("-fx-background-color: #ee7070");
+            b1.setImage(O);
+            //b1.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
         else if (xPlayerWon[3] == 1 && xPlayerWon[4] == 1 && oPlayerWon[5]== 0 && xPlayerWon[5]== 0){
             turnPosition++; //To Skep the next index
-            b5.setText("O");
-            b5.setStyle("-fx-background-color: #ee7070");
+            b5.setImage(O);
+            //b5.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[5]=1;
             buttonPosition[5]=1;
         }
         else if (xPlayerWon[3] == 1 && xPlayerWon[5] == 1 && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
             turnPosition++; //To Skep the next index
-            b4.setText("O");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(O);
+            //b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (xPlayerWon[4] == 1 && xPlayerWon[5] == 1 && oPlayerWon[3]== 0 && xPlayerWon[3]== 0){
             turnPosition++; //To Skep the next index
-            b3.setText("O");
-            b3.setStyle("-fx-background-color: #ee7070");
+            b3.setImage(O);
+            //b3.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
         else if (xPlayerWon[6] == 1 && xPlayerWon[7] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
-            b8.setText("O");
-            b8.setStyle("-fx-background-color: #ee7070");
+            b8.setImage(O);
+            //b8.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
         else if (xPlayerWon[7] == 1 && xPlayerWon[8] == 1 && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
             turnPosition++; //To Skep the next index
-            b6.setText("O");
-            b6.setStyle("-fx-background-color: #ee7070");
+            b6.setImage(O);
+            //b6.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
         else if (xPlayerWon[6] == 1 && xPlayerWon[8] == 1 && oPlayerWon[7]== 0 && xPlayerWon[7]== 0){
             turnPosition++; //To Skep the next index
-            b7.setText("O");
-            b7.setStyle("-fx-background-color: #ee7070");
+            b7.setImage(O);
+           // b7.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
         else if (xPlayerWon[2] == 1 && xPlayerWon[4] == 1 && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
             turnPosition++; //To Skep the next index
-            b6.setText("O");
-            b6.setStyle("-fx-background-color: #ee7070");
+            b6.setImage(O);
+           // b6.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
         else if (xPlayerWon[2] == 1 && xPlayerWon[6] == 1 && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
             turnPosition++; //To Skep the next index
-            b4.setText("O");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(O);
+            //b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (xPlayerWon[4] == 1 && xPlayerWon[6] == 1 && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
             turnPosition++; //To Skep the next index
-            b2.setText("O");
-            b2.setStyle("-fx-background-color: #ee7070");
+            b2.setImage(O);
+            //b2.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
         else if (xPlayerWon[0] == 1 && xPlayerWon[4] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
-            b8.setText("O");
-            b8.setStyle("-fx-background-color: #ee7070");
+            b8.setImage(O);
+            //b8.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
         else if (xPlayerWon[0] == 1 && xPlayerWon[8] == 1 && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
             turnPosition++; //To Skep the next index
-            b4.setText("O");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(O);
+            //b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (xPlayerWon[4] == 1 && xPlayerWon[8] == 1 && oPlayerWon[0]== 0 && xPlayerWon[0]== 0){
             turnPosition++; //To Skep the next index
-            b0.setText("O");
-            b0.setStyle("-fx-background-color: #ee7070");
+            b0.setImage(O);
+           // b0.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }
         else if (xPlayerWon[0] == 1 && xPlayerWon[3] == 1 && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
             turnPosition++; //To Skep the next index
-            b6.setText("O");
-            b6.setStyle("-fx-background-color: #ee7070");
+            b6.setImage(O);
+            //b6.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
         else if (xPlayerWon[0] == 1 && xPlayerWon[6] == 1 && oPlayerWon[3]== 0 && xPlayerWon[3]== 0){
             turnPosition++; //To Skep the next index
-            b3.setText("O");
-            b3.setStyle("-fx-background-color: #ee7070");
+            b3.setImage(O);
+            //b3.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
         else if (xPlayerWon[3] == 1 && xPlayerWon[6] == 1 && oPlayerWon[0]== 0 && xPlayerWon[0]== 0){
             turnPosition++; //To Skep the next index
-            b0.setText("O");
-            b0.setStyle("-fx-background-color: #ee7070");
+            b0.setImage(O);
+            //b0.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }
         else if (xPlayerWon[1] == 1 && xPlayerWon[4] == 1 && oPlayerWon[7]== 0 && xPlayerWon[7]== 0){
             turnPosition++; //To Skep the next index
-            b7.setText("O");
-            b7.setStyle("-fx-background-color: #ee7070");
+            b7.setImage(O);
+            //b7.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
         else if (xPlayerWon[4] == 1 && xPlayerWon[7] == 1 && oPlayerWon[1]== 0 && xPlayerWon[1]== 0){
             turnPosition++; //To Skep the next index
-            b1.setText("O");
-            b1.setStyle("-fx-background-color: #ee7070");
+            b1.setImage(O);
+            //b1.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
         else if (xPlayerWon[1] == 1 && xPlayerWon[7] == 1 && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
             turnPosition++; //To Skep the next index
-            b4.setText("O");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(O);
+            //b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (xPlayerWon[2] == 1 && xPlayerWon[5] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
             turnPosition++; //To Skep the next index
-            b8.setText("O");
-            b8.setStyle("-fx-background-color: #ee7070");
+            b8.setImage(O);
+            //b8.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
         else if (xPlayerWon[5] == 1 && xPlayerWon[8] == 1 && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
             turnPosition++; //To Skep the next index
-            b2.setText("O");
-            b2.setStyle("-fx-background-color: #ee7070");
+            b2.setImage(O);
+            //b2.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
         else if (xPlayerWon[2] == 1 && xPlayerWon[8] == 1 && oPlayerWon[5]== 0 && xPlayerWon[5]== 0){
             turnPosition++; //To Skep the next index
-            b5.setText("O");
-            b5.setStyle("-fx-background-color: #ee7070");
+            b5.setImage(O);
+            //b5.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[5]=1;
             buttonPosition[5]=1;
         }
@@ -854,40 +859,40 @@ public class SingleGameScreenMediumController implements Initializable {
             turnPosition++; //To Skep the next index
             
             if (emptyPositions.get(computerPosition) == 0){
-                b0.setText("O");
-                b0.setStyle("-fx-background-color: #ee7070");
+                b0.setImage(O);
+                //b0.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 1){
-                b1.setText("O");
-                b1.setStyle("-fx-background-color: #ee7070");
+                b1.setImage(O);
+                //b1.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 2){
-                b2.setText("O");
-                b2.setStyle("-fx-background-color: #ee7070");
+                b2.setImage(O);
+                //b2.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 3){
-                b3.setText("O");
-                b3.setStyle("-fx-background-color: #ee7070");
+                b3.setImage(O);
+                //b3.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 4){
-                b4.setText("O");
-                b4.setStyle("-fx-background-color: #ee7070");
+                b4.setImage(O);
+                //b4.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 5){
-                b5.setText("O");
-                b5.setStyle("-fx-background-color: #ee7070");
+                b5.setImage(O);
+                //b5.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 6){
-                b6.setText("O");
-                b6.setStyle("-fx-background-color: #ee7070");
+                b6.setImage(O);
+                //b6.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 7){
-                b7.setText("O");
-                b7.setStyle("-fx-background-color: #ee7070");
+                b7.setImage(O);
+                //b7.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 8){
-                b8.setText("O");
-                b8.setStyle("-fx-background-color: #ee7070");
+                b8.setImage(O);
+                //b8.setStyle("-fx-background-color: #ee7070");
             }
             
             oPlayerWon[emptyPositions.get(computerPosition)]=1;
@@ -953,24 +958,24 @@ public class SingleGameScreenMediumController implements Initializable {
     
     @FXML
     private void playAgainButtonAction(ActionEvent event) {
-        b0.setText("");
-        b0.setStyle("-fx-background-color: TRANSPARENT");
-        b1.setText("");
-        b1.setStyle("-fx-background-color: TRANSPARENT");
-        b2.setText("");
-        b2.setStyle("-fx-background-color: TRANSPARENT");
-        b3.setText("");
-        b3.setStyle("-fx-background-color: TRANSPARENT");
-        b4.setText("");
-        b4.setStyle("-fx-background-color: TRANSPARENT");
-        b5.setText("");
-        b5.setStyle("-fx-background-color: TRANSPARENT");
-        b6.setText("");
-        b6.setStyle("-fx-background-color: TRANSPARENT");
-        b7.setText("");
-        b7.setStyle("-fx-background-color: TRANSPARENT");
-        b8.setText("");
-        b8.setStyle("-fx-background-color: TRANSPARENT");
+        b0.setImage(null);
+        //b0.setStyle("-fx-background-color: TRANSPARENT");
+        b1.setImage(null);
+        //b1.setStyle("-fx-background-color: TRANSPARENT");
+        b2.setImage(null);
+        //b2.setStyle("-fx-background-color: TRANSPARENT");
+        b3.setImage(null);
+        //b3.setStyle("-fx-background-color: TRANSPARENT");
+        b4.setImage(null);
+        //b4.setStyle("-fx-background-color: TRANSPARENT");
+        b5.setImage(null);
+        //b5.setStyle("-fx-background-color: TRANSPARENT");
+        b6.setImage(null);
+        //b6.setStyle("-fx-background-color: TRANSPARENT");
+        b7.setImage(null);
+        //b7.setStyle("-fx-background-color: TRANSPARENT");
+        b8.setImage(null);
+        //b8.setStyle("-fx-background-color: TRANSPARENT");
         
         turnPosition = 2;
         flage=1;
