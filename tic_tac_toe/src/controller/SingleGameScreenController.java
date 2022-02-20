@@ -60,52 +60,6 @@ public class SingleGameScreenController implements Initializable {
     private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //player
     private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //computer
     
-    private void showDialog (){
-        int xResult= xPlayerWonGame();
-                
-                
-                if (xResult == 1){
-            try {
-                flage=0;
-                updatePlayerScore();
-                
-                xWinnerAction();
-                dialog.show();
-            } catch (IOException ex) {
-                Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                }
-                else{
-                    computerPlayer();
-                    int oResult= computerWonGame();
-
-                    if (oResult == 1){
-                        try {
-                            flage=0;
-                            updateComputerScore();
-                            
-                            fillPositions();
-                            oWinnerAction();
-                            dialog.show();
-                        } catch (IOException ex) {
-                            Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        
-                    }  
-                }
-                if (flage==1 &&checkFillPositions()==9){
-            try {
-                fillPositions();
-                drawAction();
-                dialog.show();
-            } catch (IOException ex) {
-                Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                }
-    }
-    
-    
-    
     private void updateComputerScore(){
         computer_score++;
         String cScore = ""+computer_score;
@@ -143,6 +97,7 @@ public class SingleGameScreenController implements Initializable {
         dialog.setDialogPane(winner);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Draw");
+        dialog.show();
     }
     
     private void xWinnerAction() throws IOException{
@@ -154,6 +109,7 @@ public class SingleGameScreenController implements Initializable {
         dialog.setDialogPane(winner);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Winner");
+        dialog.show();
     }
     
     
@@ -166,7 +122,53 @@ public class SingleGameScreenController implements Initializable {
         dialog.setDialogPane(winner);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Game Over");
+        dialog.show();
     }
+    
+    
+    private void checkPlayer(){
+        int xResult= xPlayerWonGame();
+        if (xResult == 1){
+            try {
+                flage=0;
+                updatePlayerScore();
+                
+                fillPositions();
+                xWinnerAction();
+            } catch (IOException ex) {
+                Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    private void computer (){
+        computerPlayer();
+        int oResult= computerWonGame();
+        if (oResult == 1){
+            try {
+                flage=0;
+                updateComputerScore();
+
+                fillPositions();
+                oWinnerAction();
+            } catch (IOException ex) {
+                Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }  
+    }
+    
+    private void checkTie(){
+        if (flage==1 && checkFillPositions()==9){
+            try {
+                fillPositions();
+                drawAction();
+            } catch (IOException ex) {
+                Logger.getLogger(SingleGameScreenMediumController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     
     @FXML
     private void b0ButtonAction(ActionEvent event)  {
@@ -181,7 +183,10 @@ public class SingleGameScreenController implements Initializable {
                
                 buttonPosition[0]=1;
                 xPlayerWon[0]=1;
-                showDialog ();
+                
+                checkPlayer();
+                computer();
+                checkTie ();
                 
             }
         }
@@ -204,7 +209,9 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[1]=1;
                 xPlayerWon[1]=1;
                 
-                showDialog ();
+                checkPlayer();
+                computer();
+                checkTie ();
                 
                                 
             }
@@ -228,7 +235,9 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[2]=1;
                 xPlayerWon[2]=1;
                 
-                showDialog ();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -250,7 +259,9 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[3]=1;
                 xPlayerWon[3]=1;
                 
-                showDialog ();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -272,7 +283,9 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[4]=1;
                 xPlayerWon[4]=1;
                 
-                showDialog ();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -294,7 +307,9 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[5]=1;
                 xPlayerWon[5]=1;
                 
-                showDialog ();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -316,7 +331,9 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[6]=1;
                 xPlayerWon[6]=1;
                 
-                showDialog ();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -338,7 +355,9 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[7]=1;
                 xPlayerWon[7]=1;
                 
-                showDialog ();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -360,7 +379,9 @@ public class SingleGameScreenController implements Initializable {
                 buttonPosition[8]=1;
                 xPlayerWon[8]=1;
                 
-                showDialog ();
+                checkPlayer();
+                computer();
+                checkTie ();
             }
         }
         else{
@@ -428,56 +449,28 @@ public class SingleGameScreenController implements Initializable {
     }
     
     private int xPlayerWonGame(){
-        if (xPlayerWon[0]==1 && xPlayerWon[1]==1 && xPlayerWon[2]==1){
-            return 1;
-        }
-        if (xPlayerWon[3]==1 && xPlayerWon[4]==1 && xPlayerWon[5]==1){
-            return 1;
-        }
-        if (xPlayerWon[6]==1 && xPlayerWon[7]==1 && xPlayerWon[8]==1){
-            return 1;
-        }
-        if (xPlayerWon[0]==1 && xPlayerWon[3]==1 && xPlayerWon[6]==1){
-            return 1;
-        }
-        if (xPlayerWon[1]==1 && xPlayerWon[4]==1 && xPlayerWon[7]==1){
-            return 1;
-        }
-        if (xPlayerWon[2]==1 && xPlayerWon[5]==1 && xPlayerWon[8]==1){
-            return 1;
-        }
-        if (xPlayerWon[0]==1 && xPlayerWon[4]==1 && xPlayerWon[8]==1){
-            return 1;
-        }
-        if (xPlayerWon[2]==1 && xPlayerWon[4]==1 && xPlayerWon[6]==1){
+        if ((xPlayerWon[0]==1 && xPlayerWon[1]==1 && xPlayerWon[2]==1)||
+                (xPlayerWon[3]==1 && xPlayerWon[4]==1 && xPlayerWon[5]==1)||
+                (xPlayerWon[6]==1 && xPlayerWon[7]==1 && xPlayerWon[8]==1)||
+                (xPlayerWon[0]==1 && xPlayerWon[3]==1 && xPlayerWon[6]==1)||
+                (xPlayerWon[1]==1 && xPlayerWon[4]==1 && xPlayerWon[7]==1)||
+                (xPlayerWon[2]==1 && xPlayerWon[5]==1 && xPlayerWon[8]==1)||
+                (xPlayerWon[0]==1 && xPlayerWon[4]==1 && xPlayerWon[8]==1)||
+                (xPlayerWon[2]==1 && xPlayerWon[4]==1 && xPlayerWon[6]==1)){
             return 1;
         }
         return 0;
     }
     
     int computerWonGame(){
-        if (oPlayerWon[0]==1 && oPlayerWon[1]==1 && oPlayerWon[2]==1){
-            return 1;
-        }
-        if (oPlayerWon[3]==1 && oPlayerWon[4]==1 && oPlayerWon[5]==1){
-            return 1;
-        }
-        if (oPlayerWon[6]==1 && oPlayerWon[7]==1 && oPlayerWon[8]==1){
-            return 1;
-        }
-        if (oPlayerWon[0]==1 && oPlayerWon[3]==1 && oPlayerWon[6]==1){
-            return 1;
-        }
-        if (oPlayerWon[1]==1 && oPlayerWon[4]==1 && oPlayerWon[7]==1){
-            return 1;
-        }
-        if (oPlayerWon[2]==1 && oPlayerWon[5]==1 && oPlayerWon[8]==1){
-            return 1;
-        }
-        if (oPlayerWon[0]==1 && oPlayerWon[4]==1 && oPlayerWon[8]==1){
-            return 1;
-        }
-        if (oPlayerWon[2]==1 && oPlayerWon[4]==1 && oPlayerWon[6]==1){
+        if ((oPlayerWon[0]==1 && oPlayerWon[1]==1 && oPlayerWon[2]==1)||
+                (oPlayerWon[3]==1 && oPlayerWon[4]==1 && oPlayerWon[5]==1)||
+                (oPlayerWon[6]==1 && oPlayerWon[7]==1 && oPlayerWon[8]==1)||
+                (oPlayerWon[0]==1 && oPlayerWon[3]==1 && oPlayerWon[6]==1)||
+                (oPlayerWon[1]==1 && oPlayerWon[4]==1 && oPlayerWon[7]==1)||
+                (oPlayerWon[2]==1 && oPlayerWon[5]==1 && oPlayerWon[8]==1)||
+                (oPlayerWon[0]==1 && oPlayerWon[4]==1 && oPlayerWon[8]==1)||
+                (oPlayerWon[2]==1 && oPlayerWon[4]==1 && oPlayerWon[6]==1)){
             return 1;
         }
         return 0;
