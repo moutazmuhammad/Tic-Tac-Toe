@@ -1,5 +1,6 @@
 package ticTac;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  * FXML Controller class
@@ -40,6 +43,7 @@ public class MainMenuController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
+        audio("btnClick.mp3");
        
     }
     
@@ -55,7 +59,7 @@ public class MainMenuController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
-       
+        audio("btnClick.mp3");
         
     }
     
@@ -72,7 +76,7 @@ public class MainMenuController implements Initializable {
         
         window.show();
        
-        
+        audio("btnClick.mp3");
     }
     
     @FXML
@@ -83,6 +87,7 @@ public class MainMenuController implements Initializable {
         singleModeButton.setLayoutX(215);
         singleModeButton.setLayoutY(164);
         singleIcon.setLayoutY(165);
+         audio("btnHover.mp3");
        
     }
     
@@ -106,6 +111,7 @@ public class MainMenuController implements Initializable {
         MultiModeButton.setLayoutX(216);
         MultiModeButton.setLayoutY(216);
         multiIcon.setLayoutY(218);
+         audio("btnHover.mp3");
     }
     
     @FXML
@@ -126,6 +132,7 @@ public class MainMenuController implements Initializable {
         leaderButton.setLayoutX(216);
         leaderButton.setLayoutY(270);
         leaderIcon.setLayoutY(266);
+         audio("btnHover.mp3");
     }
     
     @FXML
@@ -146,6 +153,7 @@ public class MainMenuController implements Initializable {
         aboutButton.setPrefHeight(45);
         aboutButton.setLayoutX(216);
         aboutButton.setLayoutY(328);
+         audio("btnHover.mp3");
     }
     
     @FXML
@@ -155,6 +163,12 @@ public class MainMenuController implements Initializable {
         aboutButton.setPrefHeight(35);
         aboutButton.setLayoutX(226);
         aboutButton.setLayoutY(328);
+    }
+    
+   private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
     }
     
     @Override
