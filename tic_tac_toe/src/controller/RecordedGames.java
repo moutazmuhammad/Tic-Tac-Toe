@@ -1,4 +1,4 @@
-package ticTac;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +26,7 @@ public class RecordedGames implements Initializable {
     private void BackButtonAction(ActionEvent event) throws IOException{
         
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("PlayerInvitationScreen.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/PlayerInvitationScreen.fxml"));
             Parent fxmlViewChild = loader.load();
 
             Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -43,7 +43,7 @@ public class RecordedGames implements Initializable {
     private void resumeGameButtonAction(ActionEvent event) throws IOException{
         
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("MultiGameScreen.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/MultiGameScreen.fxml"));
         Parent fxmlViewChild = loader.load();
 
         Scene fxmlViewScene = new Scene(fxmlViewChild);

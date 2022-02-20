@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.MultiGameScreenController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MultiGameScreenController">
     <children>
       <VBox layoutX="9.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.09" prefHeight="308.0" prefWidth="174.0" style="-fx-background-color: B667F1; -fx-background-radius: 15px; -fx-border-radius: 15px; visibility: true;" />
       <Button fx:id="pauseButton" layoutX="585.0" layoutY="359.0" onAction="#PauseButtonAction" onMouseEntered="#pauseOnHover" onMouseExited="#pauseOnExit" prefHeight="25.0" prefWidth="92.0" style="-fx-background-radius: 6; -fx-background-color: #24A19C;" text="Pause">

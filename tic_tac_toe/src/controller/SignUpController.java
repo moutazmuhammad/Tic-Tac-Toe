@@ -1,4 +1,4 @@
-package ticTac;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,7 +37,7 @@ public class SignUpController implements Initializable {
     @FXML
     private void changeToLoginScreen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("login.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/login.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -75,7 +75,7 @@ public class SignUpController implements Initializable {
             
         }else{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("mainMenu.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
             Parent fxmlViewChild = loader.load();
 
             Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -87,22 +87,6 @@ public class SignUpController implements Initializable {
         }
 
         
-    }
-    
-    
-    
-    @FXML
-    private void signOnHover(MouseEvent event){
-        signUp.setPrefWidth(163);
-        signUp.setPrefHeight(35);
-        signUp.setLayoutY(250);
-    }
-    
-    @FXML
-    private void signOnExit(MouseEvent event){
-        signUp.setPrefWidth(153);
-        signUp.setPrefHeight(25); 
-        signUp.setLayoutY(255);
     }
     
     

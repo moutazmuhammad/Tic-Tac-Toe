@@ -1,4 +1,4 @@
-package ticTac;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -66,16 +66,16 @@ public class LoginController implements Initializable {
                 
             });
         }else{
-          /*  FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("mainMenu.fxml"));
-            Parent fxmlViewChild = loader.load();
-
-            Scene fxmlViewScene = new Scene(fxmlViewChild);
-
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            window.setScene(fxmlViewScene);
-
-            window.show();*/
+//          FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
+//            Parent fxmlViewChild = loader.load();
+//
+//            Scene fxmlViewScene = new Scene(fxmlViewChild);
+//
+//            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//            window.setScene(fxmlViewScene);
+//
+//            window.show();
             MainScreen.session.SignInRequest(username.getText(), password.getText());
         }
     }
@@ -106,7 +106,7 @@ public class LoginController implements Initializable {
     public void changeToSignUpScreen(ActionEvent event) throws IOException{
         
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("signUp.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/signUp.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -115,21 +115,6 @@ public class LoginController implements Initializable {
         window.setScene(fxmlViewScene);
         
         window.show();
-    }
-    
-    
-       @FXML
-    private void loginOnHover(MouseEvent event){
-        loginButton.setPrefWidth(163);
-        loginButton.setPrefHeight(35);
-        loginButton.setLayoutY(250);
-    }
-    
-    @FXML
-    private void loginOnExit(MouseEvent event){
-        loginButton.setPrefWidth(153);
-        loginButton.setPrefHeight(25); 
-        loginButton.setLayoutY(255);
     }
     
     @Override

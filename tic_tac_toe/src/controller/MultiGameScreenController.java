@@ -1,4 +1,4 @@
-package ticTac;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +27,7 @@ public class MultiGameScreenController implements Initializable {
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("mainMenu.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);

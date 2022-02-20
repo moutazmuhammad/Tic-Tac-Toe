@@ -1,4 +1,4 @@
-package ticTac;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +30,7 @@ public class SingleModeMenu implements Initializable {
     @FXML
     private void simpleModeButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SingleGameScreen.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/SingleGameScreen.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -45,7 +45,23 @@ public class SingleModeMenu implements Initializable {
     @FXML
     private void mediumModeButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SingleGameMediumScreen.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/SingleGameMediumScreen.fxml"));
+        Parent fxmlViewChild = loader.load();
+        
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+        
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+        
+        window.show();
+       
+        
+    }
+    
+    @FXML
+    private void hardModeButtonAction(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/SingleGameHardScreen.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -100,7 +116,7 @@ public class SingleModeMenu implements Initializable {
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("mainMenu.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);

@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONObject;
 import ticTac.Connection.msgType;
-import ticTac.LoginController;
+import controller.LoginController;
 
 public class Session extends Thread{
     private Stage stage;

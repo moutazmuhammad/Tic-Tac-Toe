@@ -1,4 +1,4 @@
-package ticTac;
+package controller;
 
 public class Player {
     private int score;

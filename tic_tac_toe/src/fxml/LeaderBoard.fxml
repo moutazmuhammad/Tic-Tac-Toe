@@ -7,274 +7,274 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.LeaderBoardController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LeaderBoardController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="700.0" layoutX="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="700.0" layoutX="3.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bkg.png" />
          </image>
       </ImageView>
-      <Button layoutX="27.0" layoutY="81.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="639.0" style="-fx-background-color: rgb(208, 69, 69, 1); -fx-background-radius: 30px;" text="                                                       Score:         " textFill="WHITE">
+      <Button layoutX="27.0" layoutY="63.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="639.0" style="-fx-background-color: rgb(208, 69, 69, 1); -fx-background-radius: 30px;" text="                                                       Score:         " textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="42.0" layoutY="146.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: rgb(238, 154, 73); -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="128.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: rgb(238, 154, 73); -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="83.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="61.0" fitWidth="61.0" layoutX="83.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="61.0" layoutX="70.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" rotate="-30.3">
+      <ImageView fitHeight="50.0" fitWidth="61.0" layoutX="70.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" rotate="-30.3">
          <image>
             <Image url="@../images/king%20of%20the%20game.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="61.0" fitWidth="54.0" layoutX="337.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="61.0" fitWidth="54.0" layoutX="323.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="61.0" layoutX="625.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="61.0" layoutX="625.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Label layoutX="156.0" layoutY="88.0" prefHeight="39.0" prefWidth="206.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 20%;">
+      <Label layoutX="156.0" layoutY="70.0" prefHeight="39.0" prefWidth="206.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="88.0" prefHeight="39.0" prefWidth="50.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="70.0" prefHeight="39.0" prefWidth="50.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="47.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="47.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="149.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="131.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="151.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="103.0" layoutY="133.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="322.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="322.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="359.0" layoutY="146.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: rgb(238, 154, 73); -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="359.0" layoutY="128.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: rgb(238, 154, 73); -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="364.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="364.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="149.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="131.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="151.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="420.0" layoutY="133.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="639.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="639.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="42.0" layoutY="202.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #c2c264#c2c264; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="184.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #c2c264#c2c264; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="47.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="47.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="205.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="187.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="207.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="103.0" layoutY="189.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="322.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="322.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="359.0" layoutY="202.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #c2c264#c2c264; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="359.0" layoutY="184.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #c2c264#c2c264; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="364.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="364.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="205.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="187.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="207.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="420.0" layoutY="189.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="639.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="639.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="42.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #46D1A0; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="239.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #46D1A0; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="47.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="47.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="260.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="242.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="262.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="103.0" layoutY="244.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="322.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="322.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="359.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #46D1A0; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="359.0" layoutY="239.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #46D1A0; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="364.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="364.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="260.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="242.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="262.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="420.0" layoutY="244.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="639.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="639.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="42.0" layoutY="313.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #42C0FB; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="295.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #42C0FB; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="47.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="47.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="316.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="298.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="318.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="103.0" layoutY="300.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="322.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="322.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="359.0" layoutY="313.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #42C0FB; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="359.0" layoutY="295.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #42C0FB; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="364.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="364.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="316.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="298.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="318.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="420.0" layoutY="300.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="639.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="639.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Button layoutX="208.0" layoutY="361.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #A242C1; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
+      <Button layoutX="208.0" layoutY="343.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: #A242C1; -fx-background-radius: 30px;" text="                                    Score:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="39.0" fitWidth="41.0" layoutX="213.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="39.0" fitWidth="41.0" layoutX="213.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="363.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="345.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="269.0" layoutY="364.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label layoutX="269.0" layoutY="346.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="backButton" fitHeight="61.0" fitWidth="61.0" layoutX="629.0" layoutY="3.0" onMouseClicked="#backOnClick" onMouseEntered="#backOnHover" onMouseExited="#backOnExit" pickOnBounds="true" preserveRatio="true" rotate="176.4" style="-fx-cursor: pointer;">
+      <ImageView fx:id="backButton" fitHeight="61.0" fitWidth="50.0" layoutX="16.0" layoutY="342.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#backOnClick" pickOnBounds="true" preserveRatio="true" rotate="176.4" style="-fx-cursor: pointer;">
          <image>
             <Image url="@../images/back2.png" />
          </image>

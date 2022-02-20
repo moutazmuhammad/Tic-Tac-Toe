@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ticTac;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,25 +36,12 @@ public class LeaderBoardController implements Initializable {
      */
     
     
-    @FXML
-    private void BackButtonAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("mainMenu.fxml"));
-        Parent fxmlViewChild = loader.load();
-        
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-        
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-        
-        window.show();
-    }
 
     @FXML
     private void backOnClick(MouseEvent event){
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("mainMenu.fxml"));
+            loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
             Parent fxmlViewChild = loader.load();
             
             Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -71,21 +58,21 @@ public class LeaderBoardController implements Initializable {
     }
     
     
-    @FXML
-    private void backOnHover(MouseEvent event){
-        backButton.setFitWidth(71);
-        backButton.setFitHeight(71);
-        backButton.setLayoutX(632);
-        backButton.setLayoutY(3);
-    }
-    
-    @FXML
-    private void backOnExit(MouseEvent event){
-        backButton.setFitWidth(61);
-        backButton.setFitHeight(61);
-        backButton.setLayoutX(629);
-        backButton.setLayoutY(3);               
-    }
+//    @FXML
+//    private void backOnHover(MouseEvent event){
+//        backButton.setFitWidth(71);
+//        backButton.setFitHeight(71);
+//        backButton.setLayoutX(632);
+//        backButton.setLayoutY(3);
+//    }
+//    
+//    @FXML
+//    private void backOnExit(MouseEvent event){
+//        backButton.setFitWidth(61);
+//        backButton.setFitHeight(61);
+//        backButton.setLayoutX(629);
+//        backButton.setLayoutY(3);               
+//    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

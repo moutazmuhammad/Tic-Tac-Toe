@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.SingleGameScreenMediumController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SingleGameScreenHardController">
     <children>
       <VBox layoutX="511.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.09" prefHeight="152.0" prefWidth="174.0" style="-fx-background-color: B667F1; -fx-background-radius: 15; -fx-border-radius: 15; visibility: true;" />
       <VBox layoutX="10.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.09" prefHeight="152.0" prefWidth="174.0" style="-fx-background-color: B667F1; -fx-background-radius: 15px; -fx-border-radius: 15px; visibility: true;" />
@@ -73,7 +73,7 @@
             <Font name="System Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="b0" layoutX="225.0" layoutY="84.0" onAction="#b0ButtonAction" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: rgba(0,0,0,0);">
+      <Button fx:id="b0" layoutX="225.0" layoutY="84.0" prefHeight="66.0" prefWidth="75.0" style="-fx-background-color: #ee7070;" text="O">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>

@@ -1,4 +1,4 @@
-package ticTac;
+package controller;
 
 import ticTac.Connection.Session;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class MainScreen extends Application {
         stage.setTitle("Tic Tac Toe");
         
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("login.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/login.fxml"));
         Parent fxmlViewChild = loader.load();
         LoginController lg = new LoginController();
         session = new Session(stg);
@@ -38,7 +38,7 @@ public class MainScreen extends Application {
         scene = new Scene(fxmlViewChild, 690, 390);
         stage.setScene(scene);
         
-        Image icon = new Image("images/icon.png");
+        Image icon = new Image("/images/icon.png");
 	    stage.getIcons().add(icon);
         
         

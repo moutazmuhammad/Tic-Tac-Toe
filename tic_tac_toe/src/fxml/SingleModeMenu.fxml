@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTac.SingleModeMenu">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SingleModeMenu">
    <children>
       <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="189.0" layoutY="218.0" opacity="0.04" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -118,12 +118,12 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <Button fx:id="simpleModeButton" layoutX="225.0" layoutY="208.0" mnemonicParsing="false" onAction="#simpleModeButtonAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Easy" textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="simpleModeButton" layoutX="225.0" layoutY="185.0" mnemonicParsing="false" onAction="#simpleModeButtonAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Easy" textAlignment="CENTER" textFill="#05262c">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="mediumModeButton" layoutX="226.0" layoutY="260.0" mnemonicParsing="false" onAction="#mediumModeButtonAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Medium" textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="mediumModeButton" layoutX="225.0" layoutY="235.0" mnemonicParsing="false" onAction="#mediumModeButtonAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Medium" textAlignment="CENTER" textFill="#05262c">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -226,6 +226,11 @@
       <Button layoutX="16.0" layoutY="355.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #ab3131; -fx-background-radius: 30;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="hardModeButton" layoutX="225.0" layoutY="287.0" mnemonicParsing="false" onAction="#hardModeButtonAction" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Hard" textAlignment="CENTER" textFill="#05262c">
+         <font>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Button>
    </children>

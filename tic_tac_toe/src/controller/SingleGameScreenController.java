@@ -1,5 +1,5 @@
 
-package ticTac;
+package controller;
 
 import java.awt.AWTException;
 import java.awt.Dimension;
@@ -91,20 +91,22 @@ public class SingleGameScreenController implements Initializable {
     private void drawAction() throws IOException{
         
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("draw.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/fxml/draw.fxml"));
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Draw");
     }
     
     private void xWinnerAction() throws IOException{
         
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("xWinner.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/fxml/xWinner.fxml"));
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Winner");
     }
     
@@ -112,10 +114,11 @@ public class SingleGameScreenController implements Initializable {
     private void oWinnerAction() throws IOException{
         
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("oWinner.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/fxml/oWinner.fxml"));
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Game Over");
     }
     
@@ -713,7 +716,7 @@ public class SingleGameScreenController implements Initializable {
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SingleModeMenu.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/SingleModeMenu.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);

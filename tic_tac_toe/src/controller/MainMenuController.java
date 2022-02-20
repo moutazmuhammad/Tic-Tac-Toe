@@ -1,4 +1,4 @@
-package ticTac;
+package controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +23,7 @@ import javafx.scene.input.MouseEvent;
 public class MainMenuController implements Initializable {
     
     @FXML
-    private Button singleModeButton, MultiModeButton, leaderButton, aboutButton;
+    private Button singleModeButton, MultiModeButton, hardModeButton, leaderButton, aboutButton;
     @FXML
     private ImageView singleIcon, multiIcon, leaderIcon;
 
@@ -31,7 +31,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void singleModeButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SingleModeMenu.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/SingleModeMenu.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -46,7 +46,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void MultiModeButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("PlayerInvitationScreen.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/PlayerInvitationScreen.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -62,7 +62,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void LeaderBoardButtonAction(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("LeaderBoard.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/LeaderBoard.fxml"));
         Parent fxmlViewChild = loader.load();
         
         Scene fxmlViewScene = new Scene(fxmlViewChild);
