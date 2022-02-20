@@ -44,12 +44,12 @@
             <Image url="@../images/star.png" />
          </image>
       </ImageView>
-      <Label layoutX="156.0" layoutY="70.0" prefHeight="39.0" prefWidth="206.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 20%;">
+      <Label fx:id="username1" layoutX="156.0" layoutY="70.0" prefHeight="39.0" prefWidth="206.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="70.0" prefHeight="39.0" prefWidth="50.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score1" alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="70.0" prefHeight="39.0" prefWidth="50.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 5px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -59,12 +59,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="131.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score2" alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="131.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="133.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username2" layoutX="103.0" layoutY="133.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -84,12 +84,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="131.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score3" alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="131.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="133.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username3" layoutX="420.0" layoutY="133.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -109,12 +109,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="187.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score4" alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="187.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="189.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username4" layoutX="103.0" layoutY="189.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -134,12 +134,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="187.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score5" alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="187.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="189.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username5" layoutX="420.0" layoutY="189.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -159,12 +159,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="242.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score6" alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="242.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="244.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username6" layoutX="103.0" layoutY="244.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -184,12 +184,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="242.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score7" alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="242.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="244.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username7" layoutX="420.0" layoutY="244.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -209,12 +209,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="298.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score8" alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="298.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="300.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username8" layoutX="103.0" layoutY="300.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -234,12 +234,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="298.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score9" alignment="CENTER" contentDisplay="CENTER" layoutX="614.0" layoutY="298.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="300.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username9" layoutX="420.0" layoutY="300.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -259,12 +259,12 @@
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="345.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
+      <Label fx:id="score10" alignment="CENTER" contentDisplay="CENTER" layoutX="463.0" layoutY="345.0" prefHeight="31.0" prefWidth="30.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 50%;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="269.0" layoutY="346.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
+      <Label fx:id="username10" layoutX="269.0" layoutY="346.0" prefHeight="26.0" prefWidth="127.0" style="-fx-border-color: rgba(254, 254, 254, 0.5); -fx-padding: 2px; -fx-border-radius: 20%;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

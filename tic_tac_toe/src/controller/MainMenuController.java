@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,12 +66,27 @@ public class MainMenuController implements Initializable {
         loader.setLocation(getClass().getResource("/fxml/LeaderBoard.fxml"));
         Parent fxmlViewChild = loader.load();
         
+        HashMap<String,Integer> anything = new HashMap<String,Integer>();
+        anything.put("ahmed", 10);
+        anything.put("amr", 10);
+        anything.put("noha", 10);
+        anything.put("no", 500);
+        anything.put("fd", 10);
+        anything.put("bb", 10);
+        anything.put("f", 10);
+        anything.put("h", 30);
+        anything.put("zz", 10);
+        anything.put("Sandy", 10);
+        
+        LeaderBoardController ld = (LeaderBoardController)loader.getController();
+        
         Scene fxmlViewScene = new Scene(fxmlViewChild);
         
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(fxmlViewScene);
         
         window.show();
+        ld.loadLeaderBoard(anything);
     }
     
     
