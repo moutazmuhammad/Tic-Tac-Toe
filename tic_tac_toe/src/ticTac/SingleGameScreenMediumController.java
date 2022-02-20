@@ -29,6 +29,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 
@@ -133,6 +135,7 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b0.setImage(X);
+                audio("btnClick.mp3");
                // b0.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[0]=1;
@@ -183,6 +186,7 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b1.setImage(X);
+                audio("btnClick.mp3");
                // b1.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[1]=1;
@@ -234,6 +238,7 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b2.setImage(X);
+                audio("btnClick.mp3");
                 //b2.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[2]=1;
@@ -283,6 +288,7 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b3.setImage(X);
+                audio("btnClick.mp3");
                 //b3.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[3]=1;
@@ -332,6 +338,7 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b4.setImage(X);
+                audio("btnClick.mp3");
                 //b4.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[4]=1;
@@ -381,7 +388,8 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b5.setImage(X);
-                b5.setStyle("-fx-background-color: #f5fb4f");
+                audio("btnClick.mp3");
+                //b5.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[5]=1;
                 xPlayerWon[5]=1;
@@ -430,7 +438,8 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b6.setImage(X);
-                b6.setStyle("-fx-background-color: #f5fb4f");
+                audio("btnClick.mp3");
+                //b6.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[6]=1;
                 xPlayerWon[6]=1;
@@ -479,7 +488,8 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b7.setImage(X);
-                b7.setStyle("-fx-background-color: #f5fb4f");
+                audio("btnClick.mp3");
+                //b7.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[7]=1;
                 xPlayerWon[7]=1;
@@ -528,6 +538,7 @@ public class SingleGameScreenMediumController implements Initializable {
                 
                 turnPosition++; //To Skep the next index
                 b8.setImage(X);
+                audio("btnClick.mp3");
                 //b8.setStyle("-fx-background-color: #f5fb4f");
                
                 buttonPosition[8]=1;
@@ -1060,6 +1071,11 @@ public class SingleGameScreenMediumController implements Initializable {
         screenshotBtn.setLayoutY(359);
       }
     
+     private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
