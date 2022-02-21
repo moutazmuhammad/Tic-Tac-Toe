@@ -48,6 +48,7 @@ public class ClientHandler extends Thread{
         {
             if(log()){
                 clientsVector.add(this);
+                changeOnlineStatus();
             }else{
                 return;
             }
@@ -64,6 +65,9 @@ public class ClientHandler extends Thread{
                 if(re == null)
                 {
                     clientsVector.remove(this);
+                    for(ClientHandler c : clientsVector){
+                        c.get_online_players();
+                    }
                     closeConnection();
                     return;
                 }
@@ -85,6 +89,9 @@ public class ClientHandler extends Thread{
                         break;
                     case CLOSE_CONNECTION:
                         clientsVector.remove(this);
+                        for(ClientHandler c : clientsVector){
+                            c.get_online_players();
+                        }
                         closeConnection();
                         return;
                 }
@@ -95,6 +102,12 @@ public class ClientHandler extends Thread{
         }
     }
    
+    private void changeOnlineStatus(){
+        for(ClientHandler c : clientsVector){
+            c.get_online_players();
+        }
+    } 
+    
     boolean log(){
         while(true){
         try {
@@ -104,12 +117,14 @@ public class ClientHandler extends Thread{
             ClientMsg msg = request.getEnum(ClientMsg.class,"type");
             switch (msg) {
                 case SIGNIN:
-                    if(signIn(request))
+                    if(signIn(request)){
                         return true;
+                    }
                     break;
                 case SIGNUP:
-                    if(signUp(request))
+                    if(signUp(request)){
                         return true;
+                    }
                     break;
                 case CLOSE_CONNECTION:
                     closeConnection();
@@ -128,14 +143,20 @@ public class ClientHandler extends Thread{
     }
     
     void get_online_players(){
-        JSONObject players = new JSONObject();
+        String names="",scores="",index="";
+        int i = 0;
         for(ClientHandler c : clientsVector){
-            if(c!=this)
-                players.put(c.player.getUsername(), c.player.getId());
+            if(c!=this){
+                names = names + ","+c.player.getUsername();
+                scores = scores+","+c.player.getScore();
+                index = index+","+(i++);
+            }
         }
         response.clear();
+        response.put("name", names);
+        response.put("score", scores);
+        response.put("id", index);
         response.put("type", ClientMsg.GET_ONLINE_PLAYERS);
-        response.put("players", players);
         ps.println(response);
     }
     
