@@ -51,14 +51,13 @@ public class MainMenuController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/PlayerInvitationScreen.fxml"));
         Parent fxmlViewChild = loader.load();
-        MainScreen.session.controlManager.setInvitationController(loader);
-        MainScreen.session.viewOnlinePlayers = true;
         Scene fxmlViewScene = new Scene(fxmlViewChild);
-        
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(fxmlViewScene);
-        
         window.show();
+        MainScreen.session.controlManager.setInvitationController(loader);
+        MainScreen.session.viewOnlinePlayers = true;
+        MainScreen.session.getOnlinePlayersRequest();
     }
     
     @FXML

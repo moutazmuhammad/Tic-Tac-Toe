@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,6 +36,8 @@ public class PlayerInvitationController implements Initializable {
     
     private TableColumn<Player,Integer> Score;
     
+    private ObservableList<Player> PlayersList;
+    
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException{
@@ -54,7 +57,6 @@ public class PlayerInvitationController implements Initializable {
     
     @FXML
     private void inviteButtonAction(ActionEvent event) throws IOException{
-       
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/MultiGameScreen.fxml"));
         Parent fxmlViewChild = loader.load();
@@ -105,11 +107,7 @@ public class PlayerInvitationController implements Initializable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                tableView.getItems().clear();
-                for(Player p : list){
-                    tableView.getItems().add(p);
-                }
-                tableView.refresh();
+                tableView.setItems(list);
             }
         });
     }
@@ -188,10 +186,8 @@ public class PlayerInvitationController implements Initializable {
         Score = (TableColumn<Player,Integer>)tableView.getColumns().get(1);
         OnlinePlayers.setCellValueFactory(new PropertyValueFactory<Player,String>("username"));
         Score.setCellValueFactory(new PropertyValueFactory<Player,Integer>("score"));
-        tableView.getItems().add(new Player("zinab", "d", 20));
-    } 
-
-    
-    
-    
+        
+        PlayersList = FXCollections.observableArrayList();
+        tableView.setItems(PlayersList);
+    }
 }

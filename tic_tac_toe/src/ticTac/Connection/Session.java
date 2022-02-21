@@ -190,8 +190,7 @@ public class Session extends Thread{
             String[] score = Message.get("score").toString().split(",");
             Player [] playerList = new Player[name.length-1];
             for(int a = 1; a < name.length; a++){
-                playerList[a-1].setUsername(name[a]);
-                playerList[a-1].setScore(Integer.parseInt(score[a]));
+                playerList[a-1] = new Player(name[a],"",Integer.parseInt(score[a]));
             }
             ObservableList<Player> list = FXCollections.observableArrayList(playerList);
             controlManager.getInvitationController().insertOnlinePlayers(list);

@@ -4,13 +4,17 @@
  */
 package serverapplication;
 
+import db.Player;
+import db.database;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONObject;
 
 /**
  *
@@ -20,9 +24,14 @@ public class ClientHandler extends Thread{
     
     DataInputStream dis;
     PrintStream ps;
+    database db;
+    JSONObject request,response;
+    Player player;
     static Vector<ClientHandler> clientsVector = new Vector<ClientHandler>();
     
-    public ClientHandler(Socket sc){
+    public ClientHandler(Socket sc,database _db){
+        db = _db;
+        response = new JSONObject();
         try {
             ps = new PrintStream(sc.getOutputStream());
             dis = new DataInputStream(sc.getInputStream());
@@ -35,10 +44,11 @@ public class ClientHandler extends Thread{
     
     @Override
     public void run(){
-        if(ServerApplication.server_status == status.ON)
+        if(ServerApplication.server_status == Status.ON)
         {
             if(log()){
                 clientsVector.add(this);
+                changeOnlineStatus();
             }else{
                 return;
             }
@@ -51,18 +61,39 @@ public class ClientHandler extends Thread{
         
         while(true){
             try {
-                String str = dis.readLine();
-                switch (str) {
-                    case "start game":
-                       ps.println("game started");
+                String re = dis.readLine();
+                if(re == null)
+                {
+                    clientsVector.remove(this);
+                    for(ClientHandler c : clientsVector){
+                        c.get_online_players();
+                    }
+                    closeConnection();
+                    return;
+                }
+                JSONObject request = new JSONObject(re);
+                System.out.println(request);
+                ClientMsg msg = request.getEnum(ClientMsg.class,"type");
+                switch (msg) {
+                    case GET_LEADERBOARD:
+                        get_leaderboard();
                         break;
-                    case "invite":
-                       ps.println("invited");
-                       break;
-                    case "close":
-                       clientsVector.remove(this);
-                       closeConnection();
-                       return;
+                    case GET_ONLINE_PLAYERS:
+                        get_online_players();
+                        break;
+                    case INVETATION_SEND:
+                        sendInvitation(request);
+                        break;
+                    case INVETATION_REPLY:
+                        replyInvitation(request);
+                        break;
+                    case CLOSE_CONNECTION:
+                        clientsVector.remove(this);
+                        for(ClientHandler c : clientsVector){
+                            c.get_online_players();
+                        }
+                        closeConnection();
+                        return;
                 }
                
            } catch (IOException ex) {
@@ -71,18 +102,31 @@ public class ClientHandler extends Thread{
         }
     }
    
+    private void changeOnlineStatus(){
+        for(ClientHandler c : clientsVector){
+            c.get_online_players();
+        }
+    } 
+    
     boolean log(){
         while(true){
         try {
-            String str = dis.readLine();
-            switch (str) {
-                case "signin":
-                    ps.println("signedin");
-                    return true;
-                case "signup":
-                    ps.println("signedup");
-                    return true;
-                case "close":
+            String re = dis.readLine();
+            System.out.println(re);
+            request = new JSONObject(re);
+            ClientMsg msg = request.getEnum(ClientMsg.class,"type");
+            switch (msg) {
+                case SIGNIN:
+                    if(signIn(request)){
+                        return true;
+                    }
+                    break;
+                case SIGNUP:
+                    if(signUp(request)){
+                        return true;
+                    }
+                    break;
+                case CLOSE_CONNECTION:
                     closeConnection();
                     return false;
             }
@@ -92,17 +136,91 @@ public class ClientHandler extends Thread{
         }
     }
     
+    void get_leaderboard(){
+        response = db.getLeaderBoard();
+        response.put("type", ClientMsg.GET_LEADERBOARD);
+        ps.println(response);
+    }
     
-    void signIn(){
-       
+    void get_online_players(){
+        String names="",scores="",index="";
+        int i = 0;
+        for(ClientHandler c : clientsVector){
+            if(c!=this){
+                names = names + ","+c.player.getUsername();
+                scores = scores+","+c.player.getScore();
+                index = index+","+(i++);
+            }
+        }
+        response.clear();
+        response.put("name", names);
+        response.put("score", scores);
+        response.put("id", index);
+        response.put("type", ClientMsg.GET_ONLINE_PLAYERS);
+        ps.println(response);
+    }
+    
+    void sendInvitation(JSONObject request){
+        ClientHandler player_info = GetPlayerByID(request.getInt("reciever id"));
+        response.clear();
+        response.put("type", ClientMsg.INVETATION_SEND);
+        response.put("sender id", player.getId());
+        response.put("sender name", player.getUsername());
+        response.put("reciever id", player_info.player.getId());
+        player_info.ps.println(response);
+    }
+    
+    void replyInvitation(JSONObject request){
+        ClientHandler player_info = GetPlayerByID(request.getInt("reciever id"));
+        response.clear();
+        response.put("type", ClientMsg.INVETATION_REPLY);
+        response.put("sender id", player.getId());
+        response.put("reply", "yes");
+        response.put("reciever id", player_info.player.getId());
+        player_info.ps.println(response);
+    }
+    
+    boolean signIn(JSONObject request){
+        int r = db.signIn(request.getString("username"), request.getString("passwd"));
+        response.clear();
+        response.put("type", ClientMsg.SIGNIN);
+
+        if(r==0){
+            response.put("id", 0);
+            ps.println(response);
+            return false;
+        }
+        else{
+            player = db.getPlayerProfile(r);
+            response.put("id", player.getId());
+            response.put("score", player.getScore());
+            response.put("loses", player.getWins());
+            response.put("wins", player.getLosses());
+            ps.println(response);
+            return true;
+        }
     }
 
-    void signUp(){
-
+    boolean signUp(JSONObject request){
+        int r = db.signUp(request.getString("username"), request.getString("passwd"));
+        response.clear();
+        response.put("type", ClientMsg.SIGNUP);
+        if(r==0){
+            response.put("id", 0);
+            ps.println(response);
+            return false;
+        }
+        else{
+            player = db.getPlayerProfile(r);
+            response.put("id", player.getId());
+            ps.println(response);
+            return true;
+        }
     }
 
     void closeConnection(){
         try {
+            ps.println("closing connection");
             dis.close();
             ps.close();
             stop();
@@ -118,8 +236,14 @@ public class ClientHandler extends Thread{
         clientsVector.clear();
     }
     
-    void invite(){
-
+    ClientHandler GetPlayerByID(int id){
+        
+        for(ClientHandler c : clientsVector){
+            if(c.player.getId() == id){
+                return c;
+            }
+        }
+        return null;
     }
 
 }
