@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONObject;
 
 /**
  *
@@ -219,15 +220,19 @@ public class database {
         return recordedGame;           
     }
     
-    public HashMap<String,Integer> getLeaderBoard (){
-        HashMap<String,Integer> leaderBoard = new HashMap<String,Integer>(); 
+    public JSONObject getLeaderBoard (){
+        JSONObject leaderBoard = new JSONObject(); 
         try {
             statement = connection.createStatement();
             String leaderBoardQuery = new String("select username, score from player where username not in('computer') order by score desc limit 10;");
             resultSet = statement.executeQuery(leaderBoardQuery);
+            String names="",scores="";
             while(resultSet.next()){
-                leaderBoard.put(resultSet.getString(1), resultSet.getInt(2));
+                names = names + ","+resultSet.getString(1);
+                scores = scores+","+resultSet.getInt(2);
             }
+            leaderBoard.put("names", names);
+            leaderBoard.put("scores", scores);
             statement.close();
         } catch (SQLException ex) {
             ex.printStackTrace();

@@ -122,14 +122,8 @@ public class ClientHandler extends Thread{
     }
     
     void get_leaderboard(){
-        HashMap<String,Integer> lb = db.getLeaderBoard();
-        JSONObject leaderBoard = new JSONObject();
-        for(String i : lb.keySet()){
-            leaderBoard.put(i, lb.get(i));
-        }
-        response.clear();
+        response = db.getLeaderBoard();
         response.put("type", ClientMsg.GET_LEADERBOARD);
-        response.put("LeaderBoard", leaderBoard);
         ps.println(response);
     }
     
