@@ -3,6 +3,8 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -21,6 +26,15 @@ import javafx.stage.Stage;
 public class PlayerInvitationController implements Initializable {
     @FXML
     private Button BackButton, InvitePlayerButton, AcceptButton,recordedGamesButton;
+    
+    @FXML
+    private TableView tableView;
+    
+    
+    private TableColumn<Player,String> OnlinePlayers;
+    
+    private TableColumn<Player,Integer> Score;
+    
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException{
@@ -86,8 +100,22 @@ public class PlayerInvitationController implements Initializable {
             
     }
     
+    @FXML
+    public void insertOnlinePlayers(ObservableList<Player> list){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                tableView.getItems().clear();
+                for(Player p : list){
+                    tableView.getItems().add(p);
+                }
+                tableView.refresh();
+            }
+        });
+    }
     
-       @FXML
+    
+    @FXML
     private void inviteOnHover(MouseEvent event){
          //aboutButton
         InvitePlayerButton.setPrefWidth(199);
@@ -156,6 +184,11 @@ public class PlayerInvitationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        OnlinePlayers = (TableColumn<Player,String>)tableView.getColumns().get(0);
+        Score = (TableColumn<Player,Integer>)tableView.getColumns().get(1);
+        OnlinePlayers.setCellValueFactory(new PropertyValueFactory<Player,String>("username"));
+        Score.setCellValueFactory(new PropertyValueFactory<Player,Integer>("score"));
+        tableView.getItems().add(new Player("zinab", "d", 20));
     } 
 
     

@@ -15,8 +15,11 @@ import javafx.application.Platform;
 import org.json.JSONObject;
 import ticTac.Connection.msgType;
 import controller.LoginController;
+import controller.Player;
 import java.util.HashMap;
 import java.util.Set;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.json.JSONArray;
 
 public class Session extends Thread{
@@ -182,6 +185,17 @@ public class Session extends Thread{
     
     private void getOnlinePlayersResponse(JSONObject Message)
     {
+        if(viewOnlinePlayers&&!Message.get("name").toString().equals(",")){
+            String[] name = Message.get("name").toString().split(",");
+            String[] score = Message.get("score").toString().split(",");
+            Player [] playerList = new Player[name.length-1];
+            for(int a = 1; a < name.length; a++){
+                playerList[a-1].setUsername(name[a]);
+                playerList[a-1].setScore(Integer.parseInt(score[a]));
+            }
+            ObservableList<Player> list = FXCollections.observableArrayList(playerList);
+            controlManager.getInvitationController().insertOnlinePlayers(list);
+        }
     }
     
 
