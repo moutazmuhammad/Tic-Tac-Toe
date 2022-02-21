@@ -14,6 +14,10 @@ public class Player {
         this.score = score;
     }
 
+    public Player() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getScore() {return score;}
 
     public void setScore(int score) {this.score = score;}
