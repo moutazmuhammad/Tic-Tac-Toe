@@ -28,6 +28,7 @@ public class Session extends Thread{
     
     JSONObject Message ;
     boolean Connected =false;
+    public boolean viewOnlinePlayers = false;
 
 
     public Session(Stage stage)
@@ -172,7 +173,17 @@ public class Session extends Thread{
         controlManager.getLeaderBoardController().loadLeaderBoard(Message);
     }
     
-
+    public void getOnlinePlayersRequest()
+    {
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.GET_ONLINE_PLAYERS);
+        printStream.println(js);
+    }
+    
+    private void getOnlinePlayersResponse(JSONObject Message)
+    {
+    }
+    
 
     public void run(){
         while(true){
@@ -185,6 +196,7 @@ public class Session extends Thread{
                 }
                 JSONObject response = new JSONObject(re);
                 msgType msg = response.getEnum(msgType.class,"type");
+                System.out.println(response);
                 switch (msg) {
                     case SIGNIN:
                         signInResponse(response);
@@ -194,6 +206,9 @@ public class Session extends Thread{
                         break;
                     case GET_LEADERBOARD:
                         getLeaderboardResponse(response);
+                        break;
+                    case GET_ONLINE_PLAYERS:
+                        getOnlinePlayersResponse(response);
                         break;
                 }
 
