@@ -14,6 +14,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -190,4 +192,6 @@ public class PlayerInvitationController implements Initializable {
         PlayersList = FXCollections.observableArrayList();
         tableView.setItems(PlayersList);
     }
+    
+
 }

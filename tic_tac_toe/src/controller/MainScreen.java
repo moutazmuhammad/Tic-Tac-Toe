@@ -8,6 +8,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -20,6 +23,8 @@ public class MainScreen extends Application {
     private Parent root;
     private Scene scene;
     public static Session session;
+    public Dialog<String> dialog = new Dialog<String>(); 
+    
     @Override
     public void start(Stage stage) throws Exception {
         
@@ -62,6 +67,14 @@ public class MainScreen extends Application {
         } catch (Exception ex) {
             Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void inviteDialog(){
+        dialog.setTitle("Invitation");
+        dialog.setContentText(session.player.getUsername()+"(" + session.player.getScore()+ ") invited you to play \nWould you like to accept?");
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK); 
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.NO); 
+        dialog.show();
     }
     
 }

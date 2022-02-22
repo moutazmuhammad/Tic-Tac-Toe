@@ -24,6 +24,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javax.transaction.TransactionRequiredException;
+import ticTac.Connection.Session;
 
 /**
  * FXML Controller class
@@ -35,6 +36,8 @@ public class StartScreenController implements Initializable {
     private ImageView myImage;
     @FXML
     private StackPane rootPane;
+    
+    Session session;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -57,6 +60,7 @@ public class StartScreenController implements Initializable {
                 Platform.runLater(new Runnable(){
                     @Override
                     public void run() {
+                        //session.changeScene()
                     }
                 });
             } catch (InterruptedException ex) {

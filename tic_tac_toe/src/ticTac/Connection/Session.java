@@ -28,6 +28,7 @@ public class Session extends Thread{
     private DataInputStream inputStream;
     private PrintStream printStream;
     public ControlManager controlManager;
+    public Player player;
     
     JSONObject Message ;
     boolean Connected =false;
@@ -134,6 +135,10 @@ public class Session extends Thread{
         else
         {
             changeScene("/fxml/mainMenu.fxml");
+            player = new Player();
+            player.setID((int) Message.get("id"));
+            player.setUsername((String) Message.get("username"));
+            player.setScore((int) Message.get("score"));
         }
     }
     
@@ -198,6 +203,18 @@ public class Session extends Thread{
     }
     
 
+    private void invitationSend( )
+    {
+        
+    }
+    
+    private void invitationResponse(JSONObject Message)
+    {
+        
+    }
+    
+    
+    
     public void run(){
         while(true){
             try {
@@ -222,6 +239,9 @@ public class Session extends Thread{
                         break;
                     case GET_ONLINE_PLAYERS:
                         getOnlinePlayersResponse(response);
+                        break;
+                    case INVETATION_REPLY:
+                        invitationResponse(response);
                         break;
                 }
 
