@@ -1,5 +1,12 @@
 package controller;
 
+import java.awt.AWTException;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,11 +19,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 /**
  *
- * @author Ahmed
+ * @author Abdelrahman
  */
 public class MultiGameScreenController implements Initializable {
     
@@ -72,6 +81,31 @@ public class MultiGameScreenController implements Initializable {
         pauseButton.setPrefHeight(25); 
         pauseButton.setLayoutY(359);
       }
+    
+    
+      @FXML
+    private void ScreenShot(MouseEvent event) throws IOException, AWTException {
+      
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle screenRectangle = new Rectangle(screenSize);
+        Robot robot = new Robot();
+        BufferedImage image = robot.createScreenCapture(screenRectangle);
+      //WritableImage snapshot = stage.getScene().snapshot(null);
+     
+   
+        FileChooser fileChooser = new FileChooser();
+    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)", "*.png"));
+       File file = fileChooser.showSaveDialog(null); 
+        try {
+          
+            ImageIO.write((BufferedImage) image, "png", new File(file.getAbsolutePath()));
+        } catch (IOException ex) {
+            System.out.println("Failed to save image!");
+        }
+   {
+        System.out.println("No file choosen!");
+    }
+}
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
