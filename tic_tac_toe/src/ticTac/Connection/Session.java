@@ -17,9 +17,13 @@ import ticTac.Connection.msgType;
 import controller.LoginController;
 import controller.Player;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import org.json.JSONArray;
 
 public class Session extends Thread{
@@ -153,7 +157,7 @@ public class Session extends Thread{
         }
         else
         {
-            changeScene("/fxml/mainMenu.fxml");
+            changeScene("/fxml/login.fxml");
             return;
         }
     }
@@ -193,9 +197,10 @@ public class Session extends Thread{
         if(viewOnlinePlayers&&!Message.get("name").toString().equals(",")){
             String[] name = Message.get("name").toString().split(",");
             String[] score = Message.get("score").toString().split(",");
+            String[] id = Message.get("id").toString().split(",");
             Player [] playerList = new Player[name.length-1];
             for(int a = 1; a < name.length; a++){
-                playerList[a-1] = new Player(name[a],"",Integer.parseInt(score[a]));
+                playerList[a-1] = new Player(name[a],Integer.parseInt(score[a]),Integer.parseInt(id[a]));
             }
             ObservableList<Player> list = FXCollections.observableArrayList(playerList);
             controlManager.getInvitationController().insertOnlinePlayers(list);
@@ -203,16 +208,63 @@ public class Session extends Thread{
     }
     
 
-    private void invitationSend( )
+    public void invitationSendRequest(int id)
     {
-        
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.INVETATION_SEND);
+        js.put("reciever id", id);
+        printStream.println(js);
     }
     
-    private void invitationResponse(JSONObject Message)
+    private void invitationSendResponse(JSONObject Message)
     {
+        if(!viewOnlinePlayers){
+            invitationReplyReqest("no", Message.getInt("sender id"));
+            return;
+        }
         
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/fxml/draw.fxml"));
+                    DialogPane winner = fxmlLoader.load();
+                    
+                    dialog.setDialogPane(winner);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
+                    dialog.setTitle("Accept Invetation from "+Message.getString("sender name"));
+                    Optional<ButtonType> result = dialog.showAndWait();
+                    if(result.get()==ButtonType.YES){
+                        invitationReplyReqest("yes", Message.getInt("sender id"));
+                        System.out.println("yes");
+                    }
+                    else{
+                        invitationReplyReqest("no", Message.getInt("sender id"));
+                        System.out.println("no");
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(Session.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }
+
+    public void invitationReplyReqest(String reply,int id)
+    {
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.INVETATION_REPLY);
+        js.put("reciever id", id);
+        js.put("reply", reply);
+        printStream.println(js);
     }
     
+    private void invitationReplyResponse(JSONObject Message)
+    {
+        System.out.println(Message.getString("reply"));
+    }
     
     
     public void run(){
@@ -240,8 +292,11 @@ public class Session extends Thread{
                     case GET_ONLINE_PLAYERS:
                         getOnlinePlayersResponse(response);
                         break;
+                    case INVETATION_SEND:
+                        invitationSendResponse(response);
+                        break;
                     case INVETATION_REPLY:
-                        invitationResponse(response);
+                        invitationReplyResponse(response);
                         break;
                 }
 

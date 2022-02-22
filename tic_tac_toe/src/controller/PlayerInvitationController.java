@@ -59,17 +59,10 @@ public class PlayerInvitationController implements Initializable {
     
     @FXML
     private void inviteButtonAction(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/MultiGameScreen.fxml"));
-        Parent fxmlViewChild = loader.load();
-        
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-        
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-        
-        window.show();
-        
+        Player player = (Player)tableView.getSelectionModel().getSelectedItem();
+        if(player!=null){
+            MainScreen.session.invitationSendRequest(player.getID());
+        }
     }
     
     @FXML

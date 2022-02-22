@@ -5,26 +5,18 @@ public class Player {
     private int ID;
     private String status;
     private String username;
-    private String password;
 
 
-    public Player(String username ,String password ,int score)
+    public Player(String username,int score,int id)
     {
         this.username = username;
-        this.password = password;
         this.score = score;
+        ID = id;
     }
     
-    public Player(int id, String username ,String password ,int score)
-    {
-        this.ID = id;
-        this.username = username;
-        this.password = password;
-        this.score = score;
-    }
+    
 
     public Player() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getID() {return ID;}
@@ -43,7 +35,4 @@ public class Player {
 
     public void setUsername(String username) {this.username = username;}
 
-    public String getPassword() {return password;}
-
-    public void setPassword(String password) {this.password = password;}
 }
