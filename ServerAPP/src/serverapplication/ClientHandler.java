@@ -196,6 +196,7 @@ public class ClientHandler extends Thread{
             response.put("score", player.getScore());
             response.put("loses", player.getWins());
             response.put("wins", player.getLosses());
+            response.put("username", player.getUsername());
             ps.println(response);
             return true;
         }
