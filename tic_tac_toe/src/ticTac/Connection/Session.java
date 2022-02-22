@@ -15,6 +15,7 @@ import javafx.application.Platform;
 import org.json.JSONObject;
 import ticTac.Connection.msgType;
 import controller.LoginController;
+import controller.MainScreen;
 import controller.Player;
 import java.util.HashMap;
 import java.util.Optional;
@@ -37,6 +38,7 @@ public class Session extends Thread{
     JSONObject Message ;
     boolean Connected =false;
     public boolean viewOnlinePlayers = false;
+    public boolean loged = false;
 
 
     public Session(Stage stage)
@@ -138,7 +140,11 @@ public class Session extends Thread{
         }
         else
         {
-            changeScene("/fxml/mainMenu.fxml");
+            
+            MainScreen.session.controlManager.setInvitationController(changeScene("/fxml/PlayerInvitationScreen.fxml"));
+            loged = true;
+            MainScreen.session.viewOnlinePlayers = true;
+            MainScreen.session.getOnlinePlayersRequest();
             player = new Player();
             player.setID((int) Message.get("id"));
             player.setUsername((String) Message.get("username"));

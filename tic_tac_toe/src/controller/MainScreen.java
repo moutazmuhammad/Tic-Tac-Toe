@@ -30,9 +30,8 @@ public class MainScreen extends Application {
         stage.setTitle("Tic Tac Toe");
         session = new Session(stage);
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/login.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/startScreen.fxml"));
         Parent fxmlViewChild = loader.load();
-        session.controlManager.setLoginController(loader);
         
         scene = new Scene(fxmlViewChild, 690, 390);
         stage.setScene(scene);
@@ -68,11 +67,7 @@ public class MainScreen extends Application {
     }
     
     public void inviteDialog(){
-        dialog.setTitle("Invitation");
-        dialog.setContentText(session.player.getUsername()+"(" + session.player.getScore()+ ") invited you to play \nWould you like to accept?");
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK); 
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.NO); 
-        dialog.show();
+        
     }
     
 }

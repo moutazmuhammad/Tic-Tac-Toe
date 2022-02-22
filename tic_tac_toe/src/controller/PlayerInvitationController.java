@@ -43,7 +43,7 @@ public class PlayerInvitationController implements Initializable {
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException{
-        
+            MainScreen.session.viewOnlinePlayers = false;
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
             Parent fxmlViewChild = loader.load();
@@ -67,7 +67,7 @@ public class PlayerInvitationController implements Initializable {
     
     @FXML
     private void acceptInvitaionButtonAction(ActionEvent event) throws IOException{
-        
+        MainScreen.session.viewOnlinePlayers = false;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/MultiGameScreen.fxml"));
         Parent fxmlViewChild = loader.load();

@@ -43,7 +43,7 @@ public class StartScreenController implements Initializable {
         new SplashScreen().start();
         RotateTransition rotate = new RotateTransition();
         rotate.setNode(myImage);
-        rotate.setDuration(Duration.millis(5000));
+        rotate.setDuration(Duration.millis(3500));
         rotate.setCycleCount(TranslateTransition.INDEFINITE);
         rotate.setByAngle(360);
         rotate.play();
@@ -54,12 +54,12 @@ public class StartScreenController implements Initializable {
         @Override
         public void run() {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(3500);
                 
                 Platform.runLater(new Runnable(){
                     @Override
-                    public void run() {
-                        //session.changeScene()
+                    public void run(){
+                        MainScreen.session.changeScene("/fxml/mainMenu.fxml");
                     }
                 });
             } catch (InterruptedException ex) {
