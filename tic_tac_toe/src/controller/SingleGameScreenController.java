@@ -26,6 +26,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -42,11 +44,13 @@ public class SingleGameScreenController implements Initializable {
     Dialog<ButtonType> dialog = new Dialog<>(); 
             
     @FXML
-    private Button b0, b1, b2, b3, b4, b5, b6, b7, b8;
+    private ImageView b0, b1, b2, b3, b4, b5, b6, b7, b8;
     
     @FXML
     private Label ur_score, cump_score;
     
+    Image X = new Image(getClass().getResourceAsStream("/images/x.png"));
+    Image O = new Image(getClass().getResourceAsStream("/images/oO.png"));
     
     private int your_score=0; //Score of player
     private int computer_score=0; //Score of computer
@@ -168,11 +172,11 @@ public class SingleGameScreenController implements Initializable {
     
     
     @FXML
-    private void b0ButtonAction(ActionEvent event)  {
+    private void b0ButtonAction(MouseEvent event)  {
         
         if (buttonPosition[0]==0){
-            b0.setText("X");
-            b0.setStyle("-fx-background-color: #f5fb4f");
+            b0.setImage(X);
+            //b0.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[0]=1;
             xPlayerWon[0]=1;
 
@@ -186,11 +190,11 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b1ButtonAction(ActionEvent event) {
+    private void b1ButtonAction(MouseEvent event) {
         
         if (buttonPosition[1]==0){
-            b1.setText("X");
-            b1.setStyle("-fx-background-color: #f5fb4f");
+            b1.setImage(X);
+            //b1.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[1]=1;
             xPlayerWon[1]=1;
 
@@ -204,11 +208,11 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b2ButtonAction(ActionEvent event) {
+    private void b2ButtonAction(MouseEvent event) {
         
         if (buttonPosition[2]==0){
-            b2.setText("X");
-            b2.setStyle("-fx-background-color: #f5fb4f");
+            b2.setImage(X);
+            //b2.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[2]=1;
             xPlayerWon[2]=1;
 
@@ -222,11 +226,11 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b3ButtonAction(ActionEvent event){
+    private void b3ButtonAction(MouseEvent event){
         
         if (buttonPosition[3]==0){
-            b3.setText("X");
-            b3.setStyle("-fx-background-color: #f5fb4f");
+            b3.setImage(X);
+            //b3.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[3]=1;
             xPlayerWon[3]=1;
 
@@ -240,11 +244,11 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b4ButtonAction(ActionEvent event){
+    private void b4ButtonAction(MouseEvent event){
         
         if (buttonPosition[4]==0){
-            b4.setText("X");
-            b4.setStyle("-fx-background-color: #f5fb4f");
+            b4.setImage(X);
+            //b4.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[4]=1;
             xPlayerWon[4]=1;
 
@@ -258,11 +262,11 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b5ButtonAction(ActionEvent event) {
+    private void b5ButtonAction(MouseEvent event) {
         
         if (buttonPosition[5]==0){
-            b5.setText("X");
-            b5.setStyle("-fx-background-color: #f5fb4f");
+            b5.setImage(X);
+            //b5.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[5]=1;
             xPlayerWon[5]=1;
 
@@ -276,11 +280,11 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b6ButtonAction(ActionEvent event){
+    private void b6ButtonAction(MouseEvent event){
         
         if (buttonPosition[6]==0){
-            b6.setText("X");
-            b6.setStyle("-fx-background-color: #f5fb4f");
+            b6.setImage(X);
+            //b6.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[6]=1;
             xPlayerWon[6]=1;
 
@@ -294,11 +298,11 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b7ButtonAction(ActionEvent event){
+    private void b7ButtonAction(MouseEvent event){
         
         if (buttonPosition[7]==0){
-            b7.setText("X");
-            b7.setStyle("-fx-background-color: #f5fb4f");
+            b7.setImage(X);
+            //b7.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[7]=1;
             xPlayerWon[7]=1;
 
@@ -312,11 +316,11 @@ public class SingleGameScreenController implements Initializable {
     }
     
     @FXML
-    private void b8ButtonAction(ActionEvent event){
+    private void b8ButtonAction(MouseEvent event){
         
         if (buttonPosition[8]==0){
-            b8.setText("X");
-            b8.setStyle("-fx-background-color: #f5fb4f");
+            b8.setImage(X);
+            //b8.setStyle("-fx-background-color: #f5fb4f");
             buttonPosition[8]=1;
             xPlayerWon[8]=1;
 
@@ -343,40 +347,40 @@ public class SingleGameScreenController implements Initializable {
      
         if (! emptyPositions.isEmpty()){
             if (emptyPositions.get(computerPosition) == 0){
-                b0.setText("O");
-                b0.setStyle("-fx-background-color: #ee7070");
+                b0.setImage(O);
+                //b0.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 1){
-                b1.setText("O");
-                b1.setStyle("-fx-background-color: #ee7070");
+                b1.setImage(O);
+                //b1.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 2){
-                b2.setText("O");
-                b2.setStyle("-fx-background-color: #ee7070");
+                b2.setImage(O);
+                //b2.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 3){
-                b3.setText("O");
-                b3.setStyle("-fx-background-color: #ee7070");
+                b3.setImage(O);
+                //b3.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 4){
-                b4.setText("O");
-                b4.setStyle("-fx-background-color: #ee7070");
+                b4.setImage(O);
+                //b4.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 5){
-                b5.setText("O");
-                b5.setStyle("-fx-background-color: #ee7070");
+                b5.setImage(O);
+                //b5.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 6){
-                b6.setText("O");
-                b6.setStyle("-fx-background-color: #ee7070");
+                b6.setImage(O);
+                //b6.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 7){
-                b7.setText("O");
-                b7.setStyle("-fx-background-color: #ee7070");
+                b7.setImage(O);
+                //b7.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 8){
-                b8.setText("O");
-                b8.setStyle("-fx-background-color: #ee7070");
+                b8.setImage(O);
+                //b8.setStyle("-fx-background-color: #ee7070");
             }
             
             oPlayerWon[emptyPositions.get(computerPosition)]=1;
@@ -414,23 +418,23 @@ public class SingleGameScreenController implements Initializable {
     
     @FXML
     private void playAgainButtonAction(ActionEvent event) { //reset the game
-        b0.setText("");
+        b0.setImage(null);
         b0.setStyle("-fx-background-color: TRANSPARENT");
-        b1.setText("");
+        b1.setImage(null);
         b1.setStyle("-fx-background-color: TRANSPARENT");
-        b2.setText("");
+        b2.setImage(null);
         b2.setStyle("-fx-background-color: TRANSPARENT");
-        b3.setText("");
+        b3.setImage(null);
         b3.setStyle("-fx-background-color: TRANSPARENT");
-        b4.setText("");
+        b4.setImage(null);
         b4.setStyle("-fx-background-color: TRANSPARENT");
-        b5.setText("");
+        b5.setImage(null);
         b5.setStyle("-fx-background-color: TRANSPARENT");
-        b6.setText("");
+        b6.setImage(null);
         b6.setStyle("-fx-background-color: TRANSPARENT");
-        b7.setText("");
+        b7.setImage(null);
         b7.setStyle("-fx-background-color: TRANSPARENT");
-        b8.setText("");
+        b8.setImage(null);
         b8.setStyle("-fx-background-color: TRANSPARENT");
         
         flage=1;
@@ -458,85 +462,90 @@ public class SingleGameScreenController implements Initializable {
         
     }
     
-//    @FXML
-//    private void ScreenshotButtonAction(ActionEvent event) throws AWTException, IOException {
-//        
-//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//        Rectangle screenRectangle = new Rectangle(screenSize);
-//        Robot robot = new Robot();
-//        BufferedImage image = robot.createScreenCapture(screenRectangle);
-//        ImageIO.write(image, "png", new File("screenshot.png"));
-//        
-//        System.out.println("done");
-//    }
-    
-      @FXML
-    private void ScreenShot(MouseEvent event) throws IOException, AWTException {
-      
+    @FXML
+    private void ScreenshotButtonAction(ActionEvent event) throws AWTException, IOException {
+        
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Rectangle screenRectangle = new Rectangle(screenSize);
         Robot robot = new Robot();
         BufferedImage image = robot.createScreenCapture(screenRectangle);
-      //WritableImage snapshot = stage.getScene().snapshot(null);
-     
-   
-        FileChooser fileChooser = new FileChooser();
-    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)", "*.png"));
-       File file = fileChooser.showSaveDialog(null); 
-        try {
-          
-            ImageIO.write((BufferedImage) image, "png", new File(file.getAbsolutePath()));
-        } catch (IOException ex) {
-            System.out.println("Failed to save image!");
-        }
-   {
-        System.out.println("No file choosen!");
+        ImageIO.write(image, "png", new File("screenshot.png"));
+        
+        System.out.println("done");
     }
-}
+    
+//    @FXML
+//    private void ScreenshotButtonAction(MouseEvent event) throws IOException, AWTException {
+//      
+//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//        Rectangle screenRectangle = new Rectangle(screenSize);
+//        Robot robot = new Robot();
+//        BufferedImage image = robot.createScreenCapture(screenRectangle);
+//      //WritableImage snapshot = stage.getScene().snapshot(null);
+//     
+//   
+//        FileChooser fileChooser = new FileChooser();
+//    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)", "*.png"));
+//       File file = fileChooser.showSaveDialog(null); 
+//        try {
+//          
+//            ImageIO.write((BufferedImage) image, "png", new File(file.getAbsolutePath()));
+//        } catch (IOException ex) {
+//            System.out.println("Failed to save image!");
+//        }
+//   {
+//        System.out.println("No file choosen!");
+//    }
+//}
     
     
     //Animating Buttons
     @FXML
     private void backOnHover(MouseEvent event){
-        backButton.setPrefWidth(85);
-        backButton.setPrefHeight(35);
-        backButton.setLayoutY(354);
+        
     }
     
     @FXML
-    private void backOnExit(MouseEvent event){
-        backButton.setPrefWidth(75);
-        backButton.setPrefHeight(25); 
-        backButton.setLayoutY(359);
+    private void backOnPress(MouseEvent event){
+        
+    }
+    
+    @FXML
+    private void backOnRelease(MouseEvent event){
+       
     }
     
     @FXML
     private void resetOnHover(MouseEvent event){
-        resetButton.setPrefWidth(102);
-        resetButton.setPrefHeight(35);
-        resetButton.setLayoutY(354);
+        
     }
     
     @FXML
-    private void resetOnExit(MouseEvent event){
-        resetButton.setPrefWidth(92);
-        resetButton.setPrefHeight(25); 
-        resetButton.setLayoutY(359);
+    private void resetOnPress(MouseEvent event){
+        
     }
     
-      @FXML
+    @FXML
+    private void resetOnRelease(MouseEvent event){
+        
+    }
+    
+    @FXML
     private void screenOnHover(MouseEvent event){
-        screenshotBtn.setPrefWidth(102);
-        screenshotBtn.setPrefHeight(35);
-        screenshotBtn.setLayoutY(354);
+        
     }
     
     @FXML
-    private void screenOnExit(MouseEvent event){
-        screenshotBtn.setPrefWidth(92);
-        screenshotBtn.setPrefHeight(25); 
-        screenshotBtn.setLayoutY(359);
-      }
+    private void screenOnPress(MouseEvent event){
+        
+    }
+    
+    @FXML
+    private void screenOnRelease(MouseEvent event){
+        
+    }
+    
+ 
     
     
     @Override
