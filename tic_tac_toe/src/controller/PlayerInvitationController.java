@@ -69,7 +69,7 @@ public class PlayerInvitationController implements Initializable {
     private void acceptInvitaionButtonAction(ActionEvent event) throws IOException{
         MainScreen.session.viewOnlinePlayers = false;
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/MultiGameScreen.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/playerVsPlayer.fxml"));
         Parent fxmlViewChild = loader.load();
 
         Scene fxmlViewScene = new Scene(fxmlViewChild);
@@ -85,7 +85,7 @@ public class PlayerInvitationController implements Initializable {
     private void recordedGamesButtonAction(ActionEvent event) throws IOException{
         
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("recordedGames.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/recordedGames.fxml"));
         Parent fxmlViewChild = loader.load();
 
         Scene fxmlViewScene = new Scene(fxmlViewChild);

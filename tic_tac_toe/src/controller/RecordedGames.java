@@ -43,7 +43,7 @@ public class RecordedGames implements Initializable {
     private void resumeGameButtonAction(ActionEvent event) throws IOException{
         
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/MultiGameScreen.fxml"));
+        loader.setLocation(getClass().getResource("/fxml/playerVsPlayer.fxml"));
         Parent fxmlViewChild = loader.load();
 
         Scene fxmlViewScene = new Scene(fxmlViewChild);
