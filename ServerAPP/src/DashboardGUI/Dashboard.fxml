@@ -28,12 +28,12 @@
             <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="StartBtn" fitHeight="125.0" fitWidth="123.0" layoutX="126.0" layoutY="141.0" onMouseEntered="#onStartHover" onMouseExited="#onStartExit" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="StartBtn" fitHeight="125.0" fitWidth="123.0" layoutX="126.0" layoutY="141.0" onMouseEntered="#onStartHover" onMouseExited="#onStartExit" onMousePressed="#startOnPress" onMouseReleased="#startOnRelease" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@play-button.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="StopBtn" fitHeight="123.0" fitWidth="123.0" layoutX="126.0" layoutY="357.0" onMouseEntered="#onStopHover" onMouseExited="#onStopExit" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="StopBtn" fitHeight="123.0" fitWidth="123.0" layoutX="126.0" layoutY="357.0" onMouseEntered="#onStopHover" onMouseExited="#onStopExit" onMousePressed="#stopOnPress" onMouseReleased="#stopOnRelease" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@stop-button.png" />
          </image>
@@ -48,10 +48,11 @@
             <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
       </Label>
-      <TableView layoutX="422.0" layoutY="42.0" prefHeight="499.0" prefWidth="339.0" stylesheets="@../CSS/PlayerInvitationTable.css">
+      <TableView fx:id="tableView" layoutX="323.0" layoutY="42.0" prefHeight="499.0" prefWidth="438.0" stylesheets="@CSS/PlayerInvitationTable.css">
         <columns>
-          <TableColumn prefWidth="199.0" text="Players" />
-          <TableColumn prefWidth="139.0" text="Score" />
+          <TableColumn fx:id="players" prefWidth="177.0" text="Players" />
+          <TableColumn fx:id="score" prefWidth="142.0" text="Score" />
+            <TableColumn fx:id="status" prefWidth="117.0" text="Status" />
         </columns>
       </TableView>
    </children>

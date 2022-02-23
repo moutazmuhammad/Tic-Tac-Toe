@@ -240,6 +240,27 @@ public class database {
         return leaderBoard; 
     }
     
+    
+    public JSONObject getAllPlayers (){
+        JSONObject allPlayers = new JSONObject(); 
+        try {
+            statement = connection.createStatement();
+            String allPlayersQuery = new String("select username, score from player where username not in('computer');");
+            resultSet = statement.executeQuery(allPlayersQuery);
+            String names="",scores="";
+            while(resultSet.next()){
+                names = names + ","+resultSet.getString(1);
+                scores = scores+","+resultSet.getInt(2);
+            }
+            allPlayers.put("names", names);
+            allPlayers.put("scores", scores);
+            statement.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return allPlayers; 
+    }
+    
     //Password Encryption in database
     private String passwordEncryption(String password) {
 

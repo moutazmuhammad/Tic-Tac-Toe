@@ -18,6 +18,7 @@ public class Player {
     int losses;
     int ties;
 
+ 
     public int getId() {
         return id;
     }
