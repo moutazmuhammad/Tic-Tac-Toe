@@ -463,42 +463,31 @@ public class SingleGameScreenController implements Initializable {
         window.show();
         
     }
+
     
     @FXML
-    private void ScreenshotButtonAction(ActionEvent event) throws AWTException, IOException {
-        
+    private void ScreenshotButtonAction(ActionEvent event) throws IOException, AWTException {
+      
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Rectangle screenRectangle = new Rectangle(screenSize);
         Robot robot = new Robot();
         BufferedImage image = robot.createScreenCapture(screenRectangle);
-        ImageIO.write(image, "png", new File("screenshot.png"));
-        
-        System.out.println("done");
+ 
+     
+   
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)", "*.png"));
+        File file = fileChooser.showSaveDialog(null); 
+        try {
+          
+         ImageIO.write((BufferedImage) image, "png", new File(file.getAbsolutePath()));
+        } catch (IOException ex) {
+            System.out.println("Failed to save image!");
+        }
+    {
+        System.out.println("No file choosen!");
     }
-    
-//    @FXML
-//    private void ScreenshotButtonAction(MouseEvent event) throws IOException, AWTException {
-//      
-//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//        Rectangle screenRectangle = new Rectangle(screenSize);
-//        Robot robot = new Robot();
-//        BufferedImage image = robot.createScreenCapture(screenRectangle);
-//      //WritableImage snapshot = stage.getScene().snapshot(null);
-//     
-//   
-//        FileChooser fileChooser = new FileChooser();
-//    fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)", "*.png"));
-//       File file = fileChooser.showSaveDialog(null); 
-//        try {
-//          
-//            ImageIO.write((BufferedImage) image, "png", new File(file.getAbsolutePath()));
-//        } catch (IOException ex) {
-//            System.out.println("Failed to save image!");
-//        }
-//   {
-//        System.out.println("No file choosen!");
-//    }
-//}
+}
     
     
     //Sound Effects and Animation

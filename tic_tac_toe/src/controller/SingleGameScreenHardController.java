@@ -27,6 +27,7 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 
@@ -595,9 +596,21 @@ public class SingleGameScreenHardController implements Initializable {
         Rectangle screenRectangle = new Rectangle(screenSize);
         Robot robot = new Robot();
         BufferedImage image = robot.createScreenCapture(screenRectangle);
-        ImageIO.write(image, "png", new File("screenshot.png"));
-        
-        System.out.println("done");
+ 
+     
+   
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)", "*.png"));
+        File file = fileChooser.showSaveDialog(null); 
+        try {
+          
+            ImageIO.write((BufferedImage) image, "png", new File(file.getAbsolutePath()));
+        } catch (IOException ex) {
+            System.out.println("Failed to save image!");
+        }
+    {
+        System.out.println("No file choosen!");
+    }
     }
     
     

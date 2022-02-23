@@ -31,6 +31,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 
@@ -596,9 +597,21 @@ public class SingleGameScreenMediumController implements Initializable {
         Rectangle screenRectangle = new Rectangle(screenSize);
         Robot robot = new Robot();
         BufferedImage image = robot.createScreenCapture(screenRectangle);
-        ImageIO.write(image, "png", new File("screenshot.png"));
-        
-        System.out.println("done");
+ 
+     
+   
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("png files (*.png)", "*.png"));
+        File file = fileChooser.showSaveDialog(null); 
+        try {
+          
+        ImageIO.write((BufferedImage) image, "png", new File(file.getAbsolutePath()));
+        } catch (IOException ex) {
+            System.out.println("Failed to save image!");
+        }
+    {
+        System.out.println("No file choosen!");
+    }
     }
     
     
