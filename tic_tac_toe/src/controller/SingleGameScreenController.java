@@ -178,7 +178,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[0]==0){
             b0.setImage(X);
-            //b0.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[0]=1;
             xPlayerWon[0]=1;
 
@@ -196,7 +196,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[1]==0){
             b1.setImage(X);
-            //b1.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[1]=1;
             xPlayerWon[1]=1;
 
@@ -214,7 +214,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[2]==0){
             b2.setImage(X);
-            //b2.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[2]=1;
             xPlayerWon[2]=1;
 
@@ -232,7 +232,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[3]==0){
             b3.setImage(X);
-            //b3.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[3]=1;
             xPlayerWon[3]=1;
 
@@ -250,7 +250,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[4]==0){
             b4.setImage(X);
-            //b4.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[4]=1;
             xPlayerWon[4]=1;
 
@@ -268,7 +268,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[5]==0){
             b5.setImage(X);
-            //b5.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[5]=1;
             xPlayerWon[5]=1;
 
@@ -286,7 +286,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[6]==0){
             b6.setImage(X);
-            //b6.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[6]=1;
             xPlayerWon[6]=1;
 
@@ -304,7 +304,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[7]==0){
             b7.setImage(X);
-            //b7.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[7]=1;
             xPlayerWon[7]=1;
 
@@ -322,7 +322,7 @@ public class SingleGameScreenController implements Initializable {
         
         if (buttonPosition[8]==0){
             b8.setImage(X);
-            //b8.setStyle("-fx-background-color: #f5fb4f");
+            audio("btnClick.mp3");
             buttonPosition[8]=1;
             xPlayerWon[8]=1;
 
@@ -350,39 +350,30 @@ public class SingleGameScreenController implements Initializable {
         if (! emptyPositions.isEmpty()){
             if (emptyPositions.get(computerPosition) == 0){
                 b0.setImage(O);
-                //b0.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 1){
                 b1.setImage(O);
-                //b1.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 2){
                 b2.setImage(O);
-                //b2.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 3){
                 b3.setImage(O);
-                //b3.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 4){
                 b4.setImage(O);
-                //b4.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 5){
                 b5.setImage(O);
-                //b5.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 6){
                 b6.setImage(O);
-                //b6.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 7){
                 b7.setImage(O);
-                //b7.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 8){
                 b8.setImage(O);
-                //b8.setStyle("-fx-background-color: #ee7070");
             }
             
             oPlayerWon[emptyPositions.get(computerPosition)]=1;
@@ -421,23 +412,14 @@ public class SingleGameScreenController implements Initializable {
     @FXML
     private void playAgainButtonAction(ActionEvent event) { //reset the game
         b0.setImage(null);
-        b0.setStyle("-fx-background-color: TRANSPARENT");
         b1.setImage(null);
-        b1.setStyle("-fx-background-color: TRANSPARENT");
         b2.setImage(null);
-        b2.setStyle("-fx-background-color: TRANSPARENT");
         b3.setImage(null);
-        b3.setStyle("-fx-background-color: TRANSPARENT");
         b4.setImage(null);
-        b4.setStyle("-fx-background-color: TRANSPARENT");
         b5.setImage(null);
-        b5.setStyle("-fx-background-color: TRANSPARENT");
         b6.setImage(null);
-        b6.setStyle("-fx-background-color: TRANSPARENT");
         b7.setImage(null);
-        b7.setStyle("-fx-background-color: TRANSPARENT");
         b8.setImage(null);
-        b8.setStyle("-fx-background-color: TRANSPARENT");
         
         flage=1;
         for (int i=0 ; i<9 ; i++){
@@ -499,6 +481,7 @@ public class SingleGameScreenController implements Initializable {
     private void backOnPress(MouseEvent event){
         backButton.setPrefWidth(72);
         backButton.setPrefHeight(15);
+        audio("btnClick.mp3");
     }
     
     @FXML
