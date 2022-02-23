@@ -8,17 +8,10 @@ package DashboardGUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
 /**
  * FXML Controller class
@@ -26,8 +19,7 @@ import javafx.scene.paint.Paint;
  * @author Zaina
  */
 public class DashboardController implements Initializable {
-    @FXML
-    private VBox list;
+    
     @FXML
     private ImageView StartBtn;
     @FXML
@@ -36,35 +28,31 @@ public class DashboardController implements Initializable {
     
     @FXML
     public void onStartHover(MouseEvent event){
-        StartBtn.setFitWidth(220);
-        StartBtn.setFitHeight(160);
+        StartBtn.setFitWidth(143);
+        StartBtn.setFitHeight(115);
     }
     
     @FXML
     public void onStartExit(MouseEvent event){
-        StartBtn.setFitWidth(200);
-        StartBtn.setFitHeight(150);
+        StartBtn.setFitWidth(123);
+        StartBtn.setFitHeight(125);
     }
     
     @FXML
     public void onStopHover(MouseEvent event){
-        StopBtn.setFitWidth(220);
-        StopBtn.setFitHeight(160);
+        StopBtn.setFitWidth(143);
+        StopBtn.setFitHeight(115);
     }
     
     @FXML
     public void onStopExit(MouseEvent event){
-        StopBtn.setFitWidth(200);
-        StopBtn.setFitHeight(150);
+        StopBtn.setFitWidth(123);
+        StopBtn.setFitHeight(125);
     }
     
       @FXML
     public void addPlayer(String name, String Score){
-        Label newPlayer = new Label(name+" Score: "+Score);
-        newPlayer.setTextFill(Color.BLACK);
-        newPlayer.setLineSpacing(2);
-        newPlayer.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
-        list.getChildren().add(newPlayer);
+        
     }
     
 
@@ -75,8 +63,7 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        addPlayer("Nancy", "500");
-        addPlayer("BestPlayer", "700");
+        
         
     }    
     

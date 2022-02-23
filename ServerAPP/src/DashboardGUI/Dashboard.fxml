@@ -1,47 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #DADAD9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardGUI.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="698.0" prefWidth="794.0" style="-fx-background-color: #DADAD9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardGUI.DashboardController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#da4167" height="55.0" layoutX="-2.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="802.0" />
-      <VBox layoutX="400.0" layoutY="-1.0" prefHeight="710.0" prefWidth="400.0" style="-fx-background-color: #2c6ea8;" />
-      <Label layoutX="14.0" layoutY="8.0" text="Dashboard" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" layoutX="-2.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop color="#da4167" />
+                  <Stop color="#da4167" offset="0.007246376811594203" />
+                  <Stop color="#2c6ea8" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
+      <Label layoutX="14.0" layoutY="8.0" opacity="0.64" text="Dashboard" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="StartBtn" fitHeight="150.0" fitWidth="200.0" layoutX="126.0" layoutY="141.0" onMouseEntered="#onStartHover" onMouseExited="#onStartExit" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="StartBtn" fitHeight="125.0" fitWidth="123.0" layoutX="126.0" layoutY="141.0" onMouseEntered="#onStartHover" onMouseExited="#onStartExit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@play-button.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="StopBtn" fitHeight="150.0" fitWidth="200.0" layoutX="126.0" layoutY="413.0" onMouseEntered="#onStopHover" onMouseExited="#onStopExit" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="StopBtn" fitHeight="123.0" fitWidth="123.0" layoutX="126.0" layoutY="357.0" onMouseEntered="#onStopHover" onMouseExited="#onStopExit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@stop-button.png" />
          </image>
       </ImageView>
-      <Label layoutX="157.0" layoutY="304.0" text="START" textFill="#00b55b">
+      <Label layoutX="146.0" layoutY="274.0" opacity="0.54" text="START" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="30.0" />
+            <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="161.0" layoutY="580.0" text="STOP" textFill="#b50000">
+      <Label layoutX="155.0" layoutY="494.0" opacity="0.54" text="STOP" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="30.0" />
+            <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
       </Label>
-      <VBox fx:id="list" alignment="TOP_CENTER" layoutX="425.0" layoutY="77.0" prefHeight="605.0" prefWidth="362.0" style="-fx-background-color: rgba(255, 255, 255, 0.7); -fx-background-radius: 50px; -fx-padding: 35px;" stylesheets="@CSS/PlayerInvitationTable.css" />
-      <Label layoutX="525.0" layoutY="26.0" text="Players List" textFill="WHITE">
-         <font>
-            <Font name="Comic Sans MS Bold" size="29.0" />
-         </font>
-      </Label>
+      <TableView layoutX="422.0" layoutY="42.0" prefHeight="499.0" prefWidth="339.0" stylesheets="@../CSS/PlayerInvitationTable.css">
+        <columns>
+          <TableColumn prefWidth="199.0" text="Players" />
+          <TableColumn prefWidth="139.0" text="Score" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
