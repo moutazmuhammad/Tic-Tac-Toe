@@ -25,7 +25,10 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
+<<<<<<< HEAD
 import javafx.scene.control.Label;
+=======
+>>>>>>> 9c38e0464ce65a082dc2eeeb057115163719b7be
 import org.json.JSONArray;
 
 public class Session extends Thread{
@@ -236,16 +239,24 @@ public class Session extends Thread{
                 try {
                     Dialog<ButtonType> dialog = new Dialog<>();
                     FXMLLoader fxmlLoader = new FXMLLoader();
+<<<<<<< HEAD
                     fxmlLoader.setLocation(getClass().getResource("/fxml/InvitationDialog.fxml"));
+=======
+                    fxmlLoader.setLocation(getClass().getResource("/fxml/draw.fxml"));
+>>>>>>> 9c38e0464ce65a082dc2eeeb057115163719b7be
                     DialogPane winner = fxmlLoader.load();
                     
                     dialog.setDialogPane(winner);
                     dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
                     dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
+<<<<<<< HEAD
                     dialog.setTitle("Game Invitation");
                     Label content = new Label(Message.getString("sender name").toUpperCase()+" Invited You to a Game! Would You Like to Accept?");
                     content.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px");
                     dialog.setGraphic(content);
+=======
+                    dialog.setTitle("Accept Invetation from "+Message.getString("sender name"));
+>>>>>>> 9c38e0464ce65a082dc2eeeb057115163719b7be
                     Optional<ButtonType> result = dialog.showAndWait();
                     if(result.get()==ButtonType.YES){
                         invitationReplyReqest("yes", Message.getInt("sender id"));
