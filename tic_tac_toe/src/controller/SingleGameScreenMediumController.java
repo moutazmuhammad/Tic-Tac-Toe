@@ -43,11 +43,7 @@ public class SingleGameScreenMediumController implements Initializable {
     private Button backButton, resetButton, screenshotBtn;
     
     Dialog<ButtonType> dialog = new Dialog<>(); 
-    
-    private int computerPosition=0;
-    
-    private int turnPosition = 2; //To get the correct position of X and O
-    
+            
     @FXML
     private ImageView b0, b1, b2, b3, b4, b5, b6, b7, b8;
     
@@ -64,8 +60,8 @@ public class SingleGameScreenMediumController implements Initializable {
     
     private int buttonPosition[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     
-    private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //player
-    private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //computer
+    private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     private void updateComputerScore(){
         computer_score++;
@@ -177,24 +173,17 @@ public class SingleGameScreenMediumController implements Initializable {
     
     
     @FXML
-    private void b0ButtonAction(MouseEvent event)  {
+    private void b0ButtonAction(MouseEvent event){
         
-        if (buttonPosition[0]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
-                b0.setImage(X);
-                audio("btnClick.mp3");
-               // b0.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[0]=1;
-                xPlayerWon[0]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[0]==0){  
+            b0.setImage(X);
+            audio("btnClick.mp3");
+            buttonPosition[0]=1;
+            xPlayerWon[0]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -202,25 +191,17 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b1ButtonAction(MouseEvent event) {
+    private void b1ButtonAction(MouseEvent event){
         
-        if (buttonPosition[1]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
-                b1.setImage(X);
-                audio("btnClick.mp3");
-               // b1.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[1]=1;
-                xPlayerWon[1]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-                
-            }
+        if (buttonPosition[1]==0){ 
+            b1.setImage(X);
+            audio("btnClick.mp3");
+            buttonPosition[1]=1;
+            xPlayerWon[1]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -230,22 +211,15 @@ public class SingleGameScreenMediumController implements Initializable {
     @FXML
     private void b2ButtonAction(MouseEvent event) {
         
-        if (buttonPosition[2]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
-                b2.setImage(X);
-                audio("btnClick.mp3");
-                //b2.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[2]=1;
-                xPlayerWon[2]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[2]==0){  
+            b2.setImage(X);
+            audio("btnClick.mp3");
+            buttonPosition[2]=1;
+            xPlayerWon[2]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -253,24 +227,17 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b3ButtonAction(MouseEvent event) {
+    private void b3ButtonAction(MouseEvent event){
         
-        if (buttonPosition[3]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
-                b3.setImage(X);
-                audio("btnClick.mp3");
-                //b3.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[3]=1;
-                xPlayerWon[3]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[3]==0){  
+            b3.setImage(X);
+            audio("btnClick.mp3");
+            buttonPosition[3]=1;
+            xPlayerWon[3]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -278,24 +245,17 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b4ButtonAction(MouseEvent event) {
+    private void b4ButtonAction(MouseEvent event){
         
-        if (buttonPosition[4]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
-                b4.setImage(X);
-                audio("btnClick.mp3");
-                //b4.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[4]=1;
-                xPlayerWon[4]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[4]==0){  
+            b4.setImage(X);
+            audio("btnClick.mp3");
+            buttonPosition[4]=1;
+            xPlayerWon[4]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -303,24 +263,17 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b5ButtonAction(MouseEvent event) {
+    private void b5ButtonAction(MouseEvent event){
         
         if (buttonPosition[5]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
                 b5.setImage(X);
                 audio("btnClick.mp3");
-                //b5.setStyle("-fx-background-color: #f5fb4f");
-               
                 buttonPosition[5]=1;
                 xPlayerWon[5]=1;
                 
                 checkPlayer();
                 computer();
                 checkTie ();
-            }
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -330,22 +283,15 @@ public class SingleGameScreenMediumController implements Initializable {
     @FXML
     private void b6ButtonAction(MouseEvent event) {
         
-        if (buttonPosition[6]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
+        if (buttonPosition[6]==0){ 
                 b6.setImage(X);
                 audio("btnClick.mp3");
-                //b6.setStyle("-fx-background-color: #f5fb4f");
-               
                 buttonPosition[6]=1;
                 xPlayerWon[6]=1;
                 
                 checkPlayer();
                 computer();
                 checkTie ();
-            }
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -353,24 +299,17 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b7ButtonAction(MouseEvent event) {
+    private void b7ButtonAction(MouseEvent event){
         
-        if (buttonPosition[7]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
+        if (buttonPosition[7]==0){ 
                 b7.setImage(X);
                 audio("btnClick.mp3");
-                //b7.setStyle("-fx-background-color: #f5fb4f");
-               
                 buttonPosition[7]=1;
                 xPlayerWon[7]=1;
                 
                 checkPlayer();
                 computer();
                 checkTie ();
-            }
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -378,31 +317,22 @@ public class SingleGameScreenMediumController implements Initializable {
     }
     
     @FXML
-    private void b8ButtonAction(MouseEvent event) {
+    private void b8ButtonAction(MouseEvent event){
         
         if (buttonPosition[8]==0){
-            
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index
                 b8.setImage(X);
                 audio("btnClick.mp3");
-                //b8.setStyle("-fx-background-color: #f5fb4f");
-               
                 buttonPosition[8]=1;
                 xPlayerWon[8]=1;
                 
                 checkPlayer();
                 computer();
                 checkTie ();
-            }
         }
         else{
             System.out.println("this button is already used!!!!!");
         }
     }
-    
-   
     
     private void computerPlayer(){
         Vector<Integer> emptyPositions = new Vector<>(); //empty postions
@@ -412,403 +342,177 @@ public class SingleGameScreenMediumController implements Initializable {
                 emptyPositions.add(index);
             }
         }
-        computerPosition = (int) (Math.random()*emptyPositions.size()); //To get Random position
-        System.out.println("computerPosition" + computerPosition);
+        int computerPosition = (int) (Math.random()*emptyPositions.size()); //To get Random position        
         
-        if (oPlayerWon[0] == 1 && oPlayerWon[1] == 1 && xPlayerWon[2]== 0 && oPlayerWon[2]== 0){
-            turnPosition++; //To Skep the next index
+        if (((oPlayerWon[0] == 1 && oPlayerWon[1] == 1)|| 
+             (oPlayerWon[4] == 1 && oPlayerWon[6] == 1)||
+             (oPlayerWon[5] == 1 && oPlayerWon[8] == 1)) 
+             && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
             b2.setImage(O);
-            //b2.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
-        else if (oPlayerWon[1] == 1 && oPlayerWon[2] == 1 && xPlayerWon[0]== 0 && oPlayerWon[0]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((oPlayerWon[1] == 1 && oPlayerWon[2] == 1)||
+                  (oPlayerWon[4] == 1 && oPlayerWon[8] == 1)||
+                  (oPlayerWon[3] == 1 && oPlayerWon[6] == 1)) 
+                  && oPlayerWon[0]== 0 && xPlayerWon[0]== 0){
             b0.setImage(O);
-            //b0.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
         }
-        else if (oPlayerWon[0] == 1 && oPlayerWon[2] == 1 && xPlayerWon[1]== 0 && oPlayerWon[1]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((oPlayerWon[0] == 1 && oPlayerWon[2] == 1)||
+                  (oPlayerWon[4] == 1 && oPlayerWon[7] == 1)) 
+                  && oPlayerWon[1]== 0 && xPlayerWon[1]== 0){
             b1.setImage(O);
-            //b1.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
-        
-        else if (oPlayerWon[3] == 1 && oPlayerWon[4] == 1 && xPlayerWon[5]== 0 && oPlayerWon[5]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((oPlayerWon[3] == 1 && oPlayerWon[4] == 1)||
+                  (oPlayerWon[2] == 1 && oPlayerWon[8] == 1))
+                  && oPlayerWon[5]== 0 && xPlayerWon[5]== 0){
             b5.setImage(O);
-            //b5.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[5]=1;
             buttonPosition[5]=1;
         }
-        else if (oPlayerWon[3] == 1 && oPlayerWon[5] == 1 && xPlayerWon[4]== 0 && oPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((oPlayerWon[3] == 1 && oPlayerWon[5] == 1)||
+                  (oPlayerWon[2] == 1 && oPlayerWon[6] == 1)||
+                  (oPlayerWon[0] == 1 && oPlayerWon[8] == 1)||
+                  (oPlayerWon[1] == 1 && oPlayerWon[7] == 1))
+                  && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
             b4.setImage(O);
-            //b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
-        else if (oPlayerWon[4] == 1 && oPlayerWon[5] == 1 && xPlayerWon[3]== 0 && oPlayerWon[3]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((oPlayerWon[4] == 1 && oPlayerWon[5] == 1)||
+                  (oPlayerWon[0] == 1 && oPlayerWon[6] == 1))  
+                  && oPlayerWon[3]== 0 && xPlayerWon[3]== 0){
             b3.setImage(O);
-           // b3.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
-        
-        else if (oPlayerWon[6] == 1 && oPlayerWon[7] == 1 && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((oPlayerWon[6] == 1 && oPlayerWon[7] == 1)||
+                  (oPlayerWon[0] == 1 && oPlayerWon[4] == 1)||
+                  (oPlayerWon[2] == 1 && oPlayerWon[5] == 1))
+                  && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
             b8.setImage(O);
-            //b8.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
-        else if (oPlayerWon[7] == 1 && oPlayerWon[8] == 1 && xPlayerWon[6]== 0 && oPlayerWon[6]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((oPlayerWon[7] == 1 && oPlayerWon[8] == 1)||
+                  (oPlayerWon[2] == 1 && oPlayerWon[4] == 1)||
+                  (oPlayerWon[0] == 1 && oPlayerWon[3] == 1))
+                  && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
             b6.setImage(O);
-            //b6.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
-        else if (oPlayerWon[6] == 1 && oPlayerWon[8] == 1 && xPlayerWon[7]== 0 && oPlayerWon[7]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((oPlayerWon[6] == 1 && oPlayerWon[8] == 1)||
+                  (oPlayerWon[1] == 1 && oPlayerWon[4] == 1)) 
+                  && oPlayerWon[7]== 0 && xPlayerWon[7]== 0){
             b7.setImage(O);
-            //b7.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
-        
-        else if (oPlayerWon[2] == 1 && oPlayerWon[4] == 1 && xPlayerWon[6]== 0 && oPlayerWon[6]== 0){
-            turnPosition++; //To Skep the next index
-            b6.setImage(O);
-            //b6.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[6]=1;
-            buttonPosition[6]=1;
-        }
-        else if (oPlayerWon[2] == 1 && oPlayerWon[6] == 1 && xPlayerWon[4]== 0 && oPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
-            b4.setImage(O);
-            //b4.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[4]=1;
-            buttonPosition[4]=1;
-        }
-        else if (oPlayerWon[4] == 1 && oPlayerWon[6] == 1 && xPlayerWon[2]== 0 && oPlayerWon[2]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[0] == 1 && xPlayerWon[1] == 1)||
+                  (xPlayerWon[4] == 1 && xPlayerWon[6] == 1)||
+                  (xPlayerWon[5] == 1 && xPlayerWon[8] == 1))
+                  && xPlayerWon[2]== 0 && oPlayerWon[2]== 0){
             b2.setImage(O);
-            //b2.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
-        
-        else if (oPlayerWon[0] == 1 && oPlayerWon[4] == 1 && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
-            turnPosition++; //To Skep the next index
-            b8.setImage(O);
-            //b8.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[8]=1;
-            buttonPosition[8]=1;
-        }
-        else if (oPlayerWon[0] == 1 && oPlayerWon[8] == 1 && xPlayerWon[4]== 0 && oPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
-            b4.setImage(O);
-           // b4.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[4]=1;
-            buttonPosition[4]=1;
-        }
-        else if (oPlayerWon[4] == 1 && oPlayerWon[8] == 1 && xPlayerWon[0]== 0 && oPlayerWon[0]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[1] == 1 && xPlayerWon[2] == 1)||
+                  (xPlayerWon[4] == 1 && xPlayerWon[8] == 1)||
+                  (xPlayerWon[3] == 1 && xPlayerWon[6] == 1))
+                  && xPlayerWon[0]== 0 && oPlayerWon[0]== 0){
             b0.setImage(O);
-            b0.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[0]=1;
             buttonPosition[0]=1;
-        }    
-        
-        else if (oPlayerWon[0] == 1 && oPlayerWon[3] == 1 && xPlayerWon[6]== 0 && oPlayerWon[6]== 0){
-            turnPosition++; //To Skep the next index
-            b6.setImage(O);
-            b6.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[6]=1;
-            buttonPosition[6]=1;
         }
-        else if (oPlayerWon[0] == 1 && oPlayerWon[6] == 1 && xPlayerWon[3]== 0 && oPlayerWon[3]== 0){
-            turnPosition++; //To Skep the next index
-            b3.setImage(O);
-            b3.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[3]=1;
-            buttonPosition[3]=1;
-        }
-        else if (oPlayerWon[3] == 1 && oPlayerWon[6] == 1 && xPlayerWon[0]== 0 && oPlayerWon[0]== 0){
-            turnPosition++; //To Skep the next index
-            b0.setImage(O);
-            //b0.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[0]=1;
-            buttonPosition[0]=1;
-        }     
-        
-        else if (oPlayerWon[1] == 1 && oPlayerWon[4] == 1 && xPlayerWon[7]== 0 && oPlayerWon[7]== 0){
-            turnPosition++; //To Skep the next index
-            b7.setImage(O);
-//            b7.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[7]=1;
-            buttonPosition[7]=1;
-        }
-        else if (oPlayerWon[4] == 1 && oPlayerWon[7] == 1 && xPlayerWon[1]== 0 && oPlayerWon[1]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[0] == 1 && xPlayerWon[2] == 1)||
+                  (xPlayerWon[4] == 1 && xPlayerWon[7] == 1))
+                  && xPlayerWon[1]== 0 && oPlayerWon[1]== 0){
             b1.setImage(O);
-//            b1.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
-        else if (oPlayerWon[1] == 1 && oPlayerWon[7] == 1 && xPlayerWon[4]== 0 && oPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
-            b4.setImage(O);
-//            b4.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[4]=1;
-            buttonPosition[4]=1;
-        } 
-        
-        else if (oPlayerWon[2] == 1 && oPlayerWon[5] == 1 && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
-            turnPosition++; //To Skep the next index
-            b8.setImage(O);
-//            b8.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[8]=1;
-            buttonPosition[8]=1;
-        }
-        else if (oPlayerWon[5] == 1 && oPlayerWon[8] == 1 && xPlayerWon[2]== 0 && oPlayerWon[2]== 0){
-            turnPosition++; //To Skep the next index
-            b2.setImage(O);
-//            b2.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[2]=1;
-            buttonPosition[2]=1;
-        }
-        else if (oPlayerWon[2] == 1 && oPlayerWon[8] == 1 && xPlayerWon[5]== 0 && oPlayerWon[5]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[3] == 1 && xPlayerWon[4] == 1)||
+                  (xPlayerWon[2] == 1 && xPlayerWon[8] == 1))
+                  && xPlayerWon[5]== 0 && oPlayerWon[5]== 0){
             b5.setImage(O);
-//            b5.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[5]=1;
             buttonPosition[5]=1;
         }
-        
-        else if (xPlayerWon[0] == 1 && xPlayerWon[1] == 1 && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
-            turnPosition++; //To Skep the next index
-            b2.setImage(O);
-           // b2.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[2]=1;
-            buttonPosition[2]=1;
-        }
-        else if (xPlayerWon[1] == 1 && xPlayerWon[2] == 1 && oPlayerWon[0]== 0 && xPlayerWon[0]== 0){
-            turnPosition++; //To Skep the next index
-            b0.setImage(O);
-            //b0.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[0]=1;
-            buttonPosition[0]=1;
-        }
-        else if (xPlayerWon[0] == 1 && xPlayerWon[2] == 1 && oPlayerWon[1]== 0 && xPlayerWon[1]== 0){
-            turnPosition++; //To Skep the next index
-            b1.setImage(O);
-            //b1.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[1]=1;
-            buttonPosition[1]=1;
-        }
-        
-        else if (xPlayerWon[3] == 1 && xPlayerWon[4] == 1 && oPlayerWon[5]== 0 && xPlayerWon[5]== 0){
-            turnPosition++; //To Skep the next index
-            b5.setImage(O);
-            //b5.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[5]=1;
-            buttonPosition[5]=1;
-        }
-        else if (xPlayerWon[3] == 1 && xPlayerWon[5] == 1 && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[3] == 1 && xPlayerWon[5] == 1)||
+                  (xPlayerWon[0] == 1 && xPlayerWon[8] == 1)||
+                  (xPlayerWon[2] == 1 && xPlayerWon[6] == 1)||
+                  (xPlayerWon[1] == 1 && xPlayerWon[7] == 1))
+                  && xPlayerWon[4]== 0 && oPlayerWon[4]== 0){
             b4.setImage(O);
-            //b4.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
-        else if (xPlayerWon[4] == 1 && xPlayerWon[5] == 1 && oPlayerWon[3]== 0 && xPlayerWon[3]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[4] == 1 && xPlayerWon[5] == 1)||
+                  (xPlayerWon[0] == 1 && xPlayerWon[6] == 1))
+                   && xPlayerWon[3]== 0 && oPlayerWon[3]== 0){
             b3.setImage(O);
-            //b3.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
-        
-        else if (xPlayerWon[6] == 1 && xPlayerWon[7] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[6] == 1 && xPlayerWon[7] == 1)||
+                  (xPlayerWon[0] == 1 && xPlayerWon[4] == 1)||
+                  (xPlayerWon[2] == 1 && xPlayerWon[5] == 1))
+                  && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
             b8.setImage(O);
-            //b8.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
-        else if (xPlayerWon[7] == 1 && xPlayerWon[8] == 1 && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[7] == 1 && xPlayerWon[8] == 1)||
+                  (xPlayerWon[2] == 1 && xPlayerWon[4] == 1)||
+                  (xPlayerWon[0] == 1 && xPlayerWon[3] == 1))
+                  && xPlayerWon[6]== 0 && oPlayerWon[6]== 0){
             b6.setImage(O);
-            //b6.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
-        else if (xPlayerWon[6] == 1 && xPlayerWon[8] == 1 && oPlayerWon[7]== 0 && xPlayerWon[7]== 0){
-            turnPosition++; //To Skep the next index
+        else if (((xPlayerWon[6] == 1 && xPlayerWon[8] == 1)||
+                  (xPlayerWon[1] == 1 && xPlayerWon[4] == 1))
+                  && xPlayerWon[7]== 0 && oPlayerWon[7]== 0){
             b7.setImage(O);
-           // b7.setStyle("-fx-background-color: #ee7070");
             oPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
-        
-        else if (xPlayerWon[2] == 1 && xPlayerWon[4] == 1 && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
-            turnPosition++; //To Skep the next index
-            b6.setImage(O);
-           // b6.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[6]=1;
-            buttonPosition[6]=1;
-        }
-        else if (xPlayerWon[2] == 1 && xPlayerWon[6] == 1 && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
-            b4.setImage(O);
-            //b4.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[4]=1;
-            buttonPosition[4]=1;
-        }
-        else if (xPlayerWon[4] == 1 && xPlayerWon[6] == 1 && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
-            turnPosition++; //To Skep the next index
-            b2.setImage(O);
-            //b2.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[2]=1;
-            buttonPosition[2]=1;
-        }
-        
-        else if (xPlayerWon[0] == 1 && xPlayerWon[4] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
-            turnPosition++; //To Skep the next index
-            b8.setImage(O);
-            //b8.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[8]=1;
-            buttonPosition[8]=1;
-        }
-        else if (xPlayerWon[0] == 1 && xPlayerWon[8] == 1 && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
-            b4.setImage(O);
-            //b4.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[4]=1;
-            buttonPosition[4]=1;
-        }
-        else if (xPlayerWon[4] == 1 && xPlayerWon[8] == 1 && oPlayerWon[0]== 0 && xPlayerWon[0]== 0){
-            turnPosition++; //To Skep the next index
-            b0.setImage(O);
-           // b0.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[0]=1;
-            buttonPosition[0]=1;
-        }
-        
-        else if (xPlayerWon[0] == 1 && xPlayerWon[3] == 1 && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
-            turnPosition++; //To Skep the next index
-            b6.setImage(O);
-            //b6.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[6]=1;
-            buttonPosition[6]=1;
-        }
-        else if (xPlayerWon[0] == 1 && xPlayerWon[6] == 1 && oPlayerWon[3]== 0 && xPlayerWon[3]== 0){
-            turnPosition++; //To Skep the next index
-            b3.setImage(O);
-            //b3.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[3]=1;
-            buttonPosition[3]=1;
-        }
-        else if (xPlayerWon[3] == 1 && xPlayerWon[6] == 1 && oPlayerWon[0]== 0 && xPlayerWon[0]== 0){
-            turnPosition++; //To Skep the next index
-            b0.setImage(O);
-            //b0.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[0]=1;
-            buttonPosition[0]=1;
-        }
-        
-        else if (xPlayerWon[1] == 1 && xPlayerWon[4] == 1 && oPlayerWon[7]== 0 && xPlayerWon[7]== 0){
-            turnPosition++; //To Skep the next index
-            b7.setImage(O);
-            //b7.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[7]=1;
-            buttonPosition[7]=1;
-        }
-        else if (xPlayerWon[4] == 1 && xPlayerWon[7] == 1 && oPlayerWon[1]== 0 && xPlayerWon[1]== 0){
-            turnPosition++; //To Skep the next index
-            b1.setImage(O);
-            //b1.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[1]=1;
-            buttonPosition[1]=1;
-        }
-        else if (xPlayerWon[1] == 1 && xPlayerWon[7] == 1 && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
-            b4.setImage(O);
-            //b4.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[4]=1;
-            buttonPosition[4]=1;
-        }
-        
-        else if (xPlayerWon[2] == 1 && xPlayerWon[5] == 1 && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
-            turnPosition++; //To Skep the next index
-            b8.setImage(O);
-            //b8.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[8]=1;
-            buttonPosition[8]=1;
-        }
-        else if (xPlayerWon[5] == 1 && xPlayerWon[8] == 1 && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
-            turnPosition++; //To Skep the next index
-            b2.setImage(O);
-            //b2.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[2]=1;
-            buttonPosition[2]=1;
-        }
-        else if (xPlayerWon[2] == 1 && xPlayerWon[8] == 1 && oPlayerWon[5]== 0 && xPlayerWon[5]== 0){
-            turnPosition++; //To Skep the next index
-            b5.setImage(O);
-            //b5.setStyle("-fx-background-color: #ee7070");
-            oPlayerWon[5]=1;
-            buttonPosition[5]=1;
-        }
-        
-        else if (! emptyPositions.isEmpty()){            
+        else {            
             if (emptyPositions.get(computerPosition) == 0){
                 b0.setImage(O);
-                //b0.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 1){
                 b1.setImage(O);
-                //b1.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 2){
                 b2.setImage(O);
-                //b2.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 3){
                 b3.setImage(O);
-                //b3.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 4){
                 b4.setImage(O);
-                //b4.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 5){
                 b5.setImage(O);
-                //b5.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 6){
                 b6.setImage(O);
-                //b6.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 7){
                 b7.setImage(O);
-                //b7.setStyle("-fx-background-color: #ee7070");
             }
             else if (emptyPositions.get(computerPosition) == 8){
                 b8.setImage(O);
-                //b8.setStyle("-fx-background-color: #ee7070");
             }
-            turnPosition++; //To Skep the next index
             oPlayerWon[emptyPositions.get(computerPosition)]=1;
             buttonPosition[emptyPositions.get(computerPosition)]=1;
         }
-        
     }
     
     private int xPlayerWonGame(){
@@ -860,7 +564,6 @@ public class SingleGameScreenMediumController implements Initializable {
         b8.setImage(null);
         //b8.setStyle("-fx-background-color: TRANSPARENT");
         
-        turnPosition = 2;
         flage=1;
         for (int i=0 ; i<9 ; i++){
             buttonPosition[i] = 0;

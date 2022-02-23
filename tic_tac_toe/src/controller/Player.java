@@ -2,22 +2,27 @@ package controller;
 
 public class Player {
     private int score;
+    private int ID;
     private String status;
     private String username;
-    private String password;
 
 
-    public Player(String username ,String password ,int score)
+    public Player(String username,int score,int id)
     {
         this.username = username;
-        this.password = password;
         this.score = score;
+        ID = id;
     }
+    
+    
 
     public Player() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public int getID() {return ID;}
+    
+    public void setID(int id) {this.ID = id;}
+    
     public int getScore() {return score;}
 
     public void setScore(int score) {this.score = score;}
@@ -30,7 +35,4 @@ public class Player {
 
     public void setUsername(String username) {this.username = username;}
 
-    public String getPassword() {return password;}
-
-    public void setPassword(String password) {this.password = password;}
 }

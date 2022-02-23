@@ -15,11 +15,17 @@ import javafx.application.Platform;
 import org.json.JSONObject;
 import ticTac.Connection.msgType;
 import controller.LoginController;
+import controller.MainScreen;
 import controller.Player;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import org.json.JSONArray;
 
 public class Session extends Thread{
@@ -28,10 +34,12 @@ public class Session extends Thread{
     private DataInputStream inputStream;
     private PrintStream printStream;
     public ControlManager controlManager;
+    public Player player;
     
     JSONObject Message ;
     boolean Connected =false;
     public boolean viewOnlinePlayers = false;
+    public boolean loged = false;
 
 
     public Session(Stage stage)
@@ -133,7 +141,15 @@ public class Session extends Thread{
         }
         else
         {
-            changeScene("/fxml/mainMenu.fxml");
+            
+            MainScreen.session.controlManager.setInvitationController(changeScene("/fxml/PlayerInvitationScreen.fxml"));
+            loged = true;
+            MainScreen.session.viewOnlinePlayers = true;
+            MainScreen.session.getOnlinePlayersRequest();
+            player = new Player();
+            player.setID((int) Message.get("id"));
+            player.setUsername((String) Message.get("username"));
+            player.setScore((int) Message.get("score"));
         }
     }
     
@@ -148,7 +164,7 @@ public class Session extends Thread{
         }
         else
         {
-            changeScene("/fxml/mainMenu.fxml");
+            changeScene("/fxml/login.fxml");
             return;
         }
     }
@@ -188,9 +204,10 @@ public class Session extends Thread{
         if(viewOnlinePlayers&&!Message.get("name").toString().equals(",")){
             String[] name = Message.get("name").toString().split(",");
             String[] score = Message.get("score").toString().split(",");
+            String[] id = Message.get("id").toString().split(",");
             Player [] playerList = new Player[name.length-1];
             for(int a = 1; a < name.length; a++){
-                playerList[a-1] = new Player(name[a],"",Integer.parseInt(score[a]));
+                playerList[a-1] = new Player(name[a],Integer.parseInt(score[a]),Integer.parseInt(id[a]));
             }
             ObservableList<Player> list = FXCollections.observableArrayList(playerList);
             controlManager.getInvitationController().insertOnlinePlayers(list);
@@ -198,6 +215,68 @@ public class Session extends Thread{
     }
     
 
+    public void invitationSendRequest(int id)
+    {
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.INVETATION_SEND);
+        js.put("reciever id", id);
+        printStream.println(js);
+    }
+    
+    private void invitationSendResponse(JSONObject Message)
+    {
+        if(!viewOnlinePlayers){
+            invitationReplyReqest("no", Message.getInt("sender id"));
+            return;
+        }
+        
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/fxml/InvitationDialog.fxml"));
+                    DialogPane winner = fxmlLoader.load();
+                    
+                    dialog.setDialogPane(winner);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
+                    dialog.setTitle("Game Invitation");
+                    Label content = new Label(Message.getString("sender name").toUpperCase()+" Invited You to a Game! Would You Like to Accept?");
+                    content.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px");
+                    dialog.setGraphic(content);
+                    Optional<ButtonType> result = dialog.showAndWait();
+                    if(result.get()==ButtonType.YES){
+                        invitationReplyReqest("yes", Message.getInt("sender id"));
+                        System.out.println("yes");
+                    }
+                    else{
+                        invitationReplyReqest("no", Message.getInt("sender id"));
+                        System.out.println("no");
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(Session.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    }
+
+    public void invitationReplyReqest(String reply,int id)
+    {
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.INVETATION_REPLY);
+        js.put("reciever id", id);
+        js.put("reply", reply);
+        printStream.println(js);
+    }
+    
+    private void invitationReplyResponse(JSONObject Message)
+    {
+        System.out.println(Message.getString("reply"));
+    }
+    
+    
     public void run(){
         while(true){
             try {
@@ -222,6 +301,12 @@ public class Session extends Thread{
                         break;
                     case GET_ONLINE_PLAYERS:
                         getOnlinePlayersResponse(response);
+                        break;
+                    case INVETATION_SEND:
+                        invitationSendResponse(response);
+                        break;
+                    case INVETATION_REPLY:
+                        invitationReplyResponse(response);
                         break;
                 }
 

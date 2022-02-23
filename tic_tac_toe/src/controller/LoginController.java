@@ -44,6 +44,8 @@ public class LoginController implements Initializable {
     private Label passwordValid;
     @FXML
     private Label passwdAndUser;
+    @FXML
+    private Label label;
  
     
     @FXML
@@ -78,8 +80,10 @@ public class LoginController implements Initializable {
     }
 
     
-    /* When this method is called, it will change the scene
+    /* When this method is called, it will change the    @FXML
+ scene
        to sign up screen */
+    @FXML
     public void changeToSignUpScreen(ActionEvent event) throws IOException{
         
         FXMLLoader loader = new FXMLLoader();

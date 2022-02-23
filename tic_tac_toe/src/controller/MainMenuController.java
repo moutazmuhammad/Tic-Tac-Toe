@@ -48,16 +48,14 @@ public class MainMenuController implements Initializable {
     
     @FXML
     private void MultiModeButtonAction(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/PlayerInvitationScreen.fxml"));
-        Parent fxmlViewChild = loader.load();
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-        window.show();
-        MainScreen.session.controlManager.setInvitationController(loader);
-        MainScreen.session.viewOnlinePlayers = true;
-        MainScreen.session.getOnlinePlayersRequest();
+        if (MainScreen.session.loged == false){
+            MainScreen.session.changeScene("/fxml/login.fxml");
+        }
+        else{
+            MainScreen.session.controlManager.setInvitationController(MainScreen.session.changeScene("/fxml/PlayerInvitationScreen.fxml"));
+            MainScreen.session.viewOnlinePlayers = true;
+            MainScreen.session.getOnlinePlayersRequest();
+        }
     }
     
     @FXML

@@ -14,6 +14,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -41,7 +43,7 @@ public class PlayerInvitationController implements Initializable {
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException{
-        
+            MainScreen.session.viewOnlinePlayers = false;
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
             Parent fxmlViewChild = loader.load();
@@ -57,22 +59,15 @@ public class PlayerInvitationController implements Initializable {
     
     @FXML
     private void inviteButtonAction(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/MultiGameScreen.fxml"));
-        Parent fxmlViewChild = loader.load();
-        
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-        
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-        
-        window.show();
-        
+        Player player = (Player)tableView.getSelectionModel().getSelectedItem();
+        if(player!=null){
+            MainScreen.session.invitationSendRequest(player.getID());
+        }
     }
     
     @FXML
     private void acceptInvitaionButtonAction(ActionEvent event) throws IOException{
-        
+        MainScreen.session.viewOnlinePlayers = false;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/MultiGameScreen.fxml"));
         Parent fxmlViewChild = loader.load();
@@ -118,8 +113,8 @@ public class PlayerInvitationController implements Initializable {
          //aboutButton
         InvitePlayerButton.setPrefWidth(199);
         InvitePlayerButton.setPrefHeight(49);
-        InvitePlayerButton.setLayoutX(448);
-        InvitePlayerButton.setLayoutY(296);
+        InvitePlayerButton.setLayoutX(256);
+        InvitePlayerButton.setLayoutY(310);
     }
     
     @FXML
@@ -127,8 +122,8 @@ public class PlayerInvitationController implements Initializable {
         //aboutButton
         InvitePlayerButton.setPrefWidth(188);
         InvitePlayerButton.setPrefHeight(39);
-        InvitePlayerButton.setLayoutX(458);
-        InvitePlayerButton.setLayoutY(301);
+        InvitePlayerButton.setLayoutX(266);
+        InvitePlayerButton.setLayoutY(316);
     }
     
     
@@ -190,4 +185,6 @@ public class PlayerInvitationController implements Initializable {
         PlayersList = FXCollections.observableArrayList();
         tableView.setItems(PlayersList);
     }
+    
+
 }

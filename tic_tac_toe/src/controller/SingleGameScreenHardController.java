@@ -39,11 +39,7 @@ public class SingleGameScreenHardController implements Initializable {
     private Button backButton, resetButton, screenshotBtn;
     
     Dialog<ButtonType> dialog = new Dialog<>(); 
-    
-    private int computerPosition=0;
-    
-    private int turnPosition = 2; //To get the correct position of X and O
-    
+            
     @FXML
     private Button b0, b1, b2, b3, b4, b5, b6, b7, b8;
     
@@ -145,7 +141,6 @@ public class SingleGameScreenHardController implements Initializable {
            
     private void computer (){
         if(checkFillPositions()!=9){
-            System.out.println("controller.SingleGameScreenHardController.computer()");
             computerPlayer();
         }
         
@@ -180,20 +175,15 @@ public class SingleGameScreenHardController implements Initializable {
     @FXML
     private void b1ButtonAction(ActionEvent event) {
         
-        if (buttonPosition[1]==0){
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index    
-                b1.setText("O");
-                b1.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[1]=1;
-                oPlayerWon[1]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[1]==0){ 
+            b1.setText("O");
+            b1.setStyle("-fx-background-color: #f5fb4f");
+            buttonPosition[1]=1;
+            oPlayerWon[1]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -204,19 +194,15 @@ public class SingleGameScreenHardController implements Initializable {
     private void b2ButtonAction(ActionEvent event) {
         
         if (buttonPosition[2]==0){
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index    
-                b2.setText("O");
-                b2.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[2]=1;
-                oPlayerWon[2]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+            b2.setText("O");
+            b2.setStyle("-fx-background-color: #f5fb4f");
+
+            buttonPosition[2]=1;
+            oPlayerWon[2]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -226,20 +212,15 @@ public class SingleGameScreenHardController implements Initializable {
     @FXML
     private void b3ButtonAction(ActionEvent event) {
         
-        if (buttonPosition[3]==0){
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index    
-                b3.setText("O");
-                b3.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[3]=1;
-                oPlayerWon[3]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[3]==0){ 
+            b3.setText("O");
+            b3.setStyle("-fx-background-color: #f5fb4f");
+            buttonPosition[3]=1;
+            oPlayerWon[3]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -250,19 +231,14 @@ public class SingleGameScreenHardController implements Initializable {
     private void b4ButtonAction(ActionEvent event) {
         
         if (buttonPosition[4]==0){
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index    
-                b4.setText("O");
-                b4.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[4]=1;
-                oPlayerWon[4]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+            b4.setText("O");
+            b4.setStyle("-fx-background-color: #f5fb4f");
+            buttonPosition[4]=1;
+            oPlayerWon[4]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -272,20 +248,15 @@ public class SingleGameScreenHardController implements Initializable {
     @FXML
     private void b5ButtonAction(ActionEvent event) {
         
-        if (buttonPosition[5]==0){
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index    
-                b5.setText("O");
-                b5.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[5]=1;
-                oPlayerWon[5]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[5]==0){  
+            b5.setText("O");
+            b5.setStyle("-fx-background-color: #f5fb4f");
+            buttonPosition[5]=1;
+            oPlayerWon[5]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -296,19 +267,14 @@ public class SingleGameScreenHardController implements Initializable {
     private void b6ButtonAction(ActionEvent event) {
         
         if (buttonPosition[6]==0){
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index    
-                b6.setText("O");
-                b6.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[6]=1;
-                oPlayerWon[6]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+            b6.setText("O");
+            b6.setStyle("-fx-background-color: #f5fb4f");
+            buttonPosition[6]=1;
+            oPlayerWon[6]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -318,20 +284,15 @@ public class SingleGameScreenHardController implements Initializable {
     @FXML
     private void b7ButtonAction(ActionEvent event) {
         
-        if (buttonPosition[7]==0){
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index    
-                b7.setText("O");
-                b7.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[7]=1;
-                oPlayerWon[7]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[7]==0){    
+            b7.setText("O");
+            b7.setStyle("-fx-background-color: #f5fb4f");
+            buttonPosition[7]=1;
+            oPlayerWon[7]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -341,20 +302,15 @@ public class SingleGameScreenHardController implements Initializable {
     @FXML
     private void b8ButtonAction(ActionEvent event) {
         
-        if (buttonPosition[8]==0){
-            if(turnPosition %2 == 0){
-                
-                turnPosition++; //To Skep the next index    
-                b8.setText("O");
-                b8.setStyle("-fx-background-color: #f5fb4f");
-               
-                buttonPosition[8]=1;
-                oPlayerWon[8]=1;
-                
-                checkPlayer();
-                computer();
-                checkTie ();
-            }
+        if (buttonPosition[8]==0){ 
+            b8.setText("O");
+            b8.setStyle("-fx-background-color: #f5fb4f");
+            buttonPosition[8]=1;
+            oPlayerWon[8]=1;
+
+            checkPlayer();
+            computer();
+            checkTie ();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -372,14 +328,12 @@ public class SingleGameScreenHardController implements Initializable {
             }
         }
         
-        computerPosition = (int) (Math.random()*emptyPositions.size()); //To get Random position
-        System.out.println("emptyPositions.get(computerPosition)"+ emptyPositions.get(computerPosition));
+        int computerPosition = (int) (Math.random()*emptyPositions.size()); //To get Random position
         
         if (((xPlayerWon[0] == 1 && xPlayerWon[1] == 1)|| 
              (xPlayerWon[4] == 1 && xPlayerWon[6] == 1)||
              (xPlayerWon[5] == 1 && xPlayerWon[8] == 1)) 
              && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
-            turnPosition++; //To Skep the next index
             b2.setText("X");
             b2.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[2]=1;
@@ -388,7 +342,6 @@ public class SingleGameScreenHardController implements Initializable {
         else if (((xPlayerWon[0] == 1 && xPlayerWon[2] == 1)||
                   (xPlayerWon[4] == 1 && xPlayerWon[7] == 1)) 
                   && oPlayerWon[1]== 0 && xPlayerWon[1]== 0){
-            turnPosition++; //To Skep the next index
             b1.setText("X");
             b1.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[1]=1;
@@ -397,7 +350,6 @@ public class SingleGameScreenHardController implements Initializable {
         else if (((xPlayerWon[3] == 1 && xPlayerWon[4] == 1)||
                   (xPlayerWon[2] == 1 && xPlayerWon[8] == 1))
                   && oPlayerWon[5]== 0 && xPlayerWon[5]== 0){
-            turnPosition++; //To Skep the next index
             b5.setText("X");
             b5.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[5]=1;
@@ -408,7 +360,6 @@ public class SingleGameScreenHardController implements Initializable {
                   (xPlayerWon[0] == 1 && xPlayerWon[8] == 1)||
                   (xPlayerWon[1] == 1 && xPlayerWon[7] == 1))
                   && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
             b4.setText("X");
             b4.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[4]=1;
@@ -417,7 +368,6 @@ public class SingleGameScreenHardController implements Initializable {
         else if (((xPlayerWon[4] == 1 && xPlayerWon[5] == 1)||
                   (xPlayerWon[0] == 1 && xPlayerWon[6] == 1))  
                   && oPlayerWon[3]== 0 && xPlayerWon[3]== 0){
-            turnPosition++; //To Skep the next index
             b3.setText("X");
             b3.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[3]=1;
@@ -427,7 +377,6 @@ public class SingleGameScreenHardController implements Initializable {
                   (xPlayerWon[0] == 1 && xPlayerWon[4] == 1)||
                   (xPlayerWon[2] == 1 && xPlayerWon[5] == 1))
                   && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
-            turnPosition++; //To Skep the next index
             b8.setText("X");
             b8.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[8]=1;
@@ -437,7 +386,6 @@ public class SingleGameScreenHardController implements Initializable {
                   (xPlayerWon[2] == 1 && xPlayerWon[4] == 1)||
                   (xPlayerWon[0] == 1 && xPlayerWon[3] == 1))
                   && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
-            turnPosition++; //To Skep the next index
             b6.setText("X");
             b6.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[6]=1;
@@ -446,7 +394,6 @@ public class SingleGameScreenHardController implements Initializable {
         else if (((xPlayerWon[6] == 1 && xPlayerWon[8] == 1)||
                   (xPlayerWon[1] == 1 && xPlayerWon[4] == 1)) 
                   && oPlayerWon[7]== 0 && xPlayerWon[7]== 0){
-            turnPosition++; //To Skep the next index
             b7.setText("X");
             b7.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[7]=1;
@@ -456,7 +403,6 @@ public class SingleGameScreenHardController implements Initializable {
                   (oPlayerWon[4] == 1 && oPlayerWon[6] == 1)||
                   (oPlayerWon[5] == 1 && oPlayerWon[8] == 1))
                   && xPlayerWon[2]== 0 && oPlayerWon[2]== 0){
-            turnPosition++; //To Skep the next index
             b2.setText("X");
             b2.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[2]=1;
@@ -465,7 +411,6 @@ public class SingleGameScreenHardController implements Initializable {
         else if (((oPlayerWon[0] == 1 && oPlayerWon[2] == 1)||
                   (oPlayerWon[4] == 1 && oPlayerWon[7] == 1))
                   && xPlayerWon[1]== 0 && oPlayerWon[1]== 0){
-            turnPosition++; //To Skep the next index
             b1.setText("X");
             b1.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[1]=1;
@@ -474,7 +419,6 @@ public class SingleGameScreenHardController implements Initializable {
         else if (((oPlayerWon[3] == 1 && oPlayerWon[4] == 1)||
                   (oPlayerWon[2] == 1 && oPlayerWon[8] == 1))
                   && xPlayerWon[5]== 0 && oPlayerWon[5]== 0){
-            turnPosition++; //To Skep the next index
             b5.setText("X");
             b5.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[5]=1;
@@ -485,7 +429,6 @@ public class SingleGameScreenHardController implements Initializable {
                   (oPlayerWon[2] == 1 && oPlayerWon[6] == 1)||
                   (oPlayerWon[1] == 1 && oPlayerWon[7] == 1))
                   && xPlayerWon[4]== 0 && oPlayerWon[4]== 0){
-            turnPosition++; //To Skep the next index
             b4.setText("X");
             b4.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[4]=1;
@@ -494,7 +437,6 @@ public class SingleGameScreenHardController implements Initializable {
         else if (((oPlayerWon[4] == 1 && oPlayerWon[5] == 1)||
                   (oPlayerWon[0] == 1 && oPlayerWon[6] == 1))
                    && xPlayerWon[3]== 0 && oPlayerWon[3]== 0){
-            turnPosition++; //To Skep the next index
             b3.setText("X");
             b3.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[3]=1;
@@ -504,7 +446,6 @@ public class SingleGameScreenHardController implements Initializable {
                   (oPlayerWon[0] == 1 && oPlayerWon[4] == 1)||
                   (oPlayerWon[2] == 1 && oPlayerWon[5] == 1))
                   && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
-            turnPosition++; //To Skep the next index
             b8.setText("X");
             b8.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[8]=1;
@@ -514,7 +455,6 @@ public class SingleGameScreenHardController implements Initializable {
                   (oPlayerWon[2] == 1 && oPlayerWon[4] == 1)||
                   (oPlayerWon[0] == 1 && oPlayerWon[3] == 1))
                   && xPlayerWon[6]== 0 && oPlayerWon[6]== 0){
-            turnPosition++; //To Skep the next index
             b6.setText("X");
             b6.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[6]=1;
@@ -523,16 +463,13 @@ public class SingleGameScreenHardController implements Initializable {
         else if (((oPlayerWon[6] == 1 && oPlayerWon[8] == 1)||
                   (oPlayerWon[1] == 1 && oPlayerWon[4] == 1))
                   && xPlayerWon[7]== 0 && oPlayerWon[7]== 0){
-            turnPosition++; //To Skep the next index
             b7.setText("X");
             b7.setStyle("-fx-background-color: #ee7070");
             xPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
         else{ 
-            
-            System.out.println("<------------------computerPosition--------------------->" + computerPosition);
-            
+                        
             if (emptyPositions.get(computerPosition) == 1){
                 b1.setText("X");
                 b1.setStyle("-fx-background-color: #ee7070");
@@ -565,7 +502,6 @@ public class SingleGameScreenHardController implements Initializable {
                 b8.setText("X");
                 b8.setStyle("-fx-background-color: #ee7070");
             }
-            turnPosition++; //To Skep the next index
             xPlayerWon[emptyPositions.get(computerPosition)]=1;
             buttonPosition[emptyPositions.get(computerPosition)]=1;
         }
@@ -625,7 +561,6 @@ public class SingleGameScreenHardController implements Initializable {
         b8.setText("");
         b8.setStyle("-fx-background-color: TRANSPARENT");
         
-        turnPosition = 2;
         flage=1;
         for (int i=0 ; i<9 ; i++){
             buttonPosition[i] = 0;

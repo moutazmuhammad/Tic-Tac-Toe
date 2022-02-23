@@ -122,9 +122,7 @@ public class ClientHandler extends Thread{
                     }
                     break;
                 case SIGNUP:
-                    if(signUp(request)){
-                        return true;
-                    }
+                    signUp(request);
                     break;
                 case CLOSE_CONNECTION:
                     closeConnection();
@@ -143,19 +141,18 @@ public class ClientHandler extends Thread{
     }
     
     void get_online_players(){
-        String names="",scores="",index="";
-        int i = 0;
+        String names="",scores="",id="";
         for(ClientHandler c : clientsVector){
             if(c!=this){
                 names = names + ","+c.player.getUsername();
                 scores = scores+","+c.player.getScore();
-                index = index+","+(i++);
+                id = id+","+c.player.getId();
             }
         }
         response.clear();
         response.put("name", names);
         response.put("score", scores);
-        response.put("id", index);
+        response.put("id", id);
         response.put("type", ClientMsg.GET_ONLINE_PLAYERS);
         ps.println(response);
     }
@@ -175,7 +172,7 @@ public class ClientHandler extends Thread{
         response.clear();
         response.put("type", ClientMsg.INVETATION_REPLY);
         response.put("sender id", player.getId());
-        response.put("reply", "yes");
+        response.put("reply", request.getString("reply"));
         response.put("reciever id", player_info.player.getId());
         player_info.ps.println(response);
     }
@@ -196,6 +193,7 @@ public class ClientHandler extends Thread{
             response.put("score", player.getScore());
             response.put("loses", player.getWins());
             response.put("wins", player.getLosses());
+            response.put("username", player.getUsername());
             ps.println(response);
             return true;
         }
@@ -237,7 +235,6 @@ public class ClientHandler extends Thread{
     }
     
     ClientHandler GetPlayerByID(int id){
-        
         for(ClientHandler c : clientsVector){
             if(c.player.getId() == id){
                 return c;
