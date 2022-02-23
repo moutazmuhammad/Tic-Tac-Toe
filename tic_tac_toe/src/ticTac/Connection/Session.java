@@ -26,6 +26,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import org.json.JSONArray;
 
 public class Session extends Thread{
@@ -246,6 +247,8 @@ public class Session extends Thread{
                     Label content = new Label(Message.getString("sender name").toUpperCase()+" Invited You to a Game! Would You Like to Accept?");
                     content.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px");
                     dialog.setGraphic(content);
+                    Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
                     Optional<ButtonType> result = dialog.showAndWait();
                     if(result.get()==ButtonType.YES){
                         invitationReplyReqest("yes", Message.getInt("sender id"));
