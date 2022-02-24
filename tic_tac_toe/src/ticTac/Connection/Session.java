@@ -124,7 +124,6 @@ public class Session extends Thread{
         return loader;
     }
 
-    
     public void signInRequest(String Username , String Password)
     {
         JSONObject js = new JSONObject();
@@ -137,10 +136,6 @@ public class Session extends Thread{
     private void signInResponse(JSONObject Message)
     {
         int id = Message.getInt("id");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 676165588688052cb30f97b5df5fcc470f82660f
         switch (id) {
             case 0:
                 controlManager.getLoginController().login_failre();
@@ -157,30 +152,6 @@ public class Session extends Thread{
                 player.setID((int) Message.get("id"));
                 player.setUsername((String) Message.get("username"));
                 player.setScore((int) Message.get("score"));
-<<<<<<< HEAD
-=======
-=======
-        if(id == 0 )
-        {
-            controlManager.setLoginController(changeScene("/fxml/login.fxml"));
-            controlManager.getLoginController().login_failre();
-        }
-        else
-        {
-            
-            MainScreen.session.controlManager.setInvitationController(changeScene("/fxml/PlayerInvitationScreen.fxml"));
-            loged = true;
-            MainScreen.session.viewOnlinePlayers = true;
-            MainScreen.session.getOnlinePlayersRequest();
-            player = new Player();
-            player.setID((int) Message.get("id"));
-            player.setUsername((String) Message.get("username"));
-            player.setScore((int) Message.get("score"));
-            player.setWins((int) Message.get("wins"));
-            player.setLosses(Message.getInt("losses"));
-            player.setTies(Message.getInt("ties"));
->>>>>>> a712fe00c1afb2e7a98e9464074314fb842bae6f
->>>>>>> 676165588688052cb30f97b5df5fcc470f82660f
         }
     }
     
@@ -191,8 +162,7 @@ public class Session extends Thread{
         int id = Message.getInt("id");
         if(id == 0 )
         {
-            controlManager.setSignUpController(changeScene("/fxml/signUp.fxml"));
-            controlManager.getSignUpController().signUpFailure();
+            return;
         }
         else
         {
@@ -260,7 +230,8 @@ public class Session extends Thread{
         if(!viewOnlinePlayers){
             invitationReplyReqest("no", Message.getInt("sender id"));
             return;
-        }  
+        }
+        
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -268,9 +239,9 @@ public class Session extends Thread{
                     Dialog<ButtonType> dialog = new Dialog<>();
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/fxml/InvitationDialog.fxml"));
-                    DialogPane invitation = fxmlLoader.load();
+                    DialogPane winner = fxmlLoader.load();
                     
-                    dialog.setDialogPane(invitation);
+                    dialog.setDialogPane(winner);
                     dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
                     dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
                     dialog.setTitle("Game Invitation");
@@ -280,7 +251,6 @@ public class Session extends Thread{
                     Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
                     stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
                     Optional<ButtonType> result = dialog.showAndWait();
-
                     if(result.get()==ButtonType.YES){
                         invitationReplyReqest("yes", Message.getInt("sender id"));
                         controlManager.setPlayerVsPlayerController(changeScene("/fxml/playerVsPlayer.fxml"));
@@ -305,7 +275,6 @@ public class Session extends Thread{
 
     public void invitationReplyReqest(String reply,int id)
     {
-
         JSONObject js = new JSONObject();
         js.put("type", msgType.INVETATION_REPLY);
         js.put("reciever id", id);
