@@ -33,7 +33,7 @@ public class SignUpController implements Initializable {
     private Button signUp;
     
     @FXML
-    private Label usernameValid, passwordValid, passwdAndUser;
+    private Label passwdAndUser;
 
     
     @FXML
@@ -78,9 +78,12 @@ public class SignUpController implements Initializable {
             
         }else{
             MainScreen.session.signUpRequest(username.getText(), password.getText());
-        }
-
-        
+        } 
+    }
+    
+    @FXML
+    public void signUpFailure(){
+        passwdAndUser.setVisible(true);
     }
     
        @FXML

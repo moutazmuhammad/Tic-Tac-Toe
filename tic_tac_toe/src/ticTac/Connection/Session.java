@@ -124,6 +124,7 @@ public class Session extends Thread{
         return loader;
     }
 
+    
     public void signInRequest(String Username , String Password)
     {
         JSONObject js = new JSONObject();
@@ -138,6 +139,7 @@ public class Session extends Thread{
         int id = Message.getInt("id");
         if(id == 0 )
         {
+            controlManager.setLoginController(changeScene("/fxml/login.fxml"));
             controlManager.getLoginController().login_failre();
         }
         else
@@ -161,7 +163,8 @@ public class Session extends Thread{
         int id = Message.getInt("id");
         if(id == 0 )
         {
-            return;
+            controlManager.setSignUpController(changeScene("/fxml/signUp.fxml"));
+            controlManager.getSignUpController().signUpFailure();
         }
         else
         {
@@ -229,8 +232,7 @@ public class Session extends Thread{
         if(!viewOnlinePlayers){
             invitationReplyReqest("no", Message.getInt("sender id"));
             return;
-        }
-        
+        }  
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -238,9 +240,9 @@ public class Session extends Thread{
                     Dialog<ButtonType> dialog = new Dialog<>();
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/fxml/InvitationDialog.fxml"));
-                    DialogPane winner = fxmlLoader.load();
+                    DialogPane invitation = fxmlLoader.load();
                     
-                    dialog.setDialogPane(winner);
+                    dialog.setDialogPane(invitation);
                     dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
                     dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
                     dialog.setTitle("Game Invitation");
@@ -250,6 +252,7 @@ public class Session extends Thread{
                     Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
                     stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
                     Optional<ButtonType> result = dialog.showAndWait();
+
                     if(result.get()==ButtonType.YES){
                         invitationReplyReqest("yes", Message.getInt("sender id"));
                         System.out.println("yes");
@@ -267,6 +270,7 @@ public class Session extends Thread{
 
     public void invitationReplyReqest(String reply,int id)
     {
+
         JSONObject js = new JSONObject();
         js.put("type", msgType.INVETATION_REPLY);
         js.put("reciever id", id);
