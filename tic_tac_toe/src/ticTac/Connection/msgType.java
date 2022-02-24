@@ -10,6 +10,7 @@ public enum msgType {
     INVETATION_REPLY,
     ACCEPT_INVETATION,
     RECORD_GAME,
+    START_GAME,
     GET_GAME,
     GET_RECORDED_GAMES,
     ADD_MOVE,

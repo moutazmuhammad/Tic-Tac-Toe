@@ -136,21 +136,22 @@ public class Session extends Thread{
     private void signInResponse(JSONObject Message)
     {
         int id = Message.getInt("id");
-        if(id == 0 )
-        {
-            controlManager.getLoginController().login_failre();
-        }
-        else
-        {
-            
-            MainScreen.session.controlManager.setInvitationController(changeScene("/fxml/PlayerInvitationScreen.fxml"));
-            loged = true;
-            MainScreen.session.viewOnlinePlayers = true;
-            MainScreen.session.getOnlinePlayersRequest();
-            player = new Player();
-            player.setID((int) Message.get("id"));
-            player.setUsername((String) Message.get("username"));
-            player.setScore((int) Message.get("score"));
+        switch (id) {
+            case 0:
+                controlManager.getLoginController().login_failre();
+                break;
+            case -1:
+                informationDialog("alert", "player already logged from another device");
+                break;
+            default:
+                MainScreen.session.controlManager.setInvitationController(changeScene("/fxml/PlayerInvitationScreen.fxml"));
+                loged = true;
+                MainScreen.session.viewOnlinePlayers = true;
+                MainScreen.session.getOnlinePlayersRequest();
+                player = new Player();
+                player.setID((int) Message.get("id"));
+                player.setUsername((String) Message.get("username"));
+                player.setScore((int) Message.get("score"));
         }
     }
     
@@ -165,7 +166,7 @@ public class Session extends Thread{
         }
         else
         {
-            changeScene("/fxml/login.fxml");
+            controlManager.setLoginController(changeScene("/fxml/login.fxml"));
             return;
         }
     }
@@ -252,11 +253,18 @@ public class Session extends Thread{
                     Optional<ButtonType> result = dialog.showAndWait();
                     if(result.get()==ButtonType.YES){
                         invitationReplyReqest("yes", Message.getInt("sender id"));
-                        System.out.println("yes");
+                        controlManager.setPlayerVsPlayerController(changeScene("/fxml/playerVsPlayer.fxml"));
+                        MainScreen.session.viewOnlinePlayers=false;
+                        controlManager.getPlayerVsPlayerController().setChoice(1);
+                        controlManager.getPlayerVsPlayerController().setMyTurn(false);
+                        controlManager.getPlayerVsPlayerController().setPlayersNames(Message.getString("sender name"),player.getUsername());
+                        JSONObject js = new JSONObject();
+                        js.put("type", msgType.START_GAME);
+                        js.put("player2", Message.getInt("sender id"));
+                        printStream.println(js);
                     }
                     else{
                         invitationReplyReqest("no", Message.getInt("sender id"));
-                        System.out.println("no");
                     }
                 } catch (IOException ex) {
                     Logger.getLogger(Session.class.getName()).log(Level.SEVERE, null, ex);
@@ -276,7 +284,64 @@ public class Session extends Thread{
     
     private void invitationReplyResponse(JSONObject Message)
     {
-        System.out.println(Message.getString("reply"));
+        if((Message.getString("reply")).equals("yes")){
+            FXMLLoader loader = null;
+            try {
+                loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/fxml/playerVsPlayer.fxml"));
+                Parent fxmlViewChild = loader.load();
+                controlManager.setPlayerVsPlayerController(loader);
+                Scene fxmlViewScene = new Scene(fxmlViewChild);
+                Platform.runLater(new Runnable() {
+                @Override public void run() {
+                    stage.setScene(fxmlViewScene);
+                    stage.show();
+                    controlManager.getPlayerVsPlayerController().setChoice(0);
+                    controlManager.getPlayerVsPlayerController().setMyTurn(true);
+                    controlManager.getPlayerVsPlayerController().setPlayersNames(player.getUsername(), Message.getString("sender name"));
+                    }
+                });
+
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            MainScreen.session.viewOnlinePlayers=false;
+            
+            JSONObject js = new JSONObject();
+            js.put("type", msgType.START_GAME);
+            js.put("player2", Message.getInt("sender id"));
+            printStream.println(js);
+        }else{
+            informationDialog("Invitation Response", "invitation refused");
+        }
+    }
+    
+    public void addMoveRequest(int cell,int choice)
+    {
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.ADD_MOVE);
+        js.put("Move", cell);
+        js.put("choice", choice);
+        printStream.println(js);
+    }
+    
+    private void addMoveResponse(JSONObject Message)
+    {
+        controlManager.getPlayerVsPlayerController().setMove(Message.getInt("Move"),Message.getInt("choice"));
+    }
+    
+    public void sendMessageRequest(String Msg)
+    {
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.SEND_MESSAGE);
+        js.put("msg", Msg);
+        printStream.println(js);
+    }
+    
+    private void sendMessageResponse(JSONObject Message)
+    {
+        controlManager.getPlayerVsPlayerController().recieveMessage(Message.getString("msg"));
     }
     
     
@@ -311,6 +376,12 @@ public class Session extends Thread{
                     case INVETATION_REPLY:
                         invitationReplyResponse(response);
                         break;
+                    case ADD_MOVE:
+                        addMoveResponse(response);
+                        break;
+                    case SEND_MESSAGE:
+                        sendMessageResponse(response);
+                        break;
                 }
 
             } catch (IOException ex) {
@@ -323,6 +394,31 @@ public class Session extends Thread{
     //this function needs a server to connect and check for the msg type
     private void MessageHandler(JSONObject message){
         String type = (String) message.get("type");
+    }
+    
+    private void informationDialog(String title,String information){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/fxml/InvitationDialog.fxml"));
+                    DialogPane winner = fxmlLoader.load();
+                    dialog.setDialogPane(winner);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+                    dialog.setTitle(title);
+                    Label content = new Label(information);
+                    content.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px");
+                    dialog.setGraphic(content);
+                    Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
+                    dialog.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(Session.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
 
 
