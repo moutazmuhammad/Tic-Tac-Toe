@@ -40,20 +40,12 @@
                   <Font name="Algerian" size="15.0" />
                </font>
             </Button>
-            <Label fx:id="usernameValid" layoutX="126.0" layoutY="161.0" prefHeight="21.0" prefWidth="138.0" text="Invalid Username" textFill="#db3833" visible="false">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label layoutX="132.0" layoutY="226.0" prefHeight="21.0" prefWidth="138.0" text="Invalid Password" textFill="#db3833" visible="false">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
             <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/login.png" />
                </image>
             </ImageView>
-            <Label fx:id="passwdAndUser" layoutX="18.0" layoutY="226.0" prefHeight="21.0" prefWidth="275.0" text="Password or username empty" textFill="#db3833" visible="false">
+            <Label fx:id="passwdAndUser" layoutX="18.0" layoutY="226.0" prefHeight="21.0" prefWidth="275.0" text="This Username is Already Used!" textFill="#db3833" visible="false">
                <font>
                   <Font size="14.0" />
                </font>

@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +17,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import ticTac.Connection.Session;
 
 /**
  * FXML Controller class
@@ -30,7 +39,8 @@ public class MainMenuController implements Initializable {
     private Button singleModeButton, MultiModeButton, hardModeButton, leaderButton, aboutButton;
     @FXML
     private ImageView singleIcon, multiIcon, leaderIcon;
-
+    @FXML
+    private ImageView profile_icon;
     
     @FXML
     private void singleModeButtonAction(ActionEvent event) throws IOException{
@@ -61,6 +71,53 @@ public class MainMenuController implements Initializable {
     @FXML
     private void LeaderBoardButtonAction(ActionEvent event) throws IOException{
         MainScreen.session.getLeaderboardRequest();
+    }
+    
+    @FXML
+    private void profileOnClick(MouseEvent event){
+            if (MainScreen.session.loged == false){
+                 try {
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/fxml/InvitationDialog.fxml"));
+                    DialogPane profile = fxmlLoader.load();
+                    dialog.setDialogPane(profile);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+                    dialog.setTitle("Profile");
+                    Label content = new Label("To View Your Profile, Please Sign In!");
+                    content.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px");
+                    dialog.setGraphic(content);
+                    Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
+                    Optional<ButtonType> result = dialog.showAndWait();
+
+                    if(result.get()==ButtonType.OK){
+                        MainScreen.session.changeScene("/fxml/login.fxml");
+                    }
+                    else{
+                        MainScreen.session.changeScene("/fxml/mainMenu.fxml");
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(Session.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+        else{
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/ProfileScreen.fxml"));
+                    Parent fxmlViewChild = loader.load();
+                    
+                    Scene fxmlViewScene = new Scene(fxmlViewChild);
+                    
+                    Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    window.setScene(fxmlViewScene);
+                    
+                    window.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainMenuController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
     }
     
     
@@ -184,7 +241,7 @@ public class MainMenuController implements Initializable {
         audio("btnClick.mp3");
     }
     
-        @FXML
+    @FXML
     private void leaderOnRelease(MouseEvent event){
          //LeaderBoardButton
         leaderButton.setPrefWidth(270);
@@ -202,7 +259,7 @@ public class MainMenuController implements Initializable {
         aboutButton.setPrefHeight(45);
         aboutButton.setLayoutX(216);
         aboutButton.setLayoutY(328);
-         audio("btnHover.mp3");
+        audio("btnHover.mp3");
     }
     
     @FXML
@@ -231,6 +288,26 @@ public class MainMenuController implements Initializable {
         aboutButton.setPrefHeight(45);
         aboutButton.setLayoutX(216);
         aboutButton.setLayoutY(328);
+    }
+    
+    @FXML
+    private void profileOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void profileOnPress(MouseEvent event){
+        profile_icon.setFitWidth(20);
+        profile_icon.setFitHeight(20);
+        profile_icon.setLayoutY(18);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void profileOnRelease(MouseEvent event){
+        profile_icon.setFitWidth(30);
+        profile_icon.setFitHeight(30);
+        profile_icon.setLayoutY(14);
     }
     
    

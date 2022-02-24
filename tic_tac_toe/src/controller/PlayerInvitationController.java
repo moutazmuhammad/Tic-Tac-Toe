@@ -62,8 +62,10 @@ public class PlayerInvitationController implements Initializable {
         Player player = (Player)tableView.getSelectionModel().getSelectedItem();
         if(player!=null){
             MainScreen.session.invitationSendRequest(player.getID());
+            //disableInvitation();
         }
     }
+    
     
     @FXML
     private void acceptInvitaionButtonAction(ActionEvent event) throws IOException{
@@ -105,6 +107,16 @@ public class PlayerInvitationController implements Initializable {
                 tableView.setItems(list);
             }
         });
+    }
+    
+    @FXML
+    public void disableInvitation(){
+        InvitePlayerButton.setDisable(true);
+    }
+    
+    @FXML
+    public void enableInvitation(){
+        InvitePlayerButton.setDisable(false);
     }
     
     
@@ -183,6 +195,7 @@ public class PlayerInvitationController implements Initializable {
         Score.setCellValueFactory(new PropertyValueFactory<Player,Integer>("score"));
         PlayersList = FXCollections.observableArrayList();
         tableView.setItems(PlayersList);
+
     }
     
 

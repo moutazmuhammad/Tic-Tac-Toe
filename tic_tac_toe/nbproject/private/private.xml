@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/SignUpController.java</file>
-            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/MainScreen.java</file>
-            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/PlayerInvitationController.java</file>
             <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/SingleGameScreenController.java</file>
+            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/ticTac/Connection/Session.java</file>
+            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/SignUpController.java</file>
+            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/LeaderBoardController.java</file>
+            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/MainScreen.java</file>
+            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/MainMenuController.java</file>
+            <file>file:/D:/ITI-9-Months/21-Java/Project/Main%20Clone/Tic-Tac-Toe/tic_tac_toe/src/controller/Player.java</file>
         </group>
     </open-files>
 </project-private>
