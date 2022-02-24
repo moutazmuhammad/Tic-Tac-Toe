@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,6 +63,8 @@ public class SingleGameScreenController implements Initializable {
     
     private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //This array is used to know if the player win
     private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //This array is used to know if the computer win
+    
+    private int lockButtons = 0;
     
     private void updateComputerScore(){ //calculate the score of computer
         computer_score++;
@@ -175,163 +178,299 @@ public class SingleGameScreenController implements Initializable {
     
     @FXML
     private void b0ButtonAction(MouseEvent event)  {
-        
-        if (buttonPosition[0]==0){
-            b0.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[0]=1;
-            xPlayerWon[0]=1;
+        if (lockButtons == 0){
+            if (buttonPosition[0]==0){
+                
+                b0.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[0]=1;
+                xPlayerWon[0]=1;
+                checkPlayer();
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
     @FXML
     private void b1ButtonAction(MouseEvent event) {
-        
-        if (buttonPosition[1]==0){
-            b1.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[1]=1;
-            xPlayerWon[1]=1;
+        if (lockButtons==0){
+            if (buttonPosition[1]==0){
+                b1.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[1]=1;
+                xPlayerWon[1]=1;
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                checkPlayer();
+
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
     @FXML
     private void b2ButtonAction(MouseEvent event) {
-        
-        if (buttonPosition[2]==0){
-            b2.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[2]=1;
-            xPlayerWon[2]=1;
+        if (lockButtons==0){
+            if (buttonPosition[2]==0){
+                b2.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[2]=1;
+                xPlayerWon[2]=1;
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                checkPlayer();
+
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
     @FXML
     private void b3ButtonAction(MouseEvent event){
-        
-        if (buttonPosition[3]==0){
-            b3.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[3]=1;
-            xPlayerWon[3]=1;
+        if(lockButtons==0){
+            if (buttonPosition[3]==0){
+                b3.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[3]=1;
+                xPlayerWon[3]=1;
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                checkPlayer();
+
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
     @FXML
     private void b4ButtonAction(MouseEvent event){
-        
-        if (buttonPosition[4]==0){
-            b4.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[4]=1;
-            xPlayerWon[4]=1;
+        if(lockButtons==0){
+            if (buttonPosition[4]==0){
+                b4.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[4]=1;
+                xPlayerWon[4]=1;
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                checkPlayer();
+
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
     @FXML
     private void b5ButtonAction(MouseEvent event) {
-        
-        if (buttonPosition[5]==0){
-            b5.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[5]=1;
-            xPlayerWon[5]=1;
+        if(lockButtons==0){
+            if (buttonPosition[5]==0){
+                b5.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[5]=1;
+                xPlayerWon[5]=1;
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                checkPlayer();
+
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
     @FXML
     private void b6ButtonAction(MouseEvent event){
-        
-        if (buttonPosition[6]==0){
-            b6.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[6]=1;
-            xPlayerWon[6]=1;
+        if(lockButtons==0){
+            if (buttonPosition[6]==0){
+                b6.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[6]=1;
+                xPlayerWon[6]=1;
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                checkPlayer();
+
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
     @FXML
     private void b7ButtonAction(MouseEvent event){
-        
-        if (buttonPosition[7]==0){
-            b7.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[7]=1;
-            xPlayerWon[7]=1;
+        if(lockButtons==0){
+            if (buttonPosition[7]==0){
+                b7.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[7]=1;
+                xPlayerWon[7]=1;
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                checkPlayer();
+
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
     @FXML
     private void b8ButtonAction(MouseEvent event){
-        
-        if (buttonPosition[8]==0){
-            b8.setImage(X);
-            audio("btnClick.mp3");
-            buttonPosition[8]=1;
-            xPlayerWon[8]=1;
+        if(lockButtons==0){
+            if (buttonPosition[8]==0){
+                b8.setImage(X);
+                audio("btnClick.mp3");
+                buttonPosition[8]=1;
+                xPlayerWon[8]=1;
 
-            checkPlayer();
-            computer();
-            checkTie ();
-        }
-        else{
-            System.out.println("this button is already used!!!!!");
+                checkPlayer();
+
+
+                lockButtons = 1;
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        Platform.runLater(() -> {
+                            lockButtons=0;
+                            computer();
+                            checkTie();
+                        });
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }).start();
+
+            }
+            else{
+                System.out.println("this button is already used!!!!!");
+            }
         }
     }
     
@@ -339,12 +478,12 @@ public class SingleGameScreenController implements Initializable {
     
     private void computerPlayer(){
         Vector<Integer> emptyPositions = new Vector<>(); //empty postions
-        
         for (int index=0; index < buttonPosition.length; index++){
             if (buttonPosition[index] == 0){
                 emptyPositions.add(index);
             }
         }
+        
         int computerPosition = (int) (Math.random()*emptyPositions.size()); //To get Random position
      
         if (! emptyPositions.isEmpty()){

@@ -245,6 +245,7 @@ public class ClientHandler extends Thread{
         player_info.ps.println(response);
     }
     
+<<<<<<< HEAD
     
     private void startGame(JSONObject request){
         ClientHandler player2 = GetPlayerByID(request.getInt("player2"));
@@ -283,6 +284,56 @@ public class ClientHandler extends Thread{
             } catch (IOException ex) {
                 Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
             }
+=======
+    boolean signIn(JSONObject request){
+        int r = db.signIn(request.getString("username"), request.getString("passwd"));
+        response.clear();
+        response.put("type", ClientMsg.SIGNIN);
+
+        if(r==0){
+            response.put("id", 0);
+            ps.println(response);
+            return false;
+        }
+        else{
+            player = db.getPlayerProfile(r);
+            response.put("id", player.getId());
+            response.put("score", player.getScore());
+            response.put("losses", player.getWins());
+            response.put("wins", player.getLosses());
+            response.put("ties", player.getTies());
+            response.put("username", player.getUsername());
+            ps.println(response);
+            return true;
+        }
+    }
+
+    boolean signUp(JSONObject request){
+        int r = db.signUp(request.getString("username"), request.getString("passwd"));
+        response.clear();
+        response.put("type", ClientMsg.SIGNUP);
+        if(r==0){
+            response.put("id", 0);
+            ps.println(response);
+            return false;
+        }
+        else{
+            player = db.getPlayerProfile(r);
+            response.put("id", player.getId());
+            ps.println(response);
+            return true;
+        }
+    }
+
+    void closeConnection(){
+        try {
+            ps.println("closing connection");
+            dis.close();
+            ps.close();
+            stop();
+        } catch (IOException ex) {
+            Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+>>>>>>> a712fe00c1afb2e7a98e9464074314fb842bae6f
         }
     }
     

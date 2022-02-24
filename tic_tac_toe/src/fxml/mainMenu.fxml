@@ -248,5 +248,10 @@
             <Image url="@../images/multi.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="profile_icon" fitHeight="30.0" fitWidth="30.0" layoutX="651.0" layoutY="14.0" onMouseClicked="#profileOnClick" onMouseEntered="#profileOnHover" onMousePressed="#profileOnPress" onMouseReleased="#profileOnRelease" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/gameUser.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

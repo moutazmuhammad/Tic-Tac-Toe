@@ -3,9 +3,6 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -39,10 +36,6 @@ public class LoginController implements Initializable {
     @FXML
     private Button loginButton;
     @FXML
-    private Label usernameValid;
-    @FXML
-    private Label passwordValid;
-    @FXML
     private Label passwdAndUser;
     @FXML
     private Label label;
@@ -75,8 +68,7 @@ public class LoginController implements Initializable {
     }
     
     public void login_failre(){
-        usernameValid.setVisible(true);
-        passwordValid.setVisible(true);
+        passwdAndUser.setVisible(true);
     }
 
     
