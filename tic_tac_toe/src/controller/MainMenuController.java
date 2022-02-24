@@ -49,7 +49,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void MultiModeButtonAction(ActionEvent event) throws IOException{
         if (MainScreen.session.loged == false){
-            MainScreen.session.changeScene("/fxml/login.fxml");
+            MainScreen.session.controlManager.setLoginController(MainScreen.session.changeScene("/fxml/login.fxml"));
         }
         else{
             MainScreen.session.controlManager.setInvitationController(MainScreen.session.changeScene("/fxml/PlayerInvitationScreen.fxml"));

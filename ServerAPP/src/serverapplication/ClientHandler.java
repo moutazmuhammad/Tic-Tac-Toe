@@ -41,6 +41,24 @@ public class ClientHandler extends Thread{
         }
     }
     
+    void closeConnection(){
+        try {
+            ps.println("closing connection");
+            dis.close();
+            ps.close();
+            stop();
+        } catch (IOException ex) {
+            Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void closeServer(){
+        for(ClientHandler c : clientsVector){
+            c.closeConnection();
+        }
+        clientsVector.clear();
+    }
+    
     
     @Override
     public void run(){
@@ -87,6 +105,9 @@ public class ClientHandler extends Thread{
                     case INVETATION_REPLY:
                         replyInvitation(request);
                         break;
+                    case START_GAME:
+                        startGame(request);
+                        break;
                     case CLOSE_CONNECTION:
                         clientsVector.remove(this);
                         for(ClientHandler c : clientsVector){
@@ -101,7 +122,7 @@ public class ClientHandler extends Thread{
            }
         }
     }
-   
+    
     private void changeOnlineStatus(){
         for(ClientHandler c : clientsVector){
             c.get_online_players();
@@ -133,6 +154,52 @@ public class ClientHandler extends Thread{
         }
         }
     }
+    
+    boolean signIn(JSONObject request){
+        response.clear();
+        response.put("type", ClientMsg.SIGNIN);
+        
+        if(isPlayerOnline(request.getString("username"))){
+            response.put("id", -1);
+            ps.println(response);
+            return false;
+        }
+        
+        int r = db.signIn(request.getString("username"), request.getString("passwd"));
+        if(r==0){
+            response.put("id", 0);
+            ps.println(response);
+            return false;
+        }
+        else{
+            player = db.getPlayerProfile(r);
+            response.put("id", player.getId());
+            response.put("score", player.getScore());
+            response.put("loses", player.getWins());
+            response.put("wins", player.getLosses());
+            response.put("username", player.getUsername());
+            ps.println(response);
+            return true;
+        }
+    }
+
+    boolean signUp(JSONObject request){
+        int r = db.signUp(request.getString("username"), request.getString("passwd"));
+        response.clear();
+        response.put("type", ClientMsg.SIGNUP);
+        if(r==0){
+            response.put("id", 0);
+            ps.println(response);
+            return false;
+        }
+        else{
+            player = db.getPlayerProfile(r);
+            response.put("id", player.getId());
+            ps.println(response);
+            return true;
+        }
+    }
+
     
     void get_leaderboard(){
         response = db.getLeaderBoard();
@@ -172,67 +239,54 @@ public class ClientHandler extends Thread{
         response.clear();
         response.put("type", ClientMsg.INVETATION_REPLY);
         response.put("sender id", player.getId());
+        response.put("sender name", player.getUsername());
         response.put("reply", request.getString("reply"));
         response.put("reciever id", player_info.player.getId());
         player_info.ps.println(response);
     }
     
-    boolean signIn(JSONObject request){
-        int r = db.signIn(request.getString("username"), request.getString("passwd"));
-        response.clear();
-        response.put("type", ClientMsg.SIGNIN);
-
-        if(r==0){
-            response.put("id", 0);
-            ps.println(response);
-            return false;
-        }
-        else{
-            player = db.getPlayerProfile(r);
-            response.put("id", player.getId());
-            response.put("score", player.getScore());
-            response.put("loses", player.getWins());
-            response.put("wins", player.getLosses());
-            response.put("username", player.getUsername());
-            ps.println(response);
-            return true;
-        }
-    }
-
-    boolean signUp(JSONObject request){
-        int r = db.signUp(request.getString("username"), request.getString("passwd"));
-        response.clear();
-        response.put("type", ClientMsg.SIGNUP);
-        if(r==0){
-            response.put("id", 0);
-            ps.println(response);
-            return false;
-        }
-        else{
-            player = db.getPlayerProfile(r);
-            response.put("id", player.getId());
-            ps.println(response);
-            return true;
-        }
-    }
-
-    void closeConnection(){
-        try {
-            ps.println("closing connection");
-            dis.close();
-            ps.close();
-            stop();
-        } catch (IOException ex) {
-            Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+    
+    private void startGame(JSONObject request){
+        ClientHandler player2 = GetPlayerByID(request.getInt("player2"));
+        while(true){
+            try {
+            String re = dis.readLine();
+            if(re == null)
+            {
+                clientsVector.remove(this);
+                for(ClientHandler c : clientsVector){
+                    c.get_online_players();
+                }
+                closeConnection();
+                return;
+            }
+            request = new JSONObject(re);
+            System.out.println(request);
+            ClientMsg msg = request.getEnum(ClientMsg.class,"type");
+            switch (msg) {
+                case ADD_MOVE:
+                    player2.ps.println(request);
+                    break;
+                case SEND_MESSAGE:
+                    player2.ps.println(request);
+                    break;
+                case END_GAME:
+                    return ;
+                case CLOSE_CONNECTION:
+                    clientsVector.remove(this);
+                    for(ClientHandler c : clientsVector){
+                        c.get_online_players();
+                    }
+                    closeConnection();
+                    return;
+            }
+            } catch (IOException ex) {
+                Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
-    public static void closeServer(){
-        for(ClientHandler c : clientsVector){
-            c.closeConnection();
-        }
-        clientsVector.clear();
-    }
+    
     
     ClientHandler GetPlayerByID(int id){
         for(ClientHandler c : clientsVector){
@@ -243,4 +297,13 @@ public class ClientHandler extends Thread{
         return null;
     }
 
+    boolean isPlayerOnline(String username){
+        for(ClientHandler c : clientsVector){
+            if(c.player.getUsername().equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }

@@ -181,7 +181,6 @@ public class PlayerInvitationController implements Initializable {
         Score = (TableColumn<Player,Integer>)tableView.getColumns().get(1);
         OnlinePlayers.setCellValueFactory(new PropertyValueFactory<Player,String>("username"));
         Score.setCellValueFactory(new PropertyValueFactory<Player,Integer>("score"));
-        
         PlayersList = FXCollections.observableArrayList();
         tableView.setItems(PlayersList);
     }

@@ -13,7 +13,7 @@ import javafx.fxml.FXMLLoader;
 public class ControlManager {
     private LeaderBoardController leaderBoardController;
     private LoginController loginController ;
-    private PlayerVsPlayerController multiGameScreenController;
+    private PlayerVsPlayerController playerVsPlayerController;
     private PlayerInvitationController invitationController;
     private RecordedGames recordedGames;
     private SignUpController signUpController;
@@ -34,12 +34,12 @@ public class ControlManager {
         this.loginController = (LoginController)loader.getController();
     }
 
-    public PlayerVsPlayerController getMultiGameScreenController() {
-        return multiGameScreenController;
+    public PlayerVsPlayerController getPlayerVsPlayerController() {
+        return playerVsPlayerController;
     }
 
-    public void setMultiGameScreenController(FXMLLoader loader) {
-        this.multiGameScreenController = (PlayerVsPlayerController)loader.getController();
+    public void setPlayerVsPlayerController(FXMLLoader loader) {
+        this.playerVsPlayerController = (PlayerVsPlayerController)loader.getController();
     }
 
     public PlayerInvitationController getInvitationController() {
