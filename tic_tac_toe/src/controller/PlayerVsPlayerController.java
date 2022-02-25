@@ -15,10 +15,14 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,13 +31,19 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -54,7 +64,11 @@ public class PlayerVsPlayerController implements Initializable {
     private Label xPlayerName, oPlayerName;
     
     @FXML
-    private TextArea textArea;
+    private VBox vboxMessages;
+    
+    @FXML
+    private ScrollPane spMain;
+    
     
     @FXML
     private TextField textMessage;
@@ -136,16 +150,52 @@ public class PlayerVsPlayerController implements Initializable {
     
     @FXML
     private void sendMessageArrow(MouseEvent event){
-        textArea.setText(textArea.getText()+"\nMe : "+textMessage.getText());
-        MainScreen.session.sendMessageRequest(MainScreen.session.player.getUsername()+" : "+textMessage.getText());
-        textMessage.clear();
+        
+        String messageToSend = textMessage.getText();
+        if (!messageToSend.isEmpty()){
+            HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER_RIGHT);
+            hBox.setPadding(new Insets(5, 5, 5, 10));
+            
+            Text text = new Text(messageToSend);
+            TextFlow textFlow = new TextFlow(text);
+            
+            textFlow.setStyle("-fx-color: rgb(239,242,255);" + 
+                    "-fx-background-color: rgb(15,125,242);" +
+                    "-fx-background-radius: 20px;");
+            
+            textFlow.setPadding(new Insets(5, 10, 5, 10));
+            text.setFill(Color.color(0.934, 0.945, 0.996));
+            
+            hBox.getChildren().add(textFlow);
+            vboxMessages.getChildren().add(hBox);
+            
+            MainScreen.session.sendMessageRequest(textMessage.getText());
+            textMessage.clear();
+        }
     }
     
     public void recieveMessage(String msg){
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                textArea.setText(textArea.getText()+"\n"+msg);
+        
+            HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER_LEFT);
+            hBox.setPadding(new Insets(5, 5, 5, 10));
+
+            Text text = new Text(msg);
+            TextFlow textFlow = new TextFlow(text);
+
+            textFlow.setStyle("-fx-color: rgb(233,233,235);" + 
+                    "-fx-background-color: rgb(208, 216, 207);"+ 
+                    "-fx-background-radius: 20px;");
+
+            textFlow.setPadding(new Insets(5, 10, 5, 10));
+
+            hBox.getChildren().add(textFlow);
+            
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    vboxMessages.getChildren().add(hBox);
             }
         });
     }
@@ -273,6 +323,15 @@ public class PlayerVsPlayerController implements Initializable {
         
         myCells = new ArrayList<Integer>();
         otherPlayerCells = new ArrayList<Integer>();
+        
+        // This part to make ScrollPane scroll down when send messages
+        vboxMessages.heightProperty().addListener(new ChangeListener<Number>(){
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                spMain.setVvalue((Double) newValue);
+            }
+            
+        });
     }    
     
 }
