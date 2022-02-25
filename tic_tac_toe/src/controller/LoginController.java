@@ -39,7 +39,8 @@ public class LoginController implements Initializable {
     private Label passwdAndUser;
     @FXML
     private Label label;
- 
+    @FXML
+    private Button backButton;
     
     @FXML
     private void loginButtonAction(ActionEvent event) throws IOException{
@@ -123,27 +124,15 @@ public class LoginController implements Initializable {
     }
     
     
-    
+    @FXML
+    private void BackButtonAction(ActionEvent event) throws IOException {
+        MainScreen.session.changeScene("/fxml/mainMenu.fxml");
+    }
     
      private void audio(String soundEffect){
         Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
-    }
-
-     @FXML
-    private void BackButtonAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
-        Parent fxmlViewChild = loader.load();
-        
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-        
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-        
-        window.show();
-        
     }
     
      @Override

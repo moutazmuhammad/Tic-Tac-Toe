@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,6 +52,8 @@ public class SingleGameScreenHardController implements Initializable {
     @FXML
     private Label ur_score, cump_score;
     
+    private int lockButtons = 0;
+    
     Image X = new Image(getClass().getResourceAsStream("/images/x.png"));
     Image O = new Image(getClass().getResourceAsStream("/images/oO.png"));
     
@@ -59,10 +62,10 @@ public class SingleGameScreenHardController implements Initializable {
     private int computer_score=0;
     private int flage=1;
     
-    private int buttonPosition[] = {1, 0, 0, 0, 0, 0, 0, 0, 0};
+    private int buttonPosition[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     private int oPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //player
-    private int xPlayerWon[] = {1, 0, 0, 0, 0, 0, 0, 0, 0}; //computer
+    private int xPlayerWon[] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; //computer
     
     
     
@@ -179,18 +182,61 @@ public class SingleGameScreenHardController implements Initializable {
         }
     }
     
+    @FXML
+    private void b0ButtonAction(MouseEvent event) {
+        
+        if (buttonPosition[0]==0){ 
+            b0.setImage(O);
+            audio("btnClick.mp3");
+            buttonPosition[0]=1;
+            oPlayerWon[0]=1;
+
+            checkPlayer();
+            
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
+        }
+        else{
+            System.out.println("this button is already used!!!!!");
+        }
+    }
     
     @FXML
     private void b1ButtonAction(MouseEvent event) {
         
         if (buttonPosition[1]==0){ 
             b1.setImage(O);
+            audio("btnClick.mp3");
             buttonPosition[1]=1;
             oPlayerWon[1]=1;
 
             checkPlayer();
-            computer();
-            checkTie ();
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -202,13 +248,25 @@ public class SingleGameScreenHardController implements Initializable {
         
         if (buttonPosition[2]==0){
             b2.setImage(O);
-
+            audio("btnClick.mp3");
             buttonPosition[2]=1;
             oPlayerWon[2]=1;
 
             checkPlayer();
-            computer();
-            checkTie ();
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -220,12 +278,25 @@ public class SingleGameScreenHardController implements Initializable {
         
         if (buttonPosition[3]==0){ 
             b3.setImage(O);
+            audio("btnClick.mp3");
             buttonPosition[3]=1;
             oPlayerWon[3]=1;
 
             checkPlayer();
-            computer();
-            checkTie ();
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -237,12 +308,25 @@ public class SingleGameScreenHardController implements Initializable {
         
         if (buttonPosition[4]==0){
             b4.setImage(O);
+            audio("btnClick.mp3");
             buttonPosition[4]=1;
             oPlayerWon[4]=1;
 
             checkPlayer();
-            computer();
-            checkTie ();
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -254,12 +338,25 @@ public class SingleGameScreenHardController implements Initializable {
         
         if (buttonPosition[5]==0){  
             b5.setImage(O);
+            audio("btnClick.mp3");
             buttonPosition[5]=1;
             oPlayerWon[5]=1;
 
             checkPlayer();
-            computer();
-            checkTie ();
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -271,12 +368,25 @@ public class SingleGameScreenHardController implements Initializable {
         
         if (buttonPosition[6]==0){
             b6.setImage(O);
+            audio("btnClick.mp3");
             buttonPosition[6]=1;
             oPlayerWon[6]=1;
 
             checkPlayer();
-            computer();
-            checkTie ();
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -288,12 +398,25 @@ public class SingleGameScreenHardController implements Initializable {
         
         if (buttonPosition[7]==0){    
             b7.setImage(O);
+            audio("btnClick.mp3");
             buttonPosition[7]=1;
             oPlayerWon[7]=1;
 
             checkPlayer();
-            computer();
-            checkTie ();
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -305,12 +428,25 @@ public class SingleGameScreenHardController implements Initializable {
         
         if (buttonPosition[8]==0){ 
             b8.setImage(O);
+            audio("btnClick.mp3");
             buttonPosition[8]=1;
             oPlayerWon[8]=1;
 
             checkPlayer();
-            computer();
-            checkTie ();
+            lockButtons = 1;
+            new Thread(() -> {
+                try {
+                    Thread.sleep(600);
+                    Platform.runLater(() -> {
+                        lockButtons=0;
+                        computer();
+                        checkTie();
+                    });
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }).start();
         }
         else{
             System.out.println("this button is already used!!!!!");
@@ -337,6 +473,14 @@ public class SingleGameScreenHardController implements Initializable {
             b2.setImage(X);
             xPlayerWon[2]=1;
             buttonPosition[2]=1;
+        }
+        else if (((xPlayerWon[1] == 1 && xPlayerWon[2] == 1)||
+                  (xPlayerWon[4] == 1 && xPlayerWon[8] == 1)||
+                  (xPlayerWon[3] == 1 && xPlayerWon[6] == 1)) 
+                  && oPlayerWon[0]== 0 && xPlayerWon[0]== 0){
+            b0.setImage(X);
+            xPlayerWon[0]=1;
+            buttonPosition[0]=1;
         }
         else if (((xPlayerWon[0] == 1 && xPlayerWon[2] == 1)||
                   (xPlayerWon[4] == 1 && xPlayerWon[7] == 1)) 
@@ -390,6 +534,14 @@ public class SingleGameScreenHardController implements Initializable {
             b7.setImage(X);
             xPlayerWon[7]=1;
             buttonPosition[7]=1;
+        }
+        else if (((oPlayerWon[1] == 1 && oPlayerWon[2] == 1)||
+                  (oPlayerWon[4] == 1 && oPlayerWon[8] == 1)||
+                  (oPlayerWon[3] == 1 && oPlayerWon[6] == 1))
+                  && xPlayerWon[0]== 0 && oPlayerWon[0]== 0){
+            b0.setImage(O);
+            oPlayerWon[0]=1;
+            buttonPosition[0]=1;
         }
         else if (((oPlayerWon[0] == 1 && oPlayerWon[1] == 1)||
                   (oPlayerWon[4] == 1 && oPlayerWon[6] == 1)||
@@ -453,8 +605,10 @@ public class SingleGameScreenHardController implements Initializable {
             buttonPosition[7]=1;
         }
         else{ 
-                        
-            if (emptyPositions.get(computerPosition) == 1){
+            if (emptyPositions.get(computerPosition) == 0){
+                b0.setImage(X);
+            }           
+            else if (emptyPositions.get(computerPosition) == 1){
                 b1.setImage(X);
             }
             else if (emptyPositions.get(computerPosition) == 2){
@@ -481,6 +635,7 @@ public class SingleGameScreenHardController implements Initializable {
             xPlayerWon[emptyPositions.get(computerPosition)]=1;
             buttonPosition[emptyPositions.get(computerPosition)]=1;
         }
+        audio("btnClick.mp3");
     }
     
     private int oPlayerWonGame(){
@@ -513,6 +668,7 @@ public class SingleGameScreenHardController implements Initializable {
     
     @FXML
     private void playAgainButtonAction(ActionEvent event) {
+        b0.setImage(null);
         b1.setImage(null);        
         b2.setImage(null);        
         b3.setImage(null);        
@@ -527,25 +683,25 @@ public class SingleGameScreenHardController implements Initializable {
             xPlayerWon[i] = 0;
             oPlayerWon[i] = 0;
         }
-        buttonPosition[0] = 1;
-        xPlayerWon[0] = 1;
-        
+        lockButtons = 1;
+        new Thread(() -> {
+            try {
+                Thread.sleep(600);
+                Platform.runLater(() -> {
+                    lockButtons=0;
+                    computer();
+                });
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
     }
     
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/SingleModeMenu.fxml"));
-        Parent fxmlViewChild = loader.load();
-        
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-        
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-        
-        window.show();
-        
+        MainScreen.session.changeScene("/fxml/SingleModeMenu.fxml");
     }
     
     @FXML
@@ -617,12 +773,26 @@ public class SingleGameScreenHardController implements Initializable {
         
       }
     
- 
+    private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        new Thread(() -> {
+            try {
+                Thread.sleep(600);
+                Platform.runLater(() -> {
+                    computer();
+                });
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(SingleGameScreenController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }).start();
     }    
     
 }

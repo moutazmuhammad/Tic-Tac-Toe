@@ -518,6 +518,7 @@ public class SingleGameScreenController implements Initializable {
             oPlayerWon[emptyPositions.get(computerPosition)]=1;
             buttonPosition[emptyPositions.get(computerPosition)]=1;
         }
+        audio("btnClick.mp3");
     }
     
     private int xPlayerWonGame(){
@@ -572,17 +573,7 @@ public class SingleGameScreenController implements Initializable {
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/SingleModeMenu.fxml"));
-        Parent fxmlViewChild = loader.load();
-        
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-        
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-        
-        window.show();
-        
+        MainScreen.session.changeScene("/fxml/SingleModeMenu.fxml");
     }
 
     
