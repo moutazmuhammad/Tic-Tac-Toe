@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: rgb(43, 184, 152);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AboutScreenController">
    <children>
+      <Button fx:id="circle4" layoutX="341.0" layoutY="90.0" mnemonicParsing="false" onMouseEntered="#c4OnHover" onMouseExited="#c4OnExit" prefHeight="151.0" prefWidth="166.0" rotate="25.2" style="-fx-background-radius: 50%; -fx-background-color: rgba(238, 245, 219, 0.7);" stylesheets="@../CSS/circle4.css" text="Abdurrhman Nabil" textAlignment="CENTER" textFill="#0176fc">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
       <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="189.0" layoutY="218.0" opacity="0.04" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pattern.png" />
@@ -54,11 +60,6 @@
          </image>
       </ImageView>
       <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="253.0" layoutY="148.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/pattern.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="292.0" layoutY="21.0" opacity="0.41" pickOnBounds="true" preserveRatio="true" rotate="-3.2">
          <image>
             <Image url="@../images/pattern.png" />
          </image>
@@ -118,24 +119,9 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <Button fx:id="singleModeButton" layoutX="225.0" layoutY="164.0" mnemonicParsing="false" onAction="#singleModeButtonAction" onMouseEntered="#singleOnHover" onMouseExited="#singleOnExit" onMousePressed="#singleOnPress" onMouseReleased="#singleOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Single Mode" textAlignment="CENTER" textFill="#05262c">
+      <Button fx:id="backButton" layoutX="243.0" layoutY="360.0" mnemonicParsing="false" onAction="#backButtonAction" onMouseEntered="#backOnHover" onMousePressed="#backOnPress" onMouseReleased="#backOnRelease" prefHeight="31.0" prefWidth="218.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.5);" text="Go Back to Main Menu" textAlignment="CENTER" textFill="#cc1a0a">
          <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="MultiModeButton" layoutX="226.0" layoutY="216.0" mnemonicParsing="false" onAction="#MultiModeButtonAction" onMouseEntered="#multiOnHover" onMouseExited="#multiOnExit" onMousePressed="#multiOnPress" onMouseReleased="#multiOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Multi-Player " textAlignment="CENTER" textFill="#05262c">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="leaderButton" layoutX="226.0" layoutY="270.0" mnemonicParsing="false" onAction="#LeaderBoardButtonAction" onMouseEntered="#leaderOnHover" onMouseExited="#leaderOnExit" onMousePressed="#leaderOnPress" onMouseReleased="#leaderOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Leaderboard" textAlignment="CENTER" textFill="#b22a25">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="aboutButton" layoutX="226.0" layoutY="328.0" mnemonicParsing="false" onAction="#aboutButtonAction" onMouseEntered="#aboutOnHover" onMouseExited="#aboutOnExit" onMousePressed="#aboutOnPress" onMouseReleased="#aboutOnRelease" prefHeight="35.0" prefWidth="250.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="About Game" textAlignment="CENTER" textFill="#05262c">
-         <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
       <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="155.0" layoutY="93.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
@@ -213,6 +199,11 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
+      <Button fx:id="circle3" layoutX="222.0" layoutY="158.0" mnemonicParsing="false" onMouseEntered="#c3OnHover" onMouseExited="#c3OnExit" prefHeight="151.0" prefWidth="166.0" rotate="16.9" style="-fx-background-radius: 50%; -fx-background-color: rgba(238, 245, 219, 0.7);" stylesheets="@../CSS/circle3.css" text="Amr Ahmed" textAlignment="CENTER" textFill="#3103ab">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
       <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="618.0" layoutY="267.0" opacity="0.04" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/pattern.png" />
@@ -233,25 +224,30 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="leaderIcon" fitHeight="53.0" fitWidth="80.0" layoutX="418.0" layoutY="263.0" onMouseEntered="#leaderOnHover" onMouseExited="#leaderOnExit" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/leaderboard%20icon.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="singleIcon" fitHeight="45.0" fitWidth="45.0" layoutX="419.0" layoutY="160.0" onMouseEntered="#singleOnHover" onMouseExited="#singleOnExit" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/single-palyer.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="multiIcon" fitHeight="45.0" fitWidth="45.0" layoutX="236.0" layoutY="213.0" onMouseEntered="#multiOnHover" onMouseExited="#multiOnExit" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/multi.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="profile_icon" fitHeight="30.0" fitWidth="30.0" layoutX="651.0" layoutY="14.0" onMouseClicked="#profileOnClick" onMouseEntered="#profileOnHover" onMousePressed="#profileOnPress" onMouseReleased="#profileOnRelease" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/gameUser.png" />
-         </image>
-      </ImageView>
+      <Label layoutX="118.0" layoutY="17.0" style="-fx-background-color: rgba(0, 0, 0, 0.1); -fx-background-radius: 30px; -fx-padding: 5px;" text="  This Game was Designed and Developed by:   " textFill="#fcfcfc">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="circle1" layoutX="20.0" layoutY="215.0" mnemonicParsing="false" onMouseEntered="#c1OnHover" onMouseExited="#c1OnExit" prefHeight="157.0" prefWidth="183.0" style="-fx-background-radius: 50%; -fx-background-color: rgba(238, 245, 219, 0.7); -fx-border-color: #8b0bbf; -fx-border-radius: 50%; -fx-border-width: 3px; -fx-border-insets: 4;" text="Moutaz Muhammed" textAlignment="CENTER" textFill="#8b0bbf">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="circle5" layoutX="427.0" layoutY="201.0" mnemonicParsing="false" onMouseEntered="#c5OnHover" onMouseExited="#c5OnExit" prefHeight="151.0" prefWidth="153.0" rotate="-31.0" style="-fx-background-radius: 50%; -fx-background-color: rgba(238, 245, 219, 0.7);" stylesheets="@../CSS/circle5.css" text="Ahmed Alaa" textAlignment="CENTER" textFill="#138901">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="circle6" layoutX="519.0" layoutY="113.0" mnemonicParsing="false" onMouseEntered="#c6OnHover" onMouseExited="#c6OnExit" prefHeight="151.0" prefWidth="153.0" rotate="26.6" style="-fx-background-radius: 50%; -fx-background-color: rgba(238, 245, 219, 0.7);" stylesheets="@../CSS/circle6.css" text="Ahmed Hassan" textAlignment="CENTER" textFill="#c2a500">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="circle2" alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="107.0" mnemonicParsing="false" onMouseEntered="#c2OnHover" onMouseExited="#c2OnExit" prefHeight="144.0" prefWidth="158.0" rotate="-11.3" style="-fx-background-radius: 50%; -fx-background-color: rgba(238, 245, 219, 0.7);" stylesheets="@../CSS/circle2.css" text="Zainab Sabry" textAlignment="CENTER" textFill="#dd0189">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -92,7 +92,14 @@ public class LoginController implements Initializable {
         audio("btnHover.mp3");
     }
     
-       @FXML
+    
+      @FXML
+    private void BackButtonAction(ActionEvent event) throws IOException {
+        MainScreen.session.changeScene("/fxml/mainMenu.fxml");
+    }
+    
+    //Animation and Sound Effects
+    @FXML
     private void loginOnHover(MouseEvent event){
         loginButton.setPrefWidth(163);
         loginButton.setPrefHeight(35);
@@ -125,8 +132,21 @@ public class LoginController implements Initializable {
     
     
     @FXML
-    private void BackButtonAction(ActionEvent event) throws IOException {
-        MainScreen.session.changeScene("/fxml/mainMenu.fxml");
+    private void backOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void backOnPress(MouseEvent event){
+        backButton.setPrefWidth(63);
+        backButton.setPrefHeight(15);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void backOnRelease(MouseEvent event){
+        backButton.setPrefWidth(83);
+        backButton.setPrefHeight(25);
     }
     
      private void audio(String soundEffect){

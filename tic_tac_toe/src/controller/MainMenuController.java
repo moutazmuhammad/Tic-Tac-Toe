@@ -70,11 +70,61 @@ public class MainMenuController implements Initializable {
     
     @FXML
     private void LeaderBoardButtonAction(ActionEvent event) throws IOException{
-        MainScreen.session.getLeaderboardRequest();
+        if (MainScreen.session.loged == false){
+                 try {
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/fxml/InvitationDialog.fxml"));
+                    DialogPane profile = fxmlLoader.load();
+                    dialog.setDialogPane(profile);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+                    dialog.setTitle("Profile");
+                    Label content = new Label("To View The Leaderboard, Please Sign In!");
+                    content.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px");
+                    dialog.setGraphic(content);
+                    Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
+                    Optional<ButtonType> result = dialog.showAndWait();
+
+                    if(result.get()==ButtonType.OK){
+                        MainScreen.session.changeScene("/fxml/login.fxml");
+                    }
+                    else{
+                        MainScreen.session.changeScene("/fxml/mainMenu.fxml");
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(Session.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+        else{
+                       MainScreen.session.getLeaderboardRequest();
+        }
+        
+        
+    }
+    
+    @FXML
+    private void aboutButtonAction(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/AboutScreen.fxml"));
+            Parent fxmlViewChild = loader.load();
+            
+            Scene fxmlViewScene = new Scene(fxmlViewChild);
+            
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.setScene(fxmlViewScene);
+            
+            window.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @FXML
     private void profileOnClick(MouseEvent event){
+            
             if (MainScreen.session.loged == false){
                  try {
                     Dialog<ButtonType> dialog = new Dialog<>();
@@ -289,19 +339,19 @@ public class MainMenuController implements Initializable {
         aboutButton.setLayoutX(216);
         aboutButton.setLayoutY(328);
     }
-    
+    @FXML
+    private void profileOnPress(MouseEvent event){
+        //Sound Effects and Animation
+            profile_icon.setFitWidth(20);
+            profile_icon.setFitHeight(20);
+            profile_icon.setLayoutY(18);
+            audio("btnClick.mp3");
+    }
     @FXML
     private void profileOnHover(MouseEvent event){
         audio("btnHover.mp3");
     }
     
-    @FXML
-    private void profileOnPress(MouseEvent event){
-        profile_icon.setFitWidth(20);
-        profile_icon.setFitHeight(20);
-        profile_icon.setLayoutY(18);
-        audio("btnClick.mp3");
-    }
     
     @FXML
     private void profileOnRelease(MouseEvent event){
