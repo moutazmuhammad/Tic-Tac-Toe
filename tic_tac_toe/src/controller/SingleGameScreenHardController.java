@@ -739,47 +739,58 @@ public class SingleGameScreenHardController implements Initializable {
     
     
     
-       //Sound Effects and Animation
+    //Sound Effects and Animation
      @FXML 
     private void backOnHover(MouseEvent event){
+        audio("btnHover.mp3");
     }
     @FXML
     private void backOnPress(MouseEvent event){
-       
+        backButton.setPrefWidth(72);
+        backButton.setPrefHeight(15);
+        audio("btnClick.mp3");
     }
     
     @FXML
     private void backOnRelease(MouseEvent event){
-       
+        backButton.setPrefWidth(92);
+        backButton.setPrefHeight(25); 
     }
     
     @FXML 
     private void resetOnHover(MouseEvent event){
-       
+        audio("btnHover.mp3");
     }
     
     @FXML
     private void resetOnPress(MouseEvent event){
-       
+        resetButton.setPrefWidth(72);
+        resetButton.setPrefHeight(15);
+        audio("btnClick.mp3");
     }
     
     @FXML
     private void resetOnRelease(MouseEvent event){
-   
+        resetButton.setPrefWidth(92);
+        resetButton.setPrefHeight(25); 
     }
     
     @FXML 
     private void screenOnHover(MouseEvent event){
+        audio("btnHover.mp3");
     }
     
     @FXML
     private void screenOnPress(MouseEvent event){
-        
+        screenshotBtn.setPrefWidth(138);
+        screenshotBtn.setPrefHeight(21);
+        audio("btnClick.mp3");
     }
     
     @FXML
     private void screenOnRelease(MouseEvent event){
-        
+        screenshotBtn.setPrefWidth(158);
+        screenshotBtn.setPrefHeight(31); 
       }
     
     private void audio(String soundEffect){

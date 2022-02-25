@@ -755,6 +755,7 @@ public class SingleGameScreenMediumController implements Initializable {
     private void backOnPress(MouseEvent event){
         backButton.setPrefWidth(72);
         backButton.setPrefHeight(15);
+        audio("btnClick.mp3");
     }
     
     @FXML

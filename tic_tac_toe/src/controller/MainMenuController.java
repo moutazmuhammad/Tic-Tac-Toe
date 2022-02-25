@@ -75,6 +75,7 @@ public class MainMenuController implements Initializable {
     
     @FXML
     private void profileOnClick(MouseEvent event){
+            
             if (MainScreen.session.loged == false){
                  try {
                     Dialog<ButtonType> dialog = new Dialog<>();
@@ -289,19 +290,19 @@ public class MainMenuController implements Initializable {
         aboutButton.setLayoutX(216);
         aboutButton.setLayoutY(328);
     }
-    
+    @FXML
+    private void profileOnPress(MouseEvent event){
+        //Sound Effects and Animation
+            profile_icon.setFitWidth(20);
+            profile_icon.setFitHeight(20);
+            profile_icon.setLayoutY(18);
+            audio("btnClick.mp3");
+    }
     @FXML
     private void profileOnHover(MouseEvent event){
         audio("btnHover.mp3");
     }
     
-    @FXML
-    private void profileOnPress(MouseEvent event){
-        profile_icon.setFitWidth(20);
-        profile_icon.setFitHeight(20);
-        profile_icon.setLayoutY(18);
-        audio("btnClick.mp3");
-    }
     
     @FXML
     private void profileOnRelease(MouseEvent event){
