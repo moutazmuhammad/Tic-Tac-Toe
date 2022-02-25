@@ -84,3 +84,4 @@ nb-configuration.xml
 ##############################
 .DS_Store
 /ServerApplication/
+/Dashboard GUI/nbproject/private/
