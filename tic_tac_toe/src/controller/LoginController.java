@@ -131,6 +131,21 @@ public class LoginController implements Initializable {
         mediaPlayer.play();
     }
 
+     @FXML
+    private void BackButtonAction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
+        Parent fxmlViewChild = loader.load();
+        
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
+        
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
+        
+        window.show();
+        
+    }
+    
      @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

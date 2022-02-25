@@ -68,5 +68,10 @@
             <Image url="@../images/tic_tac_toe.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="backButton" contentDisplay="BOTTOM" defaultButton="true" layoutX="14.0" layoutY="355.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="30.0" prefWidth="62.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Back" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Algerian" size="15.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
