@@ -74,6 +74,24 @@ public class MainMenuController implements Initializable {
     }
     
     @FXML
+    private void aboutButtonAction(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/fxml/AboutScreen.fxml"));
+            Parent fxmlViewChild = loader.load();
+            
+            Scene fxmlViewScene = new Scene(fxmlViewChild);
+            
+            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            window.setScene(fxmlViewScene);
+            
+            window.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
     private void profileOnClick(MouseEvent event){
             
             if (MainScreen.session.loged == false){
