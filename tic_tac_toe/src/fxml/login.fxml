@@ -68,7 +68,7 @@
             <Image url="@../images/tic_tac_toe.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="358.0" mnemonicParsing="false" onAction="#BackButtonAction" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Back" textFill="WHITE">
+      <Button fx:id="backButton" layoutX="14.0" layoutY="358.0" mnemonicParsing="false" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMousePressed="#backOnPress" onMouseReleased="#backOnRelease" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
