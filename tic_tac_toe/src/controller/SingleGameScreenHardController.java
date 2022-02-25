@@ -26,7 +26,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
@@ -42,10 +46,13 @@ public class SingleGameScreenHardController implements Initializable {
     Dialog<ButtonType> dialog = new Dialog<>(); 
             
     @FXML
-    private Button b0, b1, b2, b3, b4, b5, b6, b7, b8;
+    private ImageView b0, b1, b2, b3, b4, b5, b6, b7, b8;
     
     @FXML
     private Label ur_score, cump_score;
+    
+    Image X = new Image(getClass().getResourceAsStream("/images/x.png"));
+    Image O = new Image(getClass().getResourceAsStream("/images/oO.png"));
     
     
     private int your_score=0;
@@ -174,11 +181,10 @@ public class SingleGameScreenHardController implements Initializable {
     
     
     @FXML
-    private void b1ButtonAction(ActionEvent event) {
+    private void b1ButtonAction(MouseEvent event) {
         
         if (buttonPosition[1]==0){ 
-            b1.setText("O");
-            b1.setStyle("-fx-background-color: #f5fb4f");
+            b1.setImage(O);
             buttonPosition[1]=1;
             oPlayerWon[1]=1;
 
@@ -192,11 +198,10 @@ public class SingleGameScreenHardController implements Initializable {
     }
     
     @FXML
-    private void b2ButtonAction(ActionEvent event) {
+    private void b2ButtonAction(MouseEvent event) {
         
         if (buttonPosition[2]==0){
-            b2.setText("O");
-            b2.setStyle("-fx-background-color: #f5fb4f");
+            b2.setImage(O);
 
             buttonPosition[2]=1;
             oPlayerWon[2]=1;
@@ -211,11 +216,10 @@ public class SingleGameScreenHardController implements Initializable {
     }
     
     @FXML
-    private void b3ButtonAction(ActionEvent event) {
+    private void b3ButtonAction(MouseEvent event) {
         
         if (buttonPosition[3]==0){ 
-            b3.setText("O");
-            b3.setStyle("-fx-background-color: #f5fb4f");
+            b3.setImage(O);
             buttonPosition[3]=1;
             oPlayerWon[3]=1;
 
@@ -229,11 +233,10 @@ public class SingleGameScreenHardController implements Initializable {
     }
     
     @FXML
-    private void b4ButtonAction(ActionEvent event) {
+    private void b4ButtonAction(MouseEvent event) {
         
         if (buttonPosition[4]==0){
-            b4.setText("O");
-            b4.setStyle("-fx-background-color: #f5fb4f");
+            b4.setImage(O);
             buttonPosition[4]=1;
             oPlayerWon[4]=1;
 
@@ -247,11 +250,10 @@ public class SingleGameScreenHardController implements Initializable {
     }
     
     @FXML
-    private void b5ButtonAction(ActionEvent event) {
+    private void b5ButtonAction(MouseEvent event) {
         
         if (buttonPosition[5]==0){  
-            b5.setText("O");
-            b5.setStyle("-fx-background-color: #f5fb4f");
+            b5.setImage(O);
             buttonPosition[5]=1;
             oPlayerWon[5]=1;
 
@@ -265,11 +267,10 @@ public class SingleGameScreenHardController implements Initializable {
     }
     
     @FXML
-    private void b6ButtonAction(ActionEvent event) {
+    private void b6ButtonAction(MouseEvent event) {
         
         if (buttonPosition[6]==0){
-            b6.setText("O");
-            b6.setStyle("-fx-background-color: #f5fb4f");
+            b6.setImage(O);
             buttonPosition[6]=1;
             oPlayerWon[6]=1;
 
@@ -283,11 +284,10 @@ public class SingleGameScreenHardController implements Initializable {
     }
     
     @FXML
-    private void b7ButtonAction(ActionEvent event) {
+    private void b7ButtonAction(MouseEvent event) {
         
         if (buttonPosition[7]==0){    
-            b7.setText("O");
-            b7.setStyle("-fx-background-color: #f5fb4f");
+            b7.setImage(O);
             buttonPosition[7]=1;
             oPlayerWon[7]=1;
 
@@ -301,11 +301,10 @@ public class SingleGameScreenHardController implements Initializable {
     }
     
     @FXML
-    private void b8ButtonAction(ActionEvent event) {
+    private void b8ButtonAction(MouseEvent event) {
         
         if (buttonPosition[8]==0){ 
-            b8.setText("O");
-            b8.setStyle("-fx-background-color: #f5fb4f");
+            b8.setImage(O);
             buttonPosition[8]=1;
             oPlayerWon[8]=1;
 
@@ -335,24 +334,21 @@ public class SingleGameScreenHardController implements Initializable {
              (xPlayerWon[4] == 1 && xPlayerWon[6] == 1)||
              (xPlayerWon[5] == 1 && xPlayerWon[8] == 1)) 
              && oPlayerWon[2]== 0 && xPlayerWon[2]== 0){
-            b2.setText("X");
-            b2.setStyle("-fx-background-color: #ee7070");
+            b2.setImage(X);
             xPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
         else if (((xPlayerWon[0] == 1 && xPlayerWon[2] == 1)||
                   (xPlayerWon[4] == 1 && xPlayerWon[7] == 1)) 
                   && oPlayerWon[1]== 0 && xPlayerWon[1]== 0){
-            b1.setText("X");
-            b1.setStyle("-fx-background-color: #ee7070");
+            b1.setImage(X);
             xPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
         else if (((xPlayerWon[3] == 1 && xPlayerWon[4] == 1)||
                   (xPlayerWon[2] == 1 && xPlayerWon[8] == 1))
                   && oPlayerWon[5]== 0 && xPlayerWon[5]== 0){
-            b5.setText("X");
-            b5.setStyle("-fx-background-color: #ee7070");
+            b5.setImage(X);
             xPlayerWon[5]=1;
             buttonPosition[5]=1;
         }
@@ -361,16 +357,14 @@ public class SingleGameScreenHardController implements Initializable {
                   (xPlayerWon[0] == 1 && xPlayerWon[8] == 1)||
                   (xPlayerWon[1] == 1 && xPlayerWon[7] == 1))
                   && oPlayerWon[4]== 0 && xPlayerWon[4]== 0){
-            b4.setText("X");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(X);
             xPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (((xPlayerWon[4] == 1 && xPlayerWon[5] == 1)||
                   (xPlayerWon[0] == 1 && xPlayerWon[6] == 1))  
                   && oPlayerWon[3]== 0 && xPlayerWon[3]== 0){
-            b3.setText("X");
-            b3.setStyle("-fx-background-color: #ee7070");
+            b3.setImage(X);
             xPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
@@ -378,8 +372,7 @@ public class SingleGameScreenHardController implements Initializable {
                   (xPlayerWon[0] == 1 && xPlayerWon[4] == 1)||
                   (xPlayerWon[2] == 1 && xPlayerWon[5] == 1))
                   && oPlayerWon[8]== 0 && xPlayerWon[8]== 0){
-            b8.setText("X");
-            b8.setStyle("-fx-background-color: #ee7070");
+            b8.setImage(X);
             xPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
@@ -387,16 +380,14 @@ public class SingleGameScreenHardController implements Initializable {
                   (xPlayerWon[2] == 1 && xPlayerWon[4] == 1)||
                   (xPlayerWon[0] == 1 && xPlayerWon[3] == 1))
                   && oPlayerWon[6]== 0 && xPlayerWon[6]== 0){
-            b6.setText("X");
-            b6.setStyle("-fx-background-color: #ee7070");
+            b6.setImage(X);
             xPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
         else if (((xPlayerWon[6] == 1 && xPlayerWon[8] == 1)||
                   (xPlayerWon[1] == 1 && xPlayerWon[4] == 1)) 
                   && oPlayerWon[7]== 0 && xPlayerWon[7]== 0){
-            b7.setText("X");
-            b7.setStyle("-fx-background-color: #ee7070");
+            b7.setImage(X);
             xPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
@@ -404,24 +395,21 @@ public class SingleGameScreenHardController implements Initializable {
                   (oPlayerWon[4] == 1 && oPlayerWon[6] == 1)||
                   (oPlayerWon[5] == 1 && oPlayerWon[8] == 1))
                   && xPlayerWon[2]== 0 && oPlayerWon[2]== 0){
-            b2.setText("X");
-            b2.setStyle("-fx-background-color: #ee7070");
+            b2.setImage(X);
             xPlayerWon[2]=1;
             buttonPosition[2]=1;
         }
         else if (((oPlayerWon[0] == 1 && oPlayerWon[2] == 1)||
                   (oPlayerWon[4] == 1 && oPlayerWon[7] == 1))
                   && xPlayerWon[1]== 0 && oPlayerWon[1]== 0){
-            b1.setText("X");
-            b1.setStyle("-fx-background-color: #ee7070");
+            b1.setImage(X);
             xPlayerWon[1]=1;
             buttonPosition[1]=1;
         }
         else if (((oPlayerWon[3] == 1 && oPlayerWon[4] == 1)||
                   (oPlayerWon[2] == 1 && oPlayerWon[8] == 1))
                   && xPlayerWon[5]== 0 && oPlayerWon[5]== 0){
-            b5.setText("X");
-            b5.setStyle("-fx-background-color: #ee7070");
+            b5.setImage(X);
             xPlayerWon[5]=1;
             buttonPosition[5]=1;
         }
@@ -430,16 +418,14 @@ public class SingleGameScreenHardController implements Initializable {
                   (oPlayerWon[2] == 1 && oPlayerWon[6] == 1)||
                   (oPlayerWon[1] == 1 && oPlayerWon[7] == 1))
                   && xPlayerWon[4]== 0 && oPlayerWon[4]== 0){
-            b4.setText("X");
-            b4.setStyle("-fx-background-color: #ee7070");
+            b4.setImage(X);
             xPlayerWon[4]=1;
             buttonPosition[4]=1;
         }
         else if (((oPlayerWon[4] == 1 && oPlayerWon[5] == 1)||
                   (oPlayerWon[0] == 1 && oPlayerWon[6] == 1))
                    && xPlayerWon[3]== 0 && oPlayerWon[3]== 0){
-            b3.setText("X");
-            b3.setStyle("-fx-background-color: #ee7070");
+            b3.setImage(X);
             xPlayerWon[3]=1;
             buttonPosition[3]=1;
         }
@@ -447,8 +433,7 @@ public class SingleGameScreenHardController implements Initializable {
                   (oPlayerWon[0] == 1 && oPlayerWon[4] == 1)||
                   (oPlayerWon[2] == 1 && oPlayerWon[5] == 1))
                   && xPlayerWon[8]== 0 && oPlayerWon[8]== 0){
-            b8.setText("X");
-            b8.setStyle("-fx-background-color: #ee7070");
+            b8.setImage(X);
             xPlayerWon[8]=1;
             buttonPosition[8]=1;
         }
@@ -456,52 +441,42 @@ public class SingleGameScreenHardController implements Initializable {
                   (oPlayerWon[2] == 1 && oPlayerWon[4] == 1)||
                   (oPlayerWon[0] == 1 && oPlayerWon[3] == 1))
                   && xPlayerWon[6]== 0 && oPlayerWon[6]== 0){
-            b6.setText("X");
-            b6.setStyle("-fx-background-color: #ee7070");
+            b6.setImage(X);
             xPlayerWon[6]=1;
             buttonPosition[6]=1;
         }
         else if (((oPlayerWon[6] == 1 && oPlayerWon[8] == 1)||
                   (oPlayerWon[1] == 1 && oPlayerWon[4] == 1))
                   && xPlayerWon[7]== 0 && oPlayerWon[7]== 0){
-            b7.setText("X");
-            b7.setStyle("-fx-background-color: #ee7070");
+            b7.setImage(X);
             xPlayerWon[7]=1;
             buttonPosition[7]=1;
         }
         else{ 
                         
             if (emptyPositions.get(computerPosition) == 1){
-                b1.setText("X");
-                b1.setStyle("-fx-background-color: #ee7070");
+                b1.setImage(X);
             }
             else if (emptyPositions.get(computerPosition) == 2){
-                b2.setText("X");
-                b2.setStyle("-fx-background-color: #ee7070");
+                b2.setImage(X);
             }
             else if (emptyPositions.get(computerPosition) == 3){
-                b3.setText("X");
-                b3.setStyle("-fx-background-color: #ee7070");
+                b3.setImage(X);
             }
             else if (emptyPositions.get(computerPosition) == 4){
-                b4.setText("X");
-                b4.setStyle("-fx-background-color: #ee7070");
+                b4.setImage(X);
             }
             else if (emptyPositions.get(computerPosition) == 5){
-                b5.setText("X");
-                b5.setStyle("-fx-background-color: #ee7070");
+                b5.setImage(X);
             }
             else if (emptyPositions.get(computerPosition) == 6){
-                b6.setText("X");
-                b6.setStyle("-fx-background-color: #ee7070");
+                b6.setImage(X);
             }
             else if (emptyPositions.get(computerPosition) == 7){
-                b7.setText("X");
-                b7.setStyle("-fx-background-color: #ee7070");
+                b7.setImage(X);
             }
             else if (emptyPositions.get(computerPosition) == 8){
-                b8.setText("X");
-                b8.setStyle("-fx-background-color: #ee7070");
+                b8.setImage(X);
             }
             xPlayerWon[emptyPositions.get(computerPosition)]=1;
             buttonPosition[emptyPositions.get(computerPosition)]=1;
@@ -538,30 +513,14 @@ public class SingleGameScreenHardController implements Initializable {
     
     @FXML
     private void playAgainButtonAction(ActionEvent event) {
-        b1.setText("");
-        b1.setStyle("-fx-background-color: TRANSPARENT");
-        
-        b2.setText("");
-        b2.setStyle("-fx-background-color: TRANSPARENT");
-        
-        b3.setText("");
-        b3.setStyle("-fx-background-color: TRANSPARENT");
-        
-        b4.setText("");
-        b4.setStyle("-fx-background-color: TRANSPARENT");
-        
-        b5.setText("");
-        b5.setStyle("-fx-background-color: TRANSPARENT");
-        
-        b6.setText("");
-        b6.setStyle("-fx-background-color: TRANSPARENT");
-        
-        b7.setText("");
-        b7.setStyle("-fx-background-color: TRANSPARENT");
-        
-        b8.setText("");
-        b8.setStyle("-fx-background-color: TRANSPARENT");
-        
+        b1.setImage(null);        
+        b2.setImage(null);        
+        b3.setImage(null);        
+        b4.setImage(null);        
+        b5.setImage(null);        
+        b6.setImage(null);        
+        b7.setImage(null);        
+        b8.setImage(null);        
         flage=1;
         for (int i=0 ; i<9 ; i++){
             buttonPosition[i] = 0;
@@ -615,48 +574,50 @@ public class SingleGameScreenHardController implements Initializable {
     
     
     
-    //Animating Buttons
-    @FXML
+       //Sound Effects and Animation
+     @FXML 
     private void backOnHover(MouseEvent event){
-        backButton.setPrefWidth(85);
-        backButton.setPrefHeight(35);
-        backButton.setLayoutY(354);
+    }
+    @FXML
+    private void backOnPress(MouseEvent event){
+       
     }
     
     @FXML
-    private void backOnExit(MouseEvent event){
-        backButton.setPrefWidth(75);
-        backButton.setPrefHeight(25); 
-        backButton.setLayoutY(359);
+    private void backOnRelease(MouseEvent event){
+       
     }
     
-    @FXML
+    @FXML 
     private void resetOnHover(MouseEvent event){
-        resetButton.setPrefWidth(102);
-        resetButton.setPrefHeight(35);
-        resetButton.setLayoutY(354);
+       
     }
     
     @FXML
-    private void resetOnExit(MouseEvent event){
-        resetButton.setPrefWidth(92);
-        resetButton.setPrefHeight(25); 
-        resetButton.setLayoutY(359);
+    private void resetOnPress(MouseEvent event){
+       
     }
     
-      @FXML
+    @FXML
+    private void resetOnRelease(MouseEvent event){
+   
+    }
+    
+    @FXML 
     private void screenOnHover(MouseEvent event){
-        screenshotBtn.setPrefWidth(102);
-        screenshotBtn.setPrefHeight(35);
-        screenshotBtn.setLayoutY(354);
     }
     
     @FXML
-    private void screenOnExit(MouseEvent event){
-        screenshotBtn.setPrefWidth(92);
-        screenshotBtn.setPrefHeight(25); 
-        screenshotBtn.setLayoutY(359);
+    private void screenOnPress(MouseEvent event){
+        
+    }
+    
+    @FXML
+    private void screenOnRelease(MouseEvent event){
+        
       }
+    
+ 
     
     
     @Override
