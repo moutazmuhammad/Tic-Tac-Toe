@@ -20,6 +20,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
@@ -28,7 +30,7 @@ import javafx.stage.Stage;
  */
 public class PlayerInvitationController implements Initializable {
     @FXML
-    private Button BackButton, InvitePlayerButton, AcceptButton,recordedGamesButton;
+    private Button BackButton, InvitePlayerButton,recordedGamesButton;
     
     @FXML
     private TableView tableView;
@@ -122,15 +124,29 @@ public class PlayerInvitationController implements Initializable {
     
     @FXML
     private void inviteOnHover(MouseEvent event){
-         //aboutButton
-        InvitePlayerButton.setPrefWidth(199);
+        InvitePlayerButton.setPrefWidth(208);
         InvitePlayerButton.setPrefHeight(49);
-        InvitePlayerButton.setLayoutX(256);
-        InvitePlayerButton.setLayoutY(310);
+        audio("btnHover.mp3");
     }
     
     @FXML
     private void inviteOnExit(MouseEvent event){
+        InvitePlayerButton.setPrefWidth(188);
+        InvitePlayerButton.setPrefHeight(39);
+    }
+    
+    @FXML
+    private void inviteOnPress(MouseEvent event){
+        //aboutButton
+        InvitePlayerButton.setPrefWidth(168);
+        InvitePlayerButton.setPrefHeight(29);
+        InvitePlayerButton.setLayoutX(266);
+        InvitePlayerButton.setLayoutY(316);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void inviteOnRelease(MouseEvent event){
         //aboutButton
         InvitePlayerButton.setPrefWidth(188);
         InvitePlayerButton.setPrefHeight(39);
@@ -139,52 +155,48 @@ public class PlayerInvitationController implements Initializable {
     }
     
     
-       @FXML
-    private void acceptOnHover(MouseEvent event){
-         //aboutButton
-        AcceptButton.setPrefWidth(198);
-        AcceptButton.setPrefHeight(49);
-        AcceptButton.setLayoutX(40);
-        AcceptButton.setLayoutY(296);
-    }
-    
     @FXML
-    private void acceptOnExit(MouseEvent event){
-        //aboutButton
-        AcceptButton.setPrefWidth(188);
-        AcceptButton.setPrefHeight(39);
-        AcceptButton.setLayoutX(50);
-        AcceptButton.setLayoutY(301);
-    }
-    
-       @FXML
     private void backOnHover(MouseEvent event){
-        BackButton.setPrefWidth(82);
-        BackButton.setPrefHeight(35);
+        audio("btnHover.mp3");
     }
     
     @FXML
-    private void backOnExit(MouseEvent event){
+    private void backOnPress(MouseEvent event){
+        BackButton.setPrefWidth(52);
+        BackButton.setPrefHeight(15); 
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void backOnRelease(MouseEvent event){
         BackButton.setPrefWidth(72);
         BackButton.setPrefHeight(25); 
     }
     
        @FXML
     private void recordOnHover(MouseEvent event){
-        recordedGamesButton.setPrefWidth(132);
-        recordedGamesButton.setPrefHeight(39);
-        //recordedGamesButton.setLayoutX(568);
-        recordedGamesButton.setLayoutY(356);
+           audio("btnHover.mp3");
     }
     
     @FXML
-    private void recordOnExit(MouseEvent event){
-        recordedGamesButton.setPrefWidth(122);
-        recordedGamesButton.setPrefHeight(29);
-        //recordedGamesButton.setLayoutX(558);
-        recordedGamesButton.setLayoutY(361);
+    private void recordOnPress(MouseEvent event){
+        recordedGamesButton.setPrefWidth(112);
+        recordedGamesButton.setPrefHeight(22);
+        audio("btnClick.mp3");
     }
     
+    @FXML
+    private void recordOnRelease(MouseEvent event){
+        recordedGamesButton.setPrefWidth(122);
+        recordedGamesButton.setPrefHeight(29);
+    }
+    
+    
+     private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
