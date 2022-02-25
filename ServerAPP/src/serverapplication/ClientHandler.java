@@ -108,6 +108,9 @@ public class ClientHandler extends Thread{
                     case START_GAME:
                         startGame(request);
                         break;
+                    case SAVE_DONE_GAME:
+                        inserDoneGame(request);
+                        break ;
                     case CLOSE_CONNECTION:
                         clientsVector.remove(this);
                         for(ClientHandler c : clientsVector){
@@ -245,6 +248,18 @@ public class ClientHandler extends Thread{
         player_info.ps.println(response);
     }
     
+    void inserDoneGame(JSONObject request){
+        if(db.insertDoneGame(request.getInt("winner"), request.getInt("loser"), request.getBoolean("draw"))!=0)
+        db.increaseScore(request.getInt("winner"));
+        player = db.getPlayerProfile(player.getId());
+        if(GetPlayerByID(request.getInt("loser"))!=null)
+            GetPlayerByID(request.getInt("loser")).player = db.getPlayerProfile(request.getInt("loser"));
+    }
+    
+    boolean replyForReplay(JSONObject request,ClientHandler p2){
+        p2.ps.println(request);
+        return request.getBoolean("reply");
+    }
     
     private void startGame(JSONObject request){
         ClientHandler player2 = GetPlayerByID(request.getInt("player2"));
@@ -270,8 +285,16 @@ public class ClientHandler extends Thread{
                 case SEND_MESSAGE:
                     player2.ps.println(request);
                     break;
-                case END_GAME:
-                    return ;
+                case SAVE_DONE_GAME:
+                    inserDoneGame(request);
+                    break ;
+                case REPLAY_REPLY:
+                    if(!replyForReplay(request,player2))
+                        return;
+                    break ;
+                case GET_ONLINE_PLAYERS:
+                    get_online_players();
+                    return;
                 case CLOSE_CONNECTION:
                     clientsVector.remove(this);
                     for(ClientHandler c : clientsVector){

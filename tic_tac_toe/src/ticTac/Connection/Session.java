@@ -258,6 +258,7 @@ public class Session extends Thread{
                         controlManager.getPlayerVsPlayerController().setChoice(1);
                         controlManager.getPlayerVsPlayerController().setMyTurn(false);
                         controlManager.getPlayerVsPlayerController().setPlayersNames(Message.getString("sender name"),player.getUsername());
+                        controlManager.getPlayerVsPlayerController().setOtherPlayerid(Message.getInt("sender id"));
                         JSONObject js = new JSONObject();
                         js.put("type", msgType.START_GAME);
                         js.put("player2", Message.getInt("sender id"));
@@ -299,6 +300,7 @@ public class Session extends Thread{
                     controlManager.getPlayerVsPlayerController().setChoice(0);
                     controlManager.getPlayerVsPlayerController().setMyTurn(true);
                     controlManager.getPlayerVsPlayerController().setPlayersNames(player.getUsername(), Message.getString("sender name"));
+                    controlManager.getPlayerVsPlayerController().setOtherPlayerid(Message.getInt("sender id"));
                     }
                 });
 
@@ -344,6 +346,34 @@ public class Session extends Thread{
         controlManager.getPlayerVsPlayerController().recieveMessage(Message.getString("msg"));
     }
     
+    public void insertDoneGameRequest(int winner,int loser,boolean draw){
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.SAVE_DONE_GAME);
+        js.put("winner", winner);
+        js.put("loser", loser);
+        js.put("draw", draw);
+        printStream.println(js);
+    }
+    
+    public void replayReplyRequest(boolean reply){
+        JSONObject js = new JSONObject();
+        js.put("type", msgType.REPLAY_REPLY);
+        js.put("reply", reply);
+        printStream.println(js);
+    }
+    
+    private void replayReplyResponse(JSONObject Message){
+        if(Message.getBoolean("reply")&&!viewOnlinePlayers){
+            controlManager.getPlayerVsPlayerController().startNewGame();
+        }else{
+            informationDialog("", "player will not to re-match");
+            controlManager.getPlayerVsPlayerController().setRefused(true);
+            controlManager.setInvitationController(MainScreen.session.changeScene("/fxml/PlayerInvitationScreen.fxml"));
+            viewOnlinePlayers = true;
+            getOnlinePlayersRequest();
+        }
+    }
+    
     
     public void run(){
         while(true){
@@ -380,7 +410,10 @@ public class Session extends Thread{
                         addMoveResponse(response);
                         break;
                     case SEND_MESSAGE:
-                        sendMessageResponse(response);
+                        sendMessageResponse(response); 
+                        break;
+                    case REPLAY_REPLY:
+                        replayReplyResponse(response);
                         break;
                 }
 

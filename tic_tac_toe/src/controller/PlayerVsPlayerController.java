@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -80,7 +81,17 @@ public class PlayerVsPlayerController implements Initializable {
     List<Integer> myCells,otherPlayerCells;
     private int choice = 0;
     private boolean myTurn=true;
+    private int otherPlayerid;
+    private boolean refused = false;
+    private boolean startNewGame = false;
 
+    public void setRefused(boolean refused) {
+        this.refused = refused;
+    }
+
+    public void setOtherPlayerid(int otherPlayerid) {
+        this.otherPlayerid = otherPlayerid;
+    }
     public void setMyTurn(boolean myTurn) {
         this.myTurn = myTurn;
     }
@@ -208,10 +219,62 @@ public class PlayerVsPlayerController implements Initializable {
         audio("btnClick.mp3");
         myTurn = false;
         MainScreen.session.addMoveRequest(cell, choice);
-        if(checkWin(myCells))
+        if(checkWin(myCells)){
+            MainScreen.session.insertDoneGameRequest(MainScreen.session.player.getID(), otherPlayerid, false);
+            MainScreen.session.player.setScore(MainScreen.session.player.getScore()+5);
             endGameDialog("Winner", "/fxml/xWinner.fxml");
+        }
         else if(myCells.size()+otherPlayerCells.size()==9){
+            MainScreen.session.insertDoneGameRequest(MainScreen.session.player.getID(), otherPlayerid, true);
             endGameDialog("Draw", "/fxml/draw.fxml");
+        }
+    }
+    
+    private void resetBoard(){
+        myCells.clear();
+        otherPlayerCells.clear();
+        for(ImageView I : myGird)
+            I.setImage(null);
+    }
+    
+    public void startNewGame(){
+        if(choice==0){
+            myTurn=true;
+        }
+        startNewGame = true;
+    }
+    
+    public void replayDialog(){
+        try {
+            Dialog<ButtonType> dialog = new Dialog<>();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/fxml/InvitationDialog.fxml"));
+            DialogPane winner = fxmlLoader.load();
+            
+            dialog.setDialogPane(winner);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
+            dialog.setTitle("Game Replay");
+            Label content = new Label("Do you want to re-match");
+            content.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px");
+            dialog.setGraphic(content);
+            Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
+            Optional<ButtonType> result = dialog.showAndWait();
+            if(result.get()==ButtonType.YES){
+                MainScreen.session.replayReplyRequest(true);
+                resetBoard();
+                if(!startNewGame)
+                    myTurn = false;
+            }
+            else{
+                MainScreen.session.replayReplyRequest(false);
+                MainScreen.session.controlManager.setInvitationController(MainScreen.session.changeScene("/fxml/PlayerInvitationScreen.fxml"));
+                MainScreen.session.viewOnlinePlayers = true;
+                MainScreen.session.getOnlinePlayersRequest();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(PlayerVsPlayerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -278,7 +341,10 @@ public class PlayerVsPlayerController implements Initializable {
             dialog.setDialogPane(winner);
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
             dialog.setTitle(title);
-            dialog.show();
+            dialog.showAndWait();
+            if(refused)
+                return;
+            replayDialog();
         } catch (IOException ex) {
             Logger.getLogger(PlayerVsPlayerController.class.getName()).log(Level.SEVERE, null, ex);
         }

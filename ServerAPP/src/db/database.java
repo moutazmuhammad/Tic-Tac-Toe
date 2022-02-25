@@ -149,11 +149,11 @@ public class database {
             preparedSt.setInt(2, loser);
             preparedSt.setBoolean(3, draw);
             status = preparedSt.executeUpdate();
+            
         } catch (SQLException ex) {
-            status = 0;
+            Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
         }
         return status;
-        
     }
     
     public int insertRecordedGame(int player1_id, int player2_id, String moves){
