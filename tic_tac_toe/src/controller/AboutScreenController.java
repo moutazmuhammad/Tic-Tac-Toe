@@ -79,7 +79,7 @@ public class AboutScreenController implements Initializable {
                 + " -fx-border-radius: 50%;"
                 + " -fx-border-insets: 4;"
                 + " -fx-border-width: 3px");
-         audio("circles.wav");
+         audio("circles.mp3");
     }
     
     @FXML
@@ -104,7 +104,7 @@ public class AboutScreenController implements Initializable {
                 + " -fx-border-radius: 50%;"
                 + " -fx-border-insets: 4;"
                 + " -fx-border-width: 3px");
-         audio("circles.wav");
+         audio("circles.mp3");
     }
     
     @FXML
@@ -129,7 +129,7 @@ public class AboutScreenController implements Initializable {
                 + " -fx-border-radius: 50%;"
                 + " -fx-border-insets: 4;"
                 + " -fx-border-width: 3px");
-         audio("circles.wav");
+         audio("circles.mp3");
     }
     
     @FXML
@@ -154,7 +154,7 @@ public class AboutScreenController implements Initializable {
                 + " -fx-border-radius: 50%;"
                 + " -fx-border-insets: 4;"
                 + " -fx-border-width: 3px");
-         audio("circles.wav");
+         audio("circles.mp3");
     }
     
     @FXML
@@ -179,7 +179,7 @@ public class AboutScreenController implements Initializable {
                 + " -fx-border-radius: 50%;"
                 + " -fx-border-insets: 4;"
                 + " -fx-border-width: 3px");
-         audio("circles.wav");
+         audio("circles.mp3");
     }
     
     @FXML
@@ -204,7 +204,7 @@ public class AboutScreenController implements Initializable {
                 + " -fx-border-radius: 50%;"
                 + " -fx-border-insets: 4;"
                 + " -fx-border-width: 3px");
-         audio("circles.wav");
+         audio("circles.mp3");
     }
     
     @FXML
