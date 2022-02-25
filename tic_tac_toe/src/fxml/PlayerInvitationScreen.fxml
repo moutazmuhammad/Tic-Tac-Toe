@@ -120,7 +120,7 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <Button fx:id="InvitePlayerButton" layoutX="266.0" layoutY="320.0" mnemonicParsing="false" onAction="#inviteButtonAction" onMouseEntered="#inviteOnHover" onMouseExited="#inviteOnExit" onMousePressed="#inviteOnPress" onMouseReleased="#inviteOnRelease" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Invite To Play" textAlignment="CENTER" textFill="#b22a25">
+      <Button fx:id="InvitePlayerButton" layoutX="266.0" layoutY="316.0" mnemonicParsing="false" onAction="#inviteButtonAction" onMouseEntered="#inviteOnHover" onMouseExited="#inviteOnExit" prefHeight="39.0" prefWidth="188.0" style="-fx-background-radius: 30px; -fx-background-color: rgba(238, 245, 219, 0.7);" text="Invite To Play" textAlignment="CENTER" textFill="#b22a25">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -217,9 +217,8 @@
       </ImageView>
       <TableView fx:id="tableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="89.0" layoutY="26.0" prefHeight="272.0" prefWidth="523.0" stylesheets="@../CSS/PlayerInvitationTable.css">
          <columns>
-            <TableColumn fx:id="OnlinePlayers" minWidth="0.0" prefWidth="257.0" text="Players" />
-            <TableColumn fx:id="Score" prefWidth="129.0" text="Score" />
-            <TableColumn prefWidth="136.0" text="Status" />
+            <TableColumn fx:id="OnlinePlayers" minWidth="0.0" prefWidth="391.0" text="Online Players" />
+            <TableColumn fx:id="Score" prefWidth="125.0" text="Score" />
          </columns>
       </TableView>
       <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="79.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
@@ -232,12 +231,12 @@
             <Image url="@../images/leaderboard%20icon.png" />
          </image>
       </ImageView>
-      <Button fx:id="BackButton" layoutX="12.0" layoutY="361.0" mnemonicParsing="false" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMousePressed="#backOnPress" onMouseReleased="#backOnRelease" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Back" textFill="WHITE">
+      <Button fx:id="BackButton" layoutX="12.0" layoutY="361.0" mnemonicParsing="false" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMouseExited="#backOnExit" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="recordedGamesButton" layoutX="558.0" layoutY="361.0" mnemonicParsing="false" onAction="#recordedGamesButtonAction" onMouseEntered="#recordOnHover" onMousePressed="#recordOnPress" onMouseReleased="#recordOnRelease" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Recorded Games" textFill="WHITE">
+      <Button fx:id="recordedGamesButton" layoutX="558.0" layoutY="361.0" mnemonicParsing="false" onAction="#recordedGamesButtonAction" onMouseEntered="#recordOnHover" onMouseExited="#recordOnExit" prefHeight="29.0" prefWidth="122.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Recorded Games" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
