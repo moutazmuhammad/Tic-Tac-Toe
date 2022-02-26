@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
@@ -56,26 +58,33 @@ public class RecordedGames implements Initializable {
     }
 
     
-    
-         @FXML
+    //Animation and Sound Effects
+     @FXML
     private void backOnHover(MouseEvent event){
-        BackButton.setPrefWidth(82);
-        BackButton.setPrefHeight(35);
+        audio("btnHover.mp3");
     }
     
     @FXML
-    private void backOnExit(MouseEvent event){
+    private void backOnPress(MouseEvent event){
+        BackButton.setPrefWidth(52);
+        BackButton.setPrefHeight(15); 
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void backOnRelease(MouseEvent event){
         BackButton.setPrefWidth(72);
         BackButton.setPrefHeight(25); 
     }
     
     
-         @FXML
+    @FXML
     private void resumeOnHover(MouseEvent event){
         resumeButton.setPrefWidth(198);
         resumeButton.setPrefHeight(49);
         resumeButton.setLayoutX(464);
         resumeButton.setLayoutY(335);
+        audio("btnHover.mp3");
     }
     
     @FXML
@@ -85,6 +94,25 @@ public class RecordedGames implements Initializable {
         resumeButton.setLayoutX(454);
         resumeButton.setLayoutY(340);
     }
+    
+    @FXML
+    private void resumeOnPress(MouseEvent event){
+        resumeButton.setPrefWidth(178);
+        resumeButton.setPrefHeight(29);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void resumeOnRelease(MouseEvent event){
+        resumeButton.setPrefWidth(188);
+        resumeButton.setPrefHeight(39);
+    }
+    
+    private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+        }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
