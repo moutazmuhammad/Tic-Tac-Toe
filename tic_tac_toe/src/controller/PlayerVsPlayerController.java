@@ -164,10 +164,7 @@ public class PlayerVsPlayerController implements Initializable {
         MainScreen.session.getOnlinePlayersRequest();
     }
     
-    
-    @FXML
-    private void sendMessageArrow(MouseEvent event){
-        
+    private void sendMessage(){
         String messageToSend = textMessage.getText();
         if (!messageToSend.isEmpty()){
             HBox hBox = new HBox();
@@ -193,30 +190,14 @@ public class PlayerVsPlayerController implements Initializable {
     }
     
     @FXML
+    private void sendMessageArrow(MouseEvent event){
+        sendMessage();
+    }
+    
+    @FXML
     public void sendMessageUponPressingEnter(KeyEvent event){
          if(event.getCode() == KeyCode.ENTER){
-              String messageToSend = textMessage.getText();
-                if (!messageToSend.isEmpty()){
-                    HBox hBox = new HBox();
-                    hBox.setAlignment(Pos.CENTER_RIGHT);
-                    hBox.setPadding(new Insets(5, 5, 5, 10));
-
-                    Text text = new Text(messageToSend);
-                    TextFlow textFlow = new TextFlow(text);
-
-                    textFlow.setStyle("-fx-color: rgb(239,242,255);" + 
-                            "-fx-background-color: rgb(15,125,242);" +
-                            "-fx-background-radius: 20px;");
-
-                    textFlow.setPadding(new Insets(5, 10, 5, 10));
-                    text.setFill(Color.color(0.934, 0.945, 0.996));
-
-                    hBox.getChildren().add(textFlow);
-                    vboxMessages.getChildren().add(hBox);
-
-                    MainScreen.session.sendMessageRequest(textMessage.getText());
-                    textMessage.clear();
-                }
+              sendMessage();
          }
     }
     
