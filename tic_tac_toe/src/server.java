@@ -48,9 +48,9 @@ public class server {
         }
         public void  login(JSONObject input) throws JSONException
         {
-            String clientname =   input.get("username").toString();
+            String clientName =   input.get("username").toString();
             //  String pass =   input.get("pass").toString();
-            if( clientname.equals(dbName))
+            if( clientName.equals(dbName))
             {
                 serverResponse.put("Response", "login");
                 output.println(serverResponse);

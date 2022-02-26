@@ -206,7 +206,7 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="422.0" layoutY="45.0" prefHeight="280.0" prefWidth="253.0" stylesheets="@../CSS/PlayerInvitationTable.css">
+      <TableView fx:id="playersTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="422.0" layoutY="45.0" prefHeight="280.0" prefWidth="253.0" stylesheets="@../CSS/PlayerInvitationTable.css">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="175.0" text="Online Players" />
             <TableColumn prefWidth="62.0" text="Score" />
@@ -232,7 +232,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <TableView accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="40.0" prefHeight="280.0" prefWidth="253.0">
+      <TableView fx:id="gamesTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="40.0" prefHeight="280.0" prefWidth="253.0">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="175.0" text="All Recorded Games" />
             <TableColumn prefWidth="62.0" text="Score" />

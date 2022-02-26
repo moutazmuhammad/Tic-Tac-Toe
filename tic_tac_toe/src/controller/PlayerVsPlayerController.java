@@ -102,7 +102,12 @@ public class PlayerVsPlayerController implements Initializable {
     
     
     private void setImage(int cell,int XO){
-        myGird.get(cell).setImage(XOImages.get(XO));
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                myGird.get(cell).setImage(XOImages.get(XO));
+            }
+        });
     }
     
     @FXML
@@ -158,6 +163,37 @@ public class PlayerVsPlayerController implements Initializable {
         MainScreen.session.getOnlinePlayersRequest();
     }
     
+    @FXML
+    private void recordButtonAction(ActionEvent event)  {
+        if(!myTurn)
+            return;
+        int p1 = MainScreen.session.player.getID(),p2 = otherPlayerid;
+        String X=convertMoves(myCells),O=convertMoves(otherPlayerCells);
+        if(choice==1){
+            p2 = MainScreen.session.player.getID();
+            p1 = otherPlayerid;
+            O=convertMoves(myCells);
+            X=convertMoves(otherPlayerCells);
+        }
+        MainScreen.session.recordGameRequest(p1, p2, X, O);
+    }
+    
+    private String convertMoves(List<Integer> moves){
+        
+        if(moves.size()==0)
+            return "9-9-9-9";
+        
+        String m ;
+        m = moves.get(0).toString();
+        
+        for(int i=1;i<moves.size();i++)
+            m = m+"-"+moves.get(i).toString();
+        
+        for(int i=0;i<4-moves.size();i++)
+            m = m+"-9";
+        
+        return m;
+    }
     
     @FXML
     private void sendMessageArrow(MouseEvent event){
@@ -399,5 +435,45 @@ public class PlayerVsPlayerController implements Initializable {
             
         });
     }    
+    
+    public void resume(RecordedGame game){
+        if(game.getPlayer1ID()==MainScreen.session.player.getID()){
+            setCells(myCells, game.getXMoves());
+            setCells(otherPlayerCells, game.getOMoves());
+            otherPlayerid = game.getPlayer2ID();
+            xPlayerName.setText(game.getPlayer1Name());
+            oPlayerName.setText(game.getPlayer2Name());
+            choice = 0;
+            for(int i : myCells)
+                setImage(i, 0);
+            for(int i : otherPlayerCells)
+                setImage(i, 1);
+        }else{
+            setCells(otherPlayerCells, game.getXMoves());
+            setCells(myCells, game.getOMoves());
+            otherPlayerid = game.getPlayer1ID();
+            xPlayerName.setText(game.getPlayer2Name());
+            oPlayerName.setText(game.getPlayer1Name());
+            choice = 1;
+            for(int i : myCells)
+                setImage(i, 1);
+            for(int i : otherPlayerCells)
+                setImage(i, 0);
+        }
+        
+        if((myCells.size()+otherPlayerCells.size())%2==0 && choice==0 || (myCells.size()+otherPlayerCells.size())%2!=0 && choice==1)
+            myTurn = true;
+        else
+            myTurn = false;
+    }
+    
+    private void setCells(List<Integer>cells,String moves){
+        String[] c = moves.split("-");
+        for(String m : c){
+            if(m.equals("9"))
+                break;
+            cells.add(Integer.parseInt(m));
+        }
+    }
     
 }

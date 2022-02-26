@@ -42,25 +42,29 @@ public class PlayerInvitationController implements Initializable {
     
     private ObservableList<Player> PlayersList;
     
+    public boolean wait = false;
+    
     
     @FXML
     private void BackButtonAction(ActionEvent event) throws IOException{
-            MainScreen.session.viewOnlinePlayers = false;
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
-            Parent fxmlViewChild = loader.load();
+        MainScreen.session.viewOnlinePlayers = false;
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/mainMenu.fxml"));
+        Parent fxmlViewChild = loader.load();
 
-            Scene fxmlViewScene = new Scene(fxmlViewChild);
+        Scene fxmlViewScene = new Scene(fxmlViewChild);
 
-            Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            window.setScene(fxmlViewScene);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(fxmlViewScene);
 
-            window.show();
-            
+        window.show();
     }
     
     @FXML
     private void inviteButtonAction(ActionEvent event) throws IOException{
+        if(wait)
+            return;
+        wait = true;
         Player player = (Player)tableView.getSelectionModel().getSelectedItem();
         if(player!=null){
             MainScreen.session.invitationSendRequest(player.getID());
@@ -70,35 +74,12 @@ public class PlayerInvitationController implements Initializable {
     
     
     @FXML
-    private void acceptInvitaionButtonAction(ActionEvent event) throws IOException{
+    private void recordedGamesButtonAction(ActionEvent event) {
         MainScreen.session.viewOnlinePlayers = false;
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/playerVsPlayer.fxml"));
-        Parent fxmlViewChild = loader.load();
-
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-
-        window.show();
-            
-    }
-    
-    @FXML
-    private void recordedGamesButtonAction(ActionEvent event) throws IOException{
-        
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/fxml/recordedGames.fxml"));
-        Parent fxmlViewChild = loader.load();
-
-        Scene fxmlViewScene = new Scene(fxmlViewChild);
-
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(fxmlViewScene);
-
-        window.show();
-            
+        MainScreen.session.controlManager.setRecordedGames(MainScreen.session.changeScene("/fxml/recordedGames.fxml"));
+        MainScreen.session.viewRecordedGames = true;
+        MainScreen.session.getOnlinePlayersRequest();
+        MainScreen.session.getRecordedGamesRequest();
     }
     
     @FXML

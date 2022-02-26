@@ -28,9 +28,11 @@ public class ClientHandler extends Thread{
     JSONObject request,response;
     Player player;
     static Vector<ClientHandler> clientsVector = new Vector<ClientHandler>();
+    public static Vector<Player>allPlayers ;
     
     public ClientHandler(Socket sc,database _db){
         db = _db;
+        db.getAllPlayers();
         response = new JSONObject();
         try {
             ps = new PrintStream(sc.getOutputStream());
@@ -105,11 +107,23 @@ public class ClientHandler extends Thread{
                     case INVETATION_REPLY:
                         replyInvitation(request);
                         break;
+                    case RESUME_GAME_SEND:
+                        sendResumeGame(request);
+                        break;
+                    case RESUME_GAME_REPLY:
+                        replyResumeGame(request);
+                        break;
                     case START_GAME:
                         startGame(request);
                         break;
                     case SAVE_DONE_GAME:
                         inserDoneGame(request);
+                        break ;
+                    case GET_RECORDED_GAMES:
+                        getRecordedGames();
+                        break ;
+                    case GET_ALL_PLAYERS:
+                        ps.println(db.getAllPlayers());
                         break ;
                     case CLOSE_CONNECTION:
                         clientsVector.remove(this);
@@ -124,6 +138,12 @@ public class ClientHandler extends Thread{
                Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
            }
         }
+    }
+    
+    private void getRecordedGames(){
+        response = db.getRecordedGames(player.getId());
+        response.put("type", ClientMsg.GET_RECORDED_GAMES);
+        ps.println(response);
     }
     
     private void changeOnlineStatus(){
@@ -197,6 +217,7 @@ public class ClientHandler extends Thread{
         }
         else{
             player = db.getPlayerProfile(r);
+            allPlayers.add(player);
             response.put("id", player.getId());
             ps.println(response);
             return true;
@@ -248,6 +269,38 @@ public class ClientHandler extends Thread{
         player_info.ps.println(response);
     }
     
+    void sendResumeGame(JSONObject request){
+        ClientHandler player_info = GetPlayerByID(request.getInt("reciever id"));
+        if(player_info==null){
+            request.clear();
+            request.put("type", ClientMsg.RESUME_GAME_REPLY);
+            request.put("reply", "no");
+            ps.println(request);
+            return;
+        }
+        request.put("type", ClientMsg.RESUME_GAME_SEND);
+        request.put("sender id", player.getId());
+        request.put("sender name", player.getUsername());
+        request.put("reciever id", player_info.player.getId());
+        player_info.ps.println(request);
+    }
+    
+    void replyResumeGame(JSONObject request){
+        ClientHandler player_info = GetPlayerByID(request.getInt("reciever id"));
+        if(player_info==null){
+            request.put("reply", "no");
+        }else
+            request.put("reply", request.getString("reply"));
+        if(request.getString("reply").equals("yes")){
+            db.removeRecordedGame(request.getInt("game id"));
+        }
+        request.put("type", ClientMsg.RESUME_GAME_REPLY);
+        request.put("sender id", player.getId());
+        request.put("sender name", player.getUsername());
+        request.put("reciever id", player_info.player.getId());
+        player_info.ps.println(request);
+    }
+    
     void inserDoneGame(JSONObject request){
         if(db.insertDoneGame(request.getInt("winner"), request.getInt("loser"), request.getBoolean("draw"))!=0)
         db.increaseScore(request.getInt("winner"));
@@ -259,6 +312,10 @@ public class ClientHandler extends Thread{
     boolean replyForReplay(JSONObject request,ClientHandler p2){
         p2.ps.println(request);
         return request.getBoolean("reply");
+    }
+    
+    void record_Game(JSONObject request){
+        db.insertRecordedGame(request.getInt("player1"),request.getInt("player2"), request.getString("X"), request.getString("O"));
     }
     
     private void startGame(JSONObject request){
@@ -295,6 +352,10 @@ public class ClientHandler extends Thread{
                 case GET_ONLINE_PLAYERS:
                     get_online_players();
                     return;
+                case RECORD_GAME:
+                    record_Game(request);
+                    player2.ps.println(request);
+                    return;
                 case CLOSE_CONNECTION:
                     clientsVector.remove(this);
                     for(ClientHandler c : clientsVector){
@@ -309,7 +370,14 @@ public class ClientHandler extends Thread{
         }
     }
     
-    
+    public static String GetPlayerNameByID(int id){
+        for(Player p : allPlayers){
+            if(p.getId() == id){
+                return p.getUsername();
+            }
+        }
+        return null;
+    }
     
     ClientHandler GetPlayerByID(int id){
         for(ClientHandler c : clientsVector){

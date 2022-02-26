@@ -46,7 +46,10 @@ enum ClientMsg {
   REPLAY_ASK,
   REPLAY_REPLY,
   RECORD_GAME,
-  GET_RECORDED_GAMES
+  GET_RECORDED_GAMES,
+  GET_ALL_PLAYERS,
+  RESUME_GAME_SEND,
+  RESUME_GAME_REPLY
 }
 
 public class ServerApplication {

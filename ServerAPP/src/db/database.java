@@ -17,6 +17,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONObject;
+import serverapplication.ClientHandler;
 
 /**
  *
@@ -48,6 +49,19 @@ public class database {
         } catch (SQLException ex) {
             System.out.println("Connection Failed to close!");
         }
+    }
+    
+    public int removeRecordedGame(int gameID) {
+        int status = 1;
+        try {
+            String insertNewPlayer = new String("delete from recorded_games where id = "+gameID+";");
+            preparedSt = connection.prepareStatement(insertNewPlayer);
+            preparedSt.executeUpdate();
+            preparedSt.close();
+        } catch (SQLException ex) {
+            status = 0;
+        }
+        return status;
     }
     
     public int signUp(String username, String password) {
@@ -156,39 +170,26 @@ public class database {
         return status;
     }
     
-    public int insertRecordedGame(int player1_id, int player2_id, String moves){
+    public int insertRecordedGame(int player1_id, int player2_id, String X,String O){
        int status = 0;
        //Save the X moves in a vector and the same for the O moves
-       Vector<String> XMoves = new Vector();
-       Vector<String> OMoves = new Vector();
-       String lastMove = new String();
-       int count = 0;
-       for(String move: moves.split("\\s"))
-       {
-           if(count % 2 == 0 && count != 8){
-               XMoves.add(move);
-           }else if(count % 2 != 0 && count != 8){
-               OMoves.add(move);
-           }else if(count == 8){
-               lastMove = move;
-           }
-        count++;   
-       }
+       String[]XMoves = X.split("-");
+       String[]OMoves = O.split("-");
        //Now we insert the recorded game
         try {
             String insertRecordedGame = new String("insert into recorded_games(player_1, player_2, x1, x2, x3, x4, o1, o2, o3, o4, lastmove) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
             preparedSt = connection.prepareStatement(insertRecordedGame);
             preparedSt.setInt(1, player1_id);
             preparedSt.setInt(2, player2_id);
-            preparedSt.setString(3, XMoves.get(0));
-            preparedSt.setString(4, XMoves.get(1));
-            preparedSt.setString(5, XMoves.get(2));
-            preparedSt.setString(6, XMoves.get(3));
-            preparedSt.setString(7, OMoves.get(0));
-            preparedSt.setString(8, OMoves.get(1));
-            preparedSt.setString(9, OMoves.get(2));
-            preparedSt.setString(10, OMoves.get(3));
-            preparedSt.setString(11, lastMove);
+            preparedSt.setString(3, XMoves[0]);
+            preparedSt.setString(4, XMoves[1]);
+            preparedSt.setString(5, XMoves[2]);
+            preparedSt.setString(6, XMoves[3]);
+            preparedSt.setString(7, OMoves[0]);
+            preparedSt.setString(8, OMoves[1]);
+            preparedSt.setString(9, OMoves[2]);
+            preparedSt.setString(10, OMoves[3]);
+            preparedSt.setString(11, OMoves[3]);
             status = preparedSt.executeUpdate();
         } catch (SQLException ex) {
             status = 0;
@@ -196,28 +197,34 @@ public class database {
         return status;
     }
     
-    public String getRecordedGame(String player1Username, String player2Username){
-        String recordedGame = new String();
+    public JSONObject getRecordedGames(int Playerid){
+        JSONObject RecordedGames = new JSONObject();
         try {
             statement = connection.createStatement();
-            String leaderBoardQuery = new String("select * from recorded_games where (select id from player where username = '"+ player1Username +"') in (player_1, player_2) and (select id from player where username = '"+ player2Username +"') in (player_1, player_2);");
+            String leaderBoardQuery = new String("select * from recorded_games where player_1 = "+Playerid+" or player_2 = "+Playerid+";");
             resultSet = statement.executeQuery(leaderBoardQuery);
-            resultSet.next();
-                recordedGame += resultSet.getInt(2)+" ";
-                recordedGame += resultSet.getInt(3)+" ";
-                recordedGame += resultSet.getString(4)+" ";
-                recordedGame += resultSet.getString(5)+" ";
-                recordedGame += resultSet.getString(6)+" ";
-                recordedGame += resultSet.getString(7)+" ";
-                recordedGame += resultSet.getString(8)+" ";
-                recordedGame += resultSet.getString(9)+" ";
-                recordedGame += resultSet.getString(10)+" ";
-                recordedGame += resultSet.getString(11)+" ";
-                recordedGame += resultSet.getString(12)+" ";
+            String id="",player1ID="",player2ID="",player1Name="",player2Name="", X="",O="";
+            while(resultSet.next()){
+                id = id + ","+resultSet.getInt("id");
+                player1ID = player1ID + ","+resultSet.getInt("player_1");
+                player1Name = player1Name+","+ClientHandler.GetPlayerNameByID(resultSet.getInt("player_1"));
+                player2ID = player2ID + ","+resultSet.getInt("player_2");
+                player2Name = player2Name+","+ClientHandler.GetPlayerNameByID(resultSet.getInt("player_2"));
+                X = X + ","+resultSet.getString("x1")+"-"+resultSet.getString("x2")+"-"+resultSet.getString("x3")+"-"+resultSet.getString("x4");
+                O = O + ","+resultSet.getString("o1")+"-"+resultSet.getString("o2")+"-"+resultSet.getString("o3")+"-"+resultSet.getString("o4");
+            }
+            RecordedGames.put("gameID", id);
+            RecordedGames.put("player1ID", player1ID);
+            RecordedGames.put("player2ID", player2ID);
+            RecordedGames.put("player1Name", player1Name);
+            RecordedGames.put("player2Name", player2Name);
+            RecordedGames.put("X", X);
+            RecordedGames.put("O", O);
+            statement.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return recordedGame;           
+        return RecordedGames;           
     }
     
     public JSONObject getLeaderBoard (){
@@ -245,13 +252,22 @@ public class database {
         JSONObject allPlayers = new JSONObject(); 
         try {
             statement = connection.createStatement();
-            String allPlayersQuery = new String("select username, score from player where username not in('computer');");
+            String allPlayersQuery = new String("select id,username, score from player;");
             resultSet = statement.executeQuery(allPlayersQuery);
-            String names="",scores="";
+            String id="",names="",scores="";
+            ClientHandler.allPlayers = new Vector<Player>();
+            Player p;
             while(resultSet.next()){
-                names = names + ","+resultSet.getString(1);
-                scores = scores+","+resultSet.getInt(2);
+                p = new Player();
+                p.setId(resultSet.getInt("id"));
+                p.setUsername(resultSet.getString("username"));
+                p.setScore(resultSet.getInt("score"));
+                ClientHandler.allPlayers.add(p);
+                names = names + ","+p.getUsername();
+                scores = scores+","+p.getScore();
+                id = id+","+p.getId();
             }
+            allPlayers.put("id", id);
             allPlayers.put("names", names);
             allPlayers.put("scores", scores);
             statement.close();
