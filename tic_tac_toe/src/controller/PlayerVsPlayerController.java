@@ -62,7 +62,7 @@ public class PlayerVsPlayerController implements Initializable {
     private ImageView b0, b1, b2, b3, b4, b5, b6, b7, b8;
     
     @FXML
-    private Button backButton, recordButton, screenshotBtn;
+    private Button recordButton, screenshotBtn;
     
     @FXML
     private Label xPlayerName, oPlayerName;
@@ -421,23 +421,6 @@ public class PlayerVsPlayerController implements Initializable {
     }
     
     //Animation and Sound Effects
-    @FXML 
-    private void backOnHover(MouseEvent event){
-        audio("btnHover.mp3");
-    }
-    @FXML
-    private void backOnPress(MouseEvent event){
-        backButton.setPrefWidth(81);
-        backButton.setPrefHeight(20);
-        audio("btnClick.mp3");
-    }
-    
-    @FXML
-    private void backOnRelease(MouseEvent event){
-        backButton.setPrefWidth(101);
-        backButton.setPrefHeight(30); 
-    }
-    
     @FXML 
     private void recordOnHover(MouseEvent event){
         audio("btnHover.mp3");

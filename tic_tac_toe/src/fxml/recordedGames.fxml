@@ -234,7 +234,7 @@
       </Button>
       <TableView fx:id="gamesTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="40.0" prefHeight="280.0" prefWidth="253.0">
          <columns>
-            <TableColumn minWidth="0.0" prefWidth="175.0" text="All Recorded Games" />
+            <TableColumn minWidth="0.0" prefWidth="175.0" text="Recorded Games" />
             <TableColumn prefWidth="62.0" text="Score" />
          </columns>
          <stylesheets>

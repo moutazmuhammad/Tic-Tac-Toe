@@ -92,7 +92,7 @@ public class RecordedGames implements Initializable {
     
     @FXML
     private void resumeOnHover(MouseEvent event){
-        resumeButton.setPrefWidth(198);
+        resumeButton.setPrefWidth(208);
         resumeButton.setPrefHeight(49);
         resumeButton.setLayoutX(464);
         resumeButton.setLayoutY(335);
@@ -109,8 +109,8 @@ public class RecordedGames implements Initializable {
     
     @FXML
     private void resumeOnPress(MouseEvent event){
-        resumeButton.setPrefWidth(178);
-        resumeButton.setPrefHeight(29);
+        resumeButton.setPrefWidth(188);
+        resumeButton.setPrefHeight(39);
         audio("btnClick.mp3");
     }
     
