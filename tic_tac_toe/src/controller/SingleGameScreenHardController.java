@@ -695,7 +695,7 @@ public class SingleGameScreenHardController implements Initializable {
         lockButtons = 1;
         new Thread(() -> {
             try {
-                Thread.sleep(600);
+                Thread.sleep(1000);
                 Platform.runLater(() -> {
                     lockButtons=0;
                     computer();
@@ -802,10 +802,12 @@ public class SingleGameScreenHardController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        lockButtons = 1;
         new Thread(() -> {
             try {
-                Thread.sleep(600);
+                Thread.sleep(1000);
                 Platform.runLater(() -> {
+                    lockButtons = 0;
                     computer();
                 });
 
