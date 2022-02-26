@@ -384,11 +384,64 @@ public class PlayerVsPlayerController implements Initializable {
     }
     
     //Animation and Sound Effects
-     private void audio(String soundEffect){
+    @FXML 
+    private void backOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    @FXML
+    private void backOnPress(MouseEvent event){
+        backButton.setPrefWidth(81);
+        backButton.setPrefHeight(20);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void backOnRelease(MouseEvent event){
+        backButton.setPrefWidth(101);
+        backButton.setPrefHeight(30); 
+    }
+    
+    @FXML 
+    private void recordOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void recordOnPress(MouseEvent event){
+        recordButton.setPrefWidth(114);
+        recordButton.setPrefHeight(20);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void recordOnRelease(MouseEvent event){
+        recordButton.setPrefWidth(124);
+        recordButton.setPrefHeight(30); 
+    }
+    
+    @FXML 
+    private void screenOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void screenOnPress(MouseEvent event){
+        screenshotBtn.setPrefWidth(105);
+        screenshotBtn.setPrefHeight(20);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void screenOnRelease(MouseEvent event){
+        screenshotBtn.setPrefWidth(115);
+        screenshotBtn.setPrefHeight(30); 
+      }
+    
+    private void audio(String soundEffect){
         Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();
-        }
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
