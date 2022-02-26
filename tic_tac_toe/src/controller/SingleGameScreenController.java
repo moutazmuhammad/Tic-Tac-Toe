@@ -101,6 +101,8 @@ public class SingleGameScreenController implements Initializable {
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Draw");
         dialog.show();
@@ -113,6 +115,8 @@ public class SingleGameScreenController implements Initializable {
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Winner");
         dialog.show();
@@ -126,6 +130,8 @@ public class SingleGameScreenController implements Initializable {
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Game Over");
         dialog.show();

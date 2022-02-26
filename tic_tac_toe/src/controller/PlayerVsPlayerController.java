@@ -19,6 +19,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,6 +38,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -69,6 +72,9 @@ public class PlayerVsPlayerController implements Initializable {
     
     @FXML
     private ScrollPane spMain;
+    
+    @FXML
+    private ImageView sendArrow;
     
     
     @FXML
@@ -184,6 +190,34 @@ public class PlayerVsPlayerController implements Initializable {
             MainScreen.session.sendMessageRequest(textMessage.getText());
             textMessage.clear();
         }
+    }
+    
+    @FXML
+    public void sendMessageUponPressingEnter(KeyEvent event){
+         if(event.getCode() == KeyCode.ENTER){
+              String messageToSend = textMessage.getText();
+                if (!messageToSend.isEmpty()){
+                    HBox hBox = new HBox();
+                    hBox.setAlignment(Pos.CENTER_RIGHT);
+                    hBox.setPadding(new Insets(5, 5, 5, 10));
+
+                    Text text = new Text(messageToSend);
+                    TextFlow textFlow = new TextFlow(text);
+
+                    textFlow.setStyle("-fx-color: rgb(239,242,255);" + 
+                            "-fx-background-color: rgb(15,125,242);" +
+                            "-fx-background-radius: 20px;");
+
+                    textFlow.setPadding(new Insets(5, 10, 5, 10));
+                    text.setFill(Color.color(0.934, 0.945, 0.996));
+
+                    hBox.getChildren().add(textFlow);
+                    vboxMessages.getChildren().add(hBox);
+
+                    MainScreen.session.sendMessageRequest(textMessage.getText());
+                    textMessage.clear();
+                }
+         }
     }
     
     public void recieveMessage(String msg){
@@ -339,6 +373,8 @@ public class PlayerVsPlayerController implements Initializable {
             DialogPane winner = fxmlLoader.load();
             
             dialog.setDialogPane(winner);
+            Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
             dialog.setTitle(title);
             dialog.showAndWait();
@@ -371,6 +407,7 @@ public class PlayerVsPlayerController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       
         // TODO
         myGird = new ArrayList<ImageView>();
         myGird.add(b0);

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane prefHeight="149.0" prefWidth="360.0" style="-fx-background-color: #5dbb92;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SingleGameScreenController">
+<DialogPane prefHeight="149.0" prefWidth="400.0" style="-fx-background-color: #5dbb92;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SingleGameScreenController">
    <content>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -16,7 +16,7 @@
                   <Image url="@../images/gameOver.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" cache="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="121.0" prefWidth="237.0" text="You Lose!" textFill="#bf2323">
+            <Label alignment="CENTER" cache="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="104.0" prefWidth="289.0" text="You Lose!" textFill="#bf2323">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="56.0" />
                </font>
