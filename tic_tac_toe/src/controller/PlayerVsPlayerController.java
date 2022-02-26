@@ -169,7 +169,6 @@ public class PlayerVsPlayerController implements Initializable {
         MainScreen.session.getOnlinePlayersRequest();
     }
     
-<<<<<<< HEAD
     @FXML
     private void recordButtonAction(ActionEvent event)  {
         if(!myTurn)
@@ -201,13 +200,8 @@ public class PlayerVsPlayerController implements Initializable {
         
         return m;
     }
-    
-    @FXML
-    private void sendMessageArrow(MouseEvent event){
         
-=======
     private void sendMessage(){
->>>>>>> 7254747261cd885bc9a18bf69bbe9d00862df454
         String messageToSend = textMessage.getText();
         if (!messageToSend.isEmpty()){
             HBox hBox = new HBox();
