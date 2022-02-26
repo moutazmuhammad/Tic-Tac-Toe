@@ -301,7 +301,7 @@
             <Font name="Algerian" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="recordButton" contentDisplay="BOTTOM" defaultButton="true" layoutX="295.0" layoutY="354.0" mnemonicParsing="false" onMouseEntered="#recordOnHover" onMousePressed="#recordOnPress" onMouseReleased="#recordOnRelease" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Record Game" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="recordButton" contentDisplay="BOTTOM" defaultButton="true" layoutX="295.0" layoutY="354.0" mnemonicParsing="false" onAction="#recordButtonAction" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #DB3833; -fx-background-radius: 15;" text="Record Game" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Algerian" size="15.0" />
          </font>
