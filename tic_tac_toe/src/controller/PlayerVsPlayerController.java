@@ -240,6 +240,7 @@ public class PlayerVsPlayerController implements Initializable {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
+                    audio("msg3.mp3");
                     vboxMessages.getChildren().add(hBox);
             }
         });
@@ -358,11 +359,7 @@ public class PlayerVsPlayerController implements Initializable {
         }
     }
     
-    private void audio(String soundEffect){
-        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
-    }
+  
     
     
     private void endGameDialog(String title,String xml){
@@ -404,6 +401,13 @@ public class PlayerVsPlayerController implements Initializable {
         xPlayerName.setText(X);
         oPlayerName.setText(O);
     }
+    
+    //Animation and Sound Effects
+     private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+        }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
