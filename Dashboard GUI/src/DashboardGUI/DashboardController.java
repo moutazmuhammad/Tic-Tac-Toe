@@ -45,6 +45,18 @@ public class DashboardController implements Initializable {
     
     
     @FXML
+    public void disableStartButton(){
+        StartBtn.setDisable(true);
+    }
+    
+     @FXML
+    public void disableStopButton(){
+        StopBtn.setDisable(true);
+    }
+    
+    
+    //Animation and Sound Effects
+    @FXML
     public void onStartHover(MouseEvent event){
         StartBtn.setFitWidth(143);
         StartBtn.setFitHeight(115);
