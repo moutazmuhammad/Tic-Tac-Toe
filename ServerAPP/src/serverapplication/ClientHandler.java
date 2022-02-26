@@ -198,9 +198,10 @@ public class ClientHandler extends Thread{
             player = db.getPlayerProfile(r);
             response.put("id", player.getId());
             response.put("score", player.getScore());
-            response.put("loses", player.getWins());
+            response.put("losses", player.getWins());
             response.put("wins", player.getLosses());
             response.put("username", player.getUsername());
+            response.put("ties", player.getTies());
             ps.println(response);
             return true;
         }

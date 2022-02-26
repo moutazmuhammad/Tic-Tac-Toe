@@ -154,6 +154,9 @@ public class Session extends Thread{
                 player.setID((int) Message.get("id"));
                 player.setUsername((String) Message.get("username"));
                 player.setScore((int) Message.get("score"));
+                player.setWins(Message.getInt("wins"));
+                player.setLosses(Message.getInt("losses"));
+                player.setTies(Message.getInt("ties"));
         }
     }
     
