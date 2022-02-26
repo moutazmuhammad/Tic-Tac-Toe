@@ -342,8 +342,8 @@ public class MainMenuController implements Initializable {
     @FXML
     private void profileOnPress(MouseEvent event){
         //Sound Effects and Animation
-            profile_icon.setFitWidth(20);
-            profile_icon.setFitHeight(20);
+            profile_icon.setFitWidth(30);
+            profile_icon.setFitHeight(30);
             profile_icon.setLayoutY(18);
             audio("btnClick.mp3");
     }
@@ -355,14 +355,14 @@ public class MainMenuController implements Initializable {
     
     @FXML
     private void profileOnRelease(MouseEvent event){
-        profile_icon.setFitWidth(30);
-        profile_icon.setFitHeight(30);
+        profile_icon.setFitWidth(40);
+        profile_icon.setFitHeight(40);
         profile_icon.setLayoutY(14);
     }
     
    
     
-   private void audio(String soundEffect){
+    private void audio(String soundEffect){
         Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.play();

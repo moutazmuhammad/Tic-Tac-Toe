@@ -19,6 +19,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,6 +38,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -69,6 +72,9 @@ public class PlayerVsPlayerController implements Initializable {
     
     @FXML
     private ScrollPane spMain;
+    
+    @FXML
+    private ImageView sendArrow;
     
     
     @FXML
@@ -163,6 +169,7 @@ public class PlayerVsPlayerController implements Initializable {
         MainScreen.session.getOnlinePlayersRequest();
     }
     
+<<<<<<< HEAD
     @FXML
     private void recordButtonAction(ActionEvent event)  {
         if(!myTurn)
@@ -198,6 +205,9 @@ public class PlayerVsPlayerController implements Initializable {
     @FXML
     private void sendMessageArrow(MouseEvent event){
         
+=======
+    private void sendMessage(){
+>>>>>>> 7254747261cd885bc9a18bf69bbe9d00862df454
         String messageToSend = textMessage.getText();
         if (!messageToSend.isEmpty()){
             HBox hBox = new HBox();
@@ -222,6 +232,18 @@ public class PlayerVsPlayerController implements Initializable {
         }
     }
     
+    @FXML
+    private void sendMessageArrow(MouseEvent event){
+        sendMessage();
+    }
+    
+    @FXML
+    public void sendMessageUponPressingEnter(KeyEvent event){
+         if(event.getCode() == KeyCode.ENTER){
+              sendMessage();
+         }
+    }
+    
     public void recieveMessage(String msg){
         
             HBox hBox = new HBox();
@@ -242,6 +264,7 @@ public class PlayerVsPlayerController implements Initializable {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
+                    audio("msg3.mp3");
                     vboxMessages.getChildren().add(hBox);
             }
         });
@@ -360,11 +383,7 @@ public class PlayerVsPlayerController implements Initializable {
         }
     }
     
-    private void audio(String soundEffect){
-        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
-    }
+  
     
     
     private void endGameDialog(String title,String xml){
@@ -375,6 +394,8 @@ public class PlayerVsPlayerController implements Initializable {
             DialogPane winner = fxmlLoader.load();
             
             dialog.setDialogPane(winner);
+            Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
             dialog.setTitle(title);
             dialog.showAndWait();
@@ -405,8 +426,69 @@ public class PlayerVsPlayerController implements Initializable {
         oPlayerName.setText(O);
     }
     
+    //Animation and Sound Effects
+    @FXML 
+    private void backOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    @FXML
+    private void backOnPress(MouseEvent event){
+        backButton.setPrefWidth(81);
+        backButton.setPrefHeight(20);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void backOnRelease(MouseEvent event){
+        backButton.setPrefWidth(101);
+        backButton.setPrefHeight(30); 
+    }
+    
+    @FXML 
+    private void recordOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void recordOnPress(MouseEvent event){
+        recordButton.setPrefWidth(114);
+        recordButton.setPrefHeight(20);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void recordOnRelease(MouseEvent event){
+        recordButton.setPrefWidth(124);
+        recordButton.setPrefHeight(30); 
+    }
+    
+    @FXML 
+    private void screenOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void screenOnPress(MouseEvent event){
+        screenshotBtn.setPrefWidth(105);
+        screenshotBtn.setPrefHeight(20);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void screenOnRelease(MouseEvent event){
+        screenshotBtn.setPrefWidth(115);
+        screenshotBtn.setPrefHeight(30); 
+      }
+    
+    private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       
         // TODO
         myGird = new ArrayList<ImageView>();
         myGird.add(b0);

@@ -22,6 +22,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import org.json.JSONObject;
 
@@ -82,23 +84,7 @@ public class LeaderBoardController implements Initializable {
         }
     }
     
-    
-    //    @FXML
-//    private void backOnHover(MouseEvent event){
-//        backButton.setFitWidth(71);
-//        backButton.setFitHeight(71);
-//        backButton.setLayoutX(632);
-//        backButton.setLayoutY(3);
-//    }
-//    
-//    @FXML
-//    private void backOnExit(MouseEvent event){
-//        backButton.setFitWidth(61);
-//        backButton.setFitHeight(61);
-//        backButton.setLayoutX(629);
-//        backButton.setLayoutY(3);               
-//    }
-    
+   
     private void addArray(){
         //Vector 
         usernames = new Vector();
@@ -127,15 +113,37 @@ public class LeaderBoardController implements Initializable {
 
     }
     
+    
+    //Animation and Sound Effects
+    @FXML
+    private void backOnHover(MouseEvent event){
+        audio("btnHover.mp3");
+    }
+    
+    @FXML
+    private void backOnPress(MouseEvent event){
+        backButton.setFitWidth(40);
+        backButton.setFitHeight(51);
+        audio("btnClick.mp3");
+    }
+    
+    @FXML
+    private void backOnRelease(MouseEvent event){
+        backButton.setFitWidth(50);
+        backButton.setFitHeight(61);
+    }
 
+    private void audio(String soundEffect){
+        Media sound = new Media(getClass().getResource("/audio/"+soundEffect).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         addArray();
-        
-        
-        
+        audio("applause.mp3");
     }    
     
 }

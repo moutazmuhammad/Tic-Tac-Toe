@@ -104,6 +104,8 @@ public class SingleGameScreenHardController implements Initializable {
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Draw");
         dialog.show();
@@ -116,6 +118,8 @@ public class SingleGameScreenHardController implements Initializable {
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Winner");
         dialog.show();
@@ -129,6 +133,8 @@ public class SingleGameScreenHardController implements Initializable {
         DialogPane winner = fxmlLoader.load();
         
         dialog.setDialogPane(winner);
+        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(this.getClass().getResource("/images/icon.png").toString()));
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE); 
         dialog.setTitle("Game Over");
         dialog.show();
@@ -695,7 +701,7 @@ public class SingleGameScreenHardController implements Initializable {
         lockButtons = 1;
         new Thread(() -> {
             try {
-                Thread.sleep(600);
+                Thread.sleep(1000);
                 Platform.runLater(() -> {
                     lockButtons=0;
                     computer();
@@ -802,10 +808,12 @@ public class SingleGameScreenHardController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        lockButtons = 1;
         new Thread(() -> {
             try {
-                Thread.sleep(600);
+                Thread.sleep(1000);
                 Platform.runLater(() -> {
+                    lockButtons = 0;
                     computer();
                 });
 
