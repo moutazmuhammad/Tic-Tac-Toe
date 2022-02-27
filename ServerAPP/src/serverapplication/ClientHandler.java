@@ -62,6 +62,7 @@ public class ClientHandler extends Thread{
             c.closeConnection();
         }
         clientsVector.clear();
+        ServerApplication.setAllplayers();
     }
     
     
@@ -94,10 +95,10 @@ public class ClientHandler extends Thread{
                         c.get_online_players();
                     }
                     closeConnection();
+                    ServerApplication.setAllplayers();
                     return;
                 }
                 JSONObject request = new JSONObject(re);
-                System.out.println(request);
                 ClientMsg msg = request.getEnum(ClientMsg.class,"type");
                 switch (msg) {
                     case GET_LEADERBOARD:
@@ -136,6 +137,7 @@ public class ClientHandler extends Thread{
                             c.get_online_players();
                         }
                         closeConnection();
+                        ServerApplication.setAllplayers();
                         return;
                 }
                
@@ -154,6 +156,7 @@ public class ClientHandler extends Thread{
     }
     
     private void changeOnlineStatus(){
+        ServerApplication.setAllplayers();
         for(ClientHandler c : clientsVector){
             c.get_online_players();
         }
@@ -163,7 +166,6 @@ public class ClientHandler extends Thread{
         while(true){
         try {
             String re = dis.readLine();
-            System.out.println(re);
             request = new JSONObject(re);
             ClientMsg msg = request.getEnum(ClientMsg.class,"type");
             switch (msg) {
@@ -348,10 +350,10 @@ public class ClientHandler extends Thread{
                     c.get_online_players();
                 }
                 closeConnection();
+                ServerApplication.setAllplayers();
                 return;
             }
             request = new JSONObject(re);
-            System.out.println(request);
             ClientMsg msg = request.getEnum(ClientMsg.class,"type");
             switch (msg) {
                 case ADD_MOVE:
@@ -383,6 +385,7 @@ public class ClientHandler extends Thread{
                         c.get_online_players();
                     }
                     closeConnection();
+                    ServerApplication.setAllplayers();
                     return;
             }
             } catch (IOException ex) {

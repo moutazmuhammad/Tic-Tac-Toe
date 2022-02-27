@@ -6,8 +6,10 @@
 package DashboardGUI;
 
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
@@ -18,6 +20,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 
 
@@ -43,6 +46,7 @@ public class DashboardController implements Initializable {
     @FXML
     TableColumn score; 
     
+    private ObservableList<player> PlayersList;
     
     @FXML
     public void disableStartButton(){
@@ -52,6 +56,17 @@ public class DashboardController implements Initializable {
      @FXML
     public void disableStopButton(){
         StopBtn.setDisable(true);
+    }
+    
+    
+    @FXML
+    public void insertOnlinePlayers(ObservableList<player> list){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                tableView.setItems(list);
+            }
+        });
     }
     
     
@@ -72,6 +87,7 @@ public class DashboardController implements Initializable {
     
     @FXML
     public void startOnPress(MouseEvent event){
+        DashboardApplication.session.startServer();
         StartBtn.setFitWidth(113);
         StartBtn.setFitHeight(115);
         audio("btnClick.mp3");
@@ -98,6 +114,7 @@ public class DashboardController implements Initializable {
     
     @FXML
     public void stopOnPress(MouseEvent event){
+        DashboardApplication.session.stopServer();
         StopBtn.setFitWidth(113);
         StopBtn.setFitHeight(130);
         audio("btnClick.mp3");
@@ -122,8 +139,14 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-     
-        
+        players = (TableColumn<player,String>)tableView.getColumns().get(0);
+        score = (TableColumn<player,Integer>)tableView.getColumns().get(1);
+        status = (TableColumn<player,Integer>)tableView.getColumns().get(2);
+        players.setCellValueFactory(new PropertyValueFactory<player,String>("name"));
+        score.setCellValueFactory(new PropertyValueFactory<player,Integer>("score"));
+        status.setCellValueFactory(new PropertyValueFactory<player,Integer>("status"));
+        PlayersList = FXCollections.observableArrayList();
+        tableView.setItems(PlayersList);
     }    
     
 }

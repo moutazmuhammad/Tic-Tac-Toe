@@ -550,7 +550,6 @@ public class Session extends Thread{
                 continue;
             }
             JSONObject response = new JSONObject(re);
-            System.out.println(response);
             msgType msg = response.getEnum(msgType.class,"type");
             switch (msg) {
                 case SIGNIN:

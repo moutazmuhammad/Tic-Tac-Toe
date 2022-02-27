@@ -28,6 +28,7 @@ enum Status {
 enum DahboardMsg {
   START,
   STOP,
+  GETALLPLAYERS,
   CLOSE
 }
 
@@ -60,9 +61,10 @@ public class ServerApplication {
     ClientServer clientServer;
     ServerSocket dashboardServerSocket;
     Socket dashboardSocket;
-    DataInputStream dis;
-    PrintStream ps;
-    database db;
+    static DataInputStream dis;
+    static PrintStream ps;
+    static database db;
+    static boolean dashboardOpened = false;
     
     public ServerApplication() {
         db = new database();
@@ -80,11 +82,27 @@ public class ServerApplication {
         }
     }
     
+    public static void setAllplayers(){
+        if(!dashboardOpened)
+            return;
+        JSONObject js = db.getAllPlayers();
+        js.put("type", DahboardMsg.GETALLPLAYERS);
+        String online = "";
+        for(ClientHandler c : ClientHandler.clientsVector){
+            online = online+","+c.player.getId();
+        }
+        js.put("online",online);
+        ps.println(js);
+    }
+    
     public void runDashboard(){
+        dashboardOpened = true;
+        if(server_status == Status.ON){
+            setAllplayers();
+        }
         while(true){
             try {
                 JSONObject request = new JSONObject(dis.readLine());
-                System.out.println(request);
                 DahboardMsg msg = request.getEnum(DahboardMsg.class,"type");
                 
                 switch (msg) {
@@ -112,7 +130,6 @@ public class ServerApplication {
         try {
             dis = new DataInputStream(dashboardSocket.getInputStream());
             ps = new PrintStream(dashboardSocket.getOutputStream());
-            System.out.println("dashboard added");
         } catch (IOException ex) {
             Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -120,11 +137,10 @@ public class ServerApplication {
     
     void closeDashboard (){
         try {
-            ps.println("closing dashboard");
+            dashboardOpened = false;
             dis.close();
             ps.close();
             dashboardSocket.close();
-            System.out.println("dashboard removed");
         } catch (IOException ex) {
             Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -133,14 +149,13 @@ public class ServerApplication {
     void startServer(){
         server_status = Status.ON;
         db.connect();
-        System.out.println("started");
+        setAllplayers();
     }
     
     void stopServer(){
         server_status = Status.OFF;
         ClientHandler.closeServer();
         db.close();
-        System.out.println("stopped");
     }
 
     /**
