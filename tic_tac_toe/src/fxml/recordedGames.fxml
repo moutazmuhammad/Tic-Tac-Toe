@@ -206,11 +206,15 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <TableView fx:id="playersTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="47.0" layoutY="41.0" prefHeight="280.0" prefWidth="253.0" stylesheets="@../CSS/PlayerInvitationTable.css">
+      <TableView fx:id="playersTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="47.0" layoutY="41.0" prefHeight="280.0" prefWidth="253.0">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="175.0" text="Online Players" />
             <TableColumn prefWidth="73.0" text="Score" />
          </columns>
+         <stylesheets>
+            <URL value="@../CSS/PlayerInvitationTable.css" />
+            <URL value="@../CSS/scrollPane.css" />
+         </stylesheets>
       </TableView>
       <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="37.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -232,8 +236,8 @@
             <TableColumn minWidth="0.0" prefWidth="249.0" text="Recorded Games" />
          </columns>
          <stylesheets>
-            <URL value="@PlayerInvitationTable.css" />
             <URL value="@../CSS/PlayerInvitationTable.css" />
+            <URL value="@../CSS/scrollPane.css" />
          </stylesheets>
       </TableView>
       <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="632.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">

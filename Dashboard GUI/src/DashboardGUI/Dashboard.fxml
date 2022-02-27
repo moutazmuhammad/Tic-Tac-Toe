@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -48,12 +49,16 @@
             <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tableView" layoutX="323.0" layoutY="42.0" prefHeight="499.0" prefWidth="438.0" stylesheets="@CSS/PlayerInvitationTable.css">
+      <TableView fx:id="tableView" layoutX="323.0" layoutY="42.0" prefHeight="499.0" prefWidth="438.0">
         <columns>
           <TableColumn fx:id="players" prefWidth="177.0" text="Players" />
           <TableColumn fx:id="score" prefWidth="142.0" text="Score" />
-            <TableColumn fx:id="status" prefWidth="117.0" text="Status" />
+            <TableColumn fx:id="status" prefWidth="118.0" text="Status" />
         </columns>
+         <stylesheets>
+            <URL value="@CSS/PlayerInvitationTable.css" />
+            <URL value="@CSS/scrollPane.css" />
+         </stylesheets>
       </TableView>
    </children>
 </AnchorPane>
