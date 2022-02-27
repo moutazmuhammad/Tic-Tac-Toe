@@ -32,7 +32,8 @@ public class ClientHandler extends Thread{
     
     public ClientHandler(Socket sc,database _db){
         db = _db;
-        db.getAllPlayers();
+        if(ServerApplication.server_status==Status.ON)
+            db.getAllPlayers();
         response = new JSONObject();
         try {
             ps = new PrintStream(sc.getOutputStream());
@@ -45,10 +46,9 @@ public class ClientHandler extends Thread{
     
     void closeConnection(){
         try {
-            ps.println("closing connection");
             dis.close();
             ps.close();
-            stop();
+            this.stop();
         } catch (IOException ex) {
             Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -56,6 +56,9 @@ public class ClientHandler extends Thread{
     
     public static void closeServer(){
         for(ClientHandler c : clientsVector){
+            JSONObject js = new JSONObject();
+            js.put("type", ClientMsg.SERVER_STOPPED);
+            c.ps.println(js);
             c.closeConnection();
         }
         clientsVector.clear();
@@ -74,7 +77,9 @@ public class ClientHandler extends Thread{
             }
         }
         else{
-            ps.println("server is closed");
+            JSONObject js = new JSONObject();
+            js.put("type", ClientMsg.SERVER_STOPPED);
+            ps.println(js);
             closeConnection();
             return;
         }
@@ -135,7 +140,9 @@ public class ClientHandler extends Thread{
                 }
                
            } catch (IOException ex) {
-               Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+               clientsVector.remove(this);
+               closeConnection();
+               return;
            }
         }
     }
@@ -173,7 +180,7 @@ public class ClientHandler extends Thread{
                     return false;
             }
         } catch (IOException ex) {
-            Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+            closeConnection();
         }
         }
     }
@@ -320,12 +327,22 @@ public class ClientHandler extends Thread{
     }
     
     private void startGame(JSONObject request){
-        ClientHandler player2 = GetPlayerByID(request.getInt("player2"));
+        int p2ID = request.getInt("player2");
+        ClientHandler player2 = GetPlayerByID(p2ID);
         while(true){
+            if(player2==null){
+                request.clear();
+                request.put("type", ClientMsg.PLAYER_DISCONECTED);
+                ps.println(request);
+                return;
+            }
             try {
             String re = dis.readLine();
             if(re == null)
             {
+                request.clear();
+                request.put("type", ClientMsg.PLAYER_DISCONECTED);
+                player2.ps.println(request);
                 clientsVector.remove(this);
                 for(ClientHandler c : clientsVector){
                     c.get_online_players();
@@ -358,6 +375,9 @@ public class ClientHandler extends Thread{
                     player2.ps.println(request);
                     return;
                 case CLOSE_CONNECTION:
+                    request.clear();
+                    request.put("type", ClientMsg.PLAYER_DISCONECTED);
+                    player2.ps.println(request);
                     clientsVector.remove(this);
                     for(ClientHandler c : clientsVector){
                         c.get_online_players();
@@ -366,7 +386,12 @@ public class ClientHandler extends Thread{
                     return;
             }
             } catch (IOException ex) {
-                Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+                request.clear();
+                request.put("type", ClientMsg.PLAYER_DISCONECTED);
+                player2.ps.println(request);
+                clientsVector.remove(this);
+                closeConnection();
+                return;
             }
         }
     }

@@ -1,7 +1,6 @@
 package ticTac.Connection;
 
 import controller.ControlManager;
-import controller.LeaderBoardController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,14 +12,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import org.json.JSONObject;
-import ticTac.Connection.msgType;
 import controller.LoginController;
 import controller.MainScreen;
 import controller.Player;
 import controller.RecordedGame;
-import java.util.HashMap;
 import java.util.Optional;
-import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ButtonType;
@@ -28,7 +24,6 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import org.json.JSONArray;
 
 public class Session extends Thread{
     private Stage stage;
@@ -39,7 +34,7 @@ public class Session extends Thread{
     public Player player;
     
     JSONObject Message ;
-    boolean Connected =false;
+    public boolean Connected =false;
     public boolean viewOnlinePlayers = false;
     public boolean viewRecordedGames = false;
     public boolean loged = false;
@@ -55,12 +50,13 @@ public class Session extends Thread{
 
     public void openConnection(){
         try {
+            Connected = true;
             socket = new Socket("127.0.0.1",5005);
             printStream = new PrintStream(socket.getOutputStream());
             inputStream = new DataInputStream(socket.getInputStream());
-            Connected = true;
         } catch (IOException e) {
             Connected = false;
+            informationDialog("Warining", "Can not connect to server now");
         }
     }
 
@@ -74,36 +70,12 @@ public class Session extends Thread{
             printStream.close();
             inputStream.close();
             socket.close();
-            stop();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void StartCommunication() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (Connected){
-                    try {
-                        Message = new JSONObject(inputStream.readLine());
-                        MessageHandler(Message);
-                    } catch (IOException e) {
-                       Connected = false;
-                       break;
-                    }
-                }
-
-                try {
-                    socket.close();
-                    inputStream.close();
-                    printStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+    
     
     public FXMLLoader changeScene(String xml)
     {
@@ -116,8 +88,7 @@ public class Session extends Thread{
             Platform.runLater(new Runnable() {
             @Override public void run() {
                 stage.setScene(fxmlViewScene);
-                stage.show();
-                }
+                stage.show();                }
             });
             
         } catch (IOException ex) {
@@ -572,68 +543,97 @@ public class Session extends Thread{
     public void run(){
         while(true){
             try {
-                String re = inputStream.readLine();
+            String re = inputStream.readLine();
 
-                if(re == null)
-                {
-                    return;
-                }
-                JSONObject response = new JSONObject(re);
-                msgType msg = response.getEnum(msgType.class,"type");
-                System.out.println(response);
-                switch (msg) {
-                    case SIGNIN:
-                        signInResponse(response);
-                        break;
-                    case SIGNUP:
-                        signUpResponse(response);
-                        break;
-                    case GET_LEADERBOARD:
-                        getLeaderboardResponse(response);
-                        break;
-                    case GET_ONLINE_PLAYERS:
-                        getOnlinePlayersResponse(response);
-                        break;
-                    case INVETATION_SEND:
-                        invitationSendResponse(response);
-                        break;
-                    case INVETATION_REPLY:
-                        invitationReplyResponse(response);
-                        break;
-                    case RESUME_GAME_SEND:
-                        resumeGameSendResponse(response);
-                        break;
-                    case RESUME_GAME_REPLY:
-                        resumeGameReplyResponse(response);
-                        break;
-                    case ADD_MOVE:
-                        addMoveResponse(response);
-                        break;
-                    case SEND_MESSAGE:
-                        sendMessageResponse(response); 
-                        break;
-                    case REPLAY_REPLY:
-                        replayReplyResponse(response);
-                        break;
-                    case RECORD_GAME:
-                        recordGameResponse();
-                        break;
-                    case GET_RECORDED_GAMES:
-                        getRecordedGamesResponse(response);
-                        break;
-                }
+            if(re == null)
+            {
+                continue;
+            }
+            JSONObject response = new JSONObject(re);
+            System.out.println(response);
+            msgType msg = response.getEnum(msgType.class,"type");
+            switch (msg) {
+                case SIGNIN:
+                    signInResponse(response);
+                    break;
+                case SIGNUP:
+                    signUpResponse(response);
+                    break;
+                case GET_LEADERBOARD:
+                    getLeaderboardResponse(response);
+                    break;
+                case GET_ONLINE_PLAYERS:
+                    getOnlinePlayersResponse(response);
+                    break;
+                case INVETATION_SEND:
+                    invitationSendResponse(response);
+                    break;
+                case INVETATION_REPLY:
+                    invitationReplyResponse(response);
+                    break;
+                case RESUME_GAME_SEND:
+                    resumeGameSendResponse(response);
+                    break;
+                case RESUME_GAME_REPLY:
+                    resumeGameReplyResponse(response);
+                    break;
+                case ADD_MOVE:
+                    addMoveResponse(response);
+                    break;
+                case SEND_MESSAGE:
+                    sendMessageResponse(response); 
+                    break;
+                case REPLAY_REPLY:
+                    replayReplyResponse(response);
+                    break;
+                case RECORD_GAME:
+                    recordGameResponse();
+                    break;
+                case GET_RECORDED_GAMES:
+                    getRecordedGamesResponse(response);
+                    break;
+                case SERVER_STOPPED:
+                    serverStoppedResponse();
+                    break;
+                case PLAYER_DISCONECTED:
+                    playerDiscontedHandle();
+                    break;
+            }
 
-            } catch (IOException ex) {
-                Logger.getLogger(Session.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                if(Connected&&loged)
+                    serverStoppedResponse();
+                continue;
             }
         }
     }
-
-
-    //this function needs a server to connect and check for the msg type
-    private void MessageHandler(JSONObject message){
-        String type = (String) message.get("type");
+    
+    private void playerDiscontedHandle(){
+        informationDialog("error", "other player conection lost");
+        controlManager.getPlayerVsPlayerController().setRefused(true);
+        controlManager.setInvitationController(MainScreen.session.changeScene("/fxml/PlayerInvitationScreen.fxml"));
+        viewOnlinePlayers = true;
+        getOnlinePlayersRequest();
     }
+    
+    private void serverStoppedResponse(){
+        informationDialog("Warining", "Server is stopped");
+        loged = false;
+        Connected = false;
+        viewOnlinePlayers = false;
+        viewRecordedGames = false;
+        try {
+            if(printStream!=null){
+                printStream.close();
+                inputStream.close();
+                socket.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        changeScene("/fxml/mainMenu.fxml");   
+    }
+
     
     private void informationDialog(String title,String information){
         Platform.runLater(new Runnable() {

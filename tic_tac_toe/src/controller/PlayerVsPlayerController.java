@@ -276,10 +276,12 @@ public class PlayerVsPlayerController implements Initializable {
             MainScreen.session.insertDoneGameRequest(MainScreen.session.player.getID(), otherPlayerid, false);
             MainScreen.session.player.setScore(MainScreen.session.player.getScore()+5);
             endGameDialog("Winner", "/fxml/xWinner.fxml");
+            MainScreen.session.player.setWins(MainScreen.session.player.getWins()+1);
         }
         else if(myCells.size()+otherPlayerCells.size()==9){
             MainScreen.session.insertDoneGameRequest(MainScreen.session.player.getID(), otherPlayerid, true);
             endGameDialog("Draw", "/fxml/draw.fxml");
+            MainScreen.session.player.setTies(MainScreen.session.player.getTies()+1);
         }
     }
     
@@ -344,10 +346,12 @@ public class PlayerVsPlayerController implements Initializable {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                if(checkWin(otherPlayerCells))
+                if(checkWin(otherPlayerCells)){
                     endGameDialog("Game Over", "/fxml/oWinner.fxml");
+                    MainScreen.session.player.setLosses(MainScreen.session.player.getLosses()+1);}
                 else if(myCells.size()+otherPlayerCells.size()==9){
                     endGameDialog("Draw", "/fxml/draw.fxml");
+                    MainScreen.session.player.setTies(MainScreen.session.player.getTies()+1);
                 }
             }
         });

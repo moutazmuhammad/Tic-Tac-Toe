@@ -272,7 +272,7 @@ public class database {
             allPlayers.put("scores", scores);
             statement.close();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            connect();
         }
         return allPlayers; 
     }

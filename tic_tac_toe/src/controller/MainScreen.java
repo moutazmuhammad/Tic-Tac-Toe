@@ -60,7 +60,9 @@ public class MainScreen extends Application {
     public void stop(){
         try {
             super.stop();
-            session.CloseConnection();
+            if(session.Connected)
+                session.CloseConnection();
+            session.stop();
         } catch (Exception ex) {
             Logger.getLogger(MainScreen.class.getName()).log(Level.SEVERE, null, ex);
         }

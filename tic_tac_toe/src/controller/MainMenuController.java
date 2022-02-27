@@ -58,6 +58,12 @@ public class MainMenuController implements Initializable {
     
     @FXML
     private void MultiModeButtonAction(ActionEvent event) throws IOException{
+        if(!MainScreen.session.Connected){
+            MainScreen.session.loged = false;
+            MainScreen.session.openConnection();
+            return;
+        }
+        
         if (MainScreen.session.loged == false){
             MainScreen.session.controlManager.setLoginController(MainScreen.session.changeScene("/fxml/login.fxml"));
         }
@@ -69,7 +75,13 @@ public class MainMenuController implements Initializable {
     }
     
     @FXML
-    private void LeaderBoardButtonAction(ActionEvent event) throws IOException{
+    private void LeaderBoardButtonAction(ActionEvent event) {
+        if(!MainScreen.session.Connected){
+            MainScreen.session.loged = false;
+            MainScreen.session.openConnection();
+            return;
+        }
+        
         if (MainScreen.session.loged == false){
                  try {
                     Dialog<ButtonType> dialog = new Dialog<>();
@@ -124,7 +136,11 @@ public class MainMenuController implements Initializable {
     
     @FXML
     private void profileOnClick(MouseEvent event){
-            
+            if(!MainScreen.session.Connected){
+                MainScreen.session.loged = false;
+                MainScreen.session.openConnection();
+                return;
+            }   
             if (MainScreen.session.loged == false){
                  try {
                     Dialog<ButtonType> dialog = new Dialog<>();
