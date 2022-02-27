@@ -28,7 +28,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Pane layoutX="429.0" layoutY="84.0" prefHeight="238.0" prefWidth="235.0" style="-fx-background-color: #05282E; -fx-background-radius: 15;">
+      <Pane layoutX="429.0" layoutY="84.0" prefHeight="238.0" prefWidth="235.0" style="-fx-background-color: #05282E; -fx-background-radius: 10;">
          <children>
             <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="-9.0" layoutY="113.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -316,9 +316,9 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="spMain" fitToWidth="true" layoutX="433.0" layoutY="91.0" prefHeight="193.0" prefWidth="227.0">
+      <ScrollPane fx:id="spMain" fitToWidth="true" layoutX="433.0" layoutY="91.0" prefHeight="193.0" prefWidth="227.0" stylesheets="@../CSS/scrollPane.css">
          <content>
-            <VBox fx:id="vboxMessages" prefHeight="189.0" prefWidth="225.0" style="-fx-background-color: white;" />
+            <VBox fx:id="vboxMessages" prefHeight="189.0" prefWidth="225.0" />
          </content>
       </ScrollPane>
    </children>

@@ -206,20 +206,15 @@
             <Image url="@../images/pattern.png" />
          </image>
       </ImageView>
-      <TableView fx:id="playersTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="422.0" layoutY="45.0" prefHeight="280.0" prefWidth="253.0" stylesheets="@../CSS/PlayerInvitationTable.css">
+      <TableView fx:id="playersTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="47.0" layoutY="41.0" prefHeight="280.0" prefWidth="253.0" stylesheets="@../CSS/PlayerInvitationTable.css">
          <columns>
             <TableColumn minWidth="0.0" prefWidth="175.0" text="Online Players" />
-            <TableColumn prefWidth="62.0" text="Score" />
+            <TableColumn prefWidth="73.0" text="Score" />
          </columns>
       </TableView>
-      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="407.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="37.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="647.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/leaderboard%20icon.png" />
          </image>
       </ImageView>
       <Button fx:id="BackButton" layoutX="12.0" layoutY="361.0" mnemonicParsing="false" onAction="#BackButtonAction" onMouseEntered="#backOnHover" onMousePressed="#backOnPress" onMouseReleased="#backOnRelease" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #CB4335; -fx-background-radius: 20;" text="Back" textFill="WHITE">
@@ -232,22 +227,21 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <TableView fx:id="gamesTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="27.0" layoutY="40.0" prefHeight="280.0" prefWidth="253.0">
+      <TableView fx:id="gamesTableView" accessibleRole="BUTTON" fixedCellSize="-2.0" layoutX="415.0" layoutY="40.0" prefHeight="280.0" prefWidth="253.0">
          <columns>
-            <TableColumn minWidth="0.0" prefWidth="175.0" text="Recorded Games" />
-            <TableColumn prefWidth="62.0" text="Score" />
+            <TableColumn minWidth="0.0" prefWidth="249.0" text="Recorded Games" />
          </columns>
          <stylesheets>
             <URL value="@PlayerInvitationTable.css" />
             <URL value="@../CSS/PlayerInvitationTable.css" />
          </stylesheets>
       </TableView>
-      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="13.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="632.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gameUser.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="253.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="39.0" layoutX="278.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/leaderboard%20icon.png" />
          </image>
