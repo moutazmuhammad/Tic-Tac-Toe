@@ -72,13 +72,17 @@ public class ServerApplication {
         clientServer = new ClientServer(db);
         try {
             dashboardServerSocket = new ServerSocket(5004);
-            while(true){
+        } catch (IOException ex) {
+            Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        while(true){
+            try {
                 dashboardSocket = dashboardServerSocket.accept();
                 connectDashboard();
                 runDashboard();
+            } catch (Exception ex) {
+                continue;
             }
-        } catch (IOException ex) {
-            Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -118,10 +122,9 @@ public class ServerApplication {
                         closeDashboard();
                         return;
                 }
-            } catch (IOException ex) {
-                Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (JSONException ex) {
-                Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                closeDashboard();
+                return;
             }
         }
     }
@@ -131,7 +134,7 @@ public class ServerApplication {
             dis = new DataInputStream(dashboardSocket.getInputStream());
             ps = new PrintStream(dashboardSocket.getOutputStream());
         } catch (IOException ex) {
-            Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
+            closeDashboard();
         }
     }
     
@@ -142,7 +145,6 @@ public class ServerApplication {
             ps.close();
             dashboardSocket.close();
         } catch (IOException ex) {
-            Logger.getLogger(ServerApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

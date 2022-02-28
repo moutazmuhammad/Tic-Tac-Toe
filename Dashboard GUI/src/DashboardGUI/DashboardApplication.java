@@ -12,11 +12,16 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.json.JSONObject;
@@ -65,8 +70,10 @@ public class DashboardApplication extends Application {
     public void stop(){
         try {
             super.stop();
+            if(session!=null){
             session.CloseConnection();
             session.stop();
+            }
         } catch (Exception ex) {
             Logger.getLogger(DashboardApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -91,8 +98,8 @@ class Session extends Thread{
 
     public Session(DashboardController dashboardController)
     {
-        openConnection();
         this.dashboardController = dashboardController;
+        openConnection();
         start();
     }
 
@@ -101,18 +108,20 @@ class Session extends Thread{
             socket = new Socket("127.0.0.1",5004);
             printStream = new PrintStream(socket.getOutputStream());
             inputStream = new DataInputStream(socket.getInputStream());
-        } catch (IOException e) {
+        } catch (Exception e) {
         }
     }
 
     public void CloseConnection(){
         Message = new JSONObject();
         Message.put("type",DahboardMsg.CLOSE);
-        printStream.println(Message);
         try {
-            printStream.close();
-            inputStream.close();
-            socket.close();
+            if(printStream!=null){
+                printStream.println(Message);
+                printStream.close();
+                inputStream.close();
+                socket.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -152,6 +161,7 @@ class Session extends Thread{
             String re = inputStream.readLine();
             if(re == null)
             {
+                informationDialog("Error", "can not connect to the server");
                 return;
             }
             JSONObject response = new JSONObject(re);
@@ -162,8 +172,33 @@ class Session extends Thread{
                     break;
             }
             } catch (Exception ex) {
+                informationDialog("Error", "can not connect to the server");
                 return;
             }
         }
+    }
+    
+    private void informationDialog(String title,String information){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("InvitationDialog.fxml"));
+                    DialogPane winner = fxmlLoader.load();
+                    dialog.setDialogPane(winner);
+                    dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+                    dialog.setTitle(title);
+                    Label content = new Label(information);
+                    content.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 5px");
+                    dialog.setGraphic(content);
+                    Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+                    dialog.showAndWait();
+                } catch (IOException ex) {
+                    Logger.getLogger(Session.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
 }
