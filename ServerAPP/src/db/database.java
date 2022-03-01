@@ -36,18 +36,18 @@ public class database {
     public void connect(){
         try {
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            System.out.println("Connected Successfully");
+           // System.out.println("Connected Successfully");
         } catch (SQLException ex) {
-            System.out.println("Connection Failed!");
+          //  System.out.println("Connection Failed!");
         }
     }
     
     public void close(){
         try {
             connection.close();
-            System.out.println("Connection Closed Successfully!");
+           // System.out.println("Connection Closed Successfully!");
         } catch (SQLException ex) {
-            System.out.println("Connection Failed to close!");
+          //  System.out.println("Connection Failed to close!");
         }
     }
     
@@ -97,7 +97,7 @@ public class database {
                 result = resultSet.getInt("ID");
             preparedSt.close();
         } catch (SQLException ex) {
-            System.out.println("Sign-in Authentication Failed!");
+           // System.out.println("Sign-in Authentication Failed!");
         }
         return result;
     }
@@ -133,7 +133,7 @@ public class database {
             resultSet.next();
             playerProfile.setTies(resultSet.getInt(1));
         } catch (SQLException ex) {
-            System.out.println("There is no player with such an id!");
+          //  System.out.println("There is no player with such an id!");
         }
         return playerProfile;
     }
