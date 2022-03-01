@@ -48,7 +48,7 @@ public class StartScreenController implements Initializable {
         rotate.setByAngle(360);
         rotate.play();
     }    
-    
+    //The beginning screen to enter the game
     class SplashScreen extends Thread{
 
         @Override
