@@ -39,6 +39,4 @@ It is a very enjoyable game that you can play with the Computer, with a friend o
 - [@Ahmed Hassan](https://github.com/ahmedhassan1999)
 
 ## Project Demo
-<p align="center">
-<iframe width="853" height="480" src="https://www.youtube.com/embed/YMzynhFFdyM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
+[![Project Demo](https://img.youtube.com/vi/YMzynhFFdyM/0.jpg)](https://www.youtube.com/watch?v=YMzynhFFdyM)
