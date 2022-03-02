@@ -51,7 +51,7 @@ public class Session extends Thread{
     public void openConnection(){
         try {
             Connected = true;
-            socket = new Socket("127.0.0.1",5005);
+            socket = new Socket("3.67.195.63",5005);
             printStream = new PrintStream(socket.getOutputStream());
             inputStream = new DataInputStream(socket.getInputStream());
         } catch (IOException e) {
