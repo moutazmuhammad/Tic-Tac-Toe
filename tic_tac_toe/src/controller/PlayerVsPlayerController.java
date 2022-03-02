@@ -515,8 +515,8 @@ public class PlayerVsPlayerController implements Initializable {
             setCells(otherPlayerCells, game.getXMoves());
             setCells(myCells, game.getOMoves());
             otherPlayerid = game.getPlayer1ID();
-            xPlayerName.setText(game.getPlayer2Name());
-            oPlayerName.setText(game.getPlayer1Name());
+            xPlayerName.setText(game.getPlayer1Name());
+            oPlayerName.setText(game.getPlayer2Name());
             choice = 1;
             for(int i : myCells)
                 setImage(i, 1);

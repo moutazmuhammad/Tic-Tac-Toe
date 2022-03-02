@@ -271,7 +271,7 @@ public class database {
             allPlayers.put("names", names);
             allPlayers.put("scores", scores);
             statement.close();
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             connect();
         }
         return allPlayers; 
