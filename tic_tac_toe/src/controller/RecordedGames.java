@@ -61,9 +61,9 @@ public class RecordedGames implements Initializable {
     private void resumeGameButtonAction(ActionEvent event){
         if(wait)
             return;
-        wait = true;
         RecordedGame recordedGame = (RecordedGame)gamesTableView.getSelectionModel().getSelectedItem();
         if(recordedGame!=null){
+            wait = true;
             MainScreen.session.resumeGameSendRequest(recordedGame);
             //disableInvitation();
         }

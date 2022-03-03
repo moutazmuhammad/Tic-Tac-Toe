@@ -64,9 +64,9 @@ public class PlayerInvitationController implements Initializable {
     private void inviteButtonAction(ActionEvent event) throws IOException{
         if(wait)
             return;
-        wait = true;
         Player player = (Player)tableView.getSelectionModel().getSelectedItem();
         if(player!=null){
+            wait = true;
             MainScreen.session.invitationSendRequest(player.getID());
             //disableInvitation();
         }
