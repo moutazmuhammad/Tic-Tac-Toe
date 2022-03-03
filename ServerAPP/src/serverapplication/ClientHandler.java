@@ -94,8 +94,8 @@ public class ClientHandler extends Thread{
                     for(ClientHandler c : clientsVector){
                         c.get_online_players();
                     }
-                    closeConnection();
                     ServerApplication.setAllplayers();
+                    closeConnection();
                     return;
                 }
                 JSONObject request = new JSONObject(re);
@@ -136,13 +136,14 @@ public class ClientHandler extends Thread{
                         for(ClientHandler c : clientsVector){
                             c.get_online_players();
                         }
-                        closeConnection();
                         ServerApplication.setAllplayers();
+                        closeConnection();
                         return;
                 }
                
            } catch (IOException ex) {
                clientsVector.remove(this);
+               ServerApplication.setAllplayers();
                closeConnection();
                return;
            }
@@ -349,8 +350,8 @@ public class ClientHandler extends Thread{
                 for(ClientHandler c : clientsVector){
                     c.get_online_players();
                 }
-                closeConnection();
                 ServerApplication.setAllplayers();
+                closeConnection();
                 return;
             }
             request = new JSONObject(re);
@@ -384,8 +385,8 @@ public class ClientHandler extends Thread{
                     for(ClientHandler c : clientsVector){
                         c.get_online_players();
                     }
-                    closeConnection();
                     ServerApplication.setAllplayers();
+                    closeConnection();
                     return;
             }
             } catch (IOException ex) {
